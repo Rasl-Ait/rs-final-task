@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AuthAPIProtocol {
+protocol AuthServiceProtocol {
   func newToken(
     _ completion: @escaping CompletionBlock<AuthenticationToken>)
   func sessionNew(
@@ -21,7 +21,7 @@ protocol AuthAPIProtocol {
     completion: @escaping CompletionBlock<AuthenticationSession>)
 }
 
-class AuthService: BaseAPI<AuthTargetType>, AuthAPIProtocol {
+class AuthService: BaseAPI<AuthTargetType>, AuthServiceProtocol {
   func newToken(_ completion: @escaping CompletionBlock<AuthenticationToken>) {
     getData(target: .newToken, completion: completion)
   }

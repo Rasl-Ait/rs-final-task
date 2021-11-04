@@ -13,6 +13,8 @@ final class AuthViewController: BaseViewController {
   private lazy var scrollView = makeScrollView()
   private lazy var authView = makeAuthView()
   
+  var presenter: AuthViewOutput!
+  
   // MARK: - Overriden funcs
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,6 +49,11 @@ private extension AuthViewController {
     setupLayoutUI()
     notificaton()
     addTapGesture()
+    
+    authView.didSignInSelect = { [weak self] param in
+      guard let self = self else { return }
+      self.presenter.newToken(param)
+    }
   }
   
   func apperance() {
@@ -119,6 +126,25 @@ private extension AuthViewController {
     view.keyboardDismissMode = .onDrag
     view.showsVerticalScrollIndicator = false
     return view
+  }
+}
+
+// MARK: - AuthViewInput
+extension AuthViewController: AuthViewInput {
+  func success() {
+    print("Authorization success")
+  }
+  
+  func failure(error: Error) {
+    Alert.showAlert(on: self, with: .attention, message: error.localizedDescription)
+  }
+  
+  func hideIndicator() {
+    
+  }
+  
+  func showIndicator() {
+    
   }
 }
 

@@ -9,6 +9,14 @@ import UIKit.UITextField
 
 final class LoginPasswordTextField: UITextField {
   
+  enum State {
+      case failure
+      case success
+      case `default`
+  }
+  
+  var selectedState: State = .default
+  
   private let insets = UIEdgeInsets(left: .marginL)
   
   var fieldType: TextFieldType = .login {
@@ -40,7 +48,6 @@ final class LoginPasswordTextField: UITextField {
     autocorrectionType = .no
     autocapitalizationType = .none
     layer.cornerRadius = .radiusXS
-    layer.borderColor = UIColor.lightGray.cgColor
     addShadow(ofColor: .black, radius: 2, offset: .zero, opacity: 0.15)
   }
   
@@ -49,6 +56,23 @@ final class LoginPasswordTextField: UITextField {
     let width = superContentSize.width
     let height = superContentSize.height
     return CGSize(width: width, height: height + .marginXXL)
+  }
+  
+  func updateState(_ state: State) {
+    switch state {
+    case .success:
+      layer.borderColor = UIColor.green.cgColor
+      layer.borderWidth = 0.4
+      
+    case .failure:
+      layer.borderColor = UIColor.red.cgColor
+      layer.borderWidth = 0.4
+    case .default:
+      layer.borderColor = UIColor.lightGray.cgColor
+      layer.borderWidth = 0.0
+      text = nil
+    }
+    selectedState = state
   }
   
   required init?(coder aDecoder: NSCoder) {

@@ -14,12 +14,14 @@ final class AuthView: UIView {
   private lazy var logoView = makeLogoView()
   private lazy var imageView = makeImageView()
   private lazy var loginTextField = makeLoginTextField()
-  private lazy var emailTextField = makePasswordTextField()
+  private lazy var passwordTextField = makePasswordTextField()
   private lazy var stackView = makeStackView()
   private lazy var signInButton = makeSignInButton()
   
+  private let empty = ""
+  
   // MARK: Closure
-  var didSignInSelect: VoidClosure?
+  var didSignInSelect: ItemClosure<AuthParam>?
   
   // MARK: Overriden funcs
   
@@ -97,7 +99,7 @@ private extension AuthView {
     return imageView
   }
   
-  func makeLoginTextField() -> UITextField {
+  func makeLoginTextField() -> LoginPasswordTextField {
     let view = LoginPasswordTextField()
     view.fieldType = .login
     view.delegate = self
@@ -115,16 +117,13 @@ private extension AuthView {
     let view = CustomStackView(axis: .vertical, spacing: Spacing.stackView)
     view.distribution = .fillEqually
     view.addArrangedSubview(loginTextField)
-    view.addArrangedSubview(emailTextField)
+    view.addArrangedSubview(passwordTextField)
     return view
   }
   
-  func makeSignInButton() -> UIButton {
-    let button = UIButton(
-      TextType.signIn.rawValue,
-      titleColor: .titleColor ?? .black,
-      font: .avenir(.fontL, .Bold)
-    )
+  func makeSignInButton() -> SignInButton {
+    let button = SignInButton()
+    button.setTitle(TextType.signIn.rawValue.capitalized, for: .normal)
     button.addTarget(
       self,
       action: #selector(buttonTapped),
@@ -137,16 +136,41 @@ private extension AuthView {
 // MARK: Action
 private extension AuthView {
   @objc func buttonTapped() {
-    print(#function)
+    let isLogin: Bool = loginTextField.text != empty
+    let isPassword: Bool = passwordTextField.text != empty
+    
+    loginTextField.updateState(isLogin ? .success : .failure)
+    passwordTextField.updateState(isPassword ? .success : .failure)
+    
+    if isLogin, isPassword {
+      guard
+          let login = loginTextField.text,
+          let password = passwordTextField.text
+        else {
+          return
+        }
+        let param = AuthParam(username: login, password: password)
+        didSignInSelect?(param)
+    }
   }
 }
 
 extension AuthView: UITextFieldDelegate {
+  func textFieldDidChangeSelection(_ textField: UITextField) {
+      if let textField = (textField as? LoginPasswordTextField),
+         textField.selectedState == .failure {
+          textField.updateState(.default)
+      }
+  }
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+      (textField as? LoginPasswordTextField)?
+        .updateState(.default)
+  }
+  
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
     return true
   }
-  
 }
 
 // MARK: - Constants

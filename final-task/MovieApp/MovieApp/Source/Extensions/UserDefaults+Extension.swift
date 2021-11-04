@@ -8,47 +8,17 @@
 import Foundation
 
 struct UserDefaultsKeys {
-  static let kTheme = "theme"
-  static let kDefaulTheme = "defaulTheme"
-  static let kScreenType = "screenType"
-  static let kWalletIndex = "walletIndex"
+  static let sessionID = "session_id"
 }
 
 extension UserDefaults {
   
-  var theme: String? {
+  var sessionID: String {
     get {
-      UserDefaults.standard.string(forKey: UserDefaultsKeys.kTheme)
+      UserDefaults.standard.string(forKey: UserDefaultsKeys.sessionID) ?? ""
     }
     set(value) {
-      UserDefaults.standard.set(value, forKey: UserDefaultsKeys.kTheme)
-    }
-  }
-  
-  var defaultTheme: String? {
-    get {
-      UserDefaults.standard.string(forKey: UserDefaultsKeys.kDefaulTheme)
-    }
-    set(value) {
-      UserDefaults.standard.set(value, forKey: UserDefaultsKeys.kDefaulTheme)
-    }
-  }
-  
-  var screenType: String? {
-    get {
-      UserDefaults.standard.string(forKey: UserDefaultsKeys.kScreenType)
-    }
-    set(value) {
-      UserDefaults.standard.set(value, forKey: UserDefaultsKeys.kScreenType)
-    }
-  }
-  
-  var walletIndex: String? {
-    get {
-      UserDefaults.standard.string(forKey: UserDefaultsKeys.kWalletIndex)
-    }
-    set(value) {
-      UserDefaults.standard.set(value, forKey: UserDefaultsKeys.kWalletIndex)
+      UserDefaults.standard.set(value, forKey: UserDefaultsKeys.sessionID)
     }
   }
 }

@@ -22,6 +22,10 @@
 		DC2B2A2F2734274300233F5D /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A2E2734274300233F5D /* CoordinatorFactory.swift */; };
 		DC2B2A312734285E00233F5D /* ScreenFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A302734285E00233F5D /* ScreenFactoryProtocol.swift */; };
 		DC2B2A33273428CE00233F5D /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A32273428CE00233F5D /* ScreenFactory.swift */; };
+		DC2B2A3827342BBA00233F5D /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A3427342BBA00233F5D /* AuthPresenter.swift */; };
+		DC2B2A3A27342BBA00233F5D /* AuthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A3627342BBA00233F5D /* AuthProtocols.swift */; };
+		DC2B2A3D2734445600233F5D /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A3C2734445600233F5D /* SignInButton.swift */; };
+		DC2B2A3F2734494800233F5D /* UIControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A3E2734494800233F5D /* UIControl+Extension.swift */; };
 		DC47F808272FDE24009603EE /* Result+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC47F807272FDE24009603EE /* Result+Extenstion.swift */; };
 		DC47F80B27300135009603EE /* AuthParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC47F80A27300135009603EE /* AuthParams.swift */; };
 		DC49A02C272E88C300F17DE9 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC49A029272E88C300F17DE9 /* BaseCollectionViewCell.swift */; };
@@ -112,6 +116,10 @@
 		DC2B2A2E2734274300233F5D /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		DC2B2A302734285E00233F5D /* ScreenFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactoryProtocol.swift; sourceTree = "<group>"; };
 		DC2B2A32273428CE00233F5D /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
+		DC2B2A3427342BBA00233F5D /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
+		DC2B2A3627342BBA00233F5D /* AuthProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocols.swift; sourceTree = "<group>"; };
+		DC2B2A3C2734445600233F5D /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
+		DC2B2A3E2734494800233F5D /* UIControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Extension.swift"; sourceTree = "<group>"; };
 		DC47F807272FDE24009603EE /* Result+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extenstion.swift"; sourceTree = "<group>"; };
 		DC47F80A27300135009603EE /* AuthParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthParams.swift; sourceTree = "<group>"; };
 		DC49A029272E88C300F17DE9 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -205,6 +213,8 @@
 			children = (
 				DC2B29EE2733C8C200233F5D /* View */,
 				DCCF8AA927299D6700933DD1 /* AuthViewController.swift */,
+				DC2B2A3427342BBA00233F5D /* AuthPresenter.swift */,
+				DC2B2A3627342BBA00233F5D /* AuthProtocols.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -222,6 +232,7 @@
 			children = (
 				DC2B29F62733D7D000233F5D /* CustomStackView.swift */,
 				DC2B2A162733DB3600233F5D /* LoginPasswordTextField.swift */,
+				DC2B2A3C2734445600233F5D /* SignInButton.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -445,6 +456,7 @@
 				DCCF8AF22729A26B00933DD1 /* UIView+Extension.swift */,
 				DCCF8AF32729A26B00933DD1 /* UIViewController+Extension.swift */,
 				DCCF8AF42729A26B00933DD1 /* UserDefaults+Extension.swift */,
+				DC2B2A3E2734494800233F5D /* UIControl+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -629,6 +641,7 @@
 				DCCF8AFD2729A26B00933DD1 /* UIApplication+Extension.swift in Sources */,
 				DC49A04E272ECE8A00F17DE9 /* Encodable.swift in Sources */,
 				DC2B2A232734254A00233F5D /* Router.swift in Sources */,
+				DC2B2A3D2734445600233F5D /* SignInButton.swift in Sources */,
 				DC2B2A202733EEC300233F5D /* CornerRadius.swift in Sources */,
 				DCCF8B022729A26B00933DD1 /* UIFont+Extension.swift in Sources */,
 				DCCF8AFE2729A26B00933DD1 /* UIButton+Extension.swift in Sources */,
@@ -637,6 +650,7 @@
 				DC2B2A2F2734274300233F5D /* CoordinatorFactory.swift in Sources */,
 				DC49A042272EA65600F17DE9 /* AuthService.swift in Sources */,
 				DCCF8B0A2729A26B00933DD1 /* UIViewController+Extension.swift in Sources */,
+				DC2B2A3F2734494800233F5D /* UIControl+Extension.swift in Sources */,
 				DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */,
 				DC2B2A172733DB3600233F5D /* LoginPasswordTextField.swift in Sources */,
 				DCCF8B172729A30200933DD1 /* ReusableView.swift in Sources */,
@@ -666,6 +680,7 @@
 				DC49A02D272E88C300F17DE9 /* BaseTableViewCell.swift in Sources */,
 				DCCF8B042729A26B00933DD1 /* UIImageView+Extension.swift in Sources */,
 				DCCF8B182729A30200933DD1 /* Typealias.swift in Sources */,
+				DC2B2A3827342BBA00233F5D /* AuthPresenter.swift in Sources */,
 				DC49A04A272EAB2500F17DE9 /* BaseAPI.swift in Sources */,
 				DCCF8AFA2729A26B00933DD1 /* NSSet+Extension.swift in Sources */,
 				DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */,
@@ -675,6 +690,7 @@
 				DC2B2A1A2733EE8F00233F5D /* Layouts.swift in Sources */,
 				DCCF8AF92729A26B00933DD1 /* NSMutableAttributedString+Extension+Extension.swift in Sources */,
 				DCCF8B032729A26B00933DD1 /* UIImage+Extension.swift in Sources */,
+				DC2B2A3A27342BBA00233F5D /* AuthProtocols.swift in Sources */,
 				DCCF8AF72729A26B00933DD1 /* Date+Extension.swift in Sources */,
 				DCCF8AFC2729A26B00933DD1 /* TimeInterval+Extension.swift in Sources */,
 				DC2B29F02733C8CA00233F5D /* AuthView.swift in Sources */,

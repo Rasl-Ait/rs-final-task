@@ -34,3 +34,8 @@ struct ValidationWithLoginParam: Encodable {
     case username
   }
 }
+
+struct AuthParam {
+  let username: String
+  let password: String
+}

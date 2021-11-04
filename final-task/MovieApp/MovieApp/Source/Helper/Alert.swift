@@ -32,8 +32,8 @@ struct Alert {
   static func showAlert(
     on vc: UIViewController,
     with title: AlertTitleType,
-    message: AlertMessageType) {
-    let alert = UIAlertController(title: title.rawValue, message: message.rawValue, preferredStyle: .alert)
+    message: String) {
+    let alert = UIAlertController(title: title.rawValue, message: message, preferredStyle: .alert)
     //  alert.view.tintColor = .queenBlue
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     DispatchQueue.main.async { vc.present(alert, animated: true, completion: nil) }
