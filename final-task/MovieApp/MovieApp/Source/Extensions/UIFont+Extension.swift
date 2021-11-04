@@ -9,8 +9,8 @@ extension UIFont {
     case SemiBold
   }
   
-  static func montserrat(_ size: FontSize, _ type: Prettiness) -> UIFont {
-    UIFont(name: "Montserrat-\(type.rawValue.capitalized)",
-           size: size.rawValue) ?? .systemFont(ofSize: size.rawValue)
+  static func avenir(_ size: CGFloat, _ type: Prettiness) -> UIFont {
+    UIFont(name: "Avenir-Next-\(type.rawValue.capitalized)",
+           size: size) ?? .systemFont(ofSize: size)
   }
 }

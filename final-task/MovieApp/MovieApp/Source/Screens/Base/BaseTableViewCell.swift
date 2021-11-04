@@ -1,7 +1,7 @@
 
 import UIKit
 
-class BaseUITableViewCell: UITableViewCell {
+class BaseTableViewCell: UITableViewCell {
 	
 	// MARK: - Lifecycle
 	required init?(coder aDecoder: NSCoder) {

@@ -45,14 +45,14 @@ extension UIView {
 		contentMode = .scaleAspectFill
 		clipsToBounds = true
 	}
-		
-  func shadowView(cornerRadius: CGFloat, shadowRadius: CGFloat, color: UIColor = .black, shadowOpacity: Float, height: Int) {
-		layer.cornerRadius = cornerRadius
-		layer.shadowRadius = shadowRadius
-		layer.shadowOpacity = shadowOpacity
-		layer.shadowOffset = CGSize(width: -1, height: height)
-		layer.shadowColor = color.cgColor
-	}
+  
+  func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+      layer.shadowColor = color.cgColor
+      layer.shadowOffset = offset
+      layer.shadowRadius = radius
+      layer.shadowOpacity = opacity
+      layer.masksToBounds = false
+  }
 	
 	func borderColorView(borderWidht: CGFloat, borderColor: UIColor) {
 		layer.borderColor = borderColor.cgColor

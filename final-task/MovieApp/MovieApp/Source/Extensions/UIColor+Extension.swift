@@ -20,14 +20,11 @@ extension UIColor {
       self.init(red: components.R, green: components.G, blue: components.B, alpha: alpha)
   }
   
-  static let rickBlack = UIColor(hex: 0x071013)
-  static let celadon = UIColor(hex: 0x36AA00)
-  static let honeydew = UIColor(hex: 0xE2EFDE)
-  static let customPink = UIColor(hex: 0xF8C0C8)
-  static let lightCyan = UIColor(hex: 0xCDF7F6)
-  static let babyPowder = UIColor(hex: 0xFFFFFB)
-  static let darkPurple = UIColor(hex: 0x140F2D)
-  static let deepSaffron = UIColor(hex: 0xF49D37)
-  static let greenBlueCrayola = UIColor(hex: 0x3F88C5)
-  static let amaranthRed = UIColor(hex: 0xD72638)
+  static let background = UIColor(named: "Background")
+  static let cellBackground = UIColor(named: "CellBackground")
+  static let cellTitle = UIColor(named: "CellTitle")
+  static let description = UIColor(named: "Description")
+  static let segmentBackground = UIColor(named: "SegmentBackground")
+  static let tabBarDeselect = UIColor(named: "TabBarDeselect")
+  static let titleColor = UIColor(named: "TitleColor")
 }

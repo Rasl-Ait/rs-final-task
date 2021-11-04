@@ -1,7 +1,7 @@
 
 import UIKit
 
-class BaseUICollectionViewCell: UICollectionViewCell {
+class BaseCollectionViewCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		addSubViews()
