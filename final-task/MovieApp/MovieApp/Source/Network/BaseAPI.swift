@@ -8,7 +8,6 @@
 import Foundation
 
 class BaseAPI<U: TargetType> {
-  
   private let client: HTTPClient
   
   init(client: HTTPClient) {
@@ -21,23 +20,6 @@ class BaseAPI<U: TargetType> {
     let request: URLRequest = .queryParams(target.path, param: param, httpMethod: httpMethod)
     client.request(request: request, completion: parseDecodable(completion: completion))
   }
-  
-//  func postData<T: Decodable>(target: U, completion: @escaping CompletionBlock<T>) {
-//    let httpMethod = HTTPMethod(rawValue: target.method.rawValue)
-//    let param = buildParams(task: target.task)
-//    var request: URLRequest = .queryParams(target.path, queries: param.0, httpMethod: httpMethod)
-//
-//    client.request(request: request, completion: parseDecodable(completion: completion))
-//  }
-  
-//  func queryParams(_ path: String, queries: [URLQueryItem]) -> URL? {
-//    var components = URLComponents()
-//    components.scheme = "https"
-//    components.host = "api.themoviedb.org"
-//    components.path = "/3/\(path)"
-//    components.queryItems = queries
-//    return components.url
-//  }
 }
 
 extension URLRequest {

@@ -41,7 +41,7 @@ final class LoginPasswordTextField: UITextField {
     autocapitalizationType = .none
     layer.cornerRadius = .radiusXS
     layer.borderColor = UIColor.lightGray.cgColor
-    addShadow(ofColor: .black, radius: 3, offset: .zero, opacity: 0.15)
+    addShadow(ofColor: .black, radius: 2, offset: .zero, opacity: 0.15)
   }
   
   override var intrinsicContentSize: CGSize {

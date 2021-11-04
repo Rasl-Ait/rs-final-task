@@ -10,7 +10,10 @@ import CocoaLumberjackSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
-  var window: UIWindow?
+  lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+  lazy var router = AppDelegateRouter(window: window!)
+  lazy var screenFactory = ScreenFactory()
+  lazy var factory = CoordinatorFactory()
   
   func scene(
     _ scene: UIScene,
@@ -22,7 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let navigationController = UINavigationController(rootViewController: AuthViewController())
     window?.rootViewController = navigationController
     window?.makeKeyAndVisible()
-    
+    let appCoordinator = factory.makeAppCoordinator(router, screenFactory: screenFactory)
+    appCoordinator.present(animated: true, onDismissed: nil)
     setupLogger()
   }
   

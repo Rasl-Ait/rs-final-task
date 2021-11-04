@@ -14,6 +14,14 @@
 		DC2B2A1C2733EEA200233F5D /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A1B2733EEA200233F5D /* Spacing.swift */; };
 		DC2B2A1E2733EEAC00233F5D /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A1D2733EEAC00233F5D /* FontSize.swift */; };
 		DC2B2A202733EEC300233F5D /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A1F2733EEC300233F5D /* CornerRadius.swift */; };
+		DC2B2A232734254A00233F5D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A222734254A00233F5D /* Router.swift */; };
+		DC2B2A25273425B100233F5D /* AppDelegateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A24273425B100233F5D /* AppDelegateRouter.swift */; };
+		DC2B2A282734262700233F5D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A272734262700233F5D /* Coordinator.swift */; };
+		DC2B2A2A2734267C00233F5D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A292734267C00233F5D /* AppCoordinator.swift */; };
+		DC2B2A2D273426F300233F5D /* CoordinatorFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A2C273426F300233F5D /* CoordinatorFactoryProtocol.swift */; };
+		DC2B2A2F2734274300233F5D /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A2E2734274300233F5D /* CoordinatorFactory.swift */; };
+		DC2B2A312734285E00233F5D /* ScreenFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A302734285E00233F5D /* ScreenFactoryProtocol.swift */; };
+		DC2B2A33273428CE00233F5D /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A32273428CE00233F5D /* ScreenFactory.swift */; };
 		DC47F808272FDE24009603EE /* Result+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC47F807272FDE24009603EE /* Result+Extenstion.swift */; };
 		DC47F80B27300135009603EE /* AuthParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC47F80A27300135009603EE /* AuthParams.swift */; };
 		DC49A02C272E88C300F17DE9 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC49A029272E88C300F17DE9 /* BaseCollectionViewCell.swift */; };
@@ -96,6 +104,14 @@
 		DC2B2A1B2733EEA200233F5D /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		DC2B2A1D2733EEAC00233F5D /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		DC2B2A1F2733EEC300233F5D /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		DC2B2A222734254A00233F5D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		DC2B2A24273425B100233F5D /* AppDelegateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateRouter.swift; sourceTree = "<group>"; };
+		DC2B2A272734262700233F5D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DC2B2A292734267C00233F5D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		DC2B2A2C273426F300233F5D /* CoordinatorFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryProtocol.swift; sourceTree = "<group>"; };
+		DC2B2A2E2734274300233F5D /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		DC2B2A302734285E00233F5D /* ScreenFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactoryProtocol.swift; sourceTree = "<group>"; };
+		DC2B2A32273428CE00233F5D /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		DC47F807272FDE24009603EE /* Result+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extenstion.swift"; sourceTree = "<group>"; };
 		DC47F80A27300135009603EE /* AuthParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthParams.swift; sourceTree = "<group>"; };
 		DC49A029272E88C300F17DE9 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -219,6 +235,36 @@
 				DC2B2A1F2733EEC300233F5D /* CornerRadius.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		DC2B2A212734253D00233F5D /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				DC2B2A222734254A00233F5D /* Router.swift */,
+				DC2B2A24273425B100233F5D /* AppDelegateRouter.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		DC2B2A262734261600233F5D /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				DC2B2A2B273426D000233F5D /* Protocols */,
+				DC2B2A292734267C00233F5D /* AppCoordinator.swift */,
+				DC2B2A2E2734274300233F5D /* CoordinatorFactory.swift */,
+				DC2B2A32273428CE00233F5D /* ScreenFactory.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		DC2B2A2B273426D000233F5D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DC2B2A272734262700233F5D /* Coordinator.swift */,
+				DC2B2A2C273426F300233F5D /* CoordinatorFactoryProtocol.swift */,
+				DC2B2A302734285E00233F5D /* ScreenFactoryProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		DC47F80927300122009603EE /* Params */ = {
@@ -349,12 +395,14 @@
 		DCCF8AD727299DC500933DD1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DCCF8AD527299DB000933DD1 /* Application */,
+				DC2B2A262734261600233F5D /* Coordinators */,
+				DC2B2A212734253D00233F5D /* DI */,
 				DC49A043272EA67200F17DE9 /* Model */,
 				DC49A03C272E911500F17DE9 /* Network */,
 				DCCF8B0C2729A30200933DD1 /* Helper */,
 				DC2B29F12733D7D000233F5D /* Custom Views */,
 				DCCF8ADD2729A26B00933DD1 /* Extensions */,
-				DCCF8AD527299DB000933DD1 /* Application */,
 				DCCF8AD627299DBA00933DD1 /* Screens */,
 			);
 			path = Source;
@@ -576,13 +624,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2B2A312734285E00233F5D /* ScreenFactoryProtocol.swift in Sources */,
+				DC2B2A2D273426F300233F5D /* CoordinatorFactoryProtocol.swift in Sources */,
 				DCCF8AFD2729A26B00933DD1 /* UIApplication+Extension.swift in Sources */,
 				DC49A04E272ECE8A00F17DE9 /* Encodable.swift in Sources */,
+				DC2B2A232734254A00233F5D /* Router.swift in Sources */,
 				DC2B2A202733EEC300233F5D /* CornerRadius.swift in Sources */,
 				DCCF8B022729A26B00933DD1 /* UIFont+Extension.swift in Sources */,
 				DCCF8AFE2729A26B00933DD1 /* UIButton+Extension.swift in Sources */,
 				DCCF8B0B2729A26B00933DD1 /* UserDefaults+Extension.swift in Sources */,
 				DC49A02E272E88C300F17DE9 /* BaseViewController.swift in Sources */,
+				DC2B2A2F2734274300233F5D /* CoordinatorFactory.swift in Sources */,
 				DC49A042272EA65600F17DE9 /* AuthService.swift in Sources */,
 				DCCF8B0A2729A26B00933DD1 /* UIViewController+Extension.swift in Sources */,
 				DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */,
@@ -595,6 +647,7 @@
 				DCCF8B152729A30200933DD1 /* Enum.swift in Sources */,
 				DC49A02C272E88C300F17DE9 /* BaseCollectionViewCell.swift in Sources */,
 				DC49A040272E939800F17DE9 /* AuthTargetType.swift in Sources */,
+				DC2B2A25273425B100233F5D /* AppDelegateRouter.swift in Sources */,
 				DC47F80B27300135009603EE /* AuthParams.swift in Sources */,
 				DCCF8B132729A30200933DD1 /* Alert.swift in Sources */,
 				DC49A046272EA72E00F17DE9 /* AuthenticationToken.swift in Sources */,
@@ -602,12 +655,14 @@
 				DCCF8B012729A26B00933DD1 /* UIEdgeInsets+Extension.swift in Sources */,
 				DC49A04C272EAB6400F17DE9 /* NetworkService.swift in Sources */,
 				DCCF8AF52729A26B00933DD1 /* CALayer+Extension.swift in Sources */,
+				DC2B2A282734262700233F5D /* Coordinator.swift in Sources */,
 				DCCF8AF82729A26B00933DD1 /* Int+Extension.swift in Sources */,
 				DCCF8B052729A26B00933DD1 /* UILabel+Extension.swift in Sources */,
 				DC49A03E272E92F200F17DE9 /* TargetType.swift in Sources */,
 				DC2B2A1C2733EEA200233F5D /* Spacing.swift in Sources */,
 				DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */,
 				DCCF8AFF2729A26B00933DD1 /* UICollectionView+Extension.swift in Sources */,
+				DC2B2A33273428CE00233F5D /* ScreenFactory.swift in Sources */,
 				DC49A02D272E88C300F17DE9 /* BaseTableViewCell.swift in Sources */,
 				DCCF8B042729A26B00933DD1 /* UIImageView+Extension.swift in Sources */,
 				DCCF8B182729A30200933DD1 /* Typealias.swift in Sources */,
@@ -623,6 +678,7 @@
 				DCCF8AF72729A26B00933DD1 /* Date+Extension.swift in Sources */,
 				DCCF8AFC2729A26B00933DD1 /* TimeInterval+Extension.swift in Sources */,
 				DC2B29F02733C8CA00233F5D /* AuthView.swift in Sources */,
+				DC2B2A2A2734267C00233F5D /* AppCoordinator.swift in Sources */,
 				DC49A048272EA92900F17DE9 /* APIError.swift in Sources */,
 				DC2B2A1E2733EEAC00233F5D /* FontSize.swift in Sources */,
 			);
