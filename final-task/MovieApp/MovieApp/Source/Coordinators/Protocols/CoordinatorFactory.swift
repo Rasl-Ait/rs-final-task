@@ -8,11 +8,8 @@
 import UIKit
 
 protocol CoordinatorFactory {
-  func makeAppCoordinator(
-    _ router: Router,
-    screenFactory: ScreenFactory) -> AppCoordinator
-  
-  func makeAuthCoordinator(
-    _ router: Router,
-    screenFactory: ScreenFactory) -> AuthCoordinator
+  func makeAppCoordinator(router: Router) -> AppCoordinator
+  func makeAuthCoordinator(router: Router) -> AuthCoordinator
+  func makeTabBarCoordinator(router: Router) -> TabBarCoordinator
+  func makeListsCoordinator(router: Router, tabBarViewController: TabBarController) -> ListsCoordinator
 }

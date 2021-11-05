@@ -9,4 +9,5 @@ import Foundation
 
 protocol ScreenFactory {
   func makeAuthScreen(_ coordinator: AuthCoordinatorProtocol) -> AuthViewController
+  func makeListsScreen(_ coordinator: ListsCoordinatorProtocol) -> ListsViewController
 }

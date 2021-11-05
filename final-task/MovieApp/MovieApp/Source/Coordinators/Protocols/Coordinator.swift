@@ -6,40 +6,23 @@
 //
 
  protocol Coordinator: AnyObject {
-
   var children: [Coordinator] { get set }
-  var router: Router { get }
-
-  func present(animated: Bool, onDismissed: (() -> Void)?)
-  func dismiss(animated: Bool)
-  func presentChild(_ child: Coordinator,
-                    animated: Bool,
-                    onDismissed: (() -> Void)?)
+  func start()
 }
 
 extension Coordinator {
-   func dismiss(animated: Bool) {
-    router.dismiss(animated: true)
+  func addDependency(_ coordinator: Coordinator) {
+    print("coordinator add vc")
+    guard !children.contains(where: { $0 === coordinator }) else { return }
+    children.append(coordinator)
   }
-
-  public func presentChild(_ child: Coordinator,
-                           animated: Bool,
-                           onDismissed: (() -> Void)? = nil) {
-    print("coordinator add")
-    children.append(child)
-    child.present(animated: animated, onDismissed: { [weak self, weak child] in
-      guard let self = self, let child = child else { return }
-      self.removeChild(child)
-      onDismissed?()
-    })
-  }
-
-  private func removeChild(_ child: Coordinator) {
+  
+  func removeChildCoordinator(_ coordinator: Coordinator) {
     print("coordinator delete")
-    guard let index = children.firstIndex(where: { $0 === child })
-      else {
-        return
+    for (index, coordinator) in children.enumerated()
+    where coordinator === coordinator {
+      children.remove(at: index)
+        break
     }
-    children.remove(at: index)
   }
 }

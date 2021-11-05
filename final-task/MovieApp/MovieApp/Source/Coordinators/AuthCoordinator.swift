@@ -15,26 +15,32 @@ final class AuthCoordinator: Coordinator {
   var children: [Coordinator] = []
   let router: Router
   let screenFactory: ScreenFactory
+  let coordinatorFactory: CoordinatorFactory
   
-  init(router: Router, screenFactory: ScreenFactory) {
+  init(
+    router: Router,
+    coordinatorFactory: CoordinatorFactory,
+    screenFactory: ScreenFactory) {
     self.router = router
     self.screenFactory = screenFactory
+    self.coordinatorFactory = coordinatorFactory
   }
   
-  func present(animated: Bool, onDismissed: VoidClosure?) {
-      pushAuth(animated: animated, onDismissed: onDismissed)
+  func start() {
+    pushAuth()
   }
 }
 
 // MARK: - AuthCoordinatorProtocol
 extension AuthCoordinator: AuthCoordinatorProtocol {
-   func pushAuth(animated: Bool, onDismissed: VoidClosure?) {
+   func pushAuth() {
     let viewController = screenFactory.makeAuthScreen(self)
-    router.present(viewController, animated: animated, onDismissed: onDismissed)
+    router.setRootModule(viewController)
   }
   
    func pushTabBar() {
-    let mainTabBarController = TabBarController()
-    router.present(mainTabBarController, animated: true)
+    let coordinator = coordinatorFactory.makeTabBarCoordinator(router: router)
+    addDependency(coordinator)
+    coordinator.start()
   }
 }

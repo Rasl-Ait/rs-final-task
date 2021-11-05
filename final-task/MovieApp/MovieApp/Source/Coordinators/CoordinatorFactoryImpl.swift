@@ -8,15 +8,29 @@
 import UIKit
 
 final class CoordinatorFactoryImpl: CoordinatorFactory {
-  func makeAppCoordinator(
-    _ router: Router,
-    screenFactory: ScreenFactory) -> AppCoordinator {
+  private let screenFactory: ScreenFactory
+  
+  init(screenFactory: ScreenFactory) {
+      self.screenFactory = screenFactory
+  }
+  
+  func makeAppCoordinator(router: Router) -> AppCoordinator {
     AppCoordinator(router: router, screenFactory: screenFactory, coordinatorFactory: self)
   }
   
-  func makeAuthCoordinator(
-    _ router: Router,
-    screenFactory: ScreenFactory) -> AuthCoordinator {
-  AuthCoordinator(router: router, screenFactory: screenFactory)
+  func makeAuthCoordinator(router: Router) -> AuthCoordinator {
+    AuthCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory)
+  }
+  
+  func makeTabBarCoordinator(router: Router) -> TabBarCoordinator {
+    TabBarCoordinator(router: router, screenFactory: screenFactory, coordinatorFactory: self)
+  }
+  
+  func makeListsCoordinator(router: Router, tabBarViewController: TabBarController) -> ListsCoordinator {
+    ListsCoordinator(
+      router: router,
+      screenFactory: screenFactory,
+      tabBarViewController: tabBarViewController
+    )
   }
 }

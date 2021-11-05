@@ -28,22 +28,21 @@ final class TabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tabBar.tintColor = .tabBarDeselect
-    tabBar.barTintColor = .background
     tabBar.unselectedItemTintColor = .red
     tabBar.isTranslucent = true
     tabBar.backgroundImage = UIImage()
-    tabBar.layer.backgroundColor = UIColor.clear.cgColor
+    tabBar.layer.backgroundColor = UIColor.white.cgColor
   }
   
-  func appendNavigationController(_ navigationController: UINavigationController, item: TabBarItem) {
-      customizeNavigationController(navigationController, item: item)
-      viewControllers = (viewControllers ?? []) + [navigationController]
+  func appendNavigationController(_ vc: UIViewController, item: TabBarItem) {
+      customizeNavigationController(vc, item: item)
+      viewControllers = (viewControllers ?? []) + [vc]
   }
 }
 
 private extension TabBarController {
     private func customizeNavigationController(
-        _ navigationController: UINavigationController,
+        _ navigationController: UIViewController,
         item: TabBarItem) {
         navigationController.tabBarItem = tabBarItems[item.rawValue]
     }

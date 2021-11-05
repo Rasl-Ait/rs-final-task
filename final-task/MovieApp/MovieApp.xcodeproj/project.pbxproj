@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC19400C27356180001F78ED /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19400B27356180001F78ED /* DI.swift */; };
 		DC2B29F02733C8CA00233F5D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B29EF2733C8CA00233F5D /* AuthView.swift */; };
 		DC2B2A082733D7D000233F5D /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B29F62733D7D000233F5D /* CustomStackView.swift */; };
 		DC2B2A172733DB3600233F5D /* LoginPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A162733DB3600233F5D /* LoginPasswordTextField.swift */; };
@@ -15,7 +16,6 @@
 		DC2B2A1E2733EEAC00233F5D /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A1D2733EEAC00233F5D /* FontSize.swift */; };
 		DC2B2A202733EEC300233F5D /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A1F2733EEC300233F5D /* CornerRadius.swift */; };
 		DC2B2A232734254A00233F5D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A222734254A00233F5D /* Router.swift */; };
-		DC2B2A25273425B100233F5D /* AppDelegateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A24273425B100233F5D /* AppDelegateRouter.swift */; };
 		DC2B2A282734262700233F5D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A272734262700233F5D /* Coordinator.swift */; };
 		DC2B2A2A2734267C00233F5D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A292734267C00233F5D /* AppCoordinator.swift */; };
 		DC2B2A2D273426F300233F5D /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A2C273426F300233F5D /* CoordinatorFactory.swift */; };
@@ -48,6 +48,11 @@
 		DC49A05A272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC49A058272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift */; };
 		DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B9027350BED00C3A209 /* TabBarController.swift */; };
 		DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B922735124D00C3A209 /* AuthCoordinator.swift */; };
+		DC835B952735231500C3A209 /* ListsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B942735231500C3A209 /* ListsCoordinator.swift */; };
+		DC835B9C273523B700C3A209 /* ListsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B97273523B700C3A209 /* ListsPresenter.swift */; };
+		DC835B9E273523B700C3A209 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B99273523B700C3A209 /* ListsViewController.swift */; };
+		DC835B9F273523B700C3A209 /* ListsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B9A273523B700C3A209 /* ListsProtocols.swift */; };
+		DC835BA22735282500C3A209 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835BA12735282500C3A209 /* TabBarCoordinator.swift */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -103,6 +108,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC19400B27356180001F78ED /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		DC2B29EF2733C8CA00233F5D /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		DC2B29F62733D7D000233F5D /* CustomStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		DC2B2A162733DB3600233F5D /* LoginPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordTextField.swift; sourceTree = "<group>"; };
@@ -111,7 +117,6 @@
 		DC2B2A1D2733EEAC00233F5D /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		DC2B2A1F2733EEC300233F5D /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		DC2B2A222734254A00233F5D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		DC2B2A24273425B100233F5D /* AppDelegateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateRouter.swift; sourceTree = "<group>"; };
 		DC2B2A272734262700233F5D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DC2B2A292734267C00233F5D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		DC2B2A2C273426F300233F5D /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
@@ -140,6 +145,11 @@
 		DC49A058272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestsCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		DC835B9027350BED00C3A209 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DC835B922735124D00C3A209 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		DC835B942735231500C3A209 /* ListsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsCoordinator.swift; sourceTree = "<group>"; };
+		DC835B97273523B700C3A209 /* ListsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsPresenter.swift; sourceTree = "<group>"; };
+		DC835B99273523B700C3A209 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		DC835B9A273523B700C3A209 /* ListsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsProtocols.swift; sourceTree = "<group>"; };
+		DC835BA12735282500C3A209 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -255,8 +265,7 @@
 		DC2B2A212734253D00233F5D /* DI */ = {
 			isa = PBXGroup;
 			children = (
-				DC2B2A222734254A00233F5D /* Router.swift */,
-				DC2B2A24273425B100233F5D /* AppDelegateRouter.swift */,
+				DC19400B27356180001F78ED /* DI.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -269,6 +278,9 @@
 				DC2B2A2E2734274300233F5D /* CoordinatorFactoryImpl.swift */,
 				DC2B2A32273428CE00233F5D /* ScreenFactoryImpl.swift */,
 				DC835B922735124D00C3A209 /* AuthCoordinator.swift */,
+				DC835B942735231500C3A209 /* ListsCoordinator.swift */,
+				DC2B2A222734254A00233F5D /* Router.swift */,
+				DC835BA12735282500C3A209 /* TabBarCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -349,6 +361,16 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		DC835B962735239400C3A209 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				DC835B99273523B700C3A209 /* ListsViewController.swift */,
+				DC835B97273523B700C3A209 /* ListsPresenter.swift */,
+				DC835B9A273523B700C3A209 /* ListsProtocols.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
 		DCCF8A9927299D6700933DD1 = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +432,7 @@
 		DCCF8AD627299DBA00933DD1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC835B962735239400C3A209 /* Lists */,
 				DC835B8F27350BD800C3A209 /* TabBar */,
 				DC49A028272E88C300F17DE9 /* Base */,
 				DC2B29ED2733C8A200233F5D /* Auth */,
@@ -654,14 +677,17 @@
 				DC2B2A2D273426F300233F5D /* CoordinatorFactory.swift in Sources */,
 				DCCF8AFD2729A26B00933DD1 /* UIApplication+Extension.swift in Sources */,
 				DC49A04E272ECE8A00F17DE9 /* Encodable.swift in Sources */,
+				DC835B952735231500C3A209 /* ListsCoordinator.swift in Sources */,
 				DC2B2A232734254A00233F5D /* Router.swift in Sources */,
 				DC2B2A3D2734445600233F5D /* SignInButton.swift in Sources */,
+				DC835B9F273523B700C3A209 /* ListsProtocols.swift in Sources */,
 				DC2B2A202733EEC300233F5D /* CornerRadius.swift in Sources */,
 				DCCF8B022729A26B00933DD1 /* UIFont+Extension.swift in Sources */,
 				DCCF8AFE2729A26B00933DD1 /* UIButton+Extension.swift in Sources */,
 				DCCF8B0B2729A26B00933DD1 /* UserDefaults+Extension.swift in Sources */,
 				DC49A02E272E88C300F17DE9 /* BaseViewController.swift in Sources */,
 				DC2B2A2F2734274300233F5D /* CoordinatorFactoryImpl.swift in Sources */,
+				DC835BA22735282500C3A209 /* TabBarCoordinator.swift in Sources */,
 				DC49A042272EA65600F17DE9 /* AuthService.swift in Sources */,
 				DCCF8B0A2729A26B00933DD1 /* UIViewController+Extension.swift in Sources */,
 				DC2B2A3F2734494800233F5D /* UIControl+Extension.swift in Sources */,
@@ -677,7 +703,6 @@
 				DC49A02C272E88C300F17DE9 /* BaseCollectionViewCell.swift in Sources */,
 				DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */,
 				DC49A040272E939800F17DE9 /* AuthTargetType.swift in Sources */,
-				DC2B2A25273425B100233F5D /* AppDelegateRouter.swift in Sources */,
 				DC47F80B27300135009603EE /* AuthParams.swift in Sources */,
 				DCCF8B132729A30200933DD1 /* Alert.swift in Sources */,
 				DC49A046272EA72E00F17DE9 /* AuthenticationToken.swift in Sources */,
@@ -688,10 +713,13 @@
 				DC2B2A282734262700233F5D /* Coordinator.swift in Sources */,
 				DCCF8AF82729A26B00933DD1 /* Int+Extension.swift in Sources */,
 				DCCF8B052729A26B00933DD1 /* UILabel+Extension.swift in Sources */,
+				DC19400C27356180001F78ED /* DI.swift in Sources */,
+				DC835B9C273523B700C3A209 /* ListsPresenter.swift in Sources */,
 				DC49A03E272E92F200F17DE9 /* TargetType.swift in Sources */,
 				DC2B2A1C2733EEA200233F5D /* Spacing.swift in Sources */,
 				DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */,
 				DCCF8AFF2729A26B00933DD1 /* UICollectionView+Extension.swift in Sources */,
+				DC835B9E273523B700C3A209 /* ListsViewController.swift in Sources */,
 				DC2B2A33273428CE00233F5D /* ScreenFactoryImpl.swift in Sources */,
 				DC49A02D272E88C300F17DE9 /* BaseTableViewCell.swift in Sources */,
 				DCCF8B042729A26B00933DD1 /* UIImageView+Extension.swift in Sources */,

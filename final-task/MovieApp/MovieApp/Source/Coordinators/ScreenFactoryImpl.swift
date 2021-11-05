@@ -16,4 +16,12 @@ final class ScreenFactoryImpl: ScreenFactory {
     vc.presenter = presenter
     return vc
   }
+  
+  func makeListsScreen(_ coordinator: ListsCoordinatorProtocol) -> ListsViewController {
+    let vc = ListsViewController()
+    let presenter = ListsPresenter(view: vc)
+    presenter.coordinator = coordinator
+    vc.presenter = presenter
+    return vc
+  }
 }

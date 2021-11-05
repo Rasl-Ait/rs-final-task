@@ -10,10 +10,8 @@ import CocoaLumberjackSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
-  lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
-  lazy var router = AppDelegateRouter(window: window!)
-  lazy var screenFactory = ScreenFactoryImpl()
-  lazy var factory = CoordinatorFactoryImpl()
+  private lazy var appFactory: AppFactory = Di()
+  var window: UIWindow?
   
   func scene(
     _ scene: UIScene,
@@ -22,9 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let windowScene = (scene as? UIWindowScene) else { return }
     
     window = UIWindow(windowScene: windowScene)
-    window?.makeKeyAndVisible()
-    let appCoordinator = factory.makeAppCoordinator(router, screenFactory: screenFactory)
-    appCoordinator.present(animated: true, onDismissed: nil)
+    let coordinator = appFactory.makeKeyWindowWithCoordinator(window: window!)
+    coordinator.start()
+
     setupLogger()
   }
   
