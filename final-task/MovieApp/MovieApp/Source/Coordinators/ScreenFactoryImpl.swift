@@ -7,11 +7,12 @@
 
 import Foundation
 
-final class ScreenFactory: ScreenFactoryProtocol {
-  func makeAuthScreen() -> AuthViewController {
+final class ScreenFactoryImpl: ScreenFactory {
+  func makeAuthScreen(_ coordinator: AuthCoordinatorProtocol) -> AuthViewController {
     let vc = AuthViewController()
     let service = AuthService(client: NetworkService())
     let presenter = AuthPresenter(service: service, view: vc)
+    presenter.coordinator = coordinator
     vc.presenter = presenter
     return vc
   }

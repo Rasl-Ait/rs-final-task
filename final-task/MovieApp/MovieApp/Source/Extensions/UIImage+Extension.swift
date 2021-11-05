@@ -25,6 +25,10 @@ extension UIImage {
     UIImage(named: type.rawValue) ?? UIImage()
   }
   
+  static func setImage(_ type: SFSymbolConstants) -> UIImage {
+    UIImage(systemName: type.rawValue) ?? UIImage()
+  }
+  
   func toString() -> String? {
     let data: Data? = self.pngData()
        return data?.base64EncodedString(options: .endLineWithLineFeed)

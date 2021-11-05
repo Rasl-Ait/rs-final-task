@@ -40,13 +40,60 @@ enum IconType: String {
   case logo
 }
 
+enum SFSymbolConstants: String {
+  // tab icons
+  case home = "house"
+  case movies = "film"
+  case search = "magnifyingglass"
+  case news = "newspaper"
+  case profile = "person.crop.circle"
+  
+  // Navigation Bar
+  case bell = "bell"
+  case accepted = "checkmark.circle.fill"
+  case heart = "heart.fill"
+  case filter = "slider.horizontal.3"
+  case back = "chevron.backward.circle"
+  
+  
+  // icons profile
+  case addPhoto = "plus"
+  
+  // icons used on home screen
+  case taskDone = "checkmark"
+  case taskToDo = "circle"
+  case profileIcon = "person.crop.circle.fill"
+  
+  // settings icons
+  case about = "info.circle"
+  case feedback = "square.and.pencil"
+  case changePassword = "lock"
+  case logout = "power"
+  case deleteAccount = "trash"
+  
+  // dismiss sheet button icon
+  case xCircle = "x.circle.fill"
+  
+  // report violation icon
+  case reportComment = "exclamationmark.bubble"
+  
+  // ellipsis icon ("..."). used to show additional controls
+  case ellipsis = "ellipsis"
+  
+}
+
 enum TextFieldType: String {
   case login
   case password
 }
 
-//enum ScreenType: String {
-//}
+enum ScreenType: String {
+  case home
+  case movies
+  case search
+  case news
+  case profile
+}
 
 enum DateFormatType: String {
   case MMMM_dd_yyyy = "MMMM dd, yyyy"

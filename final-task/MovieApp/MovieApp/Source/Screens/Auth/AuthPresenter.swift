@@ -10,6 +10,7 @@ import Foundation
 
 final class AuthPresenter: AuthViewOutput {
 	private let service: AuthServiceProtocol
+  var coordinator: AuthCoordinatorProtocol?
 	weak var view: AuthViewInput?
 	
 	init(service: AuthServiceProtocol, view: AuthViewInput) {
@@ -42,7 +43,8 @@ final class AuthPresenter: AuthViewOutput {
       case .success(let item):
         UserDefaults.standard.sessionID = item.sessionId ?? ""
         mainQueue {
-          self.view?.success()
+          self.view?.hideIndicator()
+          self.coordinator?.pushTabBar()
         }
       case .failure(let error):
         mainQueue {

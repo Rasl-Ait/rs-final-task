@@ -18,10 +18,10 @@
 		DC2B2A25273425B100233F5D /* AppDelegateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A24273425B100233F5D /* AppDelegateRouter.swift */; };
 		DC2B2A282734262700233F5D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A272734262700233F5D /* Coordinator.swift */; };
 		DC2B2A2A2734267C00233F5D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A292734267C00233F5D /* AppCoordinator.swift */; };
-		DC2B2A2D273426F300233F5D /* CoordinatorFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A2C273426F300233F5D /* CoordinatorFactoryProtocol.swift */; };
-		DC2B2A2F2734274300233F5D /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A2E2734274300233F5D /* CoordinatorFactory.swift */; };
-		DC2B2A312734285E00233F5D /* ScreenFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A302734285E00233F5D /* ScreenFactoryProtocol.swift */; };
-		DC2B2A33273428CE00233F5D /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A32273428CE00233F5D /* ScreenFactory.swift */; };
+		DC2B2A2D273426F300233F5D /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A2C273426F300233F5D /* CoordinatorFactory.swift */; };
+		DC2B2A2F2734274300233F5D /* CoordinatorFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A2E2734274300233F5D /* CoordinatorFactoryImpl.swift */; };
+		DC2B2A312734285E00233F5D /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A302734285E00233F5D /* ScreenFactory.swift */; };
+		DC2B2A33273428CE00233F5D /* ScreenFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A32273428CE00233F5D /* ScreenFactoryImpl.swift */; };
 		DC2B2A3827342BBA00233F5D /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A3427342BBA00233F5D /* AuthPresenter.swift */; };
 		DC2B2A3A27342BBA00233F5D /* AuthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A3627342BBA00233F5D /* AuthProtocols.swift */; };
 		DC2B2A3D2734445600233F5D /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A3C2734445600233F5D /* SignInButton.swift */; };
@@ -46,6 +46,8 @@
 		DC49A050272EE8E800F17DE9 /* AuthServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC49A04F272EE8E800F17DE9 /* AuthServiceTest.swift */; };
 		DC49A059272EE9C300F17DE9 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC49A057272EE9C300F17DE9 /* SharedTestHelpers.swift */; };
 		DC49A05A272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC49A058272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift */; };
+		DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B9027350BED00C3A209 /* TabBarController.swift */; };
+		DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B922735124D00C3A209 /* AuthCoordinator.swift */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -112,10 +114,10 @@
 		DC2B2A24273425B100233F5D /* AppDelegateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateRouter.swift; sourceTree = "<group>"; };
 		DC2B2A272734262700233F5D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		DC2B2A292734267C00233F5D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		DC2B2A2C273426F300233F5D /* CoordinatorFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryProtocol.swift; sourceTree = "<group>"; };
-		DC2B2A2E2734274300233F5D /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
-		DC2B2A302734285E00233F5D /* ScreenFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactoryProtocol.swift; sourceTree = "<group>"; };
-		DC2B2A32273428CE00233F5D /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
+		DC2B2A2C273426F300233F5D /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		DC2B2A2E2734274300233F5D /* CoordinatorFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryImpl.swift; sourceTree = "<group>"; };
+		DC2B2A302734285E00233F5D /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
+		DC2B2A32273428CE00233F5D /* ScreenFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactoryImpl.swift; sourceTree = "<group>"; };
 		DC2B2A3427342BBA00233F5D /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 		DC2B2A3627342BBA00233F5D /* AuthProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocols.swift; sourceTree = "<group>"; };
 		DC2B2A3C2734445600233F5D /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
@@ -136,6 +138,8 @@
 		DC49A04F272EE8E800F17DE9 /* AuthServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTest.swift; sourceTree = "<group>"; };
 		DC49A057272EE9C300F17DE9 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		DC49A058272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestsCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		DC835B9027350BED00C3A209 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		DC835B922735124D00C3A209 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -262,8 +266,9 @@
 			children = (
 				DC2B2A2B273426D000233F5D /* Protocols */,
 				DC2B2A292734267C00233F5D /* AppCoordinator.swift */,
-				DC2B2A2E2734274300233F5D /* CoordinatorFactory.swift */,
-				DC2B2A32273428CE00233F5D /* ScreenFactory.swift */,
+				DC2B2A2E2734274300233F5D /* CoordinatorFactoryImpl.swift */,
+				DC2B2A32273428CE00233F5D /* ScreenFactoryImpl.swift */,
+				DC835B922735124D00C3A209 /* AuthCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -272,8 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				DC2B2A272734262700233F5D /* Coordinator.swift */,
-				DC2B2A2C273426F300233F5D /* CoordinatorFactoryProtocol.swift */,
-				DC2B2A302734285E00233F5D /* ScreenFactoryProtocol.swift */,
+				DC2B2A2C273426F300233F5D /* CoordinatorFactory.swift */,
+				DC2B2A302734285E00233F5D /* ScreenFactory.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -334,6 +339,14 @@
 				DC47F807272FDE24009603EE /* Result+Extenstion.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DC835B8F27350BD800C3A209 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				DC835B9027350BED00C3A209 /* TabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		DCCF8A9927299D6700933DD1 = {
@@ -397,6 +410,7 @@
 		DCCF8AD627299DBA00933DD1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC835B8F27350BD800C3A209 /* TabBar */,
 				DC49A028272E88C300F17DE9 /* Base */,
 				DC2B29ED2733C8A200233F5D /* Auth */,
 			);
@@ -636,8 +650,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC2B2A312734285E00233F5D /* ScreenFactoryProtocol.swift in Sources */,
-				DC2B2A2D273426F300233F5D /* CoordinatorFactoryProtocol.swift in Sources */,
+				DC2B2A312734285E00233F5D /* ScreenFactory.swift in Sources */,
+				DC2B2A2D273426F300233F5D /* CoordinatorFactory.swift in Sources */,
 				DCCF8AFD2729A26B00933DD1 /* UIApplication+Extension.swift in Sources */,
 				DC49A04E272ECE8A00F17DE9 /* Encodable.swift in Sources */,
 				DC2B2A232734254A00233F5D /* Router.swift in Sources */,
@@ -647,10 +661,11 @@
 				DCCF8AFE2729A26B00933DD1 /* UIButton+Extension.swift in Sources */,
 				DCCF8B0B2729A26B00933DD1 /* UserDefaults+Extension.swift in Sources */,
 				DC49A02E272E88C300F17DE9 /* BaseViewController.swift in Sources */,
-				DC2B2A2F2734274300233F5D /* CoordinatorFactory.swift in Sources */,
+				DC2B2A2F2734274300233F5D /* CoordinatorFactoryImpl.swift in Sources */,
 				DC49A042272EA65600F17DE9 /* AuthService.swift in Sources */,
 				DCCF8B0A2729A26B00933DD1 /* UIViewController+Extension.swift in Sources */,
 				DC2B2A3F2734494800233F5D /* UIControl+Extension.swift in Sources */,
+				DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */,
 				DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */,
 				DC2B2A172733DB3600233F5D /* LoginPasswordTextField.swift in Sources */,
 				DCCF8B172729A30200933DD1 /* ReusableView.swift in Sources */,
@@ -660,6 +675,7 @@
 				DCCF8B002729A26B00933DD1 /* UIColor+Extension.swift in Sources */,
 				DCCF8B152729A30200933DD1 /* Enum.swift in Sources */,
 				DC49A02C272E88C300F17DE9 /* BaseCollectionViewCell.swift in Sources */,
+				DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */,
 				DC49A040272E939800F17DE9 /* AuthTargetType.swift in Sources */,
 				DC2B2A25273425B100233F5D /* AppDelegateRouter.swift in Sources */,
 				DC47F80B27300135009603EE /* AuthParams.swift in Sources */,
@@ -676,7 +692,7 @@
 				DC2B2A1C2733EEA200233F5D /* Spacing.swift in Sources */,
 				DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */,
 				DCCF8AFF2729A26B00933DD1 /* UICollectionView+Extension.swift in Sources */,
-				DC2B2A33273428CE00233F5D /* ScreenFactory.swift in Sources */,
+				DC2B2A33273428CE00233F5D /* ScreenFactoryImpl.swift in Sources */,
 				DC49A02D272E88C300F17DE9 /* BaseTableViewCell.swift in Sources */,
 				DCCF8B042729A26B00933DD1 /* UIImageView+Extension.swift in Sources */,
 				DCCF8B182729A30200933DD1 /* Typealias.swift in Sources */,
