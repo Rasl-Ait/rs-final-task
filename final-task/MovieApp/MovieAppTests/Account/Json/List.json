@@ -1,0 +1,16 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "description": "Name pretty much says it all, here's the top 50 grossing films of all time.",
+      "favorite_count": 0,
+      "id": 10,
+      "item_count": 0,
+      "list_type": "movie",
+      "name": "Top 50 Grossing Films of All Time (Worldwide)",
+      "poster_path": null
+    }
+  ],
+  "total_pages": 4,
+  "total_results": 61
+}

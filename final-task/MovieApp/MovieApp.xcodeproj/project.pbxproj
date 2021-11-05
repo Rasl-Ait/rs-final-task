@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		DC19400C27356180001F78ED /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19400B27356180001F78ED /* DI.swift */; };
+		DC19400F27357FCA001F78ED /* ListsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19400E27357FCA001F78ED /* ListsModel.swift */; };
+		DC194013273581F4001F78ED /* AccountTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC194012273581F4001F78ED /* AccountTargetType.swift */; };
+		DC19401527358367001F78ED /* AccountParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401427358367001F78ED /* AccountParams.swift */; };
+		DC19401727358844001F78ED /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401627358844001F78ED /* AccountService.swift */; };
+		DC194019273588BA001F78ED /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC194018273588BA001F78ED /* AccountModel.swift */; };
+		DC19401B27358A0A001F78ED /* FavoriteMovieResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401A27358A0A001F78ED /* FavoriteMovieResponce.swift */; };
+		DC19401D27358A80001F78ED /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401C27358A80001F78ED /* ErrorModel.swift */; };
+		DC19401F273592B2001F78ED /* AccountServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401E273592B2001F78ED /* AccountServiceTest.swift */; };
+		DC1940252735A08C001F78ED /* Account.json in Resources */ = {isa = PBXBuildFile; fileRef = DC1940242735A08C001F78ED /* Account.json */; };
+		DC1940272735A5FF001F78ED /* List.json in Resources */ = {isa = PBXBuildFile; fileRef = DC1940262735A5FF001F78ED /* List.json */; };
+		DC19402B2735A6C2001F78ED /* Movie.json in Resources */ = {isa = PBXBuildFile; fileRef = DC19402A2735A6C2001F78ED /* Movie.json */; };
 		DC2B29F02733C8CA00233F5D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B29EF2733C8CA00233F5D /* AuthView.swift */; };
 		DC2B2A082733D7D000233F5D /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B29F62733D7D000233F5D /* CustomStackView.swift */; };
 		DC2B2A172733DB3600233F5D /* LoginPasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A162733DB3600233F5D /* LoginPasswordTextField.swift */; };
@@ -109,6 +120,17 @@
 
 /* Begin PBXFileReference section */
 		DC19400B27356180001F78ED /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
+		DC19400E27357FCA001F78ED /* ListsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsModel.swift; sourceTree = "<group>"; };
+		DC194012273581F4001F78ED /* AccountTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTargetType.swift; sourceTree = "<group>"; };
+		DC19401427358367001F78ED /* AccountParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountParams.swift; sourceTree = "<group>"; };
+		DC19401627358844001F78ED /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		DC194018273588BA001F78ED /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		DC19401A27358A0A001F78ED /* FavoriteMovieResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieResponce.swift; sourceTree = "<group>"; };
+		DC19401C27358A80001F78ED /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		DC19401E273592B2001F78ED /* AccountServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceTest.swift; sourceTree = "<group>"; };
+		DC1940242735A08C001F78ED /* Account.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Account.json; sourceTree = "<group>"; };
+		DC1940262735A5FF001F78ED /* List.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = List.json; sourceTree = "<group>"; };
+		DC19402A2735A6C2001F78ED /* Movie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Movie.json; sourceTree = "<group>"; };
 		DC2B29EF2733C8CA00233F5D /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		DC2B29F62733D7D000233F5D /* CustomStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		DC2B2A162733DB3600233F5D /* LoginPasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordTextField.swift; sourceTree = "<group>"; };
@@ -222,6 +244,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC194010273581AB001F78ED /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				DC49A03F272E939800F17DE9 /* AuthTargetType.swift */,
+				DC49A041272EA65600F17DE9 /* AuthService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		DC194011273581B8001F78ED /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				DC194012273581F4001F78ED /* AccountTargetType.swift */,
+				DC19401627358844001F78ED /* AccountService.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		DC19402027359FED001F78ED /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				DC19402127359FFC001F78ED /* Json */,
+				DC19401E273592B2001F78ED /* AccountServiceTest.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		DC19402127359FFC001F78ED /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				DC1940242735A08C001F78ED /* Account.json */,
+				DC1940262735A5FF001F78ED /* List.json */,
+				DC19402A2735A6C2001F78ED /* Movie.json */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
 		DC2B29ED2733C8A200233F5D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				DC47F80A27300135009603EE /* AuthParams.swift */,
+				DC19401427358367001F78ED /* AccountParams.swift */,
 			);
 			path = Params;
 			sourceTree = "<group>";
@@ -316,11 +376,11 @@
 		DC49A03C272E911500F17DE9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				DC194011273581B8001F78ED /* Account */,
+				DC194010273581AB001F78ED /* Auth */,
 				DC47F80927300122009603EE /* Params */,
 				DC49A047272EA92900F17DE9 /* APIError.swift */,
 				DC49A03D272E92F200F17DE9 /* TargetType.swift */,
-				DC49A03F272E939800F17DE9 /* AuthTargetType.swift */,
-				DC49A041272EA65600F17DE9 /* AuthService.swift */,
 				DC49A049272EAB2500F17DE9 /* BaseAPI.swift */,
 				DC49A04B272EAB6400F17DE9 /* NetworkService.swift */,
 			);
@@ -331,6 +391,9 @@
 			isa = PBXGroup;
 			children = (
 				DC49A044272EA67D00F17DE9 /* Auth */,
+				DC19400E27357FCA001F78ED /* ListsModel.swift */,
+				DC194018273588BA001F78ED /* AccountModel.swift */,
+				DC19401C27358A80001F78ED /* ErrorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				DC49A045272EA72E00F17DE9 /* AuthenticationToken.swift */,
+				DC19401A27358A0A001F78ED /* FavoriteMovieResponce.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -407,6 +471,7 @@
 				DCCF8ABC27299D6A00933DD1 /* MovieAppTests.swift */,
 				DCCF8ABE27299D6A00933DD1 /* Info.plist */,
 				DC49A04F272EE8E800F17DE9 /* AuthServiceTest.swift */,
+				DC19402027359FED001F78ED /* Account */,
 			);
 			path = MovieAppTests;
 			sourceTree = "<group>";
@@ -635,6 +700,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC19402B2735A6C2001F78ED /* Movie.json in Resources */,
+				DC1940252735A08C001F78ED /* Account.json in Resources */,
+				DC1940272735A5FF001F78ED /* List.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +753,7 @@
 				DCCF8B022729A26B00933DD1 /* UIFont+Extension.swift in Sources */,
 				DCCF8AFE2729A26B00933DD1 /* UIButton+Extension.swift in Sources */,
 				DCCF8B0B2729A26B00933DD1 /* UserDefaults+Extension.swift in Sources */,
+				DC19401527358367001F78ED /* AccountParams.swift in Sources */,
 				DC49A02E272E88C300F17DE9 /* BaseViewController.swift in Sources */,
 				DC2B2A2F2734274300233F5D /* CoordinatorFactoryImpl.swift in Sources */,
 				DC835BA22735282500C3A209 /* TabBarCoordinator.swift in Sources */,
@@ -701,11 +770,14 @@
 				DCCF8B002729A26B00933DD1 /* UIColor+Extension.swift in Sources */,
 				DCCF8B152729A30200933DD1 /* Enum.swift in Sources */,
 				DC49A02C272E88C300F17DE9 /* BaseCollectionViewCell.swift in Sources */,
+				DC194013273581F4001F78ED /* AccountTargetType.swift in Sources */,
+				DC19401D27358A80001F78ED /* ErrorModel.swift in Sources */,
 				DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */,
 				DC49A040272E939800F17DE9 /* AuthTargetType.swift in Sources */,
 				DC47F80B27300135009603EE /* AuthParams.swift in Sources */,
 				DCCF8B132729A30200933DD1 /* Alert.swift in Sources */,
 				DC49A046272EA72E00F17DE9 /* AuthenticationToken.swift in Sources */,
+				DC19401B27358A0A001F78ED /* FavoriteMovieResponce.swift in Sources */,
 				DCCF8AFB2729A26B00933DD1 /* String+Extension.swift in Sources */,
 				DCCF8B012729A26B00933DD1 /* UIEdgeInsets+Extension.swift in Sources */,
 				DC49A04C272EAB6400F17DE9 /* NetworkService.swift in Sources */,
@@ -716,11 +788,14 @@
 				DC19400C27356180001F78ED /* DI.swift in Sources */,
 				DC835B9C273523B700C3A209 /* ListsPresenter.swift in Sources */,
 				DC49A03E272E92F200F17DE9 /* TargetType.swift in Sources */,
+				DC19401727358844001F78ED /* AccountService.swift in Sources */,
 				DC2B2A1C2733EEA200233F5D /* Spacing.swift in Sources */,
 				DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */,
 				DCCF8AFF2729A26B00933DD1 /* UICollectionView+Extension.swift in Sources */,
 				DC835B9E273523B700C3A209 /* ListsViewController.swift in Sources */,
+				DC19400F27357FCA001F78ED /* ListsModel.swift in Sources */,
 				DC2B2A33273428CE00233F5D /* ScreenFactoryImpl.swift in Sources */,
+				DC194019273588BA001F78ED /* AccountModel.swift in Sources */,
 				DC49A02D272E88C300F17DE9 /* BaseTableViewCell.swift in Sources */,
 				DCCF8B042729A26B00933DD1 /* UIImageView+Extension.swift in Sources */,
 				DCCF8B182729A30200933DD1 /* Typealias.swift in Sources */,
@@ -749,6 +824,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC49A050272EE8E800F17DE9 /* AuthServiceTest.swift in Sources */,
+				DC19401F273592B2001F78ED /* AccountServiceTest.swift in Sources */,
 				DC49A05A272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift in Sources */,
 				DC47F808272FDE24009603EE /* Result+Extenstion.swift in Sources */,
 				DCCF8ABD27299D6A00933DD1 /* MovieAppTests.swift in Sources */,

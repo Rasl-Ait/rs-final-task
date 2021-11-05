@@ -9,6 +9,7 @@ import Foundation
 
 struct UserDefaultsKeys {
   static let sessionID = "session_id"
+  static let accountID = "account_id"
 }
 
 extension UserDefaults {
@@ -19,6 +20,15 @@ extension UserDefaults {
     }
     set(value) {
       UserDefaults.standard.set(value, forKey: UserDefaultsKeys.sessionID)
+    }
+  }
+  
+  var accountID: Int {
+    get {
+      UserDefaults.standard.integer(forKey: UserDefaultsKeys.accountID)
+    }
+    set(value) {
+      UserDefaults.standard.set(value, forKey: UserDefaultsKeys.accountID)
     }
   }
 }
