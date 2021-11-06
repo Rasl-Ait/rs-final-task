@@ -108,8 +108,7 @@ enum ActionType {
 }
 
 enum PredicateType {
-  case uid(String)
-  case title(String)
+  case uid(Int)
 }
 
 enum SegmentType: Int {

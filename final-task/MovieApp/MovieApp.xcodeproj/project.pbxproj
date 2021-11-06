@@ -68,6 +68,7 @@
 		DC864CDB27366F12009BA64A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CDA27366F12009BA64A /* CoreDataStack.swift */; };
 		DC864CDD27367010009BA64A /* MoviePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CDC27367010009BA64A /* MoviePersistence.swift */; };
 		DC864CE02736703E009BA64A /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CDF2736703E009BA64A /* StorageProtocol.swift */; };
+		DC864CE3273673A2009BA64A /* MoviePersistenceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CE2273673A2009BA64A /* MoviePersistenceTest.swift */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -180,6 +181,7 @@
 		DC864CDA27366F12009BA64A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DC864CDC27367010009BA64A /* MoviePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePersistence.swift; sourceTree = "<group>"; };
 		DC864CDF2736703E009BA64A /* StorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
+		DC864CE2273673A2009BA64A /* MoviePersistenceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePersistenceTest.swift; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -478,6 +480,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		DC864CE12736737C009BA64A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DC864CE2273673A2009BA64A /* MoviePersistenceTest.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		DCCF8A9927299D6700933DD1 = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +520,7 @@
 		DCCF8ABB27299D6A00933DD1 /* MovieAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				DC864CE12736737C009BA64A /* CoreData */,
 				DC49A056272EE9C300F17DE9 /* Helpers */,
 				DCCF8ABC27299D6A00933DD1 /* MovieAppTests.swift */,
 				DCCF8ABE27299D6A00933DD1 /* Info.plist */,
@@ -871,6 +882,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC864CE3273673A2009BA64A /* MoviePersistenceTest.swift in Sources */,
 				DC49A050272EE8E800F17DE9 /* AuthServiceTest.swift in Sources */,
 				DC19401F273592B2001F78ED /* AccountServiceTest.swift in Sources */,
 				DC49A05A272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift in Sources */,

@@ -5,6 +5,7 @@ protocol StorageProtocol: AnyObject {
   var items: [ListModel] { get }
   
   func add(_ item: ListModel)
-  func remove(with uid: String)
+  func fetchItem(_ predicateType: PredicateType) -> ListModel?
+  func remove(with id: Int)
   func fetch(_ predicate: NSPredicate?)
 }

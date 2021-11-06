@@ -30,21 +30,21 @@ final class MoviePersistence: StorageProtocol {
     }
   }
   
-  func remove(with uid: String) {
+  func remove(with id: Int) {
     let request: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
-    let predicate = NSPredicate(format: "uid = %@", uid)
+    let predicate = NSPredicate(format: "id = %d", id)
     request.predicate = predicate
     backgroundContext.performAndWait {
       do {
         guard let result = try backgroundContext.fetch(request).first else {
-          DDLogError("an object with this identifier \(uid) does not exist")
+          DDLogError("an object with this identifier \(id) does not exist")
           return
         }
         backgroundContext.delete(result)
         try backgroundContext.save()
-        DDLogError("list with uid=\(uid) removed from the database")
+        DDLogError("list with id=\(id) removed from the database")
       } catch let error {
-        DDLogError("error when deleting list with UID =\(uid)\n\(error.localizedDescription)")
+        DDLogError("error when deleting list with ID =\(id)\n\(error.localizedDescription)")
       }
     }
   }
@@ -67,6 +67,27 @@ final class MoviePersistence: StorageProtocol {
     } catch {
       DDLogError("error while receiving lists \(error.localizedDescription)")
      // completion(.failure(.fetch(error)))
+    }
+  }
+  
+  func fetchItem(_ predicateType: PredicateType) -> ListModel? {
+    let request: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
+    switch predicateType {
+    case .uid(let id):
+     let predicate = NSPredicate(format: "id = %d", id)
+      request.predicate = predicate
+      
+      do {
+        let result = try context.fetch(request)
+        guard let entity = result.first else {
+          return nil
+        }
+        DDLogInfo("get list with id = \(entity.id)")
+        return ListModel.getEntities(entity: entity)
+      } catch {
+        DDLogInfo("an entity with this id = \(id) does not exist")
+        return nil
+      }
     }
   }
   
