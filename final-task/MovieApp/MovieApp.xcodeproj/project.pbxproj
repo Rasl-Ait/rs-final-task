@@ -69,6 +69,12 @@
 		DC864CDD27367010009BA64A /* MoviePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CDC27367010009BA64A /* MoviePersistence.swift */; };
 		DC864CE02736703E009BA64A /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CDF2736703E009BA64A /* StorageProtocol.swift */; };
 		DC864CE3273673A2009BA64A /* MoviePersistenceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CE2273673A2009BA64A /* MoviePersistenceTest.swift */; };
+		DC864CE627368D96009BA64A /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CE527368D96009BA64A /* ListView.swift */; };
+		DC864CEA273690B2009BA64A /* BasicDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CE8273690B2009BA64A /* BasicDataSource.swift */; };
+		DC864CEB273690B2009BA64A /* GenericCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CE9273690B2009BA64A /* GenericCollectionDataSource.swift */; };
+		DC864CEE27369380009BA64A /* ListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CED27369380009BA64A /* ListCollectionCell.swift */; };
+		DC864CF027369421009BA64A /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CEF27369421009BA64A /* ListViewCell.swift */; };
+		DC864CF2273697B1009BA64A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CF1273697B1009BA64A /* CustomButton.swift */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -182,6 +188,12 @@
 		DC864CDC27367010009BA64A /* MoviePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePersistence.swift; sourceTree = "<group>"; };
 		DC864CDF2736703E009BA64A /* StorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		DC864CE2273673A2009BA64A /* MoviePersistenceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePersistenceTest.swift; sourceTree = "<group>"; };
+		DC864CE527368D96009BA64A /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		DC864CE8273690B2009BA64A /* BasicDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDataSource.swift; sourceTree = "<group>"; };
+		DC864CE9273690B2009BA64A /* GenericCollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCollectionDataSource.swift; sourceTree = "<group>"; };
+		DC864CED27369380009BA64A /* ListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionCell.swift; sourceTree = "<group>"; };
+		DC864CEF27369421009BA64A /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		DC864CF1273697B1009BA64A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -316,6 +328,7 @@
 				DC2B29F62733D7D000233F5D /* CustomStackView.swift */,
 				DC2B2A162733DB3600233F5D /* LoginPasswordTextField.swift */,
 				DC2B2A3C2734445600233F5D /* SignInButton.swift */,
+				DC864CF1273697B1009BA64A /* CustomButton.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -438,6 +451,8 @@
 		DC835B962735239400C3A209 /* Lists */ = {
 			isa = PBXGroup;
 			children = (
+				DC864CEC27369374009BA64A /* Cell */,
+				DC864CE427368D7A009BA64A /* View */,
 				DC835B99273523B700C3A209 /* ListsViewController.swift */,
 				DC835B97273523B700C3A209 /* ListsPresenter.swift */,
 				DC835B9A273523B700C3A209 /* ListsProtocols.swift */,
@@ -486,6 +501,32 @@
 				DC864CE2273673A2009BA64A /* MoviePersistenceTest.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		DC864CE427368D7A009BA64A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DC864CE527368D96009BA64A /* ListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DC864CE7273690B2009BA64A /* Generic Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				DC864CE8273690B2009BA64A /* BasicDataSource.swift */,
+				DC864CE9273690B2009BA64A /* GenericCollectionDataSource.swift */,
+			);
+			path = "Generic Data Source";
+			sourceTree = "<group>";
+		};
+		DC864CEC27369374009BA64A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DC864CED27369380009BA64A /* ListCollectionCell.swift */,
+				DC864CEF27369421009BA64A /* ListViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DCCF8A9927299D6700933DD1 = {
@@ -562,6 +603,7 @@
 		DCCF8AD727299DC500933DD1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DC864CE7273690B2009BA64A /* Generic Data Source */,
 				DC864CD927366C38009BA64A /* Storage */,
 				DCCF8AD527299DB000933DD1 /* Application */,
 				DC2B2A262734261600233F5D /* Coordinators */,
@@ -828,12 +870,14 @@
 				DCCF8B152729A30200933DD1 /* Enum.swift in Sources */,
 				DC864CDB27366F12009BA64A /* CoreDataStack.swift in Sources */,
 				DC49A02C272E88C300F17DE9 /* BaseCollectionViewCell.swift in Sources */,
+				DC864CE627368D96009BA64A /* ListView.swift in Sources */,
 				DC194013273581F4001F78ED /* AccountTargetType.swift in Sources */,
 				DC19401D27358A80001F78ED /* ErrorModel.swift in Sources */,
 				DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */,
 				DC49A040272E939800F17DE9 /* AuthTargetType.swift in Sources */,
 				DC47F80B27300135009603EE /* AuthParams.swift in Sources */,
 				DCCF8B132729A30200933DD1 /* Alert.swift in Sources */,
+				DC864CEE27369380009BA64A /* ListCollectionCell.swift in Sources */,
 				DC49A046272EA72E00F17DE9 /* AuthenticationToken.swift in Sources */,
 				DC19401B27358A0A001F78ED /* FavoriteMovieResponce.swift in Sources */,
 				DCCF8AFB2729A26B00933DD1 /* String+Extension.swift in Sources */,
@@ -857,6 +901,8 @@
 				DC864CD827366C0A009BA64A /* Model.xcdatamodeld in Sources */,
 				DC49A02D272E88C300F17DE9 /* BaseTableViewCell.swift in Sources */,
 				DCCF8B042729A26B00933DD1 /* UIImageView+Extension.swift in Sources */,
+				DC864CEA273690B2009BA64A /* BasicDataSource.swift in Sources */,
+				DC864CF2273697B1009BA64A /* CustomButton.swift in Sources */,
 				DCCF8B182729A30200933DD1 /* Typealias.swift in Sources */,
 				DC2B2A3827342BBA00233F5D /* AuthPresenter.swift in Sources */,
 				DC49A04A272EAB2500F17DE9 /* BaseAPI.swift in Sources */,
@@ -869,7 +915,9 @@
 				DCCF8AF92729A26B00933DD1 /* NSMutableAttributedString+Extension+Extension.swift in Sources */,
 				DCCF8B032729A26B00933DD1 /* UIImage+Extension.swift in Sources */,
 				DC2B2A3A27342BBA00233F5D /* AuthProtocols.swift in Sources */,
+				DC864CF027369421009BA64A /* ListViewCell.swift in Sources */,
 				DCCF8AF72729A26B00933DD1 /* Date+Extension.swift in Sources */,
+				DC864CEB273690B2009BA64A /* GenericCollectionDataSource.swift in Sources */,
 				DCCF8AFC2729A26B00933DD1 /* TimeInterval+Extension.swift in Sources */,
 				DC2B29F02733C8CA00233F5D /* AuthView.swift in Sources */,
 				DC2B2A2A2734267C00233F5D /* AppCoordinator.swift in Sources */,

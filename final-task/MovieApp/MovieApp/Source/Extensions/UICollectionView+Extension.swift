@@ -17,10 +17,10 @@ extension UICollectionView {
 		register(T.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: T.name)
 	}
   
-//  func registerDataSourceDelegate(with dataSource: BasicDataSource) {
-//    self.dataSource = dataSource
-//    self.delegate = dataSource
-//  }
+  func registerDataSourceDelegate(with dataSource: BasicDataSource) {
+    self.dataSource = dataSource
+    self.delegate = dataSource
+  }
 	
 	func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
 		guard let cell = dequeueReusableCell(withReuseIdentifier: T.name, for: indexPath) as? T else {

@@ -49,15 +49,7 @@ enum SFSymbolConstants: String {
   case profile = "person.crop.circle"
   
   // Navigation Bar
-  case bell = "bell"
-  case accepted = "checkmark.circle.fill"
-  case heart = "heart.fill"
-  case filter = "slider.horizontal.3"
-  case back = "chevron.backward.circle"
-  
-  
-  // icons profile
-  case addPhoto = "plus"
+  case plus = "plus.circle"
   
   // icons used on home screen
   case taskDone = "checkmark"
@@ -69,7 +61,7 @@ enum SFSymbolConstants: String {
   case feedback = "square.and.pencil"
   case changePassword = "lock"
   case logout = "power"
-  case deleteAccount = "trash"
+  case delete = "trash.circle"
   
   // dismiss sheet button icon
   case xCircle = "x.circle.fill"
