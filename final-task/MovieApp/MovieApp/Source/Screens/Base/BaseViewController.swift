@@ -1,5 +1,6 @@
 
 import UIKit
+import MBProgressHUD
 
 class BaseViewController: UIViewController {
   
@@ -15,6 +16,18 @@ class BaseViewController: UIViewController {
   func configureNavigationBar(isHidden: Bool, barStyle: UIBarStyle) {
     navigationController?.navigationBar.isHidden = isHidden
     navigationController?.navigationBar.barStyle = barStyle
+  }
+  
+  func show(_ message: String = "") {
+    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+    hud.label.text = message
+    hud.contentColor = .titleColor
+    hud.label.textColor = .black
+    hud.isUserInteractionEnabled = false
+  }
+  
+  func hide() {
+    MBProgressHUD.hide(for: self.view, animated: true)
   }
   
   func addTapGesture() {

@@ -19,6 +19,7 @@ final class AuthPresenter: AuthViewOutput {
 	}
   
   func newToken(_ param: AuthParam) {
+    view?.showIndicator()
     service.newToken { [weak self] result in
       guard let self = self else { return }
       switch result {
@@ -43,7 +44,7 @@ final class AuthPresenter: AuthViewOutput {
       case .success(let item):
         UserDefaults.standard.sessionID = item.sessionId ?? ""
         mainQueue {
-          self.view?.hideIndicator()
+          self.view?.success()
           self.coordinator?.pushTabBar()
         }
       case .failure(let error):

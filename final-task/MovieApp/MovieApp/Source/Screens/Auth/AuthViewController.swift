@@ -132,19 +132,20 @@ private extension AuthViewController {
 // MARK: - AuthViewInput
 extension AuthViewController: AuthViewInput {
   func success() {
-    print("Authorization success")
+    hide()
   }
   
   func failure(error: Error) {
+    hide()
     Alert.showAlert(on: self, with: .attention, message: error.localizedDescription)
   }
   
   func hideIndicator() {
-    
+    hide()
   }
   
   func showIndicator() {
-    
+    show()
   }
 }
 

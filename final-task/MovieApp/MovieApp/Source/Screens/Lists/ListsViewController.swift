@@ -65,11 +65,19 @@ private extension ListsViewController {
 // MARK: - ListsViewInput
 extension ListsViewController: ListsViewInput {
   func success(items: [ListModel]) {
+    hide()
     listView.addList(items)
   }
-	func failure(error: Error) {}
-	func hideIndicator() {}
-	func showIndicator() {}
+	func failure(error: Error) {
+    hide()
+    Alert.showAlert(on: self, with: .warning, message: error.localizedDescription)
+  }
+	func hideIndicator() {
+    hide()
+  }
+	func showIndicator() {
+    show()
+  }
 }
 
 #if DEBUG

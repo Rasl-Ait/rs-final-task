@@ -75,6 +75,7 @@
 		DC864CEE27369380009BA64A /* ListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CED27369380009BA64A /* ListCollectionCell.swift */; };
 		DC864CF027369421009BA64A /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CEF27369421009BA64A /* ListViewCell.swift */; };
 		DC864CF2273697B1009BA64A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CF1273697B1009BA64A /* CustomButton.swift */; };
+		DC864CF52736C849009BA64A /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = DC864CF42736C849009BA64A /* MBProgressHUD */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -241,6 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC864CF52736C849009BA64A /* MBProgressHUD in Frameworks */,
 				DC49A036272E897400F17DE9 /* CocoaLumberjack in Frameworks */,
 				DC49A031272E895500F17DE9 /* Kingfisher in Frameworks */,
 				DCCF8ADC2729A20E00933DD1 /* SnapKit in Frameworks */,
@@ -695,6 +697,7 @@
 				DC49A033272E897400F17DE9 /* CocoaLumberjackSwift */,
 				DC49A035272E897400F17DE9 /* CocoaLumberjack */,
 				DC49A037272E897400F17DE9 /* CocoaLumberjackSwiftLogBackend */,
+				DC864CF42736C849009BA64A /* MBProgressHUD */,
 			);
 			productName = MovieApp;
 			productReference = DCCF8AA227299D6700933DD1 /* MovieApp.app */;
@@ -771,6 +774,7 @@
 				DCCF8ADA2729A20E00933DD1 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DC49A02F272E895500F17DE9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				DC49A032272E897400F17DE9 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+				DC864CF32736C849009BA64A /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 			);
 			productRefGroup = DCCF8AA327299D6700933DD1 /* Products */;
 			projectDirPath = "";
@@ -1267,6 +1271,14 @@
 				minimumVersion = 3.7.2;
 			};
 		};
+		DC864CF32736C849009BA64A /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		DCCF8ADA2729A20E00933DD1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1297,6 +1309,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DC49A032272E897400F17DE9 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
 			productName = CocoaLumberjackSwiftLogBackend;
+		};
+		DC864CF42736C849009BA64A /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC864CF32736C849009BA64A /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
 		};
 		DCCF8ADB2729A20E00933DD1 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
