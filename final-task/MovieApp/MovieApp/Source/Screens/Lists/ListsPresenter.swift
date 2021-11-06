@@ -16,6 +16,7 @@ final class ListsPresenter: ListsViewOutput {
   
   let service: AccountAndListServiceProtocol
   var page = 1
+  private var param: NewListParam!
   
   init(view: ListsViewInput, service: AccountAndListServiceProtocol) {
     self.view = view
@@ -38,5 +39,26 @@ final class ListsPresenter: ListsViewOutput {
         }
       }
     }
+  }
+  
+  func createList() {
+    view?.showIndicator()
+    service.createList(param) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let item):
+        mainQueue {
+          self.view?.successCreateList(text: item.statusMessage)
+        }
+      case .failure(let error):
+        mainQueue {
+          self.view?.failure(error: error)
+        }
+      }
+    }
+  }
+  
+  func addText(name: String) {
+    param = NewListParam(name: name)
   }
 }

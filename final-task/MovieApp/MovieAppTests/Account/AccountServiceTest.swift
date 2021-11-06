@@ -58,10 +58,30 @@ class AccountServiceTest: XCTestCase {
     let sut = makeSUT()
     let param = ListFavoriteParam(mediaType: "movie", mediaID: 550, favorite: true)
 
+    let query = [
+      URLQueryItem(name: "session_id", value: sessionID)
+    ]
+    
     sut.service.markAsFavorite(param) { _ in }
     XCTAssertTrue(sut.client.executeCalled)
     let request: URLRequest = .queryParams("account/\(accountID)/favorite",
-                                           param: ([], param),
+                                           param: (query, param),
+                                           httpMethod: .post)
+    XCTAssertEqual(sut.client.inputRequest, request)
+  }
+  
+  func test_createListRequest() {
+    let sut = makeSUT()
+    let param = NewListParam(name: "New List")
+
+    let query = [
+      URLQueryItem(name: "session_id", value: sessionID)
+    ]
+    
+    sut.service.createList(param) { _ in }
+    XCTAssertTrue(sut.client.executeCalled)
+    let request: URLRequest = .queryParams("list",
+                                           param: (query, param),
                                            httpMethod: .post)
     XCTAssertEqual(sut.client.inputRequest, request)
   }
@@ -137,6 +157,22 @@ class AccountServiceTest: XCTestCase {
     var result: Result<ErrorModel, APIError>?
 
     sut.service.markAsFavorite(param) { result = $0 }
+    XCTAssertEqual(result?.value, item)
+  }
+  
+  func test_createListSuccessResponse() throws {
+    let item = NewListResponce(statusMessage: "The item/record was created successfully.",
+                               success: true, statusCode: 4, listID: 5861)
+    let response = try JSONEncoder().encode(item)
+
+    let param = NewListParam(name: "New list")
+    
+    let sut = makeSUT()
+    sut.client.result = .success(response)
+
+    var result: Result<NewListResponce, APIError>?
+
+    sut.service.createList(param) { result = $0 }
     XCTAssertEqual(result?.value, item)
   }
   

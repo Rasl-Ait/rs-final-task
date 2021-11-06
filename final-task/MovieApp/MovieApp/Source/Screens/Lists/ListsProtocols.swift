@@ -10,13 +10,16 @@ import Foundation
 
 protocol ListsViewInput: AnyObject {
   func success(items: [ListModel])
-	func failure(error: Error)
-	func hideIndicator()
-	func showIndicator()
+  func successCreateList(text: String)
+  func failure(error: Error)
+  func hideIndicator()
+  func showIndicator()
 }
 
 protocol ListsViewOutput: AnyObject {
   var lists: [ListModel] { get }
   
- func getLists()
+  func getLists()
+  func createList()
+  func addText(name: String)
 }

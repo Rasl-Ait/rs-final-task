@@ -16,7 +16,7 @@ enum AccountAndListTargetType {
   case lists(Int, Int)
   case markFavorite(Int, ListFavoriteParam)
   case movieFavorite(Int, Int)
-
+  case list(NewListParam)
 }
 
 extension AccountAndListTargetType: TargetType {
@@ -30,6 +30,8 @@ extension AccountAndListTargetType: TargetType {
       return "account/\(id)/favorite"
     case .movieFavorite(let id, _):
       return "account/\(id)/favorite/movies"
+    case .list:
+      return "list"
     }
   }
   
@@ -37,7 +39,7 @@ extension AccountAndListTargetType: TargetType {
     switch self {
     case .account, .lists, .movieFavorite:
       return .get
-    case .markFavorite:
+    case .markFavorite, .list:
       return .post
     }
   }
@@ -60,7 +62,15 @@ extension AccountAndListTargetType: TargetType {
       ]
       return .urlQueryParameters(parameters: param)
     case .markFavorite(_, let item):
-      return .requestPostParameters(parameters: item)
+      let param = [
+        URLQueryItem(name: "session_id", value: UserDefaults.standard.sessionID)
+      ]
+      return .postAndGetParameters(parameters: item, query: param)
+    case .list(let item):
+      let param = [
+        URLQueryItem(name: "session_id", value: UserDefaults.standard.sessionID)
+      ]
+      return .postAndGetParameters(parameters: item, query: param)
     }
   }
 }

@@ -18,3 +18,8 @@ struct ListFavoriteParam: Encodable {
     case favorite
   }
 }
+
+struct NewListParam: Encodable {
+  let name: String
+  let description = ""
+}

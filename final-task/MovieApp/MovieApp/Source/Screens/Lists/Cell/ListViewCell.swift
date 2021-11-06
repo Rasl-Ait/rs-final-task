@@ -71,8 +71,9 @@ private extension ListViewCell {
     let view = UILabel(
       "List", alignment: .left,
       color: .titleColor ?? .black,
-      fontName: .avenir(.fontXL, .Regular)
+      fontName: .avenir(.fontML, .Regular)
     )
+    view.numberOfLines = 0
     return view
   }
   

@@ -56,14 +56,18 @@ private extension ListsViewController {
                         placeholder: TextType.newList.rawValue,
                         editingChangedTarget: self,
                         editingChangedSelector: #selector(alertTextFieldValueChanged(textField:))) { _ in
-      
+      self.presenter.createList()
     } secondAction: { _ in
       
     }
   }
   
   @objc func alertTextFieldValueChanged(textField: UITextField) {
-    print(textField.text)
+    guard let text = textField.text else {
+      Alert.showAlert(on: self, with: .attention, message: "Provide a name for the new list")
+      return
+    }
+    presenter.addText(name: text)
   }
 }
 
@@ -77,6 +81,11 @@ private extension ListsViewController {
 
 // MARK: - ListsViewInput
 extension ListsViewController: ListsViewInput {
+  func successCreateList(text: String) {
+    hide()
+    presenter.getLists()
+  }
+  
   func success(items: [ListModel]) {
     hide()
     listView.addList(items)

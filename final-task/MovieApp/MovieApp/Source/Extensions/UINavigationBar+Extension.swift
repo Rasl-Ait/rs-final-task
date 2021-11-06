@@ -8,14 +8,14 @@
 import UIKit
 
 public extension UINavigationBar {
-    func setTitleFont(_ font: UIFont, color: UIColor = .black) {
+    func setTitleFont(_ font: UIFont, color: UIColor? = .black) {
         var attrs = [NSAttributedString.Key: Any]()
         attrs[.font] = font
         attrs[.foregroundColor] = color
         titleTextAttributes = attrs
     }
   
-  func setLargeTitleFont(_ font: UIFont, color: UIColor = .black) {
+  func setLargeTitleFont(_ font: UIFont, color: UIColor? = .black) {
       var attrs = [NSAttributedString.Key: Any]()
       attrs[.font] = font
       attrs[.foregroundColor] = color

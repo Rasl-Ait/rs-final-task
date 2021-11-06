@@ -62,3 +62,17 @@ extension ListModel {
     
   }
 }
+
+struct NewListResponce: Codable, Equatable {
+  let statusMessage: String
+  let success: Bool
+  let statusCode: Int
+  let listID: Int
+
+  private enum CodingKeys: String, CodingKey {
+    case statusMessage = "status_message"
+    case success
+    case statusCode = "status_code"
+    case listID = "list_id"
+  }
+}

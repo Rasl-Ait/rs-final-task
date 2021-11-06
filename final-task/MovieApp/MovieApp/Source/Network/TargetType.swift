@@ -18,6 +18,7 @@ enum Task {
   case requestPlain
   case requestPostParameters(parameters: Encodable)
   case urlQueryParameters(parameters: [URLQueryItem])
+  case postAndGetParameters(parameters: Encodable, query: [URLQueryItem])
 }
 
 protocol TargetType {

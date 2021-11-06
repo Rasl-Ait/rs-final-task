@@ -28,7 +28,10 @@ extension URLRequest {
     components.scheme = "https"
     components.host = "api.themoviedb.org"
     components.path = "/3/\(path)"
-    components.queryItems = param.0
+    if !param.0.isEmpty {
+      components.queryItems = param.0
+    }
+   
     var request = URLRequest(url: components.url!)
     request.httpMethod = httpMethod?.rawValue
     
@@ -49,6 +52,8 @@ extension BaseAPI {
       return (items, nil)
     case .requestPostParameters(parameters: let param):
       return ([], param)
+    case .postAndGetParameters(parameters: let param, query: let query):
+    return (query, param)
     }
   }
   

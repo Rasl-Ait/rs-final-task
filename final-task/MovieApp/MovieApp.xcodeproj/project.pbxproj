@@ -277,13 +277,13 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		DC194011273581B8001F78ED /* Account */ = {
+		DC194011273581B8001F78ED /* Account And List */ = {
 			isa = PBXGroup;
 			children = (
 				DC194012273581F4001F78ED /* AccountAndListTargetType.swift */,
 				DC19401627358844001F78ED /* AccountAndListService.swift */,
 			);
-			path = Account;
+			path = "Account And List";
 			sourceTree = "<group>";
 		};
 		DC19402027359FED001F78ED /* Account */ = {
@@ -401,7 +401,7 @@
 		DC49A03C272E911500F17DE9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				DC194011273581B8001F78ED /* Account */,
+				DC194011273581B8001F78ED /* Account And List */,
 				DC194010273581AB001F78ED /* Auth */,
 				DC47F80927300122009603EE /* Params */,
 				DC49A047272EA92900F17DE9 /* APIError.swift */,

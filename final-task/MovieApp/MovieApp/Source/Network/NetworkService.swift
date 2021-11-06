@@ -42,7 +42,7 @@ final class NetworkService: HTTPClient {
       }
       
       switch http.statusCode {
-      case 200:
+      case 200...201:
           completion(.success(data))
       case 400...499:
         var message = ""

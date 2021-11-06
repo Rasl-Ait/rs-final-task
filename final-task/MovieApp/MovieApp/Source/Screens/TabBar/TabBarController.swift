@@ -28,10 +28,9 @@ final class TabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tabBar.tintColor = .tabBarDeselect
+    tabBar.barTintColor = .cellBackground
     tabBar.unselectedItemTintColor = .red
     tabBar.isTranslucent = true
-    tabBar.backgroundImage = UIImage()
-    tabBar.layer.backgroundColor = UIColor.white.cgColor
   }
   
   func appendNavigationController(_ vc: UIViewController, item: TabBarItem) {

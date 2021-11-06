@@ -82,7 +82,7 @@ struct Alert {
         textField.addTarget(target, action: selector, for: .editingChanged)
       }
     }
-    
+    alert.view.tintColor = .titleColor
     let action = UIAlertAction(title: primaryTitle.rawValue, style: .default, handler: primaryAction)
     
     let actionCancel = UIAlertAction(title: secondTitle.rawValue, style: .default, handler: secondAction)

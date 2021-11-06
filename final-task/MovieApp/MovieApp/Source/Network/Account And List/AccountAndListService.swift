@@ -19,6 +19,9 @@ protocol AccountAndListServiceProtocol {
   func markAsFavorite(
     _ param: ListFavoriteParam,
     completion: @escaping CompletionBlock<ErrorModel>)
+  func createList(
+    _ param: NewListParam,
+    completion: @escaping CompletionBlock<NewListResponce>)
 }
 
 class AccountAndListService: BaseAPI<AccountAndListTargetType>, AccountAndListServiceProtocol {
@@ -36,5 +39,9 @@ class AccountAndListService: BaseAPI<AccountAndListTargetType>, AccountAndListSe
   
   func markAsFavorite(_ param: ListFavoriteParam, completion: @escaping CompletionBlock<ErrorModel>) {
     getData(target: .markFavorite(UserDefaults.standard.accountID, param), completion: completion)
+  }
+  
+  func createList(_ param: NewListParam, completion: @escaping CompletionBlock<NewListResponce>) {
+    getData(target: .list(param), completion: completion)
   }
 }
