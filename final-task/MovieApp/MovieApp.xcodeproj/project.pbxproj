@@ -64,6 +64,7 @@
 		DC835B9E273523B700C3A209 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B99273523B700C3A209 /* ListsViewController.swift */; };
 		DC835B9F273523B700C3A209 /* ListsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B9A273523B700C3A209 /* ListsProtocols.swift */; };
 		DC835BA22735282500C3A209 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835BA12735282500C3A209 /* TabBarCoordinator.swift */; };
+		DC864CD827366C0A009BA64A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC864CD627366C0A009BA64A /* Model.xcdatamodeld */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -172,6 +173,7 @@
 		DC835B99273523B700C3A209 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		DC835B9A273523B700C3A209 /* ListsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsProtocols.swift; sourceTree = "<group>"; };
 		DC835BA12735282500C3A209 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		DC864CD727366C0A009BA64A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -435,6 +437,30 @@
 			path = Lists;
 			sourceTree = "<group>";
 		};
+		DC864CD427365043009BA64A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				DC49A04F272EE8E800F17DE9 /* AuthServiceTest.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		DC864CD527366BF6009BA64A /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				DC864CD627366C0A009BA64A /* Model.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		DC864CD927366C38009BA64A /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				DC864CD527366BF6009BA64A /* Core Data */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		DCCF8A9927299D6700933DD1 = {
 			isa = PBXGroup;
 			children = (
@@ -470,7 +496,7 @@
 				DC49A056272EE9C300F17DE9 /* Helpers */,
 				DCCF8ABC27299D6A00933DD1 /* MovieAppTests.swift */,
 				DCCF8ABE27299D6A00933DD1 /* Info.plist */,
-				DC49A04F272EE8E800F17DE9 /* AuthServiceTest.swift */,
+				DC864CD427365043009BA64A /* Auth */,
 				DC19402027359FED001F78ED /* Account */,
 			);
 			path = MovieAppTests;
@@ -508,6 +534,7 @@
 		DCCF8AD727299DC500933DD1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DC864CD927366C38009BA64A /* Storage */,
 				DCCF8AD527299DB000933DD1 /* Application */,
 				DC2B2A262734261600233F5D /* Coordinators */,
 				DC2B2A212734253D00233F5D /* DI */,
@@ -796,6 +823,7 @@
 				DC19400F27357FCA001F78ED /* ListsModel.swift in Sources */,
 				DC2B2A33273428CE00233F5D /* ScreenFactoryImpl.swift in Sources */,
 				DC194019273588BA001F78ED /* AccountModel.swift in Sources */,
+				DC864CD827366C0A009BA64A /* Model.xcdatamodeld in Sources */,
 				DC49A02D272E88C300F17DE9 /* BaseTableViewCell.swift in Sources */,
 				DCCF8B042729A26B00933DD1 /* UIImageView+Extension.swift in Sources */,
 				DCCF8B182729A30200933DD1 /* Typealias.swift in Sources */,
@@ -1196,6 +1224,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		DC864CD627366C0A009BA64A /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DC864CD727366C0A009BA64A /* Model.xcdatamodel */,
+			);
+			currentVersion = DC864CD727366C0A009BA64A /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DCCF8A9A27299D6700933DD1 /* Project object */;
 }

@@ -25,7 +25,7 @@ class AccountServiceTest: XCTestCase {
     XCTAssertEqual(sut.client.inputRequest, .queryParams("account", param: (param, nil)))
   }
   
-  func test_zRequest() {
+  func test_getListsRequest() {
     let sut = makeSUT()
     let param = [
       URLQueryItem(name: "page", value: 1.toString),
