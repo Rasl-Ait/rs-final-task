@@ -39,4 +39,26 @@ struct ListModel: Codable, Equatable {
     case name
     case posterPath = "poster_path"
   }
+  
+  func createEntity(_ model: ListEntity) {
+    model.id = Int16(id)
+    model.favoriteCount = Int16(favoriteCount)
+    model.itemCount = Int16(itemCount)
+    model.listType = listType
+    model.name = name
+    model.descr = description
+  }
+}
+
+extension ListModel {
+  static func getEntities(entity: ListEntity) -> ListModel {
+    return ListModel(description: entity.descr ?? "",
+                     favoriteCount: Int(entity.favoriteCount),
+                     id: Int(entity.id),
+                     itemCount: Int(entity.itemCount),
+                     listType: entity.listType ?? "",
+                     name: entity.name ?? "",
+                     posterPath: nil)
+    
+  }
 }

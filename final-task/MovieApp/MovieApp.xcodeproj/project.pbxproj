@@ -66,6 +66,8 @@
 		DC835BA22735282500C3A209 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835BA12735282500C3A209 /* TabBarCoordinator.swift */; };
 		DC864CD827366C0A009BA64A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC864CD627366C0A009BA64A /* Model.xcdatamodeld */; };
 		DC864CDB27366F12009BA64A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CDA27366F12009BA64A /* CoreDataStack.swift */; };
+		DC864CDD27367010009BA64A /* MoviePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CDC27367010009BA64A /* MoviePersistence.swift */; };
+		DC864CE02736703E009BA64A /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CDF2736703E009BA64A /* StorageProtocol.swift */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -176,6 +178,8 @@
 		DC835BA12735282500C3A209 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		DC864CD727366C0A009BA64A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DC864CDA27366F12009BA64A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		DC864CDC27367010009BA64A /* MoviePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePersistence.swift; sourceTree = "<group>"; };
+		DC864CDF2736703E009BA64A /* StorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -450,8 +454,10 @@
 		DC864CD527366BF6009BA64A /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				DC864CDE2736703E009BA64A /* Protocol */,
 				DC864CD627366C0A009BA64A /* Model.xcdatamodeld */,
 				DC864CDA27366F12009BA64A /* CoreDataStack.swift */,
+				DC864CDC27367010009BA64A /* MoviePersistence.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -462,6 +468,14 @@
 				DC864CD527366BF6009BA64A /* Core Data */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		DC864CDE2736703E009BA64A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				DC864CDF2736703E009BA64A /* StorageProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		DCCF8A9927299D6700933DD1 = {
@@ -781,6 +795,7 @@
 				DC835B9F273523B700C3A209 /* ListsProtocols.swift in Sources */,
 				DC2B2A202733EEC300233F5D /* CornerRadius.swift in Sources */,
 				DCCF8B022729A26B00933DD1 /* UIFont+Extension.swift in Sources */,
+				DC864CDD27367010009BA64A /* MoviePersistence.swift in Sources */,
 				DCCF8AFE2729A26B00933DD1 /* UIButton+Extension.swift in Sources */,
 				DCCF8B0B2729A26B00933DD1 /* UserDefaults+Extension.swift in Sources */,
 				DC19401527358367001F78ED /* AccountParams.swift in Sources */,
@@ -796,6 +811,7 @@
 				DCCF8B172729A30200933DD1 /* ReusableView.swift in Sources */,
 				DC2B2A082733D7D000233F5D /* CustomStackView.swift in Sources */,
 				DCCF8B062729A26B00933DD1 /* UINavigationBar+Extension.swift in Sources */,
+				DC864CE02736703E009BA64A /* StorageProtocol.swift in Sources */,
 				DCCF8B162729A30200933DD1 /* Global.swift in Sources */,
 				DCCF8B002729A26B00933DD1 /* UIColor+Extension.swift in Sources */,
 				DCCF8B152729A30200933DD1 /* Enum.swift in Sources */,
