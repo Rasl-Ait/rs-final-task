@@ -50,7 +50,20 @@ private extension ListsViewController {
   
   // MARK: - Action funcs
   @objc func plusTapped() {
-    print(#function)
+    Alert.showAlertText(on: self,
+                        title: .createList,
+                        text: .none,
+                        placeholder: TextType.newList.rawValue,
+                        editingChangedTarget: self,
+                        editingChangedSelector: #selector(alertTextFieldValueChanged(textField:))) { _ in
+      
+    } secondAction: { _ in
+      
+    }
+  }
+  
+  @objc func alertTextFieldValueChanged(textField: UITextField) {
+    print(textField.text)
   }
 }
 

@@ -2,7 +2,7 @@
 import UIKit
 
 struct Alert {
-  static func showAlertCheet(
+  static func showAlertSheet(
     on vc: UIViewController,
     title: String,
     titles: [String],
@@ -56,6 +56,36 @@ struct Alert {
     let action = UIAlertAction(title: primaryTitle.rawValue, style: .default, handler: primaryAction)
     
     let actionCancel = UIAlertAction(title: secondTitle, style: .default, handler: secondAction)
+  //  action.setValue(UIColor.red, forKey: "titleTextColor")
+    alert.addAction(actionCancel)
+    alert.addAction(action)
+    DispatchQueue.main.async {
+      vc.present(alert, animated: true, completion: nil)
+    }
+  }
+  
+  static func showAlertText(
+    on vc: UIViewController,
+    title: AlertTitleType,
+    text: AlertMessageType = .none,
+    primaryTitle: AlertButton = .yes,
+    secondTitle: AlertButton = .cancel,
+    placeholder: String? = nil,
+    editingChangedTarget: Any?,
+    editingChangedSelector: Selector?,
+    primaryAction: ((UIAlertAction) -> Void)?,
+    secondAction: ((UIAlertAction) -> Void)?) {
+    let alert = UIAlertController(title: title.rawValue, message: text.rawValue, preferredStyle: .alert)
+    alert.addTextField { textField in
+      textField.placeholder = placeholder
+      if let target = editingChangedTarget, let selector = editingChangedSelector {
+        textField.addTarget(target, action: selector, for: .editingChanged)
+      }
+    }
+    
+    let action = UIAlertAction(title: primaryTitle.rawValue, style: .default, handler: primaryAction)
+    
+    let actionCancel = UIAlertAction(title: secondTitle.rawValue, style: .default, handler: secondAction)
   //  action.setValue(UIColor.red, forKey: "titleTextColor")
     alert.addAction(actionCancel)
     alert.addAction(action)

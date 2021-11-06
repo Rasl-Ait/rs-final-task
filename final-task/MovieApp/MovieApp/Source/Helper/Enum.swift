@@ -11,6 +11,7 @@ enum TextType: String {
   case login
   case password
   case signIn = "Sign In"
+  case newList = "Enter new list"
 }
 
 enum AlertMessageType: String {
@@ -28,12 +29,7 @@ enum AlertMessageType: String {
 enum AlertTitleType: String {
   case warning = "Warning"
   case attention = "Attention"
-  case walletsTitle = "Wallet name field cannot be empty"
-  case walletExists = "A wallet with the same name already exists"
-  case note = "Note length must not exceed 250 characters"
-  case transactionTitle = "The length of the transaction name must not exceed 20 characters"
-  case transactionTitleEmpty = "Transaction name field cannot be empty"
-  case transactionValue = "Transaction value must be non-zero"
+  case createList = "Created new list"
 }
 
 enum IconType: String {
@@ -109,6 +105,6 @@ enum SegmentType: Int {
 }
 
 enum AlertButton: String {
-  case aContinue = "Continue"
+  case cancel = "Cancel"
   case yes = "Yes"
 }
