@@ -11,6 +11,7 @@ import CocoaLumberjackSwift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   private lazy var appFactory: AppFactory = Di()
+  private let coreDataTask = CoreDataStack(modelName: "Model")
   var window: UIWindow?
   
   func scene(
@@ -43,6 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
   
   func sceneDidEnterBackground(_ scene: UIScene) {
+    coreDataTask.saveContext()
   }
   
   private func setupLogger() {

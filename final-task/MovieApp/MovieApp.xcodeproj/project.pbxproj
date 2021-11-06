@@ -65,6 +65,7 @@
 		DC835B9F273523B700C3A209 /* ListsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B9A273523B700C3A209 /* ListsProtocols.swift */; };
 		DC835BA22735282500C3A209 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835BA12735282500C3A209 /* TabBarCoordinator.swift */; };
 		DC864CD827366C0A009BA64A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC864CD627366C0A009BA64A /* Model.xcdatamodeld */; };
+		DC864CDB27366F12009BA64A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CDA27366F12009BA64A /* CoreDataStack.swift */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -174,6 +175,7 @@
 		DC835B9A273523B700C3A209 /* ListsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsProtocols.swift; sourceTree = "<group>"; };
 		DC835BA12735282500C3A209 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		DC864CD727366C0A009BA64A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DC864CDA27366F12009BA64A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				DC864CD627366C0A009BA64A /* Model.xcdatamodeld */,
+				DC864CDA27366F12009BA64A /* CoreDataStack.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 				DCCF8B162729A30200933DD1 /* Global.swift in Sources */,
 				DCCF8B002729A26B00933DD1 /* UIColor+Extension.swift in Sources */,
 				DCCF8B152729A30200933DD1 /* Enum.swift in Sources */,
+				DC864CDB27366F12009BA64A /* CoreDataStack.swift in Sources */,
 				DC49A02C272E88C300F17DE9 /* BaseCollectionViewCell.swift in Sources */,
 				DC194013273581F4001F78ED /* AccountTargetType.swift in Sources */,
 				DC19401D27358A80001F78ED /* ErrorModel.swift in Sources */,
