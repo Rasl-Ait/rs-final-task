@@ -25,8 +25,8 @@ extension UIImage {
     UIImage(named: type.rawValue) ?? UIImage()
   }
   
-  static func setImage(_ type: SFSymbolConstants) -> UIImage {
-    UIImage(systemName: type.rawValue) ?? UIImage()
+  static func setImage(_ type: SFSymbolConstants, configuration: UIImage.SymbolConfiguration = UIImage.SymbolConfiguration.init(scale: .large)) -> UIImage {
+    return UIImage(systemName: type.rawValue, withConfiguration: configuration) ?? UIImage()
   }
   
   func toString() -> String? {

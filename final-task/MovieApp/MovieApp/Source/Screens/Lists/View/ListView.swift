@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+protocol ListViewDelegate: AnyObject {
+  func fetchItems()
+  func openUserDetailsView(row: Int)
+}
+
 final class ListView: UIView {
   
   // MARK: - Properties
@@ -26,6 +31,10 @@ final class ListView: UIView {
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  func addList(_ items: [ListModel]) {
+    dataSource.addItems(items, in: collectionView)
   }
 }
 
@@ -77,7 +86,7 @@ private extension ListView {
 private extension ListView {
   func setupDataSource() {
     dataSource.onConfigureCell = { cell, model in
-      cell.backgroundColor = .red
+      cell.configure(model: model)
       return cell
     }
     

@@ -16,6 +16,10 @@ class ListCollectionCell: BaseCollectionViewCell {
   override func addSubViews() {
     setupViews()
   }
+  
+  func configure(model: ListModel) {
+    cellView.configure(model)
+  }
 }
 
 // MARK: - Private ListCollectionCell
@@ -56,4 +60,3 @@ struct ListCollectionController_Preview: PreviewProvider {
   }
 }
 #endif
-

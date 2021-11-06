@@ -9,10 +9,34 @@
 import Foundation
 
 final class ListsPresenter: ListsViewOutput {
-	weak var view: ListsViewInput?
+  weak var view: ListsViewInput?
   weak var coordinator: ListsCoordinatorProtocol?
-	
-	init(view: ListsViewInput) {
-		self.view = view
-	}
+  
+  private(set) var lists: [ListModel] = []
+  
+  let service: AccountServiceProtocol
+  var page = 1
+  
+  init(view: ListsViewInput, service: AccountServiceProtocol) {
+    self.view = view
+    self.service = service
+  }
+  
+  func getLists() {
+    view?.showIndicator()
+    service.getLists(page) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let item):
+        mainQueue {
+          self.lists = item.results
+          self.view?.success(items: item.results)
+        }
+      case .failure(let error):
+        mainQueue {
+          self.view?.failure(error: error)
+        }
+      }
+    }
+  }
 }

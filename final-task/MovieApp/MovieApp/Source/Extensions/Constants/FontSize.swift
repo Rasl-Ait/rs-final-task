@@ -23,4 +23,5 @@ extension FontSize {
   static var fontL: Self { Self(20.0) }
   static var fontXL: Self { Self(22.0) }
   static var fontXXL: Self { Self(24.0) }
+  static var fontXXXL: Self { Self(30.0) }
 }

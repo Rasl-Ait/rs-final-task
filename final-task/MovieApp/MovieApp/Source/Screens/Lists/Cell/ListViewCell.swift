@@ -30,7 +30,8 @@ final class ListViewCell: UIView {
   }
   
   func configure(_ model: ListModel) {
-
+    nameLabel.text = model.name
+    countLabel.text = "\(model.itemCount) items"
   }
 }
 
@@ -38,7 +39,8 @@ final class ListViewCell: UIView {
 private extension ListViewCell {
   func setupView() {
     backgroundColor = .cellBackground
-    addShadow(ofColor: .black, radius: .spacingSM, offset: .zero, opacity: 0.15)
+    layer.cornerRadius = .spacingSM
+    addShadow(ofColor: .black, radius: 1, offset: CGSize(width: 0, height: 2), opacity: 0.15)
     apperence()
     setupLayoutUI()
   }
@@ -53,7 +55,7 @@ private extension ListViewCell {
       $0.top.equalToSuperview().offset(15)
       $0.leading.equalTo(stackView.snp.trailing).offset(15)
       $0.trailing.equalToSuperview().inset(15)
-      $0.height.width.equalTo(24)
+      $0.height.width.equalTo(30)
     }
     
     stackView.snp.makeConstraints {
@@ -69,7 +71,7 @@ private extension ListViewCell {
     let view = UILabel(
       "List", alignment: .left,
       color: .titleColor ?? .black,
-      fontName: .avenir(.fontML, .Regular)
+      fontName: .avenir(.fontXL, .Regular)
     )
     return view
   }
@@ -78,20 +80,22 @@ private extension ListViewCell {
     let view = UILabel(
       "2 items", alignment: .left,
       color: .cellTitle ?? .black,
-      fontName: .avenir(.fontXS, .Regular)
+      fontName: .avenir(.fontM, .Regular)
     )
     return view
   }
   
   func makeStackView() -> UIStackView {
-    let view = CustomStackView(axis: .vertical, spacing: 5)
+    let view = CustomStackView(axis: .vertical, spacing: .spacingXXS)
     view.addArrangedSubview(nameLabel)
     view.addArrangedSubview(countLabel)
     return view
   }
   
   func makeRemoveButton() -> UIButton {
-    let view = CustomButton(.setImage(.delete), highlightedImage: .setImage(.delete))
+    let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 50))
+    let view = CustomButton(.setImage(.delete, configuration: config), highlightedImage: .setImage(.delete, configuration: config))
+    view.tintColor = .systemRed
     return view
   }
 }

@@ -12,7 +12,6 @@ class CustomButton: UIButton {
     super.init(frame: .zero)    
     setImage(image, for: .normal)
     setImage(highlightedImage, for: .highlighted)
-    tintColor = .red
   }
   
   required init?(coder: NSCoder) {

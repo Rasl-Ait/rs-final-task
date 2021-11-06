@@ -32,6 +32,5 @@ extension ListsCoordinator: ListsCoordinatorProtocol {
    func pushLists() {
     let viewController = screenFactory.makeListsScreen(self)
     tabBarViewController.appendNavigationController(viewController, item: .home)
-
   }
 }

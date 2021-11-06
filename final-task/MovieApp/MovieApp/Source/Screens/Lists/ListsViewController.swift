@@ -28,11 +28,13 @@ private extension ListsViewController {
     configureNavigationBar()
     apperance()
     setupLayoutUI()
+    presenter.getLists()
   }
   
   func configureNavigationBar() {
     navigationItem.title = "Lists"
-    let plusBarButtonItem = UIBarButtonItem(image: .setImage(.plus), style: .plain, target: self, action: #selector(plusTapped))
+    let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 30))
+    let plusBarButtonItem = UIBarButtonItem(image: .setImage(.plus, configuration: config), style: .plain, target: self, action: #selector(plusTapped))
     navigationItem.rightBarButtonItem = plusBarButtonItem
   }
   
@@ -62,7 +64,9 @@ private extension ListsViewController {
 
 // MARK: - ListsViewInput
 extension ListsViewController: ListsViewInput {
-	func success() {}
+  func success(items: [ListModel]) {
+    listView.addList(items)
+  }
 	func failure(error: Error) {}
 	func hideIndicator() {}
 	func showIndicator() {}
