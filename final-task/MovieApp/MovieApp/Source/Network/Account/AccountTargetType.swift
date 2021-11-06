@@ -27,7 +27,7 @@ extension AccountTargetType: TargetType {
     case .lists(let id, _):
       return "account/\(id)/lists"
     case .markFavorite(let id, _):
-      return "account/\(id)/favorite?session_id=1beaf79c606e6c534c2280f4104d91bec9abfbd8"
+      return "account/\(id)/favorite"
     case .movieFavorite(let id, _):
       return "account/\(id)/favorite/movies"
     }

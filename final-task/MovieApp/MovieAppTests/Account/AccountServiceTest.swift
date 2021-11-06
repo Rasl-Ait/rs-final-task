@@ -56,15 +56,11 @@ class AccountServiceTest: XCTestCase {
 
   func test_markAsFavoriteRequest() {
     let sut = makeSUT()
-    let queryParam = [
-      URLQueryItem(name: "session_id", value: sessionID)
-    ]
-    
     let param = ListFavoriteParam(mediaType: "movie", mediaID: 550, favorite: true)
 
     sut.service.markAsFavorite(param) { _ in }
     XCTAssertTrue(sut.client.executeCalled)
-    let request: URLRequest = .queryParams("account/\(accountID)/favorite?session_id=1beaf79c606e6c534c2280f4104d91bec9abfbd8",
+    let request: URLRequest = .queryParams("account/\(accountID)/favorite",
                                            param: ([], param),
                                            httpMethod: .post)
     XCTAssertEqual(sut.client.inputRequest, request)
