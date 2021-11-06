@@ -140,9 +140,9 @@ class AccountServiceTest: XCTestCase {
     XCTAssertEqual(result?.value, item)
   }
   
-  private func makeSUT() -> (service: AccountService, client: MockHTTPClient) {
+  private func makeSUT() -> (service: AccountAndListService, client: MockHTTPClient) {
     let httpClient = MockHTTPClient()
-    let sut = AccountService(client: httpClient)
+    let sut = AccountAndListService(client: httpClient)
     return (sut, httpClient)
   }
   

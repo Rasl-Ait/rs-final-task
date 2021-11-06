@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AccountServiceProtocol {
+protocol AccountAndListServiceProtocol {
   func getAccount(
     _ completion: @escaping CompletionBlock<AccountModel>)
   func getLists(
@@ -21,7 +21,7 @@ protocol AccountServiceProtocol {
     completion: @escaping CompletionBlock<ErrorModel>)
 }
 
-class AccountService: BaseAPI<AccountTargetType>, AccountServiceProtocol {
+class AccountAndListService: BaseAPI<AccountAndListTargetType>, AccountAndListServiceProtocol {
   func getAccount(_ completion: @escaping CompletionBlock<AccountModel>) {
     getData(target: .account, completion: completion)
   }

@@ -19,7 +19,7 @@ final class ScreenFactoryImpl: ScreenFactory {
   
   func makeListsScreen(_ coordinator: ListsCoordinatorProtocol) -> ListsViewController {
     let vc = ListsViewController()
-    let service = AccountService(client: NetworkService())
+    let service = AccountAndListService(client: NetworkService())
     let presenter = ListsPresenter(view: vc, service: service)
     presenter.coordinator = coordinator
     vc.presenter = presenter

@@ -1,5 +1,5 @@
 //
-//  AccountTargetType.swift
+//  AccountListTargetType.swift
 //  MovieApp
 //
 //  Created by rasul on 11/5/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AccountTargetType {
+enum AccountAndListTargetType {
   enum Constant {
     static let account = "account"
   }
@@ -19,7 +19,7 @@ enum AccountTargetType {
 
 }
 
-extension AccountTargetType: TargetType {
+extension AccountAndListTargetType: TargetType {
   var path: String {
     switch self {
     case .account:

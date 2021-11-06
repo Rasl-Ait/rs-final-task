@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		DC19400C27356180001F78ED /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19400B27356180001F78ED /* DI.swift */; };
 		DC19400F27357FCA001F78ED /* ListsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19400E27357FCA001F78ED /* ListsModel.swift */; };
-		DC194013273581F4001F78ED /* AccountTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC194012273581F4001F78ED /* AccountTargetType.swift */; };
+		DC194013273581F4001F78ED /* AccountAndListTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC194012273581F4001F78ED /* AccountAndListTargetType.swift */; };
 		DC19401527358367001F78ED /* AccountParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401427358367001F78ED /* AccountParams.swift */; };
-		DC19401727358844001F78ED /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401627358844001F78ED /* AccountService.swift */; };
+		DC19401727358844001F78ED /* AccountAndListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401627358844001F78ED /* AccountAndListService.swift */; };
 		DC194019273588BA001F78ED /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC194018273588BA001F78ED /* AccountModel.swift */; };
 		DC19401B27358A0A001F78ED /* FavoriteMovieResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401A27358A0A001F78ED /* FavoriteMovieResponce.swift */; };
 		DC19401D27358A80001F78ED /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401C27358A80001F78ED /* ErrorModel.swift */; };
@@ -133,9 +133,9 @@
 /* Begin PBXFileReference section */
 		DC19400B27356180001F78ED /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		DC19400E27357FCA001F78ED /* ListsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsModel.swift; sourceTree = "<group>"; };
-		DC194012273581F4001F78ED /* AccountTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTargetType.swift; sourceTree = "<group>"; };
+		DC194012273581F4001F78ED /* AccountAndListTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAndListTargetType.swift; sourceTree = "<group>"; };
 		DC19401427358367001F78ED /* AccountParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountParams.swift; sourceTree = "<group>"; };
-		DC19401627358844001F78ED /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		DC19401627358844001F78ED /* AccountAndListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAndListService.swift; sourceTree = "<group>"; };
 		DC194018273588BA001F78ED /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		DC19401A27358A0A001F78ED /* FavoriteMovieResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieResponce.swift; sourceTree = "<group>"; };
 		DC19401C27358A80001F78ED /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
@@ -280,8 +280,8 @@
 		DC194011273581B8001F78ED /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				DC194012273581F4001F78ED /* AccountTargetType.swift */,
-				DC19401627358844001F78ED /* AccountService.swift */,
+				DC194012273581F4001F78ED /* AccountAndListTargetType.swift */,
+				DC19401627358844001F78ED /* AccountAndListService.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -875,7 +875,7 @@
 				DC864CDB27366F12009BA64A /* CoreDataStack.swift in Sources */,
 				DC49A02C272E88C300F17DE9 /* BaseCollectionViewCell.swift in Sources */,
 				DC864CE627368D96009BA64A /* ListView.swift in Sources */,
-				DC194013273581F4001F78ED /* AccountTargetType.swift in Sources */,
+				DC194013273581F4001F78ED /* AccountAndListTargetType.swift in Sources */,
 				DC19401D27358A80001F78ED /* ErrorModel.swift in Sources */,
 				DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */,
 				DC49A040272E939800F17DE9 /* AuthTargetType.swift in Sources */,
@@ -894,7 +894,7 @@
 				DC19400C27356180001F78ED /* DI.swift in Sources */,
 				DC835B9C273523B700C3A209 /* ListsPresenter.swift in Sources */,
 				DC49A03E272E92F200F17DE9 /* TargetType.swift in Sources */,
-				DC19401727358844001F78ED /* AccountService.swift in Sources */,
+				DC19401727358844001F78ED /* AccountAndListService.swift in Sources */,
 				DC2B2A1C2733EEA200233F5D /* Spacing.swift in Sources */,
 				DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */,
 				DCCF8AFF2729A26B00933DD1 /* UICollectionView+Extension.swift in Sources */,

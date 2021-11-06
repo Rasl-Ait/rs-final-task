@@ -14,10 +14,10 @@ final class ListsPresenter: ListsViewOutput {
   
   private(set) var lists: [ListModel] = []
   
-  let service: AccountServiceProtocol
+  let service: AccountAndListServiceProtocol
   var page = 1
   
-  init(view: ListsViewInput, service: AccountServiceProtocol) {
+  init(view: ListsViewInput, service: AccountAndListServiceProtocol) {
     self.view = view
     self.service = service
   }
