@@ -17,9 +17,8 @@ final class ListView: UIView {
   
   // MARK: - Properties
   private lazy var collectionView = makeCollectionView()
-  
   private lazy var dataSource = configureDataSource()
-  private var lists: [ListModel] = []
+
   
   // MARK: - Closure
   
@@ -39,8 +38,7 @@ final class ListView: UIView {
   }
   
   func addList(_ items: [ListModel]) {
-    lists = items
-    updateSnapshot()
+    updateSnapshot(items)
   }
 }
 
@@ -68,19 +66,28 @@ private extension ListView {
 
 // MARK: - Setup UI
 private extension ListView {
-  func makeFlowLayout() -> UICollectionViewFlowLayout {
-    let view = UICollectionViewFlowLayout()
-    view.scrollDirection = .vertical
-    view.minimumLineSpacing = 20
-    view.sectionInset = UIEdgeInsets(topBottom: 20)
-    let cellWidth = floor(UIScreen.width - 44)
-    let cellHeight: CGFloat = .marginXXXL * 2
-    view.itemSize = CGSize(width: cellWidth, height: cellHeight)
-    return view
+  func configureCollectionViewLayout() -> UICollectionViewCompositionalLayout {
+    let sectionProvider = { (_: Int, _: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+      
+      let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(.marginXXXL * 2.2))
+      let item = NSCollectionLayoutItem(layoutSize: itemSize)
+      // item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+      
+      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1))
+      let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+      
+      let section = NSCollectionLayoutSection(group: group)
+      section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)
+      section.interGroupSpacing = 20
+      
+      return section
+    }
+    
+    return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
   }
   
   func makeCollectionView() -> UICollectionView {
-    let view = UICollectionView(frame: .zero, collectionViewLayout: makeFlowLayout())
+    let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
     view.disableAutoresizingMask()
     view.backgroundColor = .clear
     view.showsVerticalScrollIndicator = false
@@ -102,12 +109,10 @@ private extension ListView {
       return dataSource
   }
   
-  func updateSnapshot(animatingChange: Bool = false) {
-   
-      // Create a snapshot and populate the data
+  func updateSnapshot(_ items: [ListModel], animatingChange: Bool = false) {
       var snapshot = NSDiffableDataSourceSnapshot<Section, ListModel>()
       snapshot.appendSections([.all])
-      snapshot.appendItems(lists, toSection: .all)
+      snapshot.appendItems(items, toSection: .all)
    
       dataSource.apply(snapshot, animatingDifferences: false)
   }
