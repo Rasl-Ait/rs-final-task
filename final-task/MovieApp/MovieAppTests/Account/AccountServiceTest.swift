@@ -86,6 +86,21 @@ class AccountServiceTest: XCTestCase {
     XCTAssertEqual(sut.client.inputRequest, request)
   }
 
+  func test_deleteListRequest() {
+    let sut = makeSUT()
+
+    let query = [
+      URLQueryItem(name: "session_id", value: sessionID)
+    ]
+    
+    sut.service.deleteList(10){  _ in }
+    XCTAssertTrue(sut.client.executeCalled)
+    let request: URLRequest = .queryParams("list/10",
+                                           param: (query, nil),
+                                           httpMethod: .delete)
+    XCTAssertEqual(sut.client.inputRequest, request)
+  }
+  
   func test_getAccountRequestSuccessResponse() throws {
 
     let results = getResponce(file: "Account", type: AccountModel.self)
@@ -173,6 +188,19 @@ class AccountServiceTest: XCTestCase {
     var result: Result<NewListResponce, APIError>?
 
     sut.service.createList(param) { result = $0 }
+    XCTAssertEqual(result?.value, item)
+  }
+  
+  func test_deleteListSuccessResponse() throws {
+    let item = SuccessErrorModel(statusCode: 12, statusMessage: "The item/record was updated successfully")
+    let response = try JSONEncoder().encode(item)
+
+    let sut = makeSUT()
+    sut.client.result = .success(response)
+
+    var result: Result<SuccessErrorModel, APIError>?
+
+    sut.service.deleteList(10) { result = $0 }
     XCTAssertEqual(result?.value, item)
   }
   
