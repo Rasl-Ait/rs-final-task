@@ -85,7 +85,7 @@ private extension AuthView {
     view.layer.cornerRadius = CornerRadius.logoViewRadius
     view.addShadow(
       ofColor: .black,
-      radius: 1, offset: .zero,
+      radius: 1, offset: CGSize(width: 0, height: 2),
       opacity: 0.15
     )
     return view

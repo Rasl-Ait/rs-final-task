@@ -18,11 +18,16 @@ final class ListView: UIView {
   // MARK: - Properties
   private lazy var collectionView = makeCollectionView()
   
-  private var dataSource = GenericCollectionDataSource<ListModel, ListCollectionCell>()
+  private lazy var dataSource = configureDataSource()
+  private var lists: [ListModel] = []
   
   // MARK: - Closure
   
   // MARK: - Overriden funcs
+  
+  enum Section {
+      case all
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -34,7 +39,8 @@ final class ListView: UIView {
   }
   
   func addList(_ items: [ListModel]) {
-    dataSource.addItems(items, in: collectionView)
+    lists = items
+    updateSnapshot()
   }
 }
 
@@ -43,8 +49,9 @@ private extension ListView {
   func setupView() {
     backgroundColor = .background
     apperance()
-    setupDataSource()
     setupLayoutUI()
+    
+    collectionView.dataSource = dataSource
   }
   
   func apperance() {
@@ -84,13 +91,25 @@ private extension ListView {
 
 // MARK: - Data Source
 private extension ListView {
-  func setupDataSource() {
-    dataSource.onConfigureCell = { cell, model in
+  func configureDataSource() -> UICollectionViewDiffableDataSource<Section, ListModel> {
+    let dataSource = UICollectionViewDiffableDataSource<Section, ListModel>(
+      collectionView: collectionView) { collectionView, indexPath, model in
+      let cell: ListCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
       cell.configure(model: model)
       return cell
     }
     
-    collectionView.registerDataSourceDelegate(with: dataSource)
+      return dataSource
+  }
+  
+  func updateSnapshot(animatingChange: Bool = false) {
+   
+      // Create a snapshot and populate the data
+      var snapshot = NSDiffableDataSourceSnapshot<Section, ListModel>()
+      snapshot.appendSections([.all])
+      snapshot.appendItems(lists, toSection: .all)
+   
+      dataSource.apply(snapshot, animatingDifferences: false)
   }
 }
 

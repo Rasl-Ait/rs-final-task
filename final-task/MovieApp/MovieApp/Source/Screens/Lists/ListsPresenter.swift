@@ -30,7 +30,6 @@ final class ListsPresenter: ListsViewOutput {
       switch result {
       case .success(let item):
         mainQueue {
-          self.lists = item.results
           self.view?.success(items: item.results)
         }
       case .failure(let error):

@@ -21,7 +21,7 @@ struct ListResponce: Codable, Equatable {
   }
 }
 
-struct ListModel: Codable, Equatable {
+struct ListModel: Codable, Equatable, Hashable {
   let description: String
   let favoriteCount: Int
   let id: Int

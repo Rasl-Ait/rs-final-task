@@ -70,8 +70,6 @@
 		DC864CE02736703E009BA64A /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CDF2736703E009BA64A /* StorageProtocol.swift */; };
 		DC864CE3273673A2009BA64A /* MoviePersistenceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CE2273673A2009BA64A /* MoviePersistenceTest.swift */; };
 		DC864CE627368D96009BA64A /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CE527368D96009BA64A /* ListView.swift */; };
-		DC864CEA273690B2009BA64A /* BasicDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CE8273690B2009BA64A /* BasicDataSource.swift */; };
-		DC864CEB273690B2009BA64A /* GenericCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CE9273690B2009BA64A /* GenericCollectionDataSource.swift */; };
 		DC864CEE27369380009BA64A /* ListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CED27369380009BA64A /* ListCollectionCell.swift */; };
 		DC864CF027369421009BA64A /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CEF27369421009BA64A /* ListViewCell.swift */; };
 		DC864CF2273697B1009BA64A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CF1273697B1009BA64A /* CustomButton.swift */; };
@@ -190,8 +188,6 @@
 		DC864CDF2736703E009BA64A /* StorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		DC864CE2273673A2009BA64A /* MoviePersistenceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePersistenceTest.swift; sourceTree = "<group>"; };
 		DC864CE527368D96009BA64A /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		DC864CE8273690B2009BA64A /* BasicDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDataSource.swift; sourceTree = "<group>"; };
-		DC864CE9273690B2009BA64A /* GenericCollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCollectionDataSource.swift; sourceTree = "<group>"; };
 		DC864CED27369380009BA64A /* ListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionCell.swift; sourceTree = "<group>"; };
 		DC864CEF27369421009BA64A /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		DC864CF1273697B1009BA64A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -513,15 +509,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		DC864CE7273690B2009BA64A /* Generic Data Source */ = {
-			isa = PBXGroup;
-			children = (
-				DC864CE8273690B2009BA64A /* BasicDataSource.swift */,
-				DC864CE9273690B2009BA64A /* GenericCollectionDataSource.swift */,
-			);
-			path = "Generic Data Source";
-			sourceTree = "<group>";
-		};
 		DC864CEC27369374009BA64A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,7 +592,6 @@
 		DCCF8AD727299DC500933DD1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				DC864CE7273690B2009BA64A /* Generic Data Source */,
 				DC864CD927366C38009BA64A /* Storage */,
 				DCCF8AD527299DB000933DD1 /* Application */,
 				DC2B2A262734261600233F5D /* Coordinators */,
@@ -905,7 +891,6 @@
 				DC864CD827366C0A009BA64A /* Model.xcdatamodeld in Sources */,
 				DC49A02D272E88C300F17DE9 /* BaseTableViewCell.swift in Sources */,
 				DCCF8B042729A26B00933DD1 /* UIImageView+Extension.swift in Sources */,
-				DC864CEA273690B2009BA64A /* BasicDataSource.swift in Sources */,
 				DC864CF2273697B1009BA64A /* CustomButton.swift in Sources */,
 				DCCF8B182729A30200933DD1 /* Typealias.swift in Sources */,
 				DC2B2A3827342BBA00233F5D /* AuthPresenter.swift in Sources */,
@@ -921,7 +906,6 @@
 				DC2B2A3A27342BBA00233F5D /* AuthProtocols.swift in Sources */,
 				DC864CF027369421009BA64A /* ListViewCell.swift in Sources */,
 				DCCF8AF72729A26B00933DD1 /* Date+Extension.swift in Sources */,
-				DC864CEB273690B2009BA64A /* GenericCollectionDataSource.swift in Sources */,
 				DCCF8AFC2729A26B00933DD1 /* TimeInterval+Extension.swift in Sources */,
 				DC2B29F02733C8CA00233F5D /* AuthView.swift in Sources */,
 				DC2B2A2A2734267C00233F5D /* AppCoordinator.swift in Sources */,
