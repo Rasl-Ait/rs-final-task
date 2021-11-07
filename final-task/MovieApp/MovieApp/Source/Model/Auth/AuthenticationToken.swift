@@ -19,7 +19,7 @@ struct AuthenticationToken: Codable, Equatable {
   }
 }
 
-struct AuthenticationSession: Codable, Equatable  {
+struct AuthenticationSession: Codable, Equatable {
   let success: Bool
   let sessionId: String?
 

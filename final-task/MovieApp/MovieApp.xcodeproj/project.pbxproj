@@ -75,6 +75,7 @@
 		DC864CF2273697B1009BA64A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CF1273697B1009BA64A /* CustomButton.swift */; };
 		DC864CF52736C849009BA64A /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = DC864CF42736C849009BA64A /* MBProgressHUD */; };
 		DCC91BC32737E6C800F0E322 /* ListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BC22737E6C800F0E322 /* ListEntity.swift */; };
+		DCC91BC52737F87100F0E322 /* ListDetailResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BC42737F87100F0E322 /* ListDetailResponce.swift */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -193,6 +194,7 @@
 		DC864CEF27369421009BA64A /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		DC864CF1273697B1009BA64A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		DCC91BC22737E6C800F0E322 /* ListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntity.swift; sourceTree = "<group>"; };
+		DCC91BC42737F87100F0E322 /* ListDetailResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailResponce.swift; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				DC19400E27357FCA001F78ED /* ListsModel.swift */,
 				DC194018273588BA001F78ED /* AccountModel.swift */,
 				DC19401C27358A80001F78ED /* SuccessErrorModel.swift */,
+				DCC91BC42737F87100F0E322 /* ListDetailResponce.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -424,8 +427,8 @@
 		DC49A044272EA67D00F17DE9 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				DC49A045272EA72E00F17DE9 /* AuthenticationToken.swift */,
 				DC19401A27358A0A001F78ED /* FavoriteMovieResponce.swift */,
+				DC49A045272EA72E00F17DE9 /* AuthenticationToken.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -864,6 +867,7 @@
 				DC2B2A172733DB3600233F5D /* LoginPasswordTextField.swift in Sources */,
 				DCCF8B172729A30200933DD1 /* ReusableView.swift in Sources */,
 				DC2B2A082733D7D000233F5D /* CustomStackView.swift in Sources */,
+				DCC91BC52737F87100F0E322 /* ListDetailResponce.swift in Sources */,
 				DCCF8B062729A26B00933DD1 /* UINavigationBar+Extension.swift in Sources */,
 				DC864CE02736703E009BA64A /* StorageProtocol.swift in Sources */,
 				DCCF8B162729A30200933DD1 /* Global.swift in Sources */,

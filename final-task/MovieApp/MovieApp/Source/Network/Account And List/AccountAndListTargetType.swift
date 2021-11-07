@@ -18,6 +18,7 @@ enum AccountAndListTargetType {
   case movieFavorite(Int, Int)
   case list(NewListParam)
   case listDelete(Int)
+  case listDetail(Int)
 }
 
 extension AccountAndListTargetType: TargetType {
@@ -35,12 +36,14 @@ extension AccountAndListTargetType: TargetType {
       return "list"
     case .listDelete(let id):
       return "list/\(id)"
+    case .listDetail(let id):
+      return "list/\(id)"
     }
   }
   
   var method: HTTPMethod {
     switch self {
-    case .account, .lists, .movieFavorite:
+    case .account, .lists, .movieFavorite, .listDetail:
       return .get
     case .markFavorite, .list:
       return .post
@@ -81,6 +84,8 @@ extension AccountAndListTargetType: TargetType {
         URLQueryItem(name: "session_id", value: UserDefaults.standard.sessionID)
       ]
       return .urlQueryParameters(parameters: param)
+    case .listDetail:
+      return .requestPlain
     }
   }
 }
