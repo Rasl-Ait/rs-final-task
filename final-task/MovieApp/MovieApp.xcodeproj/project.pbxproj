@@ -77,6 +77,10 @@
 		DCC91BC32737E6C800F0E322 /* ListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BC22737E6C800F0E322 /* ListEntity.swift */; };
 		DCC91BC52737F87100F0E322 /* ListDetailResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BC42737F87100F0E322 /* ListDetailResponce.swift */; };
 		DCC91BC92737F96400F0E322 /* ListDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = DCC91BC82737F96400F0E322 /* ListDetail.json */; };
+		DCC91BCF2737FAD800F0E322 /* ListDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BCA2737FAD800F0E322 /* ListDetailPresenter.swift */; };
+		DCC91BD12737FAD800F0E322 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BCC2737FAD800F0E322 /* ListDetailViewController.swift */; };
+		DCC91BD22737FAD800F0E322 /* ListDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BCD2737FAD800F0E322 /* ListDetailProtocols.swift */; };
+		DCC91BD72737FCB600F0E322 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BD62737FCB600F0E322 /* ListDetailView.swift */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -197,6 +201,10 @@
 		DCC91BC22737E6C800F0E322 /* ListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntity.swift; sourceTree = "<group>"; };
 		DCC91BC42737F87100F0E322 /* ListDetailResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailResponce.swift; sourceTree = "<group>"; };
 		DCC91BC82737F96400F0E322 /* ListDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ListDetail.json; sourceTree = "<group>"; };
+		DCC91BCA2737FAD800F0E322 /* ListDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailPresenter.swift; sourceTree = "<group>"; };
+		DCC91BCC2737FAD800F0E322 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		DCC91BCD2737FAD800F0E322 /* ListDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailProtocols.swift; sourceTree = "<group>"; };
+		DCC91BD62737FCB600F0E322 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -535,6 +543,25 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		DCC91BD42737FAE400F0E322 /* List Detail */ = {
+			isa = PBXGroup;
+			children = (
+				DCC91BD52737FCAD00F0E322 /* View */,
+				DCC91BCC2737FAD800F0E322 /* ListDetailViewController.swift */,
+				DCC91BCA2737FAD800F0E322 /* ListDetailPresenter.swift */,
+				DCC91BCD2737FAD800F0E322 /* ListDetailProtocols.swift */,
+			);
+			path = "List Detail";
+			sourceTree = "<group>";
+		};
+		DCC91BD52737FCAD00F0E322 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DCC91BD62737FCB600F0E322 /* ListDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DCCF8A9927299D6700933DD1 = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +629,7 @@
 				DC835B8F27350BD800C3A209 /* TabBar */,
 				DC49A028272E88C300F17DE9 /* Base */,
 				DC2B29ED2733C8A200233F5D /* Auth */,
+				DCC91BD42737FAE400F0E322 /* List Detail */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -858,6 +886,7 @@
 				DCCF8B022729A26B00933DD1 /* UIFont+Extension.swift in Sources */,
 				DC864CDD27367010009BA64A /* MoviePersistence.swift in Sources */,
 				DCCF8AFE2729A26B00933DD1 /* UIButton+Extension.swift in Sources */,
+				DCC91BD72737FCB600F0E322 /* ListDetailView.swift in Sources */,
 				DCCF8B0B2729A26B00933DD1 /* UserDefaults+Extension.swift in Sources */,
 				DC19401527358367001F78ED /* AccountParams.swift in Sources */,
 				DC49A02E272E88C300F17DE9 /* BaseViewController.swift in Sources */,
@@ -885,6 +914,7 @@
 				DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */,
 				DCC91BC32737E6C800F0E322 /* ListEntity.swift in Sources */,
 				DC49A040272E939800F17DE9 /* AuthTargetType.swift in Sources */,
+				DCC91BD12737FAD800F0E322 /* ListDetailViewController.swift in Sources */,
 				DC47F80B27300135009603EE /* AuthParams.swift in Sources */,
 				DCCF8B132729A30200933DD1 /* Alert.swift in Sources */,
 				DC864CEE27369380009BA64A /* ListCollectionCell.swift in Sources */,
@@ -902,7 +932,9 @@
 				DC49A03E272E92F200F17DE9 /* TargetType.swift in Sources */,
 				DC19401727358844001F78ED /* AccountAndListService.swift in Sources */,
 				DC2B2A1C2733EEA200233F5D /* Spacing.swift in Sources */,
+				DCC91BD22737FAD800F0E322 /* ListDetailProtocols.swift in Sources */,
 				DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */,
+				DCC91BCF2737FAD800F0E322 /* ListDetailPresenter.swift in Sources */,
 				DCCF8AFF2729A26B00933DD1 /* UICollectionView+Extension.swift in Sources */,
 				DC835B9E273523B700C3A209 /* ListsViewController.swift in Sources */,
 				DC19400F27357FCA001F78ED /* ListsModel.swift in Sources */,

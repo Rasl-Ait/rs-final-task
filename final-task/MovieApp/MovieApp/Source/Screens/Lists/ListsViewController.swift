@@ -46,16 +46,16 @@ private extension ListsViewController {
     navigationItem.rightBarButtonItem = plusBarButtonItem
   }
   
+  func apperance() {
+    view.addSubview(listView)
+  }
+  
   func setupLayoutUI() {
     listView.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
   }
-  
-  func apperance() {
-    view.addSubview(listView)
-  }
-  
+
   // MARK: - Action funcs
   @objc func plusTapped() {
     Alert.showAlertText(on: self,

@@ -40,6 +40,7 @@ enum SFSymbolConstants: String {
   
   // Navigation Bar
   case plus = "plus.circle"
+  case arrowDownAndUp = "arrow.up.arrow.down"
   
   // icons used on home screen
   case taskDone = "checkmark"
