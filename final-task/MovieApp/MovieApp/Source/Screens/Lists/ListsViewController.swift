@@ -29,6 +29,14 @@ private extension ListsViewController {
     apperance()
     setupLayoutUI()
     presenter.getLists()
+    
+    listView.didRemoveButton = { [weak self] id in
+      guard let self = self else { return }
+      Alert.showAlertAction(on: self, title: .delete, message: .deleteList, primaryTitle: .delete) { _ in
+        self.presenter.deleteList(id: id)
+      } secondAction: { _ in
+      }
+    }
   }
   
   func configureNavigationBar() {
@@ -81,6 +89,13 @@ private extension ListsViewController {
 
 // MARK: - ListsViewInput
 extension ListsViewController: ListsViewInput {
+  func successDeleteList(text: String) {
+    hide()
+    Alert.showAlert(on: self, with: .attention, message: text) { _ in
+      self.listView.removeList()
+    }
+  }
+  
   func successCreateList(text: String) {
     hide()
     presenter.getLists()

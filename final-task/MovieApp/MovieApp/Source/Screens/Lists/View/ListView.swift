@@ -8,19 +8,16 @@
 import UIKit
 import SnapKit
 
-protocol ListViewDelegate: AnyObject {
-  func fetchItems()
-  func openUserDetailsView(row: Int)
-}
-
 final class ListView: UIView {
   
   // MARK: - Properties
   private lazy var collectionView = makeCollectionView()
   private lazy var dataSource = configureDataSource()
-
   
+  private var deleteIndexPath: IndexPath!
+
   // MARK: - Closure
+  var didRemoveButton: ItemClosure<Int>?
   
   // MARK: - Overriden funcs
   
@@ -39,6 +36,13 @@ final class ListView: UIView {
   
   func addList(_ items: [ListModel]) {
     updateSnapshot(items)
+  }
+  
+  func removeList() {
+    guard let list = self.dataSource.itemIdentifier(for: deleteIndexPath) else { return }
+    var snapshot = dataSource.snapshot()
+    snapshot.deleteItems([list])
+    dataSource.apply(snapshot, animatingDifferences: true)
   }
 }
 
@@ -103,6 +107,13 @@ private extension ListView {
       collectionView: collectionView) { collectionView, indexPath, model in
       let cell: ListCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
       cell.configure(model: model)
+      
+      cell.didRemoveButton = { [weak self] in
+        guard let self = self else { return }
+        self.deleteIndexPath = indexPath
+        self.didRemoveButton?(model.id)
+      }
+      
       return cell
     }
     
@@ -116,11 +127,6 @@ private extension ListView {
    
       dataSource.apply(snapshot, animatingDifferences: false)
   }
-}
-
-// MARK: Action
-private extension ListView {
-
 }
 
 // MARK: - Constants

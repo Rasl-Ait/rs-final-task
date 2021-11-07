@@ -57,6 +57,22 @@ final class ListsPresenter: ListsViewOutput {
     }
   }
   
+  func deleteList(id: Int) {
+    service.deleteList(id) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let item):
+        mainQueue {
+          self.view?.successDeleteList(text: item.statusMessage)
+        }
+      case .failure(let error):
+        mainQueue {
+          self.view?.failure(error: error)
+        }
+      }
+    }
+  }
+  
   func addText(name: String) {
     param = NewListParam(name: name)
   }

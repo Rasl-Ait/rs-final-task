@@ -15,14 +15,7 @@ enum TextType: String {
 }
 
 enum AlertMessageType: String {
-  case changeWallet = "Save changes?"
-  case saveNewWallet = "Save new wallet"
-  case removeWallet = "Want to delete the wallet?"
-  case changeTransaction = "Save changes transaction?"
-  case saveNewTransaction = "Save new transaction"
-  case removeTransaction = "Want to delete the transaction?"
-  case wallet = "Cancel wallet creation or continue?"
-  case transaction = "Cancel Transaction creation or continue?"
+  case deleteList = "Delete List?"
   case none = ""
 }
 
@@ -30,6 +23,7 @@ enum AlertTitleType: String {
   case warning = "Warning"
   case attention = "Attention"
   case createList = "Created new list"
+  case delete = "Delete"
 }
 
 enum IconType: String {
@@ -107,4 +101,5 @@ enum SegmentType: Int {
 enum AlertButton: String {
   case cancel = "Cancel"
   case yes = "Yes"
+  case delete = "Delete"
 }

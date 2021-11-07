@@ -11,6 +11,8 @@ import Foundation
 protocol ListsViewInput: AnyObject {
   func success(items: [ListModel])
   func successCreateList(text: String)
+  func successDeleteList(text: String)
+  
   func failure(error: Error)
   func hideIndicator()
   func showIndicator()
@@ -21,5 +23,6 @@ protocol ListsViewOutput: AnyObject {
   
   func getLists()
   func createList()
+  func deleteList(id: Int)
   func addText(name: String)
 }

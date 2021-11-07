@@ -17,6 +17,7 @@ struct Alert {
     titles.forEach {
       let action = UIAlertAction(title: $0, style: .default, handler: tapAction)
      // action.setValue(UIColor.coral, forKey: "titleTextColor")
+      alert.view.tintColor = .titleColor
       alert.addAction(action)
     }
     
@@ -32,10 +33,12 @@ struct Alert {
   static func showAlert(
     on vc: UIViewController,
     with title: AlertTitleType,
-    message: String) {
+    message: String,
+    action: ((UIAlertAction) -> Void)? = nil) {
     let alert = UIAlertController(title: title.rawValue, message: message, preferredStyle: .alert)
-    //  alert.view.tintColor = .queenBlue
-    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    alert.view.tintColor = .titleColor
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: action))
+    
     DispatchQueue.main.async { vc.present(alert, animated: true, completion: nil) }
   }
   
@@ -44,7 +47,7 @@ struct Alert {
     title: AlertTitleType,
     message: AlertMessageType = .none,
     primaryTitle: AlertButton = .yes,
-    secondTitle: String = "Cancel",
+    secondTitle: AlertButton = .cancel,
     preferredStyle: UIAlertController.Style = .alert,
     primaryAction: ((UIAlertAction) -> Void)? = nil,
     secondAction: ((UIAlertAction) -> Void)? = nil) {
@@ -55,8 +58,11 @@ struct Alert {
       preferredStyle: preferredStyle)
     let action = UIAlertAction(title: primaryTitle.rawValue, style: .default, handler: primaryAction)
     
-    let actionCancel = UIAlertAction(title: secondTitle, style: .default, handler: secondAction)
-  //  action.setValue(UIColor.red, forKey: "titleTextColor")
+    let actionCancel = UIAlertAction(title: secondTitle.rawValue, style: .default, handler: secondAction)
+    alert.view.tintColor = .titleColor
+    if primaryTitle == .delete {
+      action.setValue(UIColor.systemRed, forKey: "titleTextColor")
+    }
     alert.addAction(actionCancel)
     alert.addAction(action)
     DispatchQueue.main.async {

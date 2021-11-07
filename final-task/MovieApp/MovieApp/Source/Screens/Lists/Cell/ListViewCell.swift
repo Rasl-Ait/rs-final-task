@@ -15,6 +15,9 @@ final class ListViewCell: UIView {
   private lazy var removeButton = makeRemoveButton()
   private lazy var stackView = makeStackView()
   
+  // MARK: Closure
+  var didRemoveButton: VoidClosure?
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupView()
@@ -97,7 +100,15 @@ private extension ListViewCell {
     let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 50))
     let view = CustomButton(.setImage(.delete, configuration: config), highlightedImage: .setImage(.delete, configuration: config))
     view.tintColor = .systemRed
+    view.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
     return view
+  }
+}
+
+// MARK: - Action
+private extension ListViewCell {
+  @objc func removeButtonTapped() {
+    didRemoveButton?()
   }
 }
 
