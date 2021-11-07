@@ -25,6 +25,10 @@ protocol AccountAndListServiceProtocol {
   func deleteList(
     _ id: Int,
     completion: @escaping CompletionBlock<SuccessErrorModel>)
+  func listDetail(
+    _ id: Int,
+    completion: @escaping CompletionBlock<ListDetailResponce>)
+  
 }
 
 class AccountAndListService: BaseAPI<AccountAndListTargetType>, AccountAndListServiceProtocol {
@@ -50,5 +54,9 @@ class AccountAndListService: BaseAPI<AccountAndListTargetType>, AccountAndListSe
   
   func deleteList(_ id: Int, completion: @escaping CompletionBlock<SuccessErrorModel>) {
     getData(target: .listDelete(id), completion: completion)
+  }
+  
+  func listDetail(_ id: Int, completion: @escaping CompletionBlock<ListDetailResponce>) {
+    getData(target: .listDetail(id), completion: completion)
   }
 }

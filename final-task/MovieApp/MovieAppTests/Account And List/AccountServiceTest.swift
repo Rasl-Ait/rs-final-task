@@ -93,11 +93,22 @@ class AccountServiceTest: XCTestCase {
       URLQueryItem(name: "session_id", value: sessionID)
     ]
     
-    sut.service.deleteList(10){  _ in }
+    sut.service.deleteList(10){ _ in }
     XCTAssertTrue(sut.client.executeCalled)
     let request: URLRequest = .queryParams("list/10",
                                            param: (query, nil),
                                            httpMethod: .delete)
+    XCTAssertEqual(sut.client.inputRequest, request)
+  }
+  
+  func test_listDetailRequest() {
+    let sut = makeSUT()
+    
+    sut.service.listDetail(10) { _ in }
+    XCTAssertTrue(sut.client.executeCalled)
+    let request: URLRequest = .queryParams("list/10",
+                                           param: ([], nil),
+                                           httpMethod: .get)
     XCTAssertEqual(sut.client.inputRequest, request)
   }
   
@@ -202,6 +213,25 @@ class AccountServiceTest: XCTestCase {
 
     sut.service.deleteList(10) { result = $0 }
     XCTAssertEqual(result?.value, item)
+  }
+  
+  func test_listDetailSuccessResponse() throws {
+    let results = getResponce(file: "ListDetail", type: ListDetailResponce.self)
+
+    guard
+      let response = results.responce,
+          let movie = results.item
+    else {
+      return
+    }
+
+    let sut = makeSUT()
+    sut.client.result = .success(response)
+
+    var result: Result<ListDetailResponce, APIError>?
+
+    sut.service.listDetail(10) { result = $0 }
+    XCTAssertEqual(result?.value, movie)
   }
   
   private func makeSUT() -> (service: AccountAndListService, client: MockHTTPClient) {

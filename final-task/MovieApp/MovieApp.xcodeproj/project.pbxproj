@@ -76,6 +76,7 @@
 		DC864CF52736C849009BA64A /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = DC864CF42736C849009BA64A /* MBProgressHUD */; };
 		DCC91BC32737E6C800F0E322 /* ListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BC22737E6C800F0E322 /* ListEntity.swift */; };
 		DCC91BC52737F87100F0E322 /* ListDetailResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BC42737F87100F0E322 /* ListDetailResponce.swift */; };
+		DCC91BC92737F96400F0E322 /* ListDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = DCC91BC82737F96400F0E322 /* ListDetail.json */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -195,6 +196,7 @@
 		DC864CF1273697B1009BA64A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		DCC91BC22737E6C800F0E322 /* ListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntity.swift; sourceTree = "<group>"; };
 		DCC91BC42737F87100F0E322 /* ListDetailResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailResponce.swift; sourceTree = "<group>"; };
+		DCC91BC82737F96400F0E322 /* ListDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ListDetail.json; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -286,13 +288,13 @@
 			path = "Account And List";
 			sourceTree = "<group>";
 		};
-		DC19402027359FED001F78ED /* Account */ = {
+		DC19402027359FED001F78ED /* Account And List */ = {
 			isa = PBXGroup;
 			children = (
 				DC19402127359FFC001F78ED /* Json */,
 				DC19401E273592B2001F78ED /* AccountServiceTest.swift */,
 			);
-			path = Account;
+			path = "Account And List";
 			sourceTree = "<group>";
 		};
 		DC19402127359FFC001F78ED /* Json */ = {
@@ -301,6 +303,7 @@
 				DC1940242735A08C001F78ED /* Account.json */,
 				DC1940262735A5FF001F78ED /* List.json */,
 				DC19402A2735A6C2001F78ED /* Movie.json */,
+				DCC91BC82737F96400F0E322 /* ListDetail.json */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -569,7 +572,7 @@
 				DCCF8ABC27299D6A00933DD1 /* MovieAppTests.swift */,
 				DCCF8ABE27299D6A00933DD1 /* Info.plist */,
 				DC864CD427365043009BA64A /* Auth */,
-				DC19402027359FED001F78ED /* Account */,
+				DC19402027359FED001F78ED /* Account And List */,
 			);
 			path = MovieAppTests;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 			files = (
 				DC19402B2735A6C2001F78ED /* Movie.json in Resources */,
 				DC1940252735A08C001F78ED /* Account.json in Resources */,
+				DCC91BC92737F96400F0E322 /* ListDetail.json in Resources */,
 				DC1940272735A5FF001F78ED /* List.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
