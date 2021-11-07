@@ -146,7 +146,7 @@ class AccountServiceTest: XCTestCase {
   }
 
   func test_markAsFavoriteSuccessResponse() throws {
-    let item = ErrorModel(statusCode: 10, statusMessage: "The item/record was updated successfully")
+    let item = SuccessErrorModel(statusCode: 10, statusMessage: "The item/record was updated successfully")
     let response = try JSONEncoder().encode(item)
 
     let param = ListFavoriteParam(mediaType: "movie", mediaID: 555, favorite: true)
@@ -154,7 +154,7 @@ class AccountServiceTest: XCTestCase {
     let sut = makeSUT()
     sut.client.result = .success(response)
 
-    var result: Result<ErrorModel, APIError>?
+    var result: Result<SuccessErrorModel, APIError>?
 
     sut.service.markAsFavorite(param) { result = $0 }
     XCTAssertEqual(result?.value, item)

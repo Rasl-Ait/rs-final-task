@@ -18,10 +18,13 @@ protocol AccountAndListServiceProtocol {
     completion: @escaping CompletionBlock<FavoriteMovieResponce>)
   func markAsFavorite(
     _ param: ListFavoriteParam,
-    completion: @escaping CompletionBlock<ErrorModel>)
+    completion: @escaping CompletionBlock<SuccessErrorModel>)
   func createList(
     _ param: NewListParam,
     completion: @escaping CompletionBlock<NewListResponce>)
+  func deleteList(
+    _ id: Int,
+    completion: @escaping CompletionBlock<SuccessErrorModel>)
 }
 
 class AccountAndListService: BaseAPI<AccountAndListTargetType>, AccountAndListServiceProtocol {
@@ -37,11 +40,15 @@ class AccountAndListService: BaseAPI<AccountAndListTargetType>, AccountAndListSe
     getData(target: .movieFavorite(UserDefaults.standard.accountID, page), completion: completion)
   }
   
-  func markAsFavorite(_ param: ListFavoriteParam, completion: @escaping CompletionBlock<ErrorModel>) {
+  func markAsFavorite(_ param: ListFavoriteParam, completion: @escaping CompletionBlock<SuccessErrorModel>) {
     getData(target: .markFavorite(UserDefaults.standard.accountID, param), completion: completion)
   }
   
   func createList(_ param: NewListParam, completion: @escaping CompletionBlock<NewListResponce>) {
     getData(target: .list(param), completion: completion)
+  }
+  
+  func deleteList(_ id: Int, completion: @escaping CompletionBlock<SuccessErrorModel>) {
+    getData(target: .listDelete(id), completion: completion)
   }
 }

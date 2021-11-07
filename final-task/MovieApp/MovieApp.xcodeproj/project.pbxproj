@@ -14,7 +14,7 @@
 		DC19401727358844001F78ED /* AccountAndListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401627358844001F78ED /* AccountAndListService.swift */; };
 		DC194019273588BA001F78ED /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC194018273588BA001F78ED /* AccountModel.swift */; };
 		DC19401B27358A0A001F78ED /* FavoriteMovieResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401A27358A0A001F78ED /* FavoriteMovieResponce.swift */; };
-		DC19401D27358A80001F78ED /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401C27358A80001F78ED /* ErrorModel.swift */; };
+		DC19401D27358A80001F78ED /* SuccessErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401C27358A80001F78ED /* SuccessErrorModel.swift */; };
 		DC19401F273592B2001F78ED /* AccountServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401E273592B2001F78ED /* AccountServiceTest.swift */; };
 		DC1940252735A08C001F78ED /* Account.json in Resources */ = {isa = PBXBuildFile; fileRef = DC1940242735A08C001F78ED /* Account.json */; };
 		DC1940272735A5FF001F78ED /* List.json in Resources */ = {isa = PBXBuildFile; fileRef = DC1940262735A5FF001F78ED /* List.json */; };
@@ -136,7 +136,7 @@
 		DC19401627358844001F78ED /* AccountAndListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAndListService.swift; sourceTree = "<group>"; };
 		DC194018273588BA001F78ED /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		DC19401A27358A0A001F78ED /* FavoriteMovieResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieResponce.swift; sourceTree = "<group>"; };
-		DC19401C27358A80001F78ED /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		DC19401C27358A80001F78ED /* SuccessErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessErrorModel.swift; sourceTree = "<group>"; };
 		DC19401E273592B2001F78ED /* AccountServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceTest.swift; sourceTree = "<group>"; };
 		DC1940242735A08C001F78ED /* Account.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Account.json; sourceTree = "<group>"; };
 		DC1940262735A5FF001F78ED /* List.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = List.json; sourceTree = "<group>"; };
@@ -414,7 +414,7 @@
 				DC49A044272EA67D00F17DE9 /* Auth */,
 				DC19400E27357FCA001F78ED /* ListsModel.swift */,
 				DC194018273588BA001F78ED /* AccountModel.swift */,
-				DC19401C27358A80001F78ED /* ErrorModel.swift */,
+				DC19401C27358A80001F78ED /* SuccessErrorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -862,7 +862,7 @@
 				DC49A02C272E88C300F17DE9 /* BaseCollectionViewCell.swift in Sources */,
 				DC864CE627368D96009BA64A /* ListView.swift in Sources */,
 				DC194013273581F4001F78ED /* AccountAndListTargetType.swift in Sources */,
-				DC19401D27358A80001F78ED /* ErrorModel.swift in Sources */,
+				DC19401D27358A80001F78ED /* SuccessErrorModel.swift in Sources */,
 				DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */,
 				DC49A040272E939800F17DE9 /* AuthTargetType.swift in Sources */,
 				DC47F80B27300135009603EE /* AuthParams.swift in Sources */,
