@@ -27,4 +27,15 @@ final class ScreenFactoryImpl: ScreenFactory {
     vc.presenter = presenter
     return vc
   }
+  
+  func makeListDetailScreen(_ coordinator: ListDetailCoordinatorProtocol, list: ListModel) -> ListDetailViewController {
+    let vc = ListDetailViewController()
+    let service = AccountAndListService(client: NetworkService())
+// let coreDataTask = (UIApplication.shared.delegate as? AppDelegate)?.coreDataTask
+    // let persistence = MoviePersistence(context: coreDataTask!.managedContext, backgroundContext: coreDataTask!.backgroundContext)
+    let presenter = ListDetailPresenter(view: vc, service: service, list: list)
+    presenter.coordinator = coordinator
+    vc.presenter = presenter
+    return vc
+  }
 }

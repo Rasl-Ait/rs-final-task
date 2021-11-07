@@ -10,7 +10,7 @@ import Foundation
 
 final class ListsPresenter: ListsViewOutput {
   weak var view: ListsViewInput?
-  weak var coordinator: ListsCoordinatorProtocol?
+  var coordinator: ListsCoordinatorProtocol?
   
   private(set) var lists: [ListModel] = []
   
@@ -32,6 +32,7 @@ final class ListsPresenter: ListsViewOutput {
       switch result {
       case .success(let item):
         mainQueue {
+          self.lists = item.results
           self.view?.success(items: item.results)
           item.results.compactMap { $0 }.forEach(self.persistence.add)
         }
@@ -80,5 +81,9 @@ final class ListsPresenter: ListsViewOutput {
   
   func addText(name: String) {
     param = NewListParam(name: name)
+  }
+  
+  func didSelectRowAt(list: ListModel) {
+    coordinator?.pushListDetailVC(list: list)
   }
 }

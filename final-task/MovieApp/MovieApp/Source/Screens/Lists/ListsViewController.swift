@@ -37,6 +37,11 @@ private extension ListsViewController {
       } secondAction: { _ in
       }
     }
+    
+    listView.didSelectRowAt = { [weak self] item in
+      guard let self = self else { return }
+      self.presenter.didSelectRowAt(list: item)
+    }
   }
   
   func configureNavigationBar() {

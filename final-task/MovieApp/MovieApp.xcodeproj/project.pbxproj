@@ -83,6 +83,7 @@
 		DCC91BD72737FCB600F0E322 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BD62737FCB600F0E322 /* ListDetailView.swift */; };
 		DCC91BDA273801A600F0E322 /* ListDetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BD9273801A600F0E322 /* ListDetailCollectionCell.swift */; };
 		DCC91BDC2738023500F0E322 /* ListDetailCollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BDB2738023500F0E322 /* ListDetailCollectionCellView.swift */; };
+		DCC91BDE2738131500F0E322 /* ListDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BDD2738131500F0E322 /* ListDetailCoordinator.swift */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -209,6 +210,7 @@
 		DCC91BD62737FCB600F0E322 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		DCC91BD9273801A600F0E322 /* ListDetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCollectionCell.swift; sourceTree = "<group>"; };
 		DCC91BDB2738023500F0E322 /* ListDetailCollectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCollectionCellView.swift; sourceTree = "<group>"; };
+		DCC91BDD2738131500F0E322 /* ListDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCoordinator.swift; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				DC835B942735231500C3A209 /* ListsCoordinator.swift */,
 				DC2B2A222734254A00233F5D /* Router.swift */,
 				DC835BA12735282500C3A209 /* TabBarCoordinator.swift */,
+				DCC91BDD2738131500F0E322 /* ListDetailCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -913,6 +916,7 @@
 				DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */,
 				DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */,
 				DC2B2A172733DB3600233F5D /* LoginPasswordTextField.swift in Sources */,
+				DCC91BDE2738131500F0E322 /* ListDetailCoordinator.swift in Sources */,
 				DCCF8B172729A30200933DD1 /* ReusableView.swift in Sources */,
 				DC2B2A082733D7D000233F5D /* CustomStackView.swift in Sources */,
 				DCC91BC52737F87100F0E322 /* ListDetailResponce.swift in Sources */,

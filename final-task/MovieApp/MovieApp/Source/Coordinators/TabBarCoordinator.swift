@@ -7,7 +7,8 @@
 
 import UIKit
 
-final class TabBarCoordinator: Coordinator, ListsCoordinatorProtocol {
+final class TabBarCoordinator: Coordinator {
+
   var children: [Coordinator] = []
   let router: Router
   let coordinatorFactory: CoordinatorFactory
@@ -31,12 +32,9 @@ extension TabBarCoordinator {
       router: router,
       tabBarViewController: tabBarController
     )
-    
-    let view = listCoordinator.screenFactory.makeListsScreen(self)
-    let navController = NavigationController(rootViewController: view)
-    navController.navigationBar.prefersLargeTitles = true
-    tabBarController.appendNavigationController(navController, item: .home)
     children.append(listCoordinator)
+    listCoordinator.start()
     router.setRootModule(tabBarController, hideBar: true)
+    
   }
 }

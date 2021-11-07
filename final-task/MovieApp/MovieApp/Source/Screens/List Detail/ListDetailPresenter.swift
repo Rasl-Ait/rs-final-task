@@ -14,11 +14,37 @@ final class ListDetailPresenter: ListDetailViewOutput {
   
 	private let service: AccountAndListServiceProtocol
 	weak var view: ListDetailViewInput?
+  weak var coordinator: ListDetailCoordinatorProtocol?
+  
+  private let list: ListModel
+  
+  var title: String {
+    list.name
+  }
   
   init(
+    view: ListDetailViewInput,
     service: AccountAndListServiceProtocol,
-    view: ListDetailViewInput) {
+    list: ListModel) {
     self.service = service
     self.view = view
+    self.list = list
+  }
+  
+  func getMovies() {
+    self.view?.showIndicator()
+    service.listDetail(list.id) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let item):
+        mainQueue {
+          self.view?.success(items: item.items)
+        }
+      case .failure(let error):
+        mainQueue {
+          self.view?.failure(error: error)
+        }
+      }
+    }
   }
 }

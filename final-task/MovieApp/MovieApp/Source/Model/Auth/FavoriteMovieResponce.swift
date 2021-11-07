@@ -22,17 +22,17 @@ struct FavoriteMovieResponce: Codable, Equatable {
 }
 
 struct MovieModel: Codable, Equatable, Hashable {
-  let adult: Bool
+  let adult: Bool?
   let backdropPath: String?
   let genreIds: [Int]
   let id: Int
-  let originalTitle: String
+  let originalTitle: String?
   let overview: String
-  let releaseDate: String
+  let releaseDate: String?
   let posterPath: String?
   let popularity: Double
-  let title: String
-  let video: Bool
+  let title: String?
+  let video: Bool?
   let voteAverage: Double
   let voteCount: Int
 

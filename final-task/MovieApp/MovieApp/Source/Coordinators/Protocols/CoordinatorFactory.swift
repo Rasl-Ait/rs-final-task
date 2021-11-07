@@ -12,4 +12,5 @@ protocol CoordinatorFactory {
   func makeAuthCoordinator(router: Router) -> AuthCoordinator
   func makeTabBarCoordinator(router: Router) -> TabBarCoordinator
   func makeListsCoordinator(router: Router, tabBarViewController: TabBarController) -> ListsCoordinator
+  func makeListDetailCoordinator(router: Router, list: ListModel) -> ListDetailCoordinator
 }

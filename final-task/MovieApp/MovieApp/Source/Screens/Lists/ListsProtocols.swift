@@ -24,5 +24,6 @@ protocol ListsViewOutput: AnyObject {
   func getLists()
   func createList()
   func deleteList(id: Int)
+  func didSelectRowAt(list: ListModel)
   func addText(name: String)
 }

@@ -16,7 +16,7 @@ struct ListDetailResponce: Codable, Equatable {
   let itemCount: Int
   let iso6391: String
   let name: String
-  let posterPath: String
+  let posterPath: String?
 
   private enum CodingKeys: String, CodingKey {
     case createdBy = "created_by"

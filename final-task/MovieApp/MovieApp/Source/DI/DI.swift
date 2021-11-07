@@ -14,8 +14,9 @@ final class NavigationController: UINavigationController {
     navigationBar.setLargeTitleFont(.avenir(.fontXXXL, .Bold), color: .titleColor)
     navigationBar.barTintColor = .background
     navigationBar.tintColor = .titleColor
-    navigationBar.isTranslucent = false
+    navigationBar.isTranslucent = true
     view.backgroundColor = .background
+    navigationBar.prefersLargeTitles = true
     
     var attrs3 = [NSAttributedString.Key: Any]()
     attrs3[.foregroundColor] = UIColor.titleColor.withAlphaComponent(0.5)

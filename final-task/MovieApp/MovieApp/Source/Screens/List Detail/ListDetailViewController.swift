@@ -27,7 +27,9 @@ private extension ListDetailViewController {
   func setupViews() {
     view.backgroundColor = .background
     setupConfigureNavigationBar()
-    apperance() 
+    apperance()
+    setupLayoutUI()
+    presenter.getMovies()
   }
   
   func apperance() {
@@ -49,6 +51,7 @@ private extension ListDetailViewController {
   }
   
   func setupConfigureNavigationBar() {
+    navigationItem.title = presenter.title
     let sortedBarButtonItem = UIBarButtonItem(
       image: .setImage(.arrowDownAndUp),
       style: .plain,

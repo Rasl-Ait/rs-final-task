@@ -17,4 +17,7 @@ protocol ListDetailViewInput: AnyObject {
 
 protocol ListDetailViewOutput: AnyObject {
   var alertTitles: [String] { get }
+  var title: String { get }
+  
+  func getMovies()
 }

@@ -18,6 +18,7 @@ final class ListView: UIView {
 
   // MARK: - Closure
   var didRemoveButton: ItemClosure<Int>?
+  var didSelectRowAt: ItemClosure<ListModel>?
   
   // MARK: - Overriden funcs
   
@@ -92,6 +93,7 @@ private extension ListView {
   
   func makeCollectionView() -> UICollectionView {
     let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
+    view.delegate = self
     view.disableAutoresizingMask()
     view.backgroundColor = .clear
     view.showsVerticalScrollIndicator = false
@@ -126,6 +128,14 @@ private extension ListView {
       snapshot.appendItems(items, toSection: .all)
    
       dataSource.apply(snapshot, animatingDifferences: false)
+  }
+}
+
+// MARK: UICollectionViewDelegate
+extension ListView: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let list = self.dataSource.itemIdentifier(for: indexPath) else { return }
+    didSelectRowAt?(list)
   }
 }
 

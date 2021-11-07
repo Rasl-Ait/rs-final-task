@@ -33,7 +33,7 @@ final class TabBarController: UITabBarController {
     tabBar.isTranslucent = true
   }
   
-  func appendNavigationController(_ vc: UIViewController, item: TabBarItem) {
+  func appendNavigationController(_ vc: UINavigationController, item: TabBarItem) {
       customizeNavigationController(vc, item: item)
       viewControllers = (viewControllers ?? []) + [vc]
   }
@@ -41,7 +41,7 @@ final class TabBarController: UITabBarController {
 
 private extension TabBarController {
     private func customizeNavigationController(
-        _ navigationController: UIViewController,
+        _ navigationController: UINavigationController,
         item: TabBarItem) {
         navigationController.tabBarItem = tabBarItems[item.rawValue]
     }

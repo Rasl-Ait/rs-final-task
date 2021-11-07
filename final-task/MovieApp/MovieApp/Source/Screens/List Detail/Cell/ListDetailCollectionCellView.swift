@@ -56,7 +56,7 @@ private extension ListDetailCollectionCellView {
   
   func setupLayoutUI() {
     imageView.snp.makeConstraints {
-      $0.height.width.equalTo(150)
+      $0.height.equalTo(150)
     }
     
     stackView.snp.makeConstraints {
@@ -87,6 +87,7 @@ private extension ListDetailCollectionCellView {
   func makeImageView() -> UIImageView {
     let view = UIImageView()
     view.layer.cornerRadius = .spacingS
+    view.clipsToBounds = true
     return view
   }
   
