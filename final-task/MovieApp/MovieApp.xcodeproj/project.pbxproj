@@ -74,6 +74,7 @@
 		DC864CF027369421009BA64A /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CEF27369421009BA64A /* ListViewCell.swift */; };
 		DC864CF2273697B1009BA64A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CF1273697B1009BA64A /* CustomButton.swift */; };
 		DC864CF52736C849009BA64A /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = DC864CF42736C849009BA64A /* MBProgressHUD */; };
+		DCC91BC32737E6C800F0E322 /* ListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BC22737E6C800F0E322 /* ListEntity.swift */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -191,6 +192,7 @@
 		DC864CED27369380009BA64A /* ListCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionCell.swift; sourceTree = "<group>"; };
 		DC864CEF27369421009BA64A /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		DC864CF1273697B1009BA64A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		DCC91BC22737E6C800F0E322 /* ListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntity.swift; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 		DC864CD527366BF6009BA64A /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				DCC91BC12737E6A100F0E322 /* Extension */,
 				DC864CDE2736703E009BA64A /* Protocol */,
 				DC864CD627366C0A009BA64A /* Model.xcdatamodeld */,
 				DC864CDA27366F12009BA64A /* CoreDataStack.swift */,
@@ -516,6 +519,14 @@
 				DC864CEF27369421009BA64A /* ListViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		DCC91BC12737E6A100F0E322 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DCC91BC22737E6C800F0E322 /* ListEntity.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		DCCF8A9927299D6700933DD1 = {
@@ -864,6 +875,7 @@
 				DC194013273581F4001F78ED /* AccountAndListTargetType.swift in Sources */,
 				DC19401D27358A80001F78ED /* SuccessErrorModel.swift in Sources */,
 				DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */,
+				DCC91BC32737E6C800F0E322 /* ListEntity.swift in Sources */,
 				DC49A040272E939800F17DE9 /* AuthTargetType.swift in Sources */,
 				DC47F80B27300135009603EE /* AuthParams.swift in Sources */,
 				DCCF8B132729A30200933DD1 /* Alert.swift in Sources */,

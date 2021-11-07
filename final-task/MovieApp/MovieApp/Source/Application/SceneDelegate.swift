@@ -11,7 +11,7 @@ import CocoaLumberjackSwift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   private lazy var appFactory: AppFactory = Di()
-  private let coreDataTask = CoreDataStack(modelName: "Model")
+  let coreDataTask = CoreDataStack(modelName: "Model")
   var window: UIWindow?
   
   func scene(
@@ -25,7 +25,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     coordinator.start()
 
     setupLogger()
+    getCoreDataDBPath()
   }
+  
+  func getCoreDataDBPath() {
+          let path = FileManager
+              .default
+              .urls(for: .applicationSupportDirectory, in: .userDomainMask)
+              .last?
+              .absoluteString
+              .replacingOccurrences(of: "file://", with: "")
+              .removingPercentEncoding
+
+          print("Core Data DB Path :: \(path ?? "Not found")")
+      }
   
   func sceneDidDisconnect(_ scene: UIScene) {
 
@@ -44,7 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
   
   func sceneDidEnterBackground(_ scene: UIScene) {
-    coreDataTask.saveContext()
+    (UIApplication.shared.delegate as? AppDelegate)?.coreDataTask.saveContext()
   }
   
   private func setupLogger() {

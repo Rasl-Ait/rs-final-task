@@ -15,12 +15,14 @@ final class ListsPresenter: ListsViewOutput {
   private(set) var lists: [ListModel] = []
   
   let service: AccountAndListServiceProtocol
+  let persistence: StorageProtocol
   var page = 1
   private var param: NewListParam!
   
-  init(view: ListsViewInput, service: AccountAndListServiceProtocol) {
+  init(view: ListsViewInput, service: AccountAndListServiceProtocol, persistence: StorageProtocol) {
     self.view = view
     self.service = service
+    self.persistence = persistence
   }
   
   func getLists() {
@@ -31,6 +33,7 @@ final class ListsPresenter: ListsViewOutput {
       case .success(let item):
         mainQueue {
           self.view?.success(items: item.results)
+          item.results.compactMap {$0}.forEach(self.persistence.add)
         }
       case .failure(let error):
         mainQueue {

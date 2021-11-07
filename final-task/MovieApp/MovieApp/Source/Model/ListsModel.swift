@@ -41,7 +41,7 @@ struct ListModel: Codable, Equatable, Hashable {
   }
   
   func createEntity(_ model: ListEntity) {
-    model.id = Int16(id)
+    model.id = Int32(id)
     model.favoriteCount = Int16(favoriteCount)
     model.itemCount = Int16(itemCount)
     model.listType = listType

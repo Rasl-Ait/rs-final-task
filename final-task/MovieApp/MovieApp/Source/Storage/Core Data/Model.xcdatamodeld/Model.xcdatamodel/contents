@@ -3,7 +3,7 @@
     <entity name="ListEntity" representedClassName="ListEntity" syncable="YES" codeGenerationType="class">
         <attribute name="descr" optional="YES" attributeType="String"/>
         <attribute name="favoriteCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="itemCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="listType" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
