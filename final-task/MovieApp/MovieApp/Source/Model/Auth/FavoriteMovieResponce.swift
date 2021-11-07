@@ -21,7 +21,7 @@ struct FavoriteMovieResponce: Codable, Equatable {
   }
 }
 
-struct MovieModel: Codable, Equatable {
+struct MovieModel: Codable, Equatable, Hashable {
   let adult: Bool
   let backdropPath: String?
   let genreIds: [Int]
@@ -50,5 +50,15 @@ struct MovieModel: Codable, Equatable {
     case video
     case voteAverage = "vote_average"
     case voteCount = "vote_count"
+  }
+  
+  public var backdropURL: String? {
+      guard let posterPath = posterPath else { return nil }
+      return "https://image.tmdb.org/t/p/original" + posterPath
+  }
+  
+  public var iconString: String? {
+      guard let posterPath = posterPath else { return nil }
+      return "https://image.tmdb.org/t/p/w500" + posterPath
   }
 }

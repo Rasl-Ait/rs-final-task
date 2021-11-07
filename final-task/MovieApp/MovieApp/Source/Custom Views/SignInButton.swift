@@ -18,7 +18,7 @@ class SignInButton: UIButton {
                                      bottom: Constants.verticalEdgeInset,
                                      right: Constants.horizontalEdgeInset)
     
-    setTitleColor(UIColor.titleColor?.withAlphaComponent(0.2), for: .highlighted)
+    setTitleColor(UIColor.titleColor.withAlphaComponent(0.2), for: .highlighted)
     setImage(UIImage(systemName: "person"), for: .normal)
     setImage(UIImage(systemName: "person.fill"), for: .highlighted)
     imageEdgeInsets.left = Constants.imageLeftInset

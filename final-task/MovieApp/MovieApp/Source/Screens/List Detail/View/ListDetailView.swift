@@ -34,11 +34,11 @@ final class ListDetailView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func addList(_ items: [ListModel]) {
+  func addMovie(_ items: [MovieModel]) {
     updateSnapshot(items)
   }
   
-  func removeList() {
+  func removeMovie() {
     guard let list = self.dataSource.itemIdentifier(for: deleteIndexPath) else { return }
     var snapshot = dataSource.snapshot()
     snapshot.deleteItems([list])
@@ -95,17 +95,17 @@ private extension ListDetailView {
     view.disableAutoresizingMask()
     view.backgroundColor = .clear
     view.showsVerticalScrollIndicator = false
-    view.register(ListCollectionCell.self)
+    view.register(ListDetailCollectionCell.self)
     return view
   }
 }
 
 // MARK: - Data Source
 private extension ListDetailView {
-  func configureDataSource() -> UICollectionViewDiffableDataSource<Section, ListModel> {
-    let dataSource = UICollectionViewDiffableDataSource<Section, ListModel>(
+  func configureDataSource() -> UICollectionViewDiffableDataSource<Section, MovieModel> {
+    let dataSource = UICollectionViewDiffableDataSource<Section, MovieModel>(
       collectionView: collectionView) { collectionView, indexPath, model in
-      let cell: ListCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
+      let cell: ListDetailCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
       cell.configure(model: model)
       
       cell.didRemoveButton = { [weak self] in
@@ -120,8 +120,8 @@ private extension ListDetailView {
       return dataSource
   }
   
-  func updateSnapshot(_ items: [ListModel], animatingChange: Bool = false) {
-      var snapshot = NSDiffableDataSourceSnapshot<Section, ListModel>()
+  func updateSnapshot(_ items: [MovieModel], animatingChange: Bool = false) {
+      var snapshot = NSDiffableDataSourceSnapshot<Section, MovieModel>()
       snapshot.appendSections([.all])
       snapshot.appendItems(items, toSection: .all)
    
@@ -173,5 +173,3 @@ struct ListDetailView_Preview: PreviewProvider {
   }
 }
 #endif
-
-

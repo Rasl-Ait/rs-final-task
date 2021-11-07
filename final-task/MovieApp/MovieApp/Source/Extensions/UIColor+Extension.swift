@@ -20,11 +20,11 @@ extension UIColor {
       self.init(red: components.R, green: components.G, blue: components.B, alpha: alpha)
   }
   
-  static let background = UIColor(named: "Background")
-  static let cellBackground = UIColor(named: "CellBackground")
-  static let cellTitle = UIColor(named: "CellTitle")
-  static let description = UIColor(named: "Description")
-  static let segmentBackground = UIColor(named: "SegmentBackground")
-  static let tabBarDeselect = UIColor(named: "TabBarDeselect")
-  static let titleColor = UIColor(named: "TitleColor")
+  static let background = UIColor(named: "Background")!
+  static let cellBackground = UIColor(named: "CellBackground")!
+  static let cellTitle = UIColor(named: "CellTitle")!
+  static let description = UIColor(named: "Description")!
+  static let segmentBackground = UIColor(named: "SegmentBackground")!
+  static let tabBarDeselect = UIColor(named: "TabBarDeselect")!
+  static let titleColor = UIColor(named: "TitleColor")!
 }

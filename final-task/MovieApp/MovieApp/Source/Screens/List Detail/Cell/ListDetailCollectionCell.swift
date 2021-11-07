@@ -1,13 +1,13 @@
 //
-//  ListCollectionCell.swift
+//  ListDetailCollectionCell.swift
 //  MovieApp
 //
-//  Created by rasul on 11/6/21.
+//  Created by rasul on 11/7/21.
 //
 
 import UIKit
 
-final class ListCollectionCell: BaseCollectionViewCell {
+final class ListDetailCollectionCell: BaseCollectionViewCell {
   
   // MARK: - Properties
   private lazy var cellView = makeCellView()
@@ -28,20 +28,20 @@ final class ListCollectionCell: BaseCollectionViewCell {
     cellView.prepareForReuse()
   }
   
-  func configure(model: ListModel) {
+  func configure(model: MovieModel) {
     cellView.configure(model)
   }
 }
 
-// MARK: - Private ListCollectionCell
-private extension ListCollectionCell {
+// MARK: - Private ListDetailCollectionCell
+private extension ListDetailCollectionCell {
   func setupViews() {
     contentView.addSubview(cellView)
     setupLayoutUI()
   }
-
-  func makeCellView() -> ListViewCell {
-    let view = ListViewCell()
+  
+  func makeCellView() -> ListDetailCollectionCellView {
+    let view = ListDetailCollectionCellView()
     return view
   }
   
@@ -55,9 +55,9 @@ private extension ListCollectionCell {
 #if DEBUG
 import SwiftUI
 
-struct ListCollectionRepresentable: UIViewRepresentable {
+struct ListDetailCollectionRepresentable: UIViewRepresentable {
   func makeUIView(context: Context) -> UIView {
-    return ListCollectionCell()
+    return ListDetailCollectionCell()
   }
   func updateUIView(_ view: UIView, context: Context) {
     // do your logic here
@@ -65,9 +65,9 @@ struct ListCollectionRepresentable: UIViewRepresentable {
 }
 
 @available(iOS 13.0, *)
-struct ListCollectionController_Preview: PreviewProvider {
+struct ListDetailCollectionController_Preview: PreviewProvider {
   static var previews: some View {
-    ListCollectionRepresentable()
+    ListDetailCollectionRepresentable()
   }
 }
 #endif

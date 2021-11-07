@@ -71,10 +71,32 @@ private extension ListDetailViewController {
 
 // MARK: - ListDetailViewInput
 extension ListDetailViewController: ListDetailViewInput {
-	func success() {}
-	func failure(error: Error) {}
-	func hideIndicator() {}
-	func showIndicator() {}
+  func successDeleteList(text: String) {
+    hide()
+//    Alert.showAlert(on: self, with: .attention, message: text) { _ in
+//      self.listView.removeList()
+//    }
+  }
+  
+  func successCreateList(text: String) {
+    hide()
+      // presenter.getLists()
+  }
+  
+  func success(items: [MovieModel]) {
+    hide()
+    listView.addMovie(items)
+  }
+  func failure(error: Error) {
+    hide()
+    Alert.showAlert(on: self, with: .warning, message: error.localizedDescription)
+  }
+  func hideIndicator() {
+    hide()
+  }
+  func showIndicator() {
+    show()
+  }
 }
 
 #if DEBUG

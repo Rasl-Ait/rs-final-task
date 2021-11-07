@@ -33,7 +33,7 @@ final class ListsPresenter: ListsViewOutput {
       case .success(let item):
         mainQueue {
           self.view?.success(items: item.results)
-          item.results.compactMap {$0}.forEach(self.persistence.add)
+          item.results.compactMap { $0 }.forEach(self.persistence.add)
         }
       case .failure(let error):
         mainQueue {

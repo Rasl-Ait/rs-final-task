@@ -73,7 +73,7 @@ private extension ListViewCell {
   func makeNameLabel() -> UILabel {
     let view = UILabel(
       "List", alignment: .left,
-      color: .titleColor ?? .black,
+      color: .titleColor,
       fontName: .avenir(.fontML, .Regular)
     )
     view.numberOfLines = 0
@@ -83,7 +83,7 @@ private extension ListViewCell {
   func makeCountLabel() -> UILabel {
     let view = UILabel(
       "2 items", alignment: .left,
-      color: .cellTitle ?? .black,
+      color: .cellTitle,
       fontName: .avenir(.fontM, .Regular)
     )
     return view

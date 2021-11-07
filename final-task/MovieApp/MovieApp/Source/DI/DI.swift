@@ -18,7 +18,7 @@ final class NavigationController: UINavigationController {
     view.backgroundColor = .background
     
     var attrs3 = [NSAttributedString.Key: Any]()
-    attrs3[.foregroundColor] = UIColor.titleColor?.withAlphaComponent(0.5)
+    attrs3[.foregroundColor] = UIColor.titleColor.withAlphaComponent(0.5)
     
     UIBarButtonItem.appearance().setTitleTextAttributes(attrs3, for: .disabled)
     UIBarButtonItem.appearance().setTitleTextAttributes(attrs3, for: .highlighted)

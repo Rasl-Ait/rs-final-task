@@ -44,8 +44,9 @@ enum SFSymbolConstants: String {
   
   // icons used on home screen
   case taskDone = "checkmark"
-  case taskToDo = "circle"
+  case circle = "circle"
   case profileIcon = "person.crop.circle.fill"
+  case circleSelect = "circle.circle.fill"
   
   // settings icons
   case about = "info.circle"

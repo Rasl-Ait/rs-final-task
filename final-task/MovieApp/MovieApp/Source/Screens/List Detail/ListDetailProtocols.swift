@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ListDetailViewInput: AnyObject {
-	func success()
+  func success(items: [MovieModel])
 	func failure(error: Error)
 	func hideIndicator()
 	func showIndicator()

@@ -93,7 +93,7 @@ class AccountServiceTest: XCTestCase {
       URLQueryItem(name: "session_id", value: sessionID)
     ]
     
-    sut.service.deleteList(10){ _ in }
+    sut.service.deleteList(10) { _ in }
     XCTAssertTrue(sut.client.executeCalled)
     let request: URLRequest = .queryParams("list/10",
                                            param: (query, nil),

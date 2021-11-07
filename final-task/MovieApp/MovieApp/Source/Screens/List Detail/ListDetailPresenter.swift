@@ -14,10 +14,11 @@ final class ListDetailPresenter: ListDetailViewOutput {
   
 	private let service: AccountAndListServiceProtocol
 	weak var view: ListDetailViewInput?
-	
-	init(service: AccountAndListServiceProtocol,
-       view: ListDetailViewInput) {
-		self.service = service
-		self.view = view
-	}
+  
+  init(
+    service: AccountAndListServiceProtocol,
+    view: ListDetailViewInput) {
+    self.service = service
+    self.view = view
+  }
 }

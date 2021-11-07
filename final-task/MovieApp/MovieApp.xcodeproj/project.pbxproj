@@ -81,6 +81,8 @@
 		DCC91BD12737FAD800F0E322 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BCC2737FAD800F0E322 /* ListDetailViewController.swift */; };
 		DCC91BD22737FAD800F0E322 /* ListDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BCD2737FAD800F0E322 /* ListDetailProtocols.swift */; };
 		DCC91BD72737FCB600F0E322 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BD62737FCB600F0E322 /* ListDetailView.swift */; };
+		DCC91BDA273801A600F0E322 /* ListDetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BD9273801A600F0E322 /* ListDetailCollectionCell.swift */; };
+		DCC91BDC2738023500F0E322 /* ListDetailCollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BDB2738023500F0E322 /* ListDetailCollectionCellView.swift */; };
 		DCCF8AA627299D6700933DD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA527299D6700933DD1 /* AppDelegate.swift */; };
 		DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */; };
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
@@ -205,6 +207,8 @@
 		DCC91BCC2737FAD800F0E322 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		DCC91BCD2737FAD800F0E322 /* ListDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailProtocols.swift; sourceTree = "<group>"; };
 		DCC91BD62737FCB600F0E322 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
+		DCC91BD9273801A600F0E322 /* ListDetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCollectionCell.swift; sourceTree = "<group>"; };
+		DCC91BDB2738023500F0E322 /* ListDetailCollectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCollectionCellView.swift; sourceTree = "<group>"; };
 		DCCF8AA227299D6700933DD1 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AA527299D6700933DD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCCF8AA727299D6700933DD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -546,6 +550,7 @@
 		DCC91BD42737FAE400F0E322 /* List Detail */ = {
 			isa = PBXGroup;
 			children = (
+				DCC91BD82738019700F0E322 /* Cell */,
 				DCC91BD52737FCAD00F0E322 /* View */,
 				DCC91BCC2737FAD800F0E322 /* ListDetailViewController.swift */,
 				DCC91BCA2737FAD800F0E322 /* ListDetailPresenter.swift */,
@@ -560,6 +565,15 @@
 				DCC91BD62737FCB600F0E322 /* ListDetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DCC91BD82738019700F0E322 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DCC91BD9273801A600F0E322 /* ListDetailCollectionCell.swift */,
+				DCC91BDB2738023500F0E322 /* ListDetailCollectionCellView.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DCCF8A9927299D6700933DD1 = {
@@ -625,11 +639,11 @@
 		DCCF8AD627299DBA00933DD1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DCC91BD42737FAE400F0E322 /* List Detail */,
 				DC835B962735239400C3A209 /* Lists */,
 				DC835B8F27350BD800C3A209 /* TabBar */,
 				DC49A028272E88C300F17DE9 /* Base */,
 				DC2B29ED2733C8A200233F5D /* Auth */,
-				DCC91BD42737FAE400F0E322 /* List Detail */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -884,6 +898,7 @@
 				DC835B9F273523B700C3A209 /* ListsProtocols.swift in Sources */,
 				DC2B2A202733EEC300233F5D /* CornerRadius.swift in Sources */,
 				DCCF8B022729A26B00933DD1 /* UIFont+Extension.swift in Sources */,
+				DCC91BDC2738023500F0E322 /* ListDetailCollectionCellView.swift in Sources */,
 				DC864CDD27367010009BA64A /* MoviePersistence.swift in Sources */,
 				DCCF8AFE2729A26B00933DD1 /* UIButton+Extension.swift in Sources */,
 				DCC91BD72737FCB600F0E322 /* ListDetailView.swift in Sources */,
@@ -914,6 +929,7 @@
 				DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */,
 				DCC91BC32737E6C800F0E322 /* ListEntity.swift in Sources */,
 				DC49A040272E939800F17DE9 /* AuthTargetType.swift in Sources */,
+				DCC91BDA273801A600F0E322 /* ListDetailCollectionCell.swift in Sources */,
 				DCC91BD12737FAD800F0E322 /* ListDetailViewController.swift in Sources */,
 				DC47F80B27300135009603EE /* AuthParams.swift in Sources */,
 				DCCF8B132729A30200933DD1 /* Alert.swift in Sources */,

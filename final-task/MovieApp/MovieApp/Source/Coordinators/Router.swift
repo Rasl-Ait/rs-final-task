@@ -70,15 +70,15 @@ final class RouterImp: Router {
     rootController?.dismiss(animated: animated, completion: completion)
   }
   
-  func push(_ module: Presentable?)  {
+  func push(_ module: Presentable?) {
     push(module, animated: true)
   }
     
-  func push(_ module: Presentable?, hideBottomBar: Bool)  {
+  func push(_ module: Presentable?, hideBottomBar: Bool) {
     push(module, animated: true, hideBottomBar: hideBottomBar, completion: nil)
   }
   
-  func push(_ module: Presentable?, animated: Bool)  {
+  func push(_ module: Presentable?, animated: Bool) {
     push(module, animated: animated, completion: nil)
   }
   
@@ -99,11 +99,11 @@ final class RouterImp: Router {
     rootController?.pushViewController(controller, animated: animated)
   }
   
-  func popModule()  {
+  func popModule() {
     popModule(animated: true)
   }
   
-  func popModule(animated: Bool)  {
+  func popModule(animated: Bool) {
     if let controller = rootController?.popViewController(animated: animated) {
       runCompletion(for: controller)
     }
