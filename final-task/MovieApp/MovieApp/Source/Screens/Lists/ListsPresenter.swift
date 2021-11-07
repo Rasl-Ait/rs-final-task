@@ -66,10 +66,12 @@ final class ListsPresenter: ListsViewOutput {
       switch result {
       case .success(let item):
         mainQueue {
+          self.persistence.remove(with: id)
           self.view?.successDeleteList(text: item.statusMessage)
         }
       case .failure(let error):
         mainQueue {
+          self.persistence.remove(with: id)
           self.view?.failure(error: error)
         }
       }
