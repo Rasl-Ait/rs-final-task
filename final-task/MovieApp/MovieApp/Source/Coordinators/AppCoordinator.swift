@@ -7,8 +7,7 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
-  var children: [Coordinator] = []
+final class AppCoordinator: BaseCoordinator {
   let router: Router
   let coordinatorFactory: CoordinatorFactory
   let screenFactory: ScreenFactory
@@ -22,7 +21,7 @@ final class AppCoordinator: Coordinator {
     self.coordinatorFactory = coordinatorFactory
   }
   
-  func start() {
+  override func start() {
     if UserDefaults.standard.sessionID != "" {
       pushTabBar()
     } else {
@@ -41,7 +40,7 @@ final class AppCoordinator: Coordinator {
       router: router,
       tabBarViewController: TabBarController()
     )
-    children.append(listCoordinator)
+    addDependency(listCoordinator)
     listCoordinator.start()
     //router.setRootModule(tabBarController, hideBar: true)
 //    let coordinator = coordinatorFactory.makeTabBarCoordinator(router: router)

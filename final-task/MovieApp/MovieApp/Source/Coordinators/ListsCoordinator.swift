@@ -11,8 +11,7 @@ protocol ListsCoordinatorProtocol: AnyObject {
   func pushListDetailVC(list: ListModel)
 }
 
-final class ListsCoordinator: Coordinator {
-  var children: [Coordinator] = []
+final class ListsCoordinator: BaseCoordinator {
   let router: Router
   let coordinatorFactory: CoordinatorFactory
   let screenFactory: ScreenFactory
@@ -29,7 +28,7 @@ final class ListsCoordinator: Coordinator {
     self.coordinatorFactory = coordinatorFactory
   }
   
-  func start() {
+  override func start() {
     pushLists()
   }
 }
@@ -44,8 +43,13 @@ extension ListsCoordinator: ListsCoordinatorProtocol {
   }
   
   func pushListDetailVC(list: ListModel) {
-    let coordinator = coordinatorFactory.makeListDetailCoordinator(router: router, list: list)
-    addDependency(coordinator)
-    coordinator.start()
+    let child = coordinatorFactory.makeListDetailCoordinator(router: router, list: list)
+    
+    child.finishFlow = { [weak self, weak child] in
+      guard let self = self else { return }
+      self.removeChildCoordinator(child)
+    }
+    addDependency(child)
+    child.start()
   }
 }

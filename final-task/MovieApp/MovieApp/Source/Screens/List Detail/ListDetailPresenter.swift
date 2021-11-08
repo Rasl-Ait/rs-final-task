@@ -47,4 +47,12 @@ final class ListDetailPresenter: ListDetailViewOutput {
       }
     }
   }
+  
+  deinit {
+    print("delete prenseter")
+  }
+  
+  func viewWillDisappear() {
+    coordinator?.pop()
+  }
 }

@@ -43,7 +43,11 @@ private extension ListViewCell {
   func setupView() {
     backgroundColor = .cellBackground
     layer.cornerRadius = .spacingSM
-    addShadow(ofColor: .black, radius: 1, offset: CGSize(width: 0, height: 2), opacity: 0.15)
+    addShadow(ofColor: .black,
+              radius: 1,
+              offset: CGSize(width: 0, height: 2),
+              opacity: 0.15
+    )
     apperence()
     setupLayoutUI()
   }

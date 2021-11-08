@@ -11,8 +11,7 @@ protocol AuthCoordinatorProtocol: AnyObject {
   func pushTabBar()
 }
 
-final class AuthCoordinator: Coordinator {
-  var children: [Coordinator] = []
+final class AuthCoordinator: BaseCoordinator {
   let router: Router
   let screenFactory: ScreenFactory
   let coordinatorFactory: CoordinatorFactory
@@ -26,7 +25,7 @@ final class AuthCoordinator: Coordinator {
     self.coordinatorFactory = coordinatorFactory
   }
   
-  func start() {
+  override func start() {
     pushAuth()
   }
 }

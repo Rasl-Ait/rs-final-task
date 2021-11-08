@@ -20,4 +20,5 @@ protocol ListDetailViewOutput: AnyObject {
   var title: String { get }
   
   func getMovies()
+  func viewWillDisappear()
 }

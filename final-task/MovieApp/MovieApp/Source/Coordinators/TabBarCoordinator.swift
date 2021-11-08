@@ -7,9 +7,7 @@
 
 import UIKit
 
-final class TabBarCoordinator: Coordinator {
-
-  var children: [Coordinator] = []
+final class TabBarCoordinator: BaseCoordinator {
   let router: Router
   let coordinatorFactory: CoordinatorFactory
   let screenFactory: ScreenFactory
@@ -20,7 +18,7 @@ final class TabBarCoordinator: Coordinator {
     self.coordinatorFactory = coordinatorFactory
   }
   
-  func start() {
+  override func start() {
     pushTabBar()
   }
 }
@@ -32,9 +30,8 @@ extension TabBarCoordinator {
       router: router,
       tabBarViewController: tabBarController
     )
-    children.append(listCoordinator)
+    addDependency(listCoordinator)
     listCoordinator.start()
     router.setRootModule(tabBarController, hideBar: true)
-    
   }
 }

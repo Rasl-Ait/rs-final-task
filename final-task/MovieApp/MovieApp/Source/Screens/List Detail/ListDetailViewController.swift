@@ -20,6 +20,14 @@ final class ListDetailViewController: BaseViewController {
 		super.viewDidLoad()
     setupViews()
 	}
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    presenter.viewWillDisappear()
+  }
+  deinit {
+    print("delete vc List detail")
+  }
 }
 
 // MARK: - Private ListDetailViewController
