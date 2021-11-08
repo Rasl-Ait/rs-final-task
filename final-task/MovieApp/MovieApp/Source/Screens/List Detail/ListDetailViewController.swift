@@ -28,6 +28,7 @@ final class ListDetailViewController: BaseViewController {
   
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
+    editButtonItem.tintColor = !isEditing ? .titleColor : .cellTitle
     listView.setEditing(isEditing: isEditing)
   }
   

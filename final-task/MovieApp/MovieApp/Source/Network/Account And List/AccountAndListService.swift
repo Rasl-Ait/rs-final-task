@@ -28,6 +28,10 @@ protocol AccountAndListServiceProtocol {
   func listDetail(
     _ id: Int,
     completion: @escaping CompletionBlock<ListDetailResponce>)
+  func removeMovie(
+    _ id: Int,
+    param: RemoveMovieParam,
+    completion: @escaping CompletionBlock<SuccessErrorModel>)
   
 }
 
@@ -58,5 +62,9 @@ class AccountAndListService: BaseAPI<AccountAndListTargetType>, AccountAndListSe
   
   func listDetail(_ id: Int, completion: @escaping CompletionBlock<ListDetailResponce>) {
     getData(target: .listDetail(id), completion: completion)
+  }
+  
+  func removeMovie(_ id: Int, param: RemoveMovieParam, completion: @escaping CompletionBlock<SuccessErrorModel>) {
+    getData(target: .removeMovie(id, param), completion: completion)
   }
 }

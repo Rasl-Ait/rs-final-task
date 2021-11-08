@@ -23,3 +23,11 @@ struct NewListParam: Encodable {
   let name: String
   let description = ""
 }
+
+struct RemoveMovieParam: Encodable {
+  let mediaID: Int
+  
+  private enum CodingKeys: String, CodingKey {
+    case mediaID = "media_id"
+  }
+}
