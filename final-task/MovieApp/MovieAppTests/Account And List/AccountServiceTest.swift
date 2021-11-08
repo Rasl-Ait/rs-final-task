@@ -112,6 +112,23 @@ class AccountServiceTest: XCTestCase {
     XCTAssertEqual(sut.client.inputRequest, request)
   }
   
+  func test_removeMovieRequest() {
+    let sut = makeSUT()
+    
+    let param = RemoveMovieParam(mediaID: 1234)
+
+    let query = [
+      URLQueryItem(name: "session_id", value: sessionID)
+    ]
+    
+    sut.service.removeMovie(10, param: param) { _ in }
+    XCTAssertTrue(sut.client.executeCalled)
+    let request: URLRequest = .queryParams("list/10/remove_item",
+                                           param: (query, param),
+                                           httpMethod: .post)
+    XCTAssertEqual(sut.client.inputRequest, request)
+  }
+  
   func test_getAccountRequestSuccessResponse() throws {
 
     let results = getResponce(file: "Account", type: AccountModel.self)
@@ -232,6 +249,21 @@ class AccountServiceTest: XCTestCase {
 
     sut.service.listDetail(10) { result = $0 }
     XCTAssertEqual(result?.value, movie)
+  }
+  
+  func test_removeMovieSuccessResponse() throws {
+    let item = SuccessErrorModel(statusCode: 12, statusMessage: "The item/record was updated successfully")
+    let response = try JSONEncoder().encode(item)
+
+    let param = RemoveMovieParam(mediaID: 1234)
+    
+    let sut = makeSUT()
+    sut.client.result = .success(response)
+
+    var result: Result<SuccessErrorModel, APIError>?
+
+    sut.service.removeMovie(10, param: param) { result = $0 }
+    XCTAssertEqual(result?.value, item)
   }
   
   private func makeSUT() -> (service: AccountAndListService, client: MockHTTPClient) {
