@@ -17,12 +17,12 @@ struct Alert {
     titles.forEach {
       let action = UIAlertAction(title: $0, style: .default, handler: tapAction)
      // action.setValue(UIColor.coral, forKey: "titleTextColor")
-      alert.view.tintColor = .titleColor
+      alert.view.tintColor = .cellTitle
       alert.addAction(action)
     }
     
     let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-  //  actionCancel.setValue(UIColor.customRed, forKey: "titleTextColor")
+     actionCancel.setValue(UIColor.systemRed, forKey: "titleTextColor")
   
     alert.addAction(actionCancel)
     DispatchQueue.main.async {

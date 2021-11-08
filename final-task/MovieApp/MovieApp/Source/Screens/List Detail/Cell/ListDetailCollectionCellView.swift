@@ -49,7 +49,7 @@ final class ListDetailCollectionCellView: UIView {
 // MARK: - Private ListDetailCollectionCellView
 private extension ListDetailCollectionCellView {
   func setupView() {
-    backgroundColor = .background
+    backgroundColor = .cellBackground
     layer.cornerRadius = .spacingSM
     addShadow(ofColor: .black, radius: 1, offset: CGSize(width: 0, height: 2), opacity: 0.15)
     apperence()

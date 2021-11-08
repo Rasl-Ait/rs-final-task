@@ -43,8 +43,15 @@ private extension ListDetailViewController {
     view.backgroundColor = .background
     setupConfigureNavigationBar()
     apperance()
+    setupRefreshControl(listView.collectionView)
     setupLayoutUI()
-    presenter.getMovies()
+    presenter.getMovies(state: .noRefresh)
+    
+    refreshLoadData = { [weak self] in
+      guard let self = self else { return }
+      self.presenter.getMovies(state: .refresh)
+      self.listView.collectionView.refreshControl?.endRefreshing()
+    }
     
     listView.didRemoveButton = { [weak self] item in
       guard let self = self else { return }

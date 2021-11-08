@@ -31,8 +31,11 @@ final class ListDetailPresenter: ListDetailViewOutput {
     self.list = list
   }
   
-  func getMovies() {
-    self.view?.showIndicator()
+  func getMovies(state: StateLoad) {
+    if state != .refresh {
+      self.view?.showIndicator()
+    }
+    
     service.listDetail(list.id) { [weak self] result in
       guard let self = self else { return }
       switch result {

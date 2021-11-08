@@ -20,7 +20,7 @@ protocol ListDetailViewOutput: AnyObject {
   var alertTitles: [String] { get }
   var title: String { get }
   
-  func getMovies()
+  func getMovies(state: StateLoad)
   func removeMovie(id: Int)
   func viewWillDisappear()
 }
