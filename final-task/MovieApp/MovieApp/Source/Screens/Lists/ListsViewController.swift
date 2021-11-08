@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum StateLoad {
+  case refresh
+  case noRefresh
+}
+
 final class ListsViewController: BaseViewController {
   
   // MARK: - Properties
@@ -27,8 +32,9 @@ private extension ListsViewController {
     view.backgroundColor = .background
     configureNavigationBar()
     apperance()
+    setupRefreshControl(listView.collectionView)
     setupLayoutUI()
-    presenter.getLists()
+    presenter.getLists(state: .noRefresh)
     
     listView.didRemoveButton = { [weak self] id in
       guard let self = self else { return }
@@ -41,6 +47,12 @@ private extension ListsViewController {
     listView.didSelectRowAt = { [weak self] item in
       guard let self = self else { return }
       self.presenter.didSelectRowAt(list: item)
+    }
+    
+    refreshLoadData = { [weak self] in
+      guard let self = self else { return }
+      self.presenter.getLists(state: .refresh)
+      self.listView.collectionView.refreshControl?.endRefreshing()
     }
   }
   
@@ -103,7 +115,7 @@ extension ListsViewController: ListsViewInput {
   
   func successCreateList(text: String) {
     hide()
-    presenter.getLists()
+    presenter.getLists(state: .noRefresh)
   }
   
   func success(items: [ListModel]) {

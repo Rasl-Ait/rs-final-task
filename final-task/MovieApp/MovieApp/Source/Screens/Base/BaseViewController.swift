@@ -4,6 +4,8 @@ import MBProgressHUD
 
 class BaseViewController: UIViewController {
   
+  var refreshLoadData: VoidClosure?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
@@ -16,6 +18,14 @@ class BaseViewController: UIViewController {
   func configureNavigationBar(isHidden: Bool, barStyle: UIBarStyle) {
     navigationController?.navigationBar.isHidden = isHidden
     navigationController?.navigationBar.barStyle = barStyle
+  }
+  
+  func setupRefreshControl(_ collectionView: UICollectionView) {
+    let refreshControl = UIRefreshControl()
+    collectionView.alwaysBounceVertical = true
+    refreshControl.tintColor = UIColor.titleColor
+    refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+    collectionView.refreshControl = refreshControl
   }
   
   func show(_ message: String = "") {
@@ -40,5 +50,9 @@ class BaseViewController: UIViewController {
   
   @objc func hideKeyboard() {
     self.view.endEditing(true)
-  }  
+  }
+  
+  @objc func loadData() {
+    refreshLoadData?()
+  }
 }

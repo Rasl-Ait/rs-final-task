@@ -25,8 +25,13 @@ final class ListsPresenter: ListsViewOutput {
     self.persistence = persistence
   }
   
-  func getLists() {
-    view?.showIndicator()
+  func getLists(state: StateLoad) {
+    if state != .refresh {
+      view?.showIndicator()
+    } else {
+      page = 1
+    }
+    
     service.getLists(page) { [weak self] result in
       guard let self = self else { return }
       switch result {

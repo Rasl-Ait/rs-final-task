@@ -21,7 +21,7 @@ protocol ListsViewInput: AnyObject {
 protocol ListsViewOutput: AnyObject {
   var lists: [ListModel] { get }
   
-  func getLists()
+  func getLists(state: StateLoad)
   func createList()
   func deleteList(id: Int)
   func didSelectRowAt(list: ListModel)

@@ -11,7 +11,7 @@ import SnapKit
 final class ListDetailView: UIView {
   
   // MARK: - Properties
-  private lazy var collectionView = makeCollectionView()
+  lazy var collectionView = makeCollectionView()
   private lazy var dataSource = configureDataSource()
   
   private var deleteIndexPath: IndexPath!
