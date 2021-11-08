@@ -30,7 +30,7 @@ final class ListDetailView: UIView {
   }
   
   // MARK: - Closure
-  var didRemoveButton: ItemClosure<Int>?
+  var didRemoveButton: ItemClosure<MovieModel>?
   
   // MARK: - Overriden funcs
   
@@ -48,9 +48,10 @@ final class ListDetailView: UIView {
   }
   
   func removeMovie() {
-    guard let list = self.dataSource.itemIdentifier(for: deleteIndexPath) else { return }
+    guard let selectedIndexPaths = collectionView.indexPathsForSelectedItems else { return }
+    let movies = selectedIndexPaths.compactMap { dataSource.itemIdentifier(for: $0) }
     var snapshot = dataSource.snapshot()
-    snapshot.deleteItems([list])
+    snapshot.deleteItems(movies)
     dataSource.apply(snapshot, animatingDifferences: true)
   }
   
@@ -96,17 +97,14 @@ private extension ListDetailView {
     }
   }
   
-  func deleteItems() {
-    guard let selectedIndexPaths = collectionView.indexPathsForSelectedItems else { return }
-    let movies = selectedIndexPaths.compactMap { dataSource.itemIdentifier(for: $0) }
-    var snapshot = dataSource.snapshot()
-    snapshot.deleteItems(movies)
-    dataSource.apply(snapshot, animatingDifferences: true)
-  }
-  
   // MARK: Action func
   @objc func removeButtonTapped() {
-    deleteItems()
+    guard let selectedIndexPaths = collectionView.indexPathsForSelectedItems else { return }
+    let movies = selectedIndexPaths.compactMap { dataSource.itemIdentifier(for: $0) }
+    if !selectedIndexPaths.isEmpty {
+      didRemoveButton?(movies[0])
+    }
+   
   }
 }
 
@@ -161,13 +159,6 @@ private extension ListDetailView {
       collectionView: collectionView) { collectionView, indexPath, model in
       let cell: ListDetailCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
       cell.configure(model: model)
-      
-      cell.didRemoveButton = { [weak self] in
-        guard let self = self else { return }
-        self.deleteIndexPath = indexPath
-        self.didRemoveButton?(model.id)
-      }
-      
       return cell
     }
     

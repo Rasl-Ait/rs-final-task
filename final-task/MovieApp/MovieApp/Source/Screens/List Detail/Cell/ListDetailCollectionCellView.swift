@@ -15,9 +15,6 @@ final class ListDetailCollectionCellView: UIView {
   private lazy var checkButton = makeCheckButton()
   private lazy var stackView = makeStackView()
   
-  // MARK: Closure
-  var didRemoveButton: VoidClosure?
-  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupView()
@@ -41,7 +38,9 @@ final class ListDetailCollectionCellView: UIView {
   }
   
   func configure(_ model: MovieModel) {
-    titleLabel.text = model.title
+    titleLabel.text = model.originalName != nil ?
+      model.originalName :
+      model.originalTitle
     checkButton.isHidden = true
     imageView.download(url: model.iconString, placeholder: nil)
   }
@@ -94,13 +93,14 @@ private extension ListDetailCollectionCellView {
   
   func makeImageView() -> UIImageView {
     let view = UIImageView()
+    view.contentMode = .scaleAspectFill
     view.layer.cornerRadius = .spacingS
     view.clipsToBounds = true
     return view
   }
   
   func makeStackView() -> UIStackView {
-    let view = CustomStackView(axis: .vertical, spacing: .spacingXXS)
+    let view = CustomStackView(axis: .vertical, spacing: .spacingL)
     view.addArrangedSubview(imageView)
     view.addArrangedSubview(titleLabel)
     return view
@@ -112,15 +112,7 @@ private extension ListDetailCollectionCellView {
     view.setImage(.setImage(.circle).withColor(.titleColor), for: .normal)
     view.setImage(.setImage(.circleSelect).withColor(.titleColor), for: .selected)
     view.tintColor = .titleColor
-    view.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
     return view
-  }
-}
-
-// MARK: - Action
-private extension ListDetailCollectionCellView {
-  @objc func removeButtonTapped() {
-    didRemoveButton?()
   }
 }
 

@@ -12,15 +12,7 @@ final class ListDetailCollectionCell: BaseCollectionViewCell {
   // MARK: - Properties
   private lazy var cellView = makeCellView()
   
-  // MARK: Closure
-  var didRemoveButton: VoidClosure? {
-    didSet {
-      cellView.didRemoveButton = didRemoveButton
-    }
-  }
-  
   // MARK: Overriden
-  
   var isEditing: Bool = false {
     didSet {
       cellView.isEditing(isEditing: isEditing)

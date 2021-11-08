@@ -48,6 +48,24 @@ final class ListDetailPresenter: ListDetailViewOutput {
     }
   }
   
+  func removeMovie(id: Int) {
+    let param = RemoveMovieParam(mediaID: id)
+    self.view?.showIndicator()
+    service.removeMovie(list.id, param: param) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success:
+        mainQueue {
+          self.view?.successRemoveMovie()
+        }
+      case .failure(let error):
+        mainQueue {
+          self.view?.failure(error: error)
+        }
+      }
+    }
+  }
+  
   deinit {
     print("delete prenseter")
   }

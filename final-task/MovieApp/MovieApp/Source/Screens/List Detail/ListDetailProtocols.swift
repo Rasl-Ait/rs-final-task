@@ -10,6 +10,7 @@ import Foundation
 
 protocol ListDetailViewInput: AnyObject {
   func success(items: [MovieModel])
+  func successRemoveMovie()
 	func failure(error: Error)
 	func hideIndicator()
 	func showIndicator()
@@ -20,5 +21,6 @@ protocol ListDetailViewOutput: AnyObject {
   var title: String { get }
   
   func getMovies()
+  func removeMovie(id: Int)
   func viewWillDisappear()
 }

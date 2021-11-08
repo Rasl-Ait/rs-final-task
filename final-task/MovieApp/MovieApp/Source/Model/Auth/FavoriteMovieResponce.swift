@@ -27,6 +27,7 @@ struct MovieModel: Codable, Equatable, Hashable {
   let genreIds: [Int]
   let id: Int
   let originalTitle: String?
+  let originalName: String?
   let overview: String
   let releaseDate: String?
   let posterPath: String?
@@ -50,6 +51,7 @@ struct MovieModel: Codable, Equatable, Hashable {
     case video
     case voteAverage = "vote_average"
     case voteCount = "vote_count"
+    case originalName = "original_name"
   }
   
   public var backdropURL: String? {

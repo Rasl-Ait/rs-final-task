@@ -41,6 +41,8 @@ final class NetworkService: HTTPClient {
         return
       }
       
+     // print(String(data: data, encoding: .utf8))
+      
       switch http.statusCode {
       case 200...201:
           completion(.success(data))

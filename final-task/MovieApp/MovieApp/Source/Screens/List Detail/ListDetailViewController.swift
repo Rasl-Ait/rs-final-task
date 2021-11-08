@@ -45,6 +45,19 @@ private extension ListDetailViewController {
     apperance()
     setupLayoutUI()
     presenter.getMovies()
+    
+    listView.didRemoveButton = { [weak self] item in
+      guard let self = self else { return }
+      Alert.showAlertAction(
+        on: self,
+        title: .removeMovie,
+        message: .none,
+        messageText: item.title,
+        primaryTitle: .delete) { _ in
+        self.presenter.removeMovie(id: item.id)
+      } secondAction: { _ in
+      }
+    }
   }
   
   func apperance() {
@@ -89,6 +102,11 @@ private extension ListDetailViewController {
 
 // MARK: - ListDetailViewInput
 extension ListDetailViewController: ListDetailViewInput {
+  func successRemoveMovie() {
+    hide()
+    listView.removeMovie()
+  }
+  
   func successDeleteList(text: String) {
     hide()
 //    Alert.showAlert(on: self, with: .attention, message: text) { _ in

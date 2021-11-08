@@ -46,6 +46,7 @@ struct Alert {
     on vc: UIViewController,
     title: AlertTitleType,
     message: AlertMessageType = .none,
+    messageText: String? = nil,
     primaryTitle: AlertButton = .yes,
     secondTitle: AlertButton = .cancel,
     preferredStyle: UIAlertController.Style = .alert,
@@ -54,7 +55,7 @@ struct Alert {
     
     let alert = UIAlertController(
       title: title.rawValue,
-      message: message.rawValue,
+      message: messageText == nil ? message.rawValue : messageText,
       preferredStyle: preferredStyle)
     let action = UIAlertAction(title: primaryTitle.rawValue, style: .default, handler: primaryAction)
     

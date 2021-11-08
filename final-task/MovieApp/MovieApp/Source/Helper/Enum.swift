@@ -24,6 +24,7 @@ enum AlertTitleType: String {
   case attention = "Attention"
   case createList = "Created new list"
   case delete = "Delete"
+  case removeMovie = "Remove Movie"
 }
 
 enum IconType: String {
