@@ -25,6 +25,12 @@ final class ListDetailViewController: BaseViewController {
     super.viewWillDisappear(animated)
     presenter.viewWillDisappear()
   }
+  
+  override func setEditing(_ editing: Bool, animated: Bool) {
+    super.setEditing(editing, animated: animated)
+    listView.setEditing(isEditing: isEditing)
+  }
+  
   deinit {
     print("delete vc List detail")
   }
@@ -67,7 +73,7 @@ private extension ListDetailViewController {
       action: #selector(sortedTapped)
     )
     
-    navigationItem.rightBarButtonItems = [editButtonItem, sortedBarButtonItem]
+    navigationItem.rightBarButtonItems = [sortedBarButtonItem, editButtonItem]
   }
 }
 

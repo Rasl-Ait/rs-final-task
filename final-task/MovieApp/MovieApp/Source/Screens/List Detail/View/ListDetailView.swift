@@ -13,17 +13,26 @@ final class ListDetailView: UIView {
   // MARK: - Properties
   lazy var collectionView = makeCollectionView()
   private lazy var dataSource = configureDataSource()
+  private lazy var removeButton = makeRemoveButton()
   
   private var deleteIndexPath: IndexPath!
-
+  
+  enum Section {
+    case all
+  }
+  
+  var isEditing: Bool = false {
+    didSet {
+      collectionView.delegate = !isEditing ? self : nil
+      collectionView.allowsSelection = !isEditing ? true : false
+      removeButton.isHidden = !isEditing
+    }
+  }
+  
   // MARK: - Closure
   var didRemoveButton: ItemClosure<Int>?
   
   // MARK: - Overriden funcs
-  
-  enum Section {
-      case all
-  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -44,6 +53,19 @@ final class ListDetailView: UIView {
     snapshot.deleteItems([list])
     dataSource.apply(snapshot, animatingDifferences: true)
   }
+  
+  func setEditing(isEditing: Bool) {
+    self.isEditing = isEditing
+    collectionView.allowsSelection = true
+    collectionView.indexPathsForVisibleItems.forEach { indexPath in
+      guard let cell = collectionView.cellForItem(at: indexPath) as? ListDetailCollectionCell else { return }
+      cell.isEditing = isEditing
+      
+      if !isEditing {
+        cell.isSelected = false
+      }
+    }
+  }
 }
 
 // MARK: - Private Extension
@@ -52,12 +74,13 @@ private extension ListDetailView {
     backgroundColor = .background
     apperance()
     setupLayoutUI()
-    
+    isEditing = false
     collectionView.dataSource = dataSource
   }
   
   func apperance() {
     addSubview(collectionView)
+    addSubview(removeButton)
   }
   
   func setupLayoutUI() {
@@ -65,6 +88,25 @@ private extension ListDetailView {
       $0.top.equalTo(safeAreaLayoutGuide.snp.top)
       $0.right.left.bottom.equalToSuperview()
     }
+    
+    removeButton.snp.makeConstraints {
+      $0.height.width.equalTo(60)
+      $0.bottom.equalToSuperview().inset(40)
+      $0.leading.equalToSuperview().offset(15)
+    }
+  }
+  
+  func deleteItems() {
+    guard let selectedIndexPaths = collectionView.indexPathsForSelectedItems else { return }
+    let movies = selectedIndexPaths.compactMap { dataSource.itemIdentifier(for: $0) }
+    var snapshot = dataSource.snapshot()
+    snapshot.deleteItems(movies)
+    dataSource.apply(snapshot, animatingDifferences: true)
+  }
+  
+  // MARK: Action func
+  @objc func removeButtonTapped() {
+    deleteItems()
   }
 }
 
@@ -75,7 +117,7 @@ private extension ListDetailView {
       
       let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(230))
       let item = NSCollectionLayoutItem(layoutSize: itemSize)
-       // item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+      // item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
       
       let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1))
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
@@ -100,6 +142,16 @@ private extension ListDetailView {
     view.register(ListDetailCollectionCell.self)
     return view
   }
+  
+  func makeRemoveButton() -> UIButton {
+    let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 30))
+    let view = CustomButton(.setImage(.delete, configuration: config).withColor(.systemRed), highlightedImage: .setImage(.delete, configuration: config).withColor(#colorLiteral(red: 0.9078176022, green: 0.3331586123, blue: 0.08758335561, alpha: 0.7640920626)))
+    view.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
+    view.backgroundColor = .cellBackground
+    view.layer.cornerRadius = .radiusXXXL
+    view.isHidden = true
+    return view
+  }
 }
 
 // MARK: - Data Source
@@ -119,15 +171,24 @@ private extension ListDetailView {
       return cell
     }
     
-      return dataSource
+    return dataSource
   }
   
   func updateSnapshot(_ items: [MovieModel], animatingChange: Bool = false) {
-      var snapshot = NSDiffableDataSourceSnapshot<Section, MovieModel>()
-      snapshot.appendSections([.all])
-      snapshot.appendItems(items, toSection: .all)
-   
-      dataSource.apply(snapshot, animatingDifferences: false)
+    var snapshot = NSDiffableDataSourceSnapshot<Section, MovieModel>()
+    snapshot.appendSections([.all])
+    snapshot.appendItems(items, toSection: .all)
+    
+    dataSource.apply(snapshot, animatingDifferences: false)
+  }
+}
+
+// MARK: UICollectionViewDelegate
+extension ListDetailView: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    collectionView.deselectItem(at: indexPath, animated: false)
+    print(#function)
+    
   }
 }
 

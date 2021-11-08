@@ -19,7 +19,20 @@ final class ListDetailCollectionCell: BaseCollectionViewCell {
     }
   }
   
-  // MARK: Overriden funcs
+  // MARK: Overriden
+  
+  var isEditing: Bool = false {
+    didSet {
+      cellView.isEditing(isEditing: isEditing)
+    }
+  }
+  
+  override var isSelected: Bool {
+    didSet {
+      cellView.isSelected(isSelected: isSelected)
+    }
+  }
+  
   override func addSubViews() {
     setupViews()
   }

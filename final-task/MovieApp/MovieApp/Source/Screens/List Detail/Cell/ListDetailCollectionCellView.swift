@@ -32,6 +32,14 @@ final class ListDetailCollectionCellView: UIView {
     imageView.image = nil
   }
   
+  func isEditing(isEditing: Bool) {
+    checkButton.isHidden = !isEditing
+  }
+  
+  func isSelected(isSelected: Bool) {
+    checkButton.isSelected = isSelected
+  }
+  
   func configure(_ model: MovieModel) {
     titleLabel.text = model.title
     checkButton.isHidden = true
@@ -100,6 +108,7 @@ private extension ListDetailCollectionCellView {
   
   func makeCheckButton() -> UIButton {
     let view = UIButton()
+    view.isUserInteractionEnabled = false
     view.setImage(.setImage(.circle).withColor(.titleColor), for: .normal)
     view.setImage(.setImage(.circleSelect).withColor(.titleColor), for: .selected)
     view.tintColor = .titleColor
