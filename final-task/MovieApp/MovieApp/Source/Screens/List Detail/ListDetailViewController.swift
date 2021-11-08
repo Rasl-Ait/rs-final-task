@@ -62,7 +62,7 @@ private extension ListDetailViewController {
         messageText: item.title,
         primaryTitle: .delete) { _ in
         self.presenter.removeMovie(id: item.id)
-      } secondAction: { _ in
+        } secondAction: { _ in
       }
     }
   }
@@ -102,7 +102,8 @@ private extension ListDetailViewController {
 private extension ListDetailViewController {
   @objc func sortedTapped() {
     Alert.showAlertSheet(on: self, title: "Choose your option", titles: presenter.alertTitles) { alert in
-
+      let titleType = SortedType(rawValue: alert.title ?? "") ?? .date
+      self.listView.sorted(type: titleType)
     }
   }
 }

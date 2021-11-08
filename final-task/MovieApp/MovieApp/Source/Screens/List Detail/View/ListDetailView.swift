@@ -16,6 +16,7 @@ final class ListDetailView: UIView {
   private lazy var removeButton = makeRemoveButton()
   
   private var deleteIndexPath: IndexPath!
+  private var movies: [MovieModel] = []
   
   enum Section {
     case all
@@ -44,6 +45,7 @@ final class ListDetailView: UIView {
   }
   
   func addMovie(_ items: [MovieModel]) {
+    self.movies = items
     updateSnapshot(items)
   }
   
@@ -65,6 +67,20 @@ final class ListDetailView: UIView {
       if !isEditing {
         cell.isSelected = false
       }
+    }
+  }
+  
+  func sorted(type: SortedType) {
+    switch type {
+    case .popular:
+      let sorted = movies.sorted(by: { $0.popularity > $1.popularity })
+      updateSnapshot(sorted)
+    case .date:
+      let sorted = movies.sorted(by: { $0.releaseDate?.toDate() ?? Date() < $1.releaseDate?.toDate() ?? Date() })
+      updateSnapshot(sorted)
+    case .rate:
+      let sorted = movies.sorted(by: { $0.voteAverage > $1.voteAverage })
+      updateSnapshot(sorted)
     }
   }
 }

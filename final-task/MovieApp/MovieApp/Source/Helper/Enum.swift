@@ -106,3 +106,9 @@ enum AlertButton: String {
   case yes = "Yes"
   case delete = "Delete"
 }
+
+enum SortedType: String {
+  case popular = "Popular"
+  case date = "Date"
+  case rate = "Rate"
+}
