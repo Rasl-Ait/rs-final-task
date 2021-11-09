@@ -22,9 +22,6 @@ struct FavoriteMovieResponce: Codable, Equatable {
 }
 
 struct MovieModel: Codable, Equatable, Hashable {
-  let adult: Bool?
-  let backdropPath: String?
-  let genreIds: [Int]
   let id: Int
   let originalTitle: String?
   let originalName: String?
@@ -33,14 +30,9 @@ struct MovieModel: Codable, Equatable, Hashable {
   let posterPath: String?
   let popularity: Double
   let title: String?
-  let video: Bool?
   let voteAverage: Double
-  let voteCount: Int
 
   private enum CodingKeys: String, CodingKey {
-    case adult
-    case backdropPath = "backdrop_path"
-    case genreIds = "genre_ids"
     case id
     case originalTitle = "original_title"
     case overview
@@ -48,9 +40,7 @@ struct MovieModel: Codable, Equatable, Hashable {
     case posterPath = "poster_path"
     case popularity
     case title
-    case video
     case voteAverage = "vote_average"
-    case voteCount = "vote_count"
     case originalName = "original_name"
   }
   
