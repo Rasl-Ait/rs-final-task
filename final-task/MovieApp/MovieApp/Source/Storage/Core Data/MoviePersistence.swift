@@ -30,10 +30,11 @@ final class MoviePersistence: StorageProtocol {
     }
   }
   
-  func addMovie(_ item: MovieModel, list: ListEntity) {
+  func addMovie(_ item: MovieModel, listID: Int) {
+    let listEntity = fetchList(.uid(listID))
     let entity = MovieEntity.find(byID: item.id, context: backgroundContext)
     item.createEntity(entity)
-    list.addToMovies(entity)
+    listEntity?.addToMovies(entity)
     backgroundContext.performAndWait {
       save(backgroundContext)
     }
@@ -54,6 +55,27 @@ final class MoviePersistence: StorageProtocol {
         DDLogError("list with id=\(id) removed from the database")
       } catch let error {
         DDLogError("error when deleting list with ID =\(id)\n\(error.localizedDescription)")
+      }
+    }
+  }
+  
+  func fetchList(_ predicateType: PredicateType) -> ListEntity? {
+    let request: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
+    switch predicateType {
+    case .uid(let id):
+     let predicate = NSPredicate(format: "id = %d", id)
+      request.predicate = predicate
+      
+      do {
+        let result = try backgroundContext.fetch(request)
+        guard let entity = result.first else {
+          return nil
+        }
+        DDLogInfo("get List with ID = \(entity.id)")
+        return entity
+      } catch {
+        DDLogInfo("an entity with this ID = \(id) does not exist")
+        return nil
       }
     }
   }

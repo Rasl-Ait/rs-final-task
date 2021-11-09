@@ -13,6 +13,8 @@ final class ListDetailPresenter: ListDetailViewOutput {
   private(set) var alertTitles = ["Date", "Popular", "Rate"]
   
 	private let service: AccountAndListServiceProtocol
+  private let persistence: StorageProtocol
+  
 	weak var view: ListDetailViewInput?
   weak var coordinator: ListDetailCoordinatorProtocol?
   
@@ -25,10 +27,12 @@ final class ListDetailPresenter: ListDetailViewOutput {
   init(
     view: ListDetailViewInput,
     service: AccountAndListServiceProtocol,
-    list: ListModel) {
+    list: ListModel,
+    persistence: StorageProtocol) {
     self.service = service
     self.view = view
     self.list = list
+    self.persistence = persistence
   }
   
   func getMovies(state: StateLoad) {
@@ -40,6 +44,11 @@ final class ListDetailPresenter: ListDetailViewOutput {
       guard let self = self else { return }
       switch result {
       case .success(let item):
+        
+//        item.items.forEach {
+//          //persistence.addMovie($0, list: list)
+//        }
+        
         mainQueue {
           self.view?.success(items: item.items)
         }

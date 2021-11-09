@@ -41,9 +41,6 @@ class MoviePersistenceTest: XCTestCase {
     
     persistence.addList(list)
     
-    let listrequest: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
-    let result = try context.fetch(listrequest)
-    
     let movie = MovieModel(id: 1,
                            originalTitle: "title",
                            originalName: nil,
@@ -54,7 +51,7 @@ class MoviePersistenceTest: XCTestCase {
                            title: "Venom",
                            voteAverage: 10.0)
     
-    persistence.addMovie(movie, list: result[0])
+    persistence.addMovie(movie, listID: list.id)
     let count = try context.count(for: request)
     XCTAssertEqual(count, 1)
   }
@@ -62,9 +59,7 @@ class MoviePersistenceTest: XCTestCase {
   func test_listMoviesAdd() throws {
     persistence.addList(list)
     let context = coredataStack.managedContext
-    
-    let listrequest: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
-    let result = try context.fetch(listrequest)
+
     
     let movie = MovieModel(id: 1,
                            originalTitle: "title",
@@ -76,7 +71,7 @@ class MoviePersistenceTest: XCTestCase {
                            title: "Venom",
                            voteAverage: 10.0)
     
-    persistence.addMovie(movie, list: result[0])
+    persistence.addMovie(movie, listID: list.id)
     let listModel = persistence.fetchItem(.uid(list.id))
     XCTAssertEqual(listModel?.movies?.count, 1)
   }
