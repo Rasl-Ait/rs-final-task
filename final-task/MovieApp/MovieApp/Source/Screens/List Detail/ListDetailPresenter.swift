@@ -19,6 +19,7 @@ final class ListDetailPresenter: ListDetailViewOutput {
   weak var coordinator: ListDetailCoordinatorProtocol?
   
   private let list: ListModel
+  private let imageManager = ImageManager()
   
   var title: String {
     list.name
@@ -45,9 +46,11 @@ final class ListDetailPresenter: ListDetailViewOutput {
       switch result {
       case .success(let item):
         
-//        item.items.forEach {
-//          //persistence.addMovie($0, list: list)
-//        }
+        item.items.forEach {
+          var movie = $0
+          movie.posterPath = self.imageManager.saveNewMemory(imageString: movie.iconString ?? "", key: movie.id.toString)
+          self.persistence.addMovie(movie, listID: self.list.id)
+        }
         
         mainQueue {
           self.view?.success(items: item.items)

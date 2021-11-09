@@ -27,7 +27,7 @@ struct MovieModel: Codable, Equatable, Hashable {
   let originalName: String?
   let overview: String
   let releaseDate: String?
-  let posterPath: String?
+  var posterPath: String?
   let popularity: Double
   let title: String?
   let voteAverage: Double

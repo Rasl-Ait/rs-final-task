@@ -26,10 +26,20 @@ class MoviePersistenceTest: XCTestCase {
                      posterPath: nil)
   }
   
-  func test_addItem() throws {
+  func test_addIList() throws {
     let request: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
     let context = coredataStack.managedContext
     
+    persistence.addList(list)
+    let count = try context.count(for: request)
+    XCTAssertEqual(count, 1)
+  }
+  
+  func test_addIListDuplication() throws {
+    let request: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
+    let context = coredataStack.managedContext
+    
+    persistence.addList(list)
     persistence.addList(list)
     let count = try context.count(for: request)
     XCTAssertEqual(count, 1)

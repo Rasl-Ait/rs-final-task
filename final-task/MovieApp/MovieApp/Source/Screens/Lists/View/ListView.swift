@@ -106,7 +106,7 @@ private extension ListView {
     let dataSource = UICollectionViewDiffableDataSource<Section, ListModel>(
       collectionView: collectionView) { collectionView, indexPath, model in
       let cell: ListCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
-      
+      cell.configure(model: model)
       cell.didRemoveButton = { [weak self] in
         guard let self = self else { return }
         self.deleteIndexPath = indexPath
