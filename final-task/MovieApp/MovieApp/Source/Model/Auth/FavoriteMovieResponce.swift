@@ -86,4 +86,17 @@ extension MovieModel {
     
     return items
   }
+  
+  static func getMovie(entity: MovieEntity) -> MovieModel {
+      return MovieModel(id: Int(entity.id),
+                         originalTitle: entity.originalTitle,
+                         originalName: entity.originalName,
+                         overview: entity.overview ?? "",
+                         releaseDate: entity.releaseDate,
+                         posterPath: entity.posterPath,
+                         popularity: entity.popularity,
+                         title: entity.title,
+                         voteAverage: entity.voteAverage)
+  }
+  
 }

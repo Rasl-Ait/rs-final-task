@@ -83,6 +83,25 @@ final class MoviePersistence: StorageProtocol {
     }
   }
   
+  func removeMovie(with id: Int) {
+    let request: NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
+    let predicate = NSPredicate(format: "id = %d", id)
+    request.predicate = predicate
+    backgroundContext.performAndWait {
+      do {
+        guard let result = try backgroundContext.fetch(request).first else {
+          DDLogError("an object with this identifier \(id) does not exist")
+          return
+        }
+        backgroundContext.delete(result)
+        try backgroundContext.save()
+        DDLogError("list with id=\(id) removed from the database")
+      } catch let error {
+        DDLogError("error when deleting movie with ID =\(id)\n\(error.localizedDescription)")
+      }
+    }
+  }
+  
   func fetchList(_ predicateType: PredicateType) -> ListEntity? {
     let request: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
     switch predicateType {
@@ -104,26 +123,26 @@ final class MoviePersistence: StorageProtocol {
     }
   }
   
-  func fetchMovie(_ predicateType: PredicateType) -> MovieEntity? {
-    let request: NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
-    switch predicateType {
-    case .uid(let id):
-     let predicate = NSPredicate(format: "id = %d", id)
-      request.predicate = predicate
-      
-      do {
-        let result = try backgroundContext.fetch(request)
-        guard let entity = result.first else {
-          return nil
-        }
-        DDLogInfo("get movie with ID = \(entity.id)")
-        return entity
-      } catch {
-        DDLogInfo("an entity with this ID = \(id) does not exist")
-        return nil
-      }
-    }
-  }
+//  func fetchMovieEntity(_ predicateType: PredicateType) -> MovieEntity? {
+//    let request: NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
+//    switch predicateType {
+//    case .uid(let id):
+//     let predicate = NSPredicate(format: "id = %d", id)
+//      request.predicate = predicate
+//
+//      do {
+//        let result = try backgroundContext.fetch(request)
+//        guard let entity = result.first else {
+//          return nil
+//        }
+//        DDLogInfo("get movie with ID = \(entity.id)")
+//        return entity
+//      } catch {
+//        DDLogInfo("an entity with this ID = \(id) does not exist")
+//        return nil
+//      }
+//    }
+//  }
   
   func filter(id: Int, entityID: Int) -> Bool {
     if entityID != id {
@@ -168,6 +187,27 @@ final class MoviePersistence: StorageProtocol {
         }
         DDLogInfo("get list with id = \(entity.id)")
         return ListModel.getEntities(entity: entity)
+      } catch {
+        DDLogInfo("an entity with this id = \(id) does not exist")
+        return nil
+      }
+    }
+  }
+  
+  func fetchMovie(_ predicateType: PredicateType) -> MovieModel? {
+    let request: NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
+    switch predicateType {
+    case .uid(let id):
+     let predicate = NSPredicate(format: "id = %d", id)
+      request.predicate = predicate
+      
+      do {
+        let result = try context.fetch(request)
+        guard let entity = result.first else {
+          return nil
+        }
+        DDLogInfo("get list with id = \(entity.id)")
+        return MovieModel.getMovie(entity: entity)
       } catch {
         DDLogInfo("an entity with this id = \(id) does not exist")
         return nil

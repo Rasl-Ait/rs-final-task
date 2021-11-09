@@ -68,8 +68,6 @@ class MoviePersistenceTest: XCTestCase {
   
   func test_listMoviesAdd() throws {
     persistence.addList(list)
-    let context = coredataStack.managedContext
-
     
     let movie = MovieModel(id: 1,
                            originalTitle: "title",
@@ -114,7 +112,7 @@ class MoviePersistenceTest: XCTestCase {
     XCTAssertNil(item)
   }
 
-  func test_removeItemNil() throws {
+  func test_removeListNil() throws {
     
     let item = ListModel(description: "text",
                          favoriteCount: 1,
@@ -135,6 +133,38 @@ class MoviePersistenceTest: XCTestCase {
 
     persistence.remove(with: item.id)
     let model = persistence.fetchItem(.uid(item.id))
+
+    XCTAssertNil(model)
+  }
+  
+  func test_removeMovieNil() throws {
+    
+    let movie = MovieModel(id: 1,
+                           originalTitle: "title",
+                           originalName: nil,
+                           overview: "overview",
+                           releaseDate: "2015-05-12",
+                           posterPath: "image",
+                           popularity: 2.0,
+                           title: "Venom",
+                           voteAverage: 10.0)
+    
+    let movie2 = MovieModel(id: 10,
+                            originalTitle: "title",
+                            originalName: nil,
+                            overview: "overview",
+                            releaseDate: "2015-05-12",
+                            posterPath: "image",
+                            popularity: 2.0,
+                            title: "Venom",
+                            voteAverage: 10.0)
+    
+    persistence.addList(list)
+    persistence.addMovie(movie, listID: list.id)
+    persistence.addMovie(movie2, listID: list.id)
+
+    persistence.removeMovie(with: movie.id)
+    let model = persistence.fetchMovie(.uid(movie.id))
 
     XCTAssertNil(model)
   }
