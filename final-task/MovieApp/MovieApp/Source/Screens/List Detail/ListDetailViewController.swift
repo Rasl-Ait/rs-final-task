@@ -61,7 +61,7 @@ private extension ListDetailViewController {
         message: .none,
         messageText: item.title,
         primaryTitle: .delete) { _ in
-        self.presenter.removeMovie(id: item.id)
+        self.presenter.removeMovie(item: item)
         } secondAction: { _ in
       }
     }

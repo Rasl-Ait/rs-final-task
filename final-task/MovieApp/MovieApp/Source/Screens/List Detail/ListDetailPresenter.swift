@@ -48,7 +48,7 @@ final class ListDetailPresenter: ListDetailViewOutput {
         
         item.items.forEach {
           var movie = $0
-          movie.posterPath = self.imageManager.saveNewMemory(imageString: movie.iconString ?? "", key: movie.id.toString)
+          movie.posterPath = self.imageManager.saveNewMemory(imageString: movie.iconString ?? "", key: movie.posterPath ?? "")
           self.persistence.addMovie(movie, listID: self.list.id)
         }
         
@@ -63,13 +63,16 @@ final class ListDetailPresenter: ListDetailViewOutput {
     }
   }
   
-  func removeMovie(id: Int) {
-    let param = RemoveMovieParam(mediaID: id)
+  func removeMovie(item: MovieModel) {
+    let param = RemoveMovieParam(mediaID: item.id)
     self.view?.showIndicator()
     service.removeMovie(list.id, param: param) { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .success:
+        self.persistence.removeMovie(with: item.id)
+        self.imageManager.remove(filename: item.posterPath ?? "")
+        
         mainQueue {
           self.view?.successRemoveMovie()
         }

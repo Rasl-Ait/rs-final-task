@@ -38,16 +38,18 @@ class ImageManager {
   func saveNewMemory(imageString: String, key: String) -> String {
     let url = URL(string: imageString)
     let memoryName = "\(key)"
-    let thumbnailName = memoryName + ".thumb"
+   let thumbnailName = memoryName
       
-    guard let data = try? Data(contentsOf: url!),
-          let image = UIImage(data: data) else {
-            return ""
-          }
-   
+//    guard let data = try? Data(contentsOf: url!),
+//          let image = UIImage(data: data) else {
+//            return ""
+//          }
+    
+    downloadImage(from: url) { [weak self] image in
+      guard let self = self else { return }
       do {
         if let thumbnail = self.resize(image: image, to: 250) {
-          let imagePath = FileManager.getDocumentsDirectory().appendingPathComponent(thumbnailName)
+          let imagePath = FileManager.getDocumentsDirectoryURL().appendingPathComponent(thumbnailName)
           
           if let jpegData = thumbnail.jpegData(compressionQuality: 0.8) {
             try jpegData.write(to: imagePath, options: [.atomicWrite])
@@ -56,12 +58,22 @@ class ImageManager {
       } catch {
         DDLogError("Failed to save to disk.")
       }
-
+    }
     return thumbnailName
+    
   }
   
   func load(filename: String) -> URL {
-    return FileManager.getDocumentsDirectory().appendingPathComponent(filename)
+    return FileManager.getDocumentsDirectoryURL().appendingPathComponent(filename)
+  }
+  
+  func remove(filename: String) {
+    do {
+      let url = FileManager.getDocumentsDirectoryURL().appendingPathComponent(filename)
+      try FileManager.default.removeItem(at: url)
+    } catch let error as NSError {
+        print("Error: \(error.domain)")
+    }
   }
   
   func downloadImage(from imageURL: URL?, completion: @escaping ItemClosure<UIImage>) {

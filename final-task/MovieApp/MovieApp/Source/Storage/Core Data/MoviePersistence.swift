@@ -95,7 +95,7 @@ final class MoviePersistence: StorageProtocol {
         }
         backgroundContext.delete(result)
         try backgroundContext.save()
-        DDLogError("list with id=\(id) removed from the database")
+        DDLogError("Movie with id=\(id) removed from the database")
       } catch let error {
         DDLogError("error when deleting movie with ID =\(id)\n\(error.localizedDescription)")
       }
