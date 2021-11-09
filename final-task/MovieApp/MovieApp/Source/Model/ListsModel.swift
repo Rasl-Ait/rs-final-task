@@ -29,6 +29,7 @@ struct ListModel: Codable, Equatable, Hashable {
   let listType: String
   let name: String
   let posterPath: String?
+  var movies: [MovieModel]?
 
   private enum CodingKeys: String, CodingKey {
     case description
@@ -52,13 +53,15 @@ struct ListModel: Codable, Equatable, Hashable {
 
 extension ListModel {
   static func getEntities(entity: ListEntity) -> ListModel {
+    let movies = MovieModel.getMovies(entity.movies?.toArray() ?? [])
     return ListModel(description: entity.descr ?? "",
                      favoriteCount: Int(entity.favoriteCount),
                      id: Int(entity.id),
                      itemCount: Int(entity.itemCount),
                      listType: entity.listType ?? "",
                      name: entity.name ?? "",
-                     posterPath: nil)
+                     posterPath: nil,
+                     movies: movies)
     
   }
 }

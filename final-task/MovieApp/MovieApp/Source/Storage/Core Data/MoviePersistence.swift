@@ -22,9 +22,18 @@ final class MoviePersistence: StorageProtocol {
     self.backgroundContext = backgroundContext
   }
   
-  func add(_ item: T) {
+  func addList(_ item: T) {
     let entity = ListEntity.find(byID: item.id, context: backgroundContext)
     item.createEntity(entity)
+    backgroundContext.performAndWait {
+      save(backgroundContext)
+    }
+  }
+  
+  func addMovie(_ item: MovieModel, list: ListEntity) {
+    let entity = MovieEntity.find(byID: item.id, context: backgroundContext)
+    item.createEntity(entity)
+    list.addToMovies(entity)
     backgroundContext.performAndWait {
       save(backgroundContext)
     }

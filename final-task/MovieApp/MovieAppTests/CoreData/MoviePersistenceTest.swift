@@ -30,9 +30,55 @@ class MoviePersistenceTest: XCTestCase {
     let request: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
     let context = coredataStack.managedContext
     
-    persistence.add(list)
+    persistence.addList(list)
     let count = try context.count(for: request)
     XCTAssertEqual(count, 1)
+  }
+  
+  func test_movieAdd() throws {
+    let request: NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
+    let context = coredataStack.managedContext
+    
+    persistence.addList(list)
+    
+    let listrequest: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
+    let result = try context.fetch(listrequest)
+    
+    let movie = MovieModel(id: 1,
+                           originalTitle: "title",
+                           originalName: nil,
+                           overview: "overview",
+                           releaseDate: "2015-05-12",
+                           posterPath: "image",
+                           popularity: 2.0,
+                           title: "Venom",
+                           voteAverage: 10.0)
+    
+    persistence.addMovie(movie, list: result[0])
+    let count = try context.count(for: request)
+    XCTAssertEqual(count, 1)
+  }
+  
+  func test_listMoviesAdd() throws {
+    persistence.addList(list)
+    let context = coredataStack.managedContext
+    
+    let listrequest: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
+    let result = try context.fetch(listrequest)
+    
+    let movie = MovieModel(id: 1,
+                           originalTitle: "title",
+                           originalName: nil,
+                           overview: "overview",
+                           releaseDate: "2015-05-12",
+                           posterPath: "image",
+                           popularity: 2.0,
+                           title: "Venom",
+                           voteAverage: 10.0)
+    
+    persistence.addMovie(movie, list: result[0])
+    let listModel = persistence.fetchItem(.uid(list.id))
+    XCTAssertEqual(listModel?.movies?.count, 1)
   }
   
   func test_fetchItems() throws {
@@ -43,22 +89,22 @@ class MoviePersistenceTest: XCTestCase {
                          name: "One",
                          posterPath: nil)
     
-    persistence.add(list)
-    persistence.add(item)
+    persistence.addList(list)
+    persistence.addList(item)
     persistence.fetch(nil)
     
     XCTAssertEqual(persistence.items.count, 2)
   }
 
   func test_fetchPredicateItem() throws {
-    persistence.add(list)
+    persistence.addList(list)
     let item = self.persistence.fetchItem(.uid(list.id))
     XCTAssertNotNil(item)
   }
 
   func test_fetchPredicateItemNil() throws {
 
-    persistence.add(list)
+    persistence.addList(list)
     let item = self.persistence.fetchItem(.uid(2))
     XCTAssertNil(item)
   }
@@ -78,9 +124,9 @@ class MoviePersistenceTest: XCTestCase {
                           listType: "movie",
                           name: "One",
                           posterPath: nil)
-    persistence.add(list)
-    persistence.add(item)
-    persistence.add(item2)
+    persistence.addList(list)
+    persistence.addList(item)
+    persistence.addList(item2)
 
     persistence.remove(with: item.id)
     let model = persistence.fetchItem(.uid(item.id))

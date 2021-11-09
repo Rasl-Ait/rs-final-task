@@ -54,3 +54,36 @@ struct MovieModel: Codable, Equatable, Hashable {
       return "https://image.tmdb.org/t/p/w500" + posterPath
   }
 }
+
+extension MovieModel {
+   func createEntity(_ entity: MovieEntity) {
+    entity.title = title
+    entity.id = Int32(id)
+    entity.originalTitle = originalTitle
+    entity.overview = overview
+    entity.releaseDate = releaseDate
+    entity.posterPath = posterPath
+    entity.originalName = originalName
+    entity.popularity = popularity
+    entity.voteAverage = voteAverage
+   }
+  
+  static func getMovies(_ entities: [MovieEntity]) -> [MovieModel] {
+    var items: [MovieModel] = []
+    
+    entities.forEach {
+      let m = MovieModel(id: Int($0.id),
+                         originalTitle: $0.originalTitle,
+                         originalName: $0.originalName,
+                         overview: $0.overview ?? "",
+                         releaseDate: $0.releaseDate,
+                         posterPath: $0.posterPath,
+                         popularity: $0.popularity,
+                         title: $0.title,
+                         voteAverage: $0.voteAverage)
+      items.append(m)
+    }
+    
+    return items
+  }
+}

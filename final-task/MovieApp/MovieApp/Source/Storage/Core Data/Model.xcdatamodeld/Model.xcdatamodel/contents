@@ -22,7 +22,7 @@
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ListEntity" inverseName="movies" inverseEntity="ListEntity"/>
     </entity>
     <elements>
-        <element name="ListEntity" positionX="-336.40625" positionY="61.64593505859375" width="128" height="14"/>
-        <element name="MovieEntity" positionX="-63" positionY="27" width="128" height="14"/>
+        <element name="ListEntity" positionX="-336.40625" positionY="61.64593505859375" width="128" height="134"/>
+        <element name="MovieEntity" positionX="-63" positionY="27" width="128" height="179"/>
     </elements>
 </model>

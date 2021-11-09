@@ -75,6 +75,7 @@
 		DC864CF2273697B1009BA64A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC864CF1273697B1009BA64A /* CustomButton.swift */; };
 		DC864CF52736C849009BA64A /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = DC864CF42736C849009BA64A /* MBProgressHUD */; };
 		DCA0C73E273A82BE003AAF77 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0C73D273A82BE003AAF77 /* NavigationController.swift */; };
+		DCA0C740273A89A6003AAF77 /* MovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0C73F273A89A6003AAF77 /* MovieEntity.swift */; };
 		DCC91BC32737E6C800F0E322 /* ListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BC22737E6C800F0E322 /* ListEntity.swift */; };
 		DCC91BC52737F87100F0E322 /* ListDetailResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BC42737F87100F0E322 /* ListDetailResponce.swift */; };
 		DCC91BC92737F96400F0E322 /* ListDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = DCC91BC82737F96400F0E322 /* ListDetail.json */; };
@@ -203,6 +204,7 @@
 		DC864CEF27369421009BA64A /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
 		DC864CF1273697B1009BA64A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		DCA0C73D273A82BE003AAF77 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		DCA0C73F273A89A6003AAF77 /* MovieEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEntity.swift; sourceTree = "<group>"; };
 		DCC91BC22737E6C800F0E322 /* ListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntity.swift; sourceTree = "<group>"; };
 		DCC91BC42737F87100F0E322 /* ListDetailResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailResponce.swift; sourceTree = "<group>"; };
 		DCC91BC82737F96400F0E322 /* ListDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ListDetail.json; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				DCC91BC22737E6C800F0E322 /* ListEntity.swift */,
+				DCA0C73F273A89A6003AAF77 /* MovieEntity.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -917,6 +920,7 @@
 				DCCF8B0A2729A26B00933DD1 /* UIViewController+Extension.swift in Sources */,
 				DC2B2A3F2734494800233F5D /* UIControl+Extension.swift in Sources */,
 				DCA0C73E273A82BE003AAF77 /* NavigationController.swift in Sources */,
+				DCA0C740273A89A6003AAF77 /* MovieEntity.swift in Sources */,
 				DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */,
 				DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */,
 				DC2B2A172733DB3600233F5D /* LoginPasswordTextField.swift in Sources */,
