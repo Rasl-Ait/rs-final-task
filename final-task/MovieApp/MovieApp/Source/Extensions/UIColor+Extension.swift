@@ -2,29 +2,25 @@
 import UIKit
 
 extension UIColor {
-  convenience init(hex: Int) {
-      let components = (
-          R: CGFloat((hex >> 16) & 0xff) / 255,
-          G: CGFloat((hex >> 08) & 0xff) / 255,
-          B: CGFloat((hex >> 00) & 0xff) / 255
-      )
-      self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
-  }
-
-  convenience init(hex: Int, alpha: CGFloat) {
-      let components = (
-          R: CGFloat((hex >> 16) & 0xff) / 255,
-          G: CGFloat((hex >> 08) & 0xff) / 255,
-          B: CGFloat((hex >> 00) & 0xff) / 255
-      )
-      self.init(red: components.R, green: components.G, blue: components.B, alpha: alpha)
-  }
-  
-  static let background = UIColor(named: "Background")!
-  static let cellBackground = UIColor(named: "CellBackground")!
-  static let cellTitle = UIColor(named: "CellTitle")!
-  static let description = UIColor(named: "Description")!
-  static let segmentBackground = UIColor(named: "SegmentBackground")!
-  static let tabBarDeselect = UIColor(named: "TabBarDeselect")!
-  static let titleColor = UIColor(named: "TitleColor")!
+  static let backgroundColor = UIColor(named: "BackgroundColor")!
+  static let cellBackgroundColor = UIColor(named: "CellBackgroundColor")!
+  static let navigationBarTintColor = UIColor(named: "NavigationBarTintColor")!
+  static let navigationBarTitleColor = UIColor(named: "NavigationBarTitleColor")!
+  static let navigationBarBarTintColor = UIColor(named: "NavigationBarBarTintColor")!
+  static let descriptionColor = UIColor(named: "DescriptionColor")!
+  static let trashColor = UIColor(named: "TrashColor")!
+  static let cellTitleColor = UIColor(named: "CellTitleColor")!
+  static let tabBarItemTintColor = UIColor(named: "TabBarItemTintColor")!
+  static let tabBarTintColor = UIColor(named: "TabBarTintColor")!
+  static let tabBarBarTintColor = UIColor(named: "TabBarBarTintColor")!
+  static let alertDeleteItem = UIColor(named: "AlertDeleteItem")!
+  static let alertTintColor = UIColor(named: "AlertTintColor")!
+  static let doneButtonColor = UIColor(named: "DoneButtonColor")!
+  static let alertItemColor = UIColor(named: "AlertItemColor")!
+  static let checkButtonColor = UIColor(named: "CheckButtonColor")!
+  static let segmentColor = UIColor(named: "SegmentTintColor")!
+  static let segmentTitleColor = UIColor(named: "SegmentTitleColor")!
+  static let cellHeaderTitleColor = UIColor(named: "CellHeaderTitleColor")!
+  static let logoBackgroundColor = UIColor(named: "LogoBackgroundColor")!
+  static let refreshTintColor = UIColor(named: "RefreshTintColor")!
 }

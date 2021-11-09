@@ -49,14 +49,18 @@ final class ListDetailCollectionCellView: UIView {
 // MARK: - Private ListDetailCollectionCellView
 private extension ListDetailCollectionCellView {
   func setupView() {
-    backgroundColor = .cellBackground
+    backgroundColor = .cellBackgroundColor
     layer.cornerRadius = .spacingSM
-    addShadow(ofColor: .black, radius: 1, offset: CGSize(width: 0, height: 2), opacity: 0.15)
-    apperence()
+    addShadow(ofColor: .black,
+              radius: 1,
+              offset: CGSize(width: 0, height: 2),
+              opacity: 0.15
+    )
+    setupAppearence()
     setupLayoutUI()
   }
   
-  func apperence() {
+  func setupAppearence() {
     addSubview(stackView)
     addSubview(checkButton)
   }
@@ -84,7 +88,7 @@ private extension ListDetailCollectionCellView {
   func makeTitleLabel() -> UILabel {
     let view = UILabel(
       "List", alignment: .center,
-      color: .titleColor,
+      color: .cellTitleColor,
       fontName: .avenir(.fontML, .SemiBold)
     )
     view.numberOfLines = 0
@@ -109,9 +113,8 @@ private extension ListDetailCollectionCellView {
   func makeCheckButton() -> UIButton {
     let view = UIButton()
     view.isUserInteractionEnabled = false
-    view.setImage(.setImage(.circle).withColor(.titleColor), for: .normal)
-    view.setImage(.setImage(.circleSelect).withColor(.titleColor), for: .selected)
-    view.tintColor = .titleColor
+    view.setImage(.setImage(.circle).withColor(.checkButtonColor), for: .normal)
+    view.setImage(.setImage(.circleSelect).withColor(.checkButtonColor), for: .selected)
     return view
   }
 }

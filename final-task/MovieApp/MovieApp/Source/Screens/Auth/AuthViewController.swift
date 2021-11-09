@@ -44,24 +44,24 @@ final class AuthViewController: BaseViewController {
 // MARK: - Private Extension
 private extension AuthViewController {
   func setupViews() {
-    view.backgroundColor = .background
-    apperance()
+    view.backgroundColor = .backgroundColor
+    setupAppearence()
     setupLayoutUI()
-    notificaton()
+    setupNotification()
     addTapGesture()
-    
+  
     authView.didSignInSelect = { [weak self] param in
       guard let self = self else { return }
       self.presenter.newToken(param)
     }
   }
   
-  func apperance() {
+  func setupAppearence() {
     scrollView.addSubview(authView)
     view.addSubview(scrollView)
   }
   
-  func notificaton() {
+  func setupNotification() {
     NotificationCenter.default.addObserver(
       self,
       selector: #selector(keyboardWillShowHide(notification:)),

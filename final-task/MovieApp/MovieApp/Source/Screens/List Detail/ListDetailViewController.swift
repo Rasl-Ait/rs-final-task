@@ -28,7 +28,7 @@ final class ListDetailViewController: BaseViewController {
   
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
-    editButtonItem.tintColor = !isEditing ? .titleColor : .cellTitle
+    editButtonItem.tintColor = !isEditing ? .navigationBarTintColor : .doneButtonColor
     listView.setEditing(isEditing: isEditing)
   }
   
@@ -40,9 +40,9 @@ final class ListDetailViewController: BaseViewController {
 // MARK: - Private ListDetailViewController
 private extension ListDetailViewController {
   func setupViews() {
-    view.backgroundColor = .background
+    view.backgroundColor = .backgroundColor
     setupConfigureNavigationBar()
-    apperance()
+    setupAppearence()
     setupRefreshControl(listView.collectionView)
     setupLayoutUI()
     presenter.getMovies(state: .noRefresh)
@@ -67,7 +67,7 @@ private extension ListDetailViewController {
     }
   }
   
-  func apperance() {
+  func setupAppearence() {
     view.addSubview(listView)
   }
   

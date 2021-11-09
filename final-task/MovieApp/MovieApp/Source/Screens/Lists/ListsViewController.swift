@@ -29,9 +29,9 @@ final class ListsViewController: BaseViewController {
 // MARK: - ListsViewController
 private extension ListsViewController {
   func setupViews() {
-    view.backgroundColor = .background
+    view.backgroundColor = .backgroundColor
     configureNavigationBar()
-    apperance()
+    setupAppearence()
     setupRefreshControl(listView.collectionView)
     setupLayoutUI()
     presenter.getLists(state: .noRefresh)
@@ -63,7 +63,7 @@ private extension ListsViewController {
     navigationItem.rightBarButtonItem = plusBarButtonItem
   }
   
-  func apperance() {
+  func setupAppearence() {
     view.addSubview(listView)
   }
   

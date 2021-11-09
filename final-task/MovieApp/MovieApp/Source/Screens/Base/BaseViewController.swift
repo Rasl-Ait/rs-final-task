@@ -6,11 +6,12 @@ class BaseViewController: UIViewController {
   
   var refreshLoadData: VoidClosure?
   
+  // MARK: Overriden funcs
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
   }
-  
+
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
   }
@@ -23,7 +24,7 @@ class BaseViewController: UIViewController {
   func setupRefreshControl(_ collectionView: UICollectionView) {
     let refreshControl = UIRefreshControl()
     collectionView.alwaysBounceVertical = true
-    refreshControl.tintColor = UIColor.titleColor
+    refreshControl.tintColor = .refreshTintColor
     refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
     collectionView.refreshControl = refreshControl
   }
@@ -31,7 +32,7 @@ class BaseViewController: UIViewController {
   func show(_ message: String = "") {
     let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
     hud.label.text = message
-    hud.contentColor = .titleColor
+    hud.contentColor = .refreshTintColor
     hud.label.textColor = .black
     hud.isUserInteractionEnabled = false
   }

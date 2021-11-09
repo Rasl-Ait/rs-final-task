@@ -38,12 +38,12 @@ final class AuthView: UIView {
 // MARK: - Private Extension
 private extension AuthView {
   func setupView() {
-    backgroundColor = .background
-    apperance()
+    backgroundColor = .backgroundColor
+    setupAppearence()
     setupLayoutUI()
   }
   
-  func apperance() {
+  func setupAppearence() {
     logoView.addSubview(imageView)
     addSubview(logoView)
     addSubview(stackView)
@@ -81,7 +81,7 @@ private extension AuthView {
 private extension AuthView {
   func makeLogoView() -> UIView {
     let view = UIView()
-    view.backgroundColor = .cellBackground
+    view.backgroundColor = .logoBackgroundColor
     view.layer.cornerRadius = CornerRadius.logoViewRadius
     view.addShadow(
       ofColor: .black,

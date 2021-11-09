@@ -7,7 +7,7 @@
 
 import UIKit.UIButton
 
-class CustomButton: UIButton {
+final class CustomButton: UIButton {
   init(_ image: UIImage, highlightedImage: UIImage) {
     super.init(frame: .zero)    
     setImage(image, for: .normal)

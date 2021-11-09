@@ -1,7 +1,7 @@
 
 import UIKit
 
-class CustomStackView: UIStackView {
+final class CustomStackView: UIStackView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 	}

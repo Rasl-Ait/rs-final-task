@@ -21,7 +21,7 @@ protocol AuthServiceProtocol {
     completion: @escaping CompletionBlock<AuthenticationSession>)
 }
 
-class AuthService: BaseAPI<AuthTargetType>, AuthServiceProtocol {
+final class AuthService: BaseAPI<AuthTargetType>, AuthServiceProtocol {
   func newToken(_ completion: @escaping CompletionBlock<AuthenticationToken>) {
     getData(target: .newToken, completion: completion)
   }

@@ -7,22 +7,22 @@
 
 import UIKit.UIButton
 
-class SignInButton: UIButton {
+final class SignInButton: UIButton {
   init() {
     super.init(frame: .zero)
     titleLabel?.font = .avenir(.fontL, .Medium)
-    setTitleColor(.titleColor, for: .normal)
+    setTitleColor(.cellTitleColor, for: .normal)
     
     contentEdgeInsets = UIEdgeInsets(top: Constants.verticalEdgeInset,
                                      left: Constants.horizontalEdgeInset,
                                      bottom: Constants.verticalEdgeInset,
                                      right: Constants.horizontalEdgeInset)
     
-    setTitleColor(UIColor.titleColor.withAlphaComponent(0.2), for: .highlighted)
+    setTitleColor(.cellTitleColor.withAlphaComponent(0.2), for: .highlighted)
     setImage(UIImage(systemName: "person"), for: .normal)
     setImage(UIImage(systemName: "person.fill"), for: .highlighted)
     imageEdgeInsets.left = Constants.imageLeftInset
-    tintColor = .titleColor
+    tintColor = .cellTitleColor
   }
   
   required init?(coder: NSCoder) {

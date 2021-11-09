@@ -19,13 +19,11 @@ final class ListView: UIView {
   // MARK: - Closure
   var didRemoveButton: ItemClosure<Int>?
   var didSelectRowAt: ItemClosure<ListModel>?
-  
-  // MARK: - Overriden funcs
-  
   enum Section {
       case all
   }
   
+  // MARK: - Overriden funcs
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupView()
@@ -38,7 +36,7 @@ final class ListView: UIView {
   func addList(_ items: [ListModel]) {
     updateSnapshot(items)
   }
-  
+
   func removeList() {
     guard let list = self.dataSource.itemIdentifier(for: deleteIndexPath) else { return }
     var snapshot = dataSource.snapshot()
@@ -50,14 +48,14 @@ final class ListView: UIView {
 // MARK: - Private Extension
 private extension ListView {
   func setupView() {
-    backgroundColor = .background
-    apperance()
+    backgroundColor = .backgroundColor
+    setupAppearence()
     setupLayoutUI()
     
     collectionView.dataSource = dataSource
   }
   
-  func apperance() {
+  func setupAppearence() {
     addSubview(collectionView)
   }
   
@@ -83,7 +81,7 @@ private extension ListView {
       
       let section = NSCollectionLayoutSection(group: group)
       section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)
-      section.interGroupSpacing = 20
+      section.interGroupSpacing = Spacing.section
       
       return section
     }
@@ -108,7 +106,6 @@ private extension ListView {
     let dataSource = UICollectionViewDiffableDataSource<Section, ListModel>(
       collectionView: collectionView) { collectionView, indexPath, model in
       let cell: ListCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
-      cell.configure(model: model)
       
       cell.didRemoveButton = { [weak self] in
         guard let self = self else { return }
@@ -141,26 +138,8 @@ extension ListView: UICollectionViewDelegate {
 
 // MARK: - Constants
 extension ListView {
-  private enum Constants {
-    static let logoTop: CGFloat = .marginXXXL
-    static let stackViewLeftRight: CGFloat = .marginL
-    static let stackViewTop: CGFloat = .marginL
-  }
-  
-  private enum Size {
-    static let imageWidth: CGFloat = 185.0
-    static let imageHeight: CGFloat = 134.0
-    static let logoWidth: CGFloat = 306.0
-    static let logoHeight: CGFloat = 200.0
-    static let loginPasswordHeighWidth: CGFloat = 57
-  }
-  
-  private enum CornerRadius {
-    static let logoViewRadius: CGFloat = .radiusXXXL
-  }
-  
   private enum Spacing {
-    static let stackView: CGFloat = .spacingL
+    static let section: CGFloat = .spacingL
   }
 }
 

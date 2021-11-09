@@ -41,9 +41,9 @@ final class LoginPasswordTextField: UITextField {
   init() {
     super.init(frame: .zero)
     font = .avenir(.fontL, .Regular)
-    backgroundColor = .cellBackground
-    textColor = .titleColor
-    tintColor = .titleColor
+    backgroundColor = .cellBackgroundColor
+    textColor = .cellTitleColor
+    tintColor = .cellTitleColor
     keyboardType = .emailAddress
     autocorrectionType = .no
     autocapitalizationType = .none

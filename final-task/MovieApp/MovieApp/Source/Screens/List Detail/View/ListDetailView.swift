@@ -88,14 +88,14 @@ final class ListDetailView: UIView {
 // MARK: - Private Extension
 private extension ListDetailView {
   func setupView() {
-    backgroundColor = .background
-    apperance()
+    backgroundColor = .backgroundColor
+    setupAppearence()
     setupLayoutUI()
     isEditing = false
     collectionView.dataSource = dataSource
   }
   
-  func apperance() {
+  func setupAppearence() {
     addSubview(collectionView)
     addSubview(removeButton)
   }
@@ -135,12 +135,12 @@ private extension ListDetailView {
       
       let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1))
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
-      let spacing = CGFloat(20)
+      let spacing = CGFloat(Spacing.section)
       group.interItemSpacing = .fixed(spacing)
       
       let section = NSCollectionLayoutSection(group: group)
       section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)
-      section.interGroupSpacing = 20
+      section.interGroupSpacing = Spacing.section
       
       return section
     }
@@ -159,9 +159,9 @@ private extension ListDetailView {
   
   func makeRemoveButton() -> UIButton {
     let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 30))
-    let view = CustomButton(.setImage(.delete, configuration: config).withColor(.systemRed), highlightedImage: .setImage(.delete, configuration: config).withColor(#colorLiteral(red: 0.9078176022, green: 0.3331586123, blue: 0.08758335561, alpha: 0.7640920626)))
+    let view = CustomButton(.setImage(.delete, configuration: config).withColor(.trashColor), highlightedImage: .setImage(.delete, configuration: config).withColor(#colorLiteral(red: 0.9078176022, green: 0.3331586123, blue: 0.08758335561, alpha: 0.7640920626)))
     view.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
-    view.backgroundColor = .cellBackground
+    view.backgroundColor = .cellBackgroundColor
     view.layer.cornerRadius = .radiusXXXL
     view.isHidden = true
     return view
@@ -201,26 +201,8 @@ extension ListDetailView: UICollectionViewDelegate {
 
 // MARK: - Constants
 extension ListDetailView {
-  private enum Constants {
-    static let logoTop: CGFloat = .marginXXXL
-    static let stackViewLeftRight: CGFloat = .marginL
-    static let stackViewTop: CGFloat = .marginL
-  }
-  
-  private enum Size {
-    static let imageWidth: CGFloat = 185.0
-    static let imageHeight: CGFloat = 134.0
-    static let logoWidth: CGFloat = 306.0
-    static let logoHeight: CGFloat = 200.0
-    static let loginPasswordHeighWidth: CGFloat = 57
-  }
-  
-  private enum CornerRadius {
-    static let logoViewRadius: CGFloat = .radiusXXXL
-  }
-  
   private enum Spacing {
-    static let stackView: CGFloat = .spacingL
+    static let section: CGFloat = .spacingL
   }
 }
 

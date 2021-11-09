@@ -14,7 +14,7 @@ final class ListViewCell: UIView {
   private lazy var countLabel = makeCountLabel()
   private lazy var removeButton = makeRemoveButton()
   private lazy var stackView = makeStackView()
-  
+    
   // MARK: Closure
   var didRemoveButton: VoidClosure?
   
@@ -41,33 +41,33 @@ final class ListViewCell: UIView {
 // MARK: - Private Extension
 private extension ListViewCell {
   func setupView() {
-    backgroundColor = .cellBackground
+    backgroundColor = .cellBackgroundColor
     layer.cornerRadius = .spacingSM
     addShadow(ofColor: .black,
               radius: 1,
               offset: CGSize(width: 0, height: 2),
               opacity: 0.15
     )
-    apperence()
+    setupAppearence()
     setupLayoutUI()
   }
   
-  func apperence() {
+  func setupAppearence() {
     addSubview(stackView)
     addSubview(removeButton)
   }
   
   func setupLayoutUI() {
     removeButton.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(15)
-      $0.leading.equalTo(stackView.snp.trailing).offset(15)
-      $0.trailing.equalToSuperview().inset(15)
-      $0.height.width.equalTo(30)
+      $0.top.equalToSuperview().offset(Constants.removeButtoTop)
+      $0.leading.equalTo(stackView.snp.trailing).offset(Constants.leadingAndTrailing)
+      $0.trailing.equalToSuperview().inset(Constants.leadingAndTrailing)
+      $0.height.width.equalTo(Size.removeButtonHeight)
     }
     
     stackView.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(15)
-      $0.leading.equalToSuperview().offset(15)
+      $0.top.equalToSuperview().offset(Constants.leadingAndTrailing)
+      $0.leading.equalToSuperview().offset(Constants.leadingAndTrailing)
     }
   }
 }
@@ -77,7 +77,7 @@ private extension ListViewCell {
   func makeNameLabel() -> UILabel {
     let view = UILabel(
       "List", alignment: .left,
-      color: .titleColor,
+      color: .cellTitleColor,
       fontName: .avenir(.fontML, .Regular)
     )
     view.numberOfLines = 0
@@ -87,7 +87,7 @@ private extension ListViewCell {
   func makeCountLabel() -> UILabel {
     let view = UILabel(
       "2 items", alignment: .left,
-      color: .cellTitle,
+      color: .descriptionColor,
       fontName: .avenir(.fontM, .Regular)
     )
     return view
@@ -113,6 +113,18 @@ private extension ListViewCell {
 private extension ListViewCell {
   @objc func removeButtonTapped() {
     didRemoveButton?()
+  }
+}
+
+extension ListViewCell {
+  private enum Constants {
+    static let removeButtoTop: CGFloat = .marginL
+    static let leadingAndTrailing: CGFloat = .marginSM
+  }
+  
+  private enum Size {
+    static let removeButtonWidth: CGFloat = .marginL + .marginXS
+    static let removeButtonHeight: CGFloat = .marginL + .marginXS
   }
 }
 
