@@ -163,6 +163,7 @@ private extension ListDetailView {
     view.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
     view.backgroundColor = .cellBackgroundColor
     view.layer.cornerRadius = .radiusXXXL
+    view.tintColor = .trashColor
     view.isHidden = true
     return view
   }

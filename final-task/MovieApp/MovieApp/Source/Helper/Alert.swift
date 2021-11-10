@@ -17,12 +17,12 @@ struct Alert {
     titles.forEach {
       let action = UIAlertAction(title: $0, style: .default, handler: tapAction)
      // action.setValue(UIColor.coral, forKey: "titleTextColor")
-      alert.view.tintColor = .alertTintColor
+      alert.view.tintColor = .alertItemColor
       alert.addAction(action)
     }
     
     let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-     actionCancel.setValue(UIColor.systemRed, forKey: "titleTextColor")
+     actionCancel.setValue(UIColor.alertDeleteItem, forKey: "titleTextColor")
   
     alert.addAction(actionCancel)
     DispatchQueue.main.async {
@@ -62,7 +62,7 @@ struct Alert {
     let actionCancel = UIAlertAction(title: secondTitle.rawValue, style: .default, handler: secondAction)
     alert.view.tintColor = .alertTintColor
     if primaryTitle == .delete {
-      action.setValue(UIColor.systemRed, forKey: "titleTextColor")
+      action.setValue(UIColor.alertDeleteItem, forKey: "titleTextColor")
     }
     alert.addAction(actionCancel)
     alert.addAction(action)

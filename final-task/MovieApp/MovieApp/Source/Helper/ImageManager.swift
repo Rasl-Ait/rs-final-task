@@ -8,18 +8,7 @@
 import Foundation
 import CocoaLumberjackSwift
 
-final class ImageCache {
-  static let sharedCache = { () -> NSCache<NSString, UIImage> in
-    let cache = NSCache<NSString, UIImage>()
-    cache.countLimit = 100
-    cache.totalCostLimit = 100*1024*1024
-    return cache
-  }()
-}
-
 class ImageManager {
-  private let cache = ImageCache.sharedCache
-  private let fm = FileManager.default
   // Функция для создания уменьшенной версии image
   func resize(image: UIImage, to width: CGFloat) -> UIImage? {
     let scale = width / image.size.width
@@ -40,11 +29,6 @@ class ImageManager {
     let memoryName = "\(key)"
    let thumbnailName = memoryName
       
-//    guard let data = try? Data(contentsOf: url!),
-//          let image = UIImage(data: data) else {
-//            return ""
-//          }
-    
     downloadImage(from: url) { [weak self] image in
       guard let self = self else { return }
       do {
@@ -60,7 +44,6 @@ class ImageManager {
       }
     }
     return thumbnailName
-    
   }
   
   func load(filename: String) -> URL {

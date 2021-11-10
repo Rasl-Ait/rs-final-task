@@ -49,8 +49,7 @@ private extension ListDetailViewController {
     
     refreshLoadData = { [weak self] in
       guard let self = self else { return }
-      self.presenter.getMovies(state: .refresh)
-      self.listView.collectionView.refreshControl?.endRefreshing()
+      self.refresh()
     }
     
     listView.didRemoveButton = { [weak self] item in
@@ -106,6 +105,12 @@ private extension ListDetailViewController {
       self.listView.sorted(type: titleType)
     }
   }
+  
+  func refresh() {
+    self.presenter.getMovies(state: .refresh)
+    self.listView.collectionView.refreshControl?.endRefreshing()
+    self.isEditing.toggle()
+  }
 }
 
 // MARK: - ListDetailViewInput
@@ -115,29 +120,20 @@ extension ListDetailViewController: ListDetailViewInput {
     listView.removeMovie()
   }
   
-  func successDeleteList(text: String) {
-    hide()
-//    Alert.showAlert(on: self, with: .attention, message: text) { _ in
-//      self.listView.removeList()
-//    }
-  }
-  
-  func successCreateList(text: String) {
-    hide()
-      // presenter.getLists()
-  }
-  
   func success(items: [MovieModel]) {
     hide()
     listView.addMovie(items)
   }
+  
   func failure(error: Error) {
     hide()
     Alert.showAlert(on: self, with: .warning, message: error.localizedDescription)
   }
+  
   func hideIndicator() {
     hide()
   }
+  
   func showIndicator() {
     show()
   }

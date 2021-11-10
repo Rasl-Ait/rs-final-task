@@ -13,7 +13,7 @@ extension UIColor {
   static let tabBarItemTintColor = UIColor(named: "TabBarItemTintColor")!
   static let tabBarTintColor = UIColor(named: "TabBarTintColor")!
   static let tabBarBarTintColor = UIColor(named: "TabBarBarTintColor")!
-  static let alertDeleteItem = UIColor(named: "AlertDeleteItem")!
+  static let alertDeleteItem = UIColor(named: "AlertDeleteButtonColor")!
   static let alertTintColor = UIColor(named: "AlertTintColor")!
   static let doneButtonColor = UIColor(named: "DoneButtonColor")!
   static let alertItemColor = UIColor(named: "AlertItemColor")!
