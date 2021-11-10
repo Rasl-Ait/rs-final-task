@@ -93,7 +93,6 @@
 		DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AA927299D6700933DD1 /* AuthViewController.swift */; };
 		DCCF8AAF27299D6900933DD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCCF8AAE27299D6900933DD1 /* Assets.xcassets */; };
 		DCCF8AB227299D6900933DD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCCF8AB027299D6900933DD1 /* LaunchScreen.storyboard */; };
-		DCCF8ABD27299D6A00933DD1 /* MovieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8ABC27299D6A00933DD1 /* MovieAppTests.swift */; };
 		DCCF8AC827299D6A00933DD1 /* MovieAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8AC727299D6A00933DD1 /* MovieAppUITests.swift */; };
 		DCCF8ADC2729A20E00933DD1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DCCF8ADB2729A20E00933DD1 /* SnapKit */; };
 		DCCF8AF52729A26B00933DD1 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8ADE2729A26B00933DD1 /* CALayer+Extension.swift */; };
@@ -125,6 +124,12 @@
 		DCCF8B182729A30200933DD1 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8B122729A30200933DD1 /* Typealias.swift */; };
 		DCF7F012273BA7BE00333A2B /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F011273BA7BE00333A2B /* MovieModel.swift */; };
 		DCF7F014273BA7CB00333A2B /* MovieDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F013273BA7CB00333A2B /* MovieDetailModel.swift */; };
+		DCF7F017273BA89F00333A2B /* MovieTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F016273BA89F00333A2B /* MovieTargetType.swift */; };
+		DCF7F019273BAF7800333A2B /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F018273BAF7800333A2B /* MovieService.swift */; };
+		DCF7F01B273BB1C600333A2B /* MovieParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F01A273BB1C600333A2B /* MovieParams.swift */; };
+		DCF7F01F273BB45E00333A2B /* MovieServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F01E273BB45E00333A2B /* MovieServiceTest.swift */; };
+		DCF7F022273BB77200333A2B /* MovieDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF7F021273BB77200333A2B /* MovieDetail.json */; };
+		DCF7F024273BB94300333A2B /* MovieVideo.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF7F023273BB94300333A2B /* MovieVideo.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,7 +234,6 @@
 		DCCF8AB127299D6900933DD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCCF8AB327299D6900933DD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCCF8AB827299D6A00933DD1 /* MovieAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCCF8ABC27299D6A00933DD1 /* MovieAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppTests.swift; sourceTree = "<group>"; };
 		DCCF8ABE27299D6A00933DD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCCF8AC327299D6A00933DD1 /* MovieAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCCF8AC727299D6A00933DD1 /* MovieAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAppUITests.swift; sourceTree = "<group>"; };
@@ -263,6 +267,12 @@
 		DCCF8B122729A30200933DD1 /* Typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		DCF7F011273BA7BE00333A2B /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		DCF7F013273BA7CB00333A2B /* MovieDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailModel.swift; sourceTree = "<group>"; };
+		DCF7F016273BA89F00333A2B /* MovieTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTargetType.swift; sourceTree = "<group>"; };
+		DCF7F018273BAF7800333A2B /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
+		DCF7F01A273BB1C600333A2B /* MovieParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieParams.swift; sourceTree = "<group>"; };
+		DCF7F01E273BB45E00333A2B /* MovieServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceTest.swift; sourceTree = "<group>"; };
+		DCF7F021273BB77200333A2B /* MovieDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MovieDetail.json; sourceTree = "<group>"; };
+		DCF7F023273BB94300333A2B /* MovieVideo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MovieVideo.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +425,7 @@
 			children = (
 				DC47F80A27300135009603EE /* AuthParams.swift */,
 				DC19401427358367001F78ED /* AccountParams.swift */,
+				DCF7F01A273BB1C600333A2B /* MovieParams.swift */,
 			);
 			path = Params;
 			sourceTree = "<group>";
@@ -432,6 +443,7 @@
 		DC49A03C272E911500F17DE9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				DCF7F015273BA87400333A2B /* Movie */,
 				DC194011273581B8001F78ED /* Account And List */,
 				DC194010273581AB001F78ED /* Auth */,
 				DC47F80927300122009603EE /* Params */,
@@ -629,10 +641,8 @@
 			children = (
 				DC864CE12736737C009BA64A /* CoreData */,
 				DC49A056272EE9C300F17DE9 /* Helpers */,
-				DCCF8ABC27299D6A00933DD1 /* MovieAppTests.swift */,
+				DCF7F01C273BB41900333A2B /* Service */,
 				DCCF8ABE27299D6A00933DD1 /* Info.plist */,
-				DC864CD427365043009BA64A /* Auth */,
-				DC19402027359FED001F78ED /* Account And List */,
 			);
 			path = MovieAppTests;
 			sourceTree = "<group>";
@@ -738,6 +748,43 @@
 				DCA0C741273AA861003AAF77 /* ImageManager.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		DCF7F015273BA87400333A2B /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				DCF7F016273BA89F00333A2B /* MovieTargetType.swift */,
+				DCF7F018273BAF7800333A2B /* MovieService.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		DCF7F01C273BB41900333A2B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DC19402027359FED001F78ED /* Account And List */,
+				DC864CD427365043009BA64A /* Auth */,
+				DCF7F01D273BB42700333A2B /* Movie */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		DCF7F01D273BB42700333A2B /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				DCF7F020273BB75200333A2B /* Json */,
+				DCF7F01E273BB45E00333A2B /* MovieServiceTest.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		DCF7F020273BB75200333A2B /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				DCF7F021273BB77200333A2B /* MovieDetail.json */,
+				DCF7F023273BB94300333A2B /* MovieVideo.json */,
+			);
+			path = Json;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -867,6 +914,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF7F024273BB94300333A2B /* MovieVideo.json in Resources */,
+				DCF7F022273BB77200333A2B /* MovieDetail.json in Resources */,
 				DC19402B2735A6C2001F78ED /* Movie.json in Resources */,
 				DC1940252735A08C001F78ED /* Account.json in Resources */,
 				DCC91BC92737F96400F0E322 /* ListDetail.json in Resources */,
@@ -936,11 +985,13 @@
 				DCA0C740273A89A6003AAF77 /* MovieEntity.swift in Sources */,
 				DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */,
 				DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */,
+				DCF7F01B273BB1C600333A2B /* MovieParams.swift in Sources */,
 				DC2B2A172733DB3600233F5D /* LoginPasswordTextField.swift in Sources */,
 				DCC91BDE2738131500F0E322 /* ListDetailCoordinator.swift in Sources */,
 				DCCF8B172729A30200933DD1 /* ReusableView.swift in Sources */,
 				DC2B2A082733D7D000233F5D /* CustomStackView.swift in Sources */,
 				DCC91BC52737F87100F0E322 /* ListDetailResponce.swift in Sources */,
+				DCF7F017273BA89F00333A2B /* MovieTargetType.swift in Sources */,
 				DCCF8B062729A26B00933DD1 /* UINavigationBar+Extension.swift in Sources */,
 				DC864CE02736703E009BA64A /* StorageProtocol.swift in Sources */,
 				DCCF8B162729A30200933DD1 /* Global.swift in Sources */,
@@ -982,6 +1033,7 @@
 				DC2B2A33273428CE00233F5D /* ScreenFactoryImpl.swift in Sources */,
 				DC194019273588BA001F78ED /* AccountModel.swift in Sources */,
 				DC864CD827366C0A009BA64A /* Model.xcdatamodeld in Sources */,
+				DCF7F019273BAF7800333A2B /* MovieService.swift in Sources */,
 				DC49A02D272E88C300F17DE9 /* BaseTableViewCell.swift in Sources */,
 				DCCF8B042729A26B00933DD1 /* UIImageView+Extension.swift in Sources */,
 				DC864CF2273697B1009BA64A /* CustomButton.swift in Sources */,
@@ -1015,11 +1067,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC864CE3273673A2009BA64A /* MoviePersistenceTest.swift in Sources */,
+				DCF7F01F273BB45E00333A2B /* MovieServiceTest.swift in Sources */,
 				DC49A050272EE8E800F17DE9 /* AuthServiceTest.swift in Sources */,
 				DC19401F273592B2001F78ED /* AccountServiceTest.swift in Sources */,
 				DC49A05A272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift in Sources */,
 				DC47F808272FDE24009603EE /* Result+Extenstion.swift in Sources */,
-				DCCF8ABD27299D6A00933DD1 /* MovieAppTests.swift in Sources */,
 				DC49A059272EE9C300F17DE9 /* SharedTestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

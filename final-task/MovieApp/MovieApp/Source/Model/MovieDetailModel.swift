@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieDetailModel: Codable {
+struct MovieDetailModel: Codable, Equatable {
   let genres: [Genre]
   let homepage: String?
   let id: Int
@@ -26,17 +26,28 @@ struct MovieDetailModel: Codable {
   public var backdropURL: URL? {
     guard let posterPath = posterPath else { return nil }
     return URL(string: "https://image.tmdb.org/t/p/original" + posterPath)
-    
-    
   }
 }
 
-struct Genre: Codable {
+struct Genre: Codable, Equatable {
   let id: Int
   let name: String
 }
 
-struct SpokenLanguage: Codable {
+struct SpokenLanguage: Codable, Equatable {
   let iso6391, name: String
   
+}
+
+struct MovieVideo: Codable, Equatable {
+    let name: String
+    let key: String
+    
+    var videoURL: URL? {
+        return URL(string: "http://img.youtube.com/vi/\(key)/0.jpg")
+    }
+}
+
+struct ResultsVideo: Codable, Equatable {
+    var results: [MovieVideo]
 }
