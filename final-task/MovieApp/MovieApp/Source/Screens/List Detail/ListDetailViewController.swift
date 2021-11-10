@@ -9,17 +9,17 @@
 import UIKit
 
 final class ListDetailViewController: BaseViewController {
-    
+  
   // MARK: - Properties
   private lazy var listView = makeListDetailView()
   
   var presenter: ListDetailViewOutput!
   
   // MARK: Overriden funcs
-	override func viewDidLoad() {
-		super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
     setupViews()
-	}
+  }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
@@ -61,7 +61,7 @@ private extension ListDetailViewController {
         messageText: item.title,
         primaryTitle: .delete) { _ in
         self.presenter.removeMovie(item: item)
-        } secondAction: { _ in
+      } secondAction: { _ in
       }
     }
   }
@@ -107,9 +107,9 @@ private extension ListDetailViewController {
   }
   
   func refresh() {
-    self.presenter.getMovies(state: .refresh)
-    self.listView.collectionView.refreshControl?.endRefreshing()
-    self.isEditing.toggle()
+    presenter.getMovies(state: .refresh)
+    listView.collectionView.refreshControl?.endRefreshing()
+    isEditing = false
   }
 }
 

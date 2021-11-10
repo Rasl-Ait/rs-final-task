@@ -39,7 +39,7 @@ struct SpokenLanguage: Codable, Equatable {
   
 }
 
-struct MovieVideo: Codable, Equatable {
+struct MovieVideo: Codable, Equatable, Hashable {
     let name: String
     let key: String
     

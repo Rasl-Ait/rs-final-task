@@ -49,8 +49,13 @@ enum SFSymbolConstants: String {
   case profileIcon = "person.crop.circle.fill"
   case circleSelect = "circle.circle.fill"
   
+  case close = "xmark"
+  case info = "info.circle"
+  case list = "list.bullet.rectangle"
+  case heart = "heart"
+  case star = "star"
+  
   // settings icons
-  case about = "info.circle"
   case feedback = "square.and.pencil"
   case changePassword = "lock"
   case logout = "power"

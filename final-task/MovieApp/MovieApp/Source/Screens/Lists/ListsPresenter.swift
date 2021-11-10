@@ -42,6 +42,7 @@ final class ListsPresenter: ListsViewOutput {
           item.results.compactMap { $0 }.forEach(self.persistence.addList)
         }
       case .failure(let error):
+        print(error.localizedDescription)
         mainQueue {
           self.view?.failure(error: error)
         }
