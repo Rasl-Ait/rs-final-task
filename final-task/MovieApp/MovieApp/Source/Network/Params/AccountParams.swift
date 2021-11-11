@@ -19,6 +19,14 @@ struct ListFavoriteParam: Encodable {
   }
 }
 
+struct MovieToListParam: Encodable {
+  let mediaID: Int
+
+  private enum CodingKeys: String, CodingKey {
+    case mediaID = "media_id"
+  }
+}
+
 struct NewListParam: Encodable {
   let name: String
   let description = ""

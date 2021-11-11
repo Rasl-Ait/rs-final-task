@@ -20,6 +20,7 @@ enum AlertMessageType: String {
 }
 
 enum AlertTitleType: String {
+  case successfully = "Successfully"
   case warning = "Warning"
   case attention = "Attention"
   case createList = "Created new list"
@@ -92,6 +93,7 @@ enum ScreenType: String {
   case search
   case news
   case profile
+  case movieDetail
 }
 
 enum DateFormatType: String {

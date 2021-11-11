@@ -14,15 +14,22 @@ final class ListsPresenter: ListsViewOutput {
   
   private(set) var lists: [ListModel] = []
   
-  let service: AccountAndListServiceProtocol
-  let persistence: StorageProtocol
-  var page = 1
-  private var param: NewListParam!
+  private let service: AccountAndListServiceProtocol
+  private let persistence: StorageProtocol
+  private var page = 1
   
-  init(view: ListsViewInput, service: AccountAndListServiceProtocol, persistence: StorageProtocol) {
+  private var param: NewListParam!
+  private var mediaID: Int?
+
+  init(
+    view: ListsViewInput,
+    service: AccountAndListServiceProtocol,
+    persistence: StorageProtocol,
+    mediaID: Int?) {
     self.view = view
     self.service = service
     self.persistence = persistence
+    self.mediaID = mediaID
   }
   
   func getLists(state: StateLoad) {
@@ -85,11 +92,34 @@ final class ListsPresenter: ListsViewOutput {
     }
   }
   
+  func addMovieToList(id: Int, mediaID: Int) {
+    view?.showIndicator()
+    let param = MovieToListParam(mediaID: mediaID)
+    service.movieToList(id, param: param) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let item):
+        mainQueue {
+          self.view?.successAddMovieToList(text: item.statusMessage)
+        }
+      case .failure(let error):
+        mainQueue {
+          self.view?.failure(error: error)
+        }
+      }
+    }
+  }
+  
   func addText(name: String) {
     param = NewListParam(name: name)
   }
   
   func didSelectRowAt(list: ListModel) {
-    coordinator?.pushListDetailVC(list: list)
+    
+    if mediaID != nil {
+      coordinator?.pushListDetailVC(list: list)
+    } else {
+      addMovieToList(id: list.id, mediaID: mediaID ?? 0)
+    }
   }
 }

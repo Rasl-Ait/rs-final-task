@@ -20,6 +20,9 @@ final class MovieDetailView: UIView {
   private lazy var overview = makeOverview()
   private lazy var similarView = makeSimilarView()
   
+  // Constraint
+  var videoViewHeightConstraint: Constraint?
+  
   // MARK: - Closure
   var didSimilarSelectRowAt: ItemClosure<Int>?
   var didButtonClicked: ItemClosure<BlurButtonType>?
@@ -44,10 +47,16 @@ final class MovieDetailView: UIView {
       overviewLabel.text = "Overview"
       overview.configure(text: model.overview)
       containerTopView.configure(model: model)
+      
+      if !model.video {
+        videoViewHeightConstraint?.update(offset: 180)
+      } else {
+        videoViewHeightConstraint?.update(offset: 0)
+      }
     case .video(let videos):
       videoCollectionView.addMovie(videos)
     case .similarVideo(let movies):
-    similarView.addMovie(movies)
+      similarView.addMovie(movies)
     }
   }
   
@@ -82,7 +91,7 @@ private extension MovieDetailView {
     
     videoCollectionView.snp.makeConstraints {
       $0.top.equalTo(containerTopView.snp.bottom).offset(10)
-      $0.height.equalTo(180)
+      videoViewHeightConstraint = $0.height.equalTo(0).constraint
       $0.leading.trailing.equalToSuperview()
     }
     

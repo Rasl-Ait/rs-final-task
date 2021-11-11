@@ -73,6 +73,10 @@ private extension MovieDetailViewController {
     detailView.didButtonClicked = { [weak self] buttonType in
       guard let self = self else { return }
       self.presenter.didButtonClicked(type: buttonType)
+      
+      if buttonType == .list {
+        self.configureNavigationBar(isHidden: false, barStyle: .default)
+      }
     }
     
     detailView.didSimilarSelectRowAt = { [weak self] id in

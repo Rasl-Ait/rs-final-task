@@ -12,22 +12,25 @@ protocol ListDetailCoordinatorProtocol: AnyObject {
   func dissmiss()
   func pushMovieDetailVC(id: Int)
   func pushWebViewVC(stringURL: String)
+  func pushList(mediaID: Int)
 }
 
-final class ListDetailCoordinator: Coordinator {
+final class ListDetailCoordinator: BaseCoordinator {
   let router: Router
+  let coordinatorFactory: CoordinatorFactory
   let screenFactory: ScreenFactory
   let list: ListModel
   
   var finishFlow: VoidClosure?
   
-  init(router: Router, screenFactory: ScreenFactory, list: ListModel) {
+  init(router: Router, coordinatorFactory: CoordinatorFactory, screenFactory: ScreenFactory, list: ListModel) {
     self.router = router
     self.screenFactory = screenFactory
     self.list = list
+    self.coordinatorFactory = coordinatorFactory
   }
   
-  func start() {
+  override func start() {
     pushListDetail()
   }
   
@@ -56,6 +59,17 @@ extension ListDetailCoordinator: ListDetailCoordinatorProtocol {
   func pushWebViewVC(stringURL: String) {
     let viewController = screenFactory.makeWebViewScreen(self, stringURL: stringURL)
     router.push(viewController)
+  }
+  
+  func pushList(mediaID: Int) {
+    let listCoordinator = coordinatorFactory.makeListsCoordinator(
+      router: router,
+      tabBarViewController: TabBarController()
+    )
+    listCoordinator.mediaID = mediaID
+    listCoordinator.screenType = .movieDetail
+    addDependency(listCoordinator)
+    listCoordinator.start()
   }
   
   func dissmiss() {

@@ -12,10 +12,13 @@ protocol ListsCoordinatorProtocol: AnyObject {
 }
 
 final class ListsCoordinator: BaseCoordinator {
-  let router: Router
-  let coordinatorFactory: CoordinatorFactory
-  let screenFactory: ScreenFactory
+  private let router: Router
+  private let coordinatorFactory: CoordinatorFactory
+  private let screenFactory: ScreenFactory
   let tabBarViewController: TabBarController
+  var screenType: ScreenType = .home
+  
+  var mediaID: Int?
   
   init(
     router: Router,
@@ -35,11 +38,14 @@ final class ListsCoordinator: BaseCoordinator {
 
 // MARK: - ListsCoordinator
 extension ListsCoordinator: ListsCoordinatorProtocol {
-   func pushLists() {
-    let viewController = screenFactory.makeListsScreen(self)
+  func pushLists() {
+    let viewController = screenFactory.makeListsScreen(self, mediaID: mediaID)
     // let navController = NavigationController(rootViewController: viewController)
-    router.setRootModule(viewController)
-
+    if screenType != .movieDetail {
+      router.setRootModule(viewController)
+    } else {
+      router.push(viewController, animated: true)
+    }
   }
   
   func pushListDetailVC(list: ListModel) {

@@ -17,12 +17,12 @@ final class ScreenFactoryImpl: ScreenFactory {
     return vc
   }
   
-  func makeListsScreen(_ coordinator: ListsCoordinatorProtocol) -> ListsViewController {
+  func makeListsScreen(_ coordinator: ListsCoordinatorProtocol, mediaID: Int?) -> ListsViewController {
     let vc = ListsViewController()
     let service = AccountAndListService(client: NetworkService())
  let coreDataTask = (UIApplication.shared.delegate as? AppDelegate)?.coreDataTask
     let persistence = MoviePersistence(context: coreDataTask!.managedContext, backgroundContext: coreDataTask!.backgroundContext)
-    let presenter = ListsPresenter(view: vc, service: service, persistence: persistence)
+    let presenter = ListsPresenter(view: vc, service: service, persistence: persistence, mediaID: mediaID)
     presenter.coordinator = coordinator
     vc.presenter = presenter
     return vc

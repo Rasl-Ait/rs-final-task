@@ -22,6 +22,7 @@ struct MovieDetailModel: Codable, Equatable {
   let spokenLanguages: [SpokenLanguage]
   let status, title: String
   let voteAverage: Double
+  let video: Bool
   
   public var backdropString: String? {
     guard let posterPath = posterPath else { return nil }

@@ -106,6 +106,11 @@ private extension ListsViewController {
 
 // MARK: - ListsViewInput
 extension ListsViewController: ListsViewInput {
+  func successAddMovieToList(text: String) {
+    hide()
+    Alert.showAlert(on: self, with: .successfully, message: text)
+  }
+  
   func successDeleteList(text: String) {
     hide()
     Alert.showAlert(on: self, with: .attention, message: text) { _ in

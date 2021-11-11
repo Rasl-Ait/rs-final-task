@@ -36,6 +36,6 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
   }
   
   func makeListDetailCoordinator(router: Router, list: ListModel) -> ListDetailCoordinator {
-    ListDetailCoordinator(router: router, screenFactory: screenFactory, list: list)
+    ListDetailCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory, list: list)
   }
 }

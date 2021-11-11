@@ -85,6 +85,8 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
       coordinator?.dissmiss()
     case .info:
       coordinator?.pushWebViewVC(stringURL: movie?.homepage ?? "")
+    case .list:
+      coordinator?.pushList(mediaID: movie?.id ?? 0)
     default:
       break
     }

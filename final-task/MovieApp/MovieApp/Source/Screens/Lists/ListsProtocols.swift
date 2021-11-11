@@ -12,6 +12,7 @@ protocol ListsViewInput: AnyObject {
   func success(items: [ListModel])
   func successCreateList(text: String)
   func successDeleteList(text: String)
+  func successAddMovieToList(text: String)
   
   func failure(error: Error)
   func hideIndicator()
