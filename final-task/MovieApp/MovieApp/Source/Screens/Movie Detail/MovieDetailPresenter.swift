@@ -10,6 +10,7 @@ import Foundation
 
 final class MovieDetailPresenter: MovieDetailViewOutput {
 	private let service: MovieServiceProtocol
+  private let serviceAccount: AccountAndListServiceProtocol
 	weak var view: MovieDetailViewInput?
   var coordinator: ListDetailCoordinatorProtocol?
   
@@ -19,8 +20,10 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
 		
 	init(
     service: MovieServiceProtocol,
+    serviceAccount: AccountAndListServiceProtocol,
     view: MovieDetailViewInput,
     movieId: Int) {
+    self.serviceAccount = serviceAccount
 		self.service = service
 		self.view = view
     self.movieID = movieId
@@ -96,6 +99,21 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
     }
   }
   
+  func markAdFavorite(fav: Bool) {
+    let param = ListFavoriteParam(mediaType: "movie", mediaID: movieID, favorite: fav)
+    serviceAccount.markAsFavorite(param) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success:
+        self.getMovieState(self.movieID)
+      case .failure(let error):
+        mainQueue {
+          self.view?.failure(error: error)
+        }
+      }
+    }
+  }
+  
   func didButtonClicked(type: BlurButtonType) {
     switch type {
     case .close:
@@ -104,6 +122,8 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
       coordinator?.pushWebViewVC(stringURL: movie?.homepage ?? "")
     case .list:
       coordinator?.pushList(mediaID: movie?.id ?? 0)
+    case .favorite(let fav):
+      markAdFavorite(fav: fav)
     default:
       break
     }

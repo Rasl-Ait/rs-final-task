@@ -22,14 +22,16 @@ final class ProgressView: UIView {
   }
   
   func configure(movie: MovieDetailModel) {
-    label.text = "\(movie.score)%"
+    label.text = "\(movie.score.toInt)%"
   }
 }
 
 private extension ProgressView {
   func setupView() {
-    backgroundColor = .gray
-    layer.cornerRadius = height / 2
+    backgroundColor = .black
+    addBlurToView()
+    layer.cornerRadius = 60 / 2
+    clipsToBounds = true
     addSubview(label)
     
     setupLayoutUI()
@@ -42,7 +44,11 @@ private extension ProgressView {
   }
   
   func makeLabel() -> UILabel {
-    let view = UILabel("75%", alignment: .center, color: .white, fontName: .avenir(.fontM, .Bold))
+    let view = UILabel("75%",
+                       alignment: .center,
+                       color: .systemGray6,
+                       fontName: .avenir(.fontM, .Bold)
+    )
     return view
   }
 }

@@ -32,6 +32,22 @@ final class ListsPresenter: ListsViewOutput {
     self.mediaID = mediaID
   }
   
+  func getAccount(completion: @escaping VoidClosure) {
+    service.getAccount() { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let item):
+        UserDefaults.standard.accountID = item.id
+      completion()
+      case .failure(let error):
+        print(error.localizedDescription)
+        mainQueue {
+          self.view?.failure(error: error)
+        }
+      }
+    }
+  }
+  
   func getLists(state: StateLoad) {
     if state != .refresh {
       view?.showIndicator()
@@ -39,19 +55,22 @@ final class ListsPresenter: ListsViewOutput {
       page = 1
     }
     
-    service.getLists(page) { [weak self] result in
+    self.getAccount { [weak self] in
       guard let self = self else { return }
-      switch result {
-      case .success(let item):
-        mainQueue {
-          self.lists = item.results
-          self.view?.success(items: item.results)
-          item.results.compactMap { $0 }.forEach(self.persistence.addList)
-        }
-      case .failure(let error):
-        print(error.localizedDescription)
-        mainQueue {
-          self.view?.failure(error: error)
+      self.service.getLists(self.page) { [weak self] result in
+        guard let self = self else { return }
+        switch result {
+        case .success(let item):
+          mainQueue {
+            self.lists = item.results
+            self.view?.success(items: item.results)
+            item.results.compactMap { $0 }.forEach(self.persistence.addList)
+          }
+        case .failure(let error):
+          print(error.localizedDescription)
+          mainQueue {
+            self.view?.failure(error: error)
+          }
         }
       }
     }

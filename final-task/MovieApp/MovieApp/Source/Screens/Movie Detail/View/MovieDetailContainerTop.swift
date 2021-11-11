@@ -7,11 +7,11 @@
 
 import UIKit
 
-enum BlurButtonType {
+enum BlurButtonType: Equatable {
   case close
   case info
   case list
-  case favorite
+  case favorite(Bool)
   case rate
 }
 
@@ -26,6 +26,8 @@ final class MovieDetailContainerTop: UIView {
   private lazy var rateView = makeButtonView(image: .setImage(.star))
   private lazy var stackView = makeStackView()
   private lazy var progressView = makeProgressView()
+  
+  private var isFavorite = false
   
   // MARK: - Closure
   var didRemoveButton: ItemClosure<MovieModel>?
@@ -48,6 +50,7 @@ final class MovieDetailContainerTop: UIView {
   }
   
   func isFavorite(fav: Bool) {
+    isFavorite = !fav
     favoriteView.addIsFavorite(fav: fav)
   }
 }
@@ -153,7 +156,7 @@ private extension MovieDetailContainerTop {
     
     favoriteView.didButtonClicked = { [weak self] in
       guard let self = self else { return }
-      self.didButtonClicked?(.favorite)
+      self.didButtonClicked?(.favorite(self.isFavorite))
     }
     
     rateView.didButtonClicked = { [weak self] in

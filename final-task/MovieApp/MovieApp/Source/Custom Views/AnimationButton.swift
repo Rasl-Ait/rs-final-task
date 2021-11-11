@@ -9,7 +9,6 @@ import UIKit
 
 final class AnimationButton: UIButton {
 
-  
   override var isHighlighted: Bool {
     didSet {
       if isHighlighted {

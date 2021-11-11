@@ -47,7 +47,13 @@ final class ScreenFactoryImpl: ScreenFactory {
   func makeMovieDetailScreen(_ coordinator: ListDetailCoordinatorProtocol, id: Int) -> MovieDetailViewController {
     let vc = MovieDetailViewController()
     let service = MovieService(client: NetworkService())
-    let presenter = MovieDetailPresenter(service: service, view: vc, movieId: id)
+    let serviceAccount = AccountAndListService(client: NetworkService())
+    let presenter = MovieDetailPresenter(
+      service: service,
+      serviceAccount: serviceAccount,
+      view: vc,
+      movieId: id
+    )
     presenter.coordinator = coordinator
     vc.presenter = presenter
     return vc
