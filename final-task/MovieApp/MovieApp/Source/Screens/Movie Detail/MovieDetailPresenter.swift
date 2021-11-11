@@ -37,6 +37,7 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
           self.view?.success(type: .movie(item))
         }
         
+        self.getMovieState(id)
         self.getVideo(id: id)
         self.getSimilarMovie(id: id)
       case .failure(let error):
@@ -70,6 +71,22 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
       case .success(let item):
         mainQueue {
           self.view?.success(type: .similarVideo(item.results))
+        }
+      case .failure(let error):
+        mainQueue {
+          self.view?.failure(error: error)
+        }
+      }
+    }
+  }
+  
+  func getMovieState(_ id: Int) {
+    service.getAccountStates(id) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let item):
+        mainQueue {
+          self.view?.success(type: .favorite(item.favorite))
         }
       case .failure(let error):
         mainQueue {

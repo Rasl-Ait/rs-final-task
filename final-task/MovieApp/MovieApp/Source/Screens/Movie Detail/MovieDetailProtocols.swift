@@ -12,6 +12,7 @@ enum DetailContentType {
   case movie(MovieDetailModel)
   case video([MovieVideo])
   case similarVideo([MovieModel])
+  case favorite(Bool)
 }
 
 protocol MovieDetailViewInput: AnyObject {

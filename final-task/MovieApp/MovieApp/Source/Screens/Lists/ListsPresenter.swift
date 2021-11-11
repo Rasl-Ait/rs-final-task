@@ -117,9 +117,9 @@ final class ListsPresenter: ListsViewOutput {
   func didSelectRowAt(list: ListModel) {
     
     if mediaID != nil {
-      coordinator?.pushListDetailVC(list: list)
-    } else {
       addMovieToList(id: list.id, mediaID: mediaID ?? 0)
+    } else {
+      coordinator?.pushListDetailVC(list: list)
     }
   }
 }

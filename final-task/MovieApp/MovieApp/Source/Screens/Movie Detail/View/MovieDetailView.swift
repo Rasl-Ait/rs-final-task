@@ -57,6 +57,8 @@ final class MovieDetailView: UIView {
       videoCollectionView.addMovie(videos)
     case .similarVideo(let movies):
       similarView.addMovie(movies)
+    case .favorite(let fav):
+      containerTopView.isFavorite(fav: fav)
     }
   }
   

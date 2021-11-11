@@ -23,6 +23,14 @@ class BlurButtonView: UIView {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  func addIsFavorite(fav: Bool) {
+    if fav {
+      button.setImage(.setImage(.heartFill).withColor(.red), for: .normal)
+    } else {
+      button.setImage(.setImage(.heart), for: .normal)
+    }
+  }
 }
 
 // MARK: private BlurButtonView

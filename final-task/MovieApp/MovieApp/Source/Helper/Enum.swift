@@ -63,6 +63,7 @@ enum SFSymbolConstants: String {
   case info = "info.circle"
   case list = "list.bullet.rectangle"
   case heart = "heart"
+  case heartFill = "heart.fill"
   case star = "star"
   
   // settings icons

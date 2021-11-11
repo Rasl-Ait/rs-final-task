@@ -46,6 +46,10 @@ final class MovieDetailContainerTop: UIView {
     progressView.configure(movie: model)
     movieImage.download(url: model.backdropString, placeholder: nil)
   }
+  
+  func isFavorite(fav: Bool) {
+    favoriteView.addIsFavorite(fav: fav)
+  }
 }
 
 // MARK: - Private Extension
