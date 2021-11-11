@@ -6,18 +6,18 @@
 //
 
 import UIKit
-import YouTubePlayer
+import youtube_ios_player_helper
 
 class VideoCollectionCell: BaseCollectionViewCell {
   
-  private var playerView = YouTubePlayerView()
+  private var playerView = YTPlayerView()
   
   override func addSubViews() {
     setupViews()
   }
   
   func configure(model: MovieVideo) {
-    playerView.loadVideoID(model.key)
+    playerView.load(withVideoId: model.key)
   }
 }
 

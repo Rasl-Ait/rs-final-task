@@ -7,7 +7,7 @@ target 'MovieApp' do
 
   # Pods for MovieApp
 
-pod 'YouTubePlayer'
+  pod 'youtube-ios-player-helper'
 
   target 'MovieAppTests' do
     inherit! :search_paths
