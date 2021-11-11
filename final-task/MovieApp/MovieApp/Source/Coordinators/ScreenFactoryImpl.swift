@@ -43,4 +43,12 @@ final class ScreenFactoryImpl: ScreenFactory {
     vc.presenter = presenter
     return vc
   }
+  
+  func makeMovieDetailScreen(id: Int) -> MovieDetailViewController {
+    let vc = MovieDetailViewController()
+    let service = MovieService(client: NetworkService())
+    let presenter = MovieDetailPresenter(service: service, view: vc, movieId: id)
+    vc.presenter = presenter
+    return vc
+  }
 }

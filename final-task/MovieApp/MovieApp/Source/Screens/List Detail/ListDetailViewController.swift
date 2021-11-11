@@ -61,8 +61,13 @@ private extension ListDetailViewController {
         messageText: item.title,
         primaryTitle: .delete) { _ in
         self.presenter.removeMovie(item: item)
-      } secondAction: { _ in
+        } secondAction: { _ in
       }
+    }
+    
+    listView.didSelectRowAt = { [weak self ] id in
+      guard let self = self else { return }
+      self.presenter.push(id: id)
     }
   }
   

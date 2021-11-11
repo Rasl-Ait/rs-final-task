@@ -32,6 +32,7 @@ final class ListDetailView: UIView {
   
   // MARK: - Closure
   var didRemoveButton: ItemClosure<MovieModel>?
+  var didSelectRowAt: ItemClosure<Int>?
   
   // MARK: - Overriden funcs
   
@@ -150,7 +151,6 @@ private extension ListDetailView {
   
   func makeCollectionView() -> UICollectionView {
     let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
-    view.disableAutoresizingMask()
     view.backgroundColor = .clear
     view.showsVerticalScrollIndicator = false
     view.register(ListDetailCollectionCell.self)
@@ -195,7 +195,8 @@ private extension ListDetailView {
 extension ListDetailView: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     collectionView.deselectItem(at: indexPath, animated: false)
-    print(#function)
+    let movie = movies[indexPath.item]
+    didSelectRowAt?(movie.id)
     
   }
 }

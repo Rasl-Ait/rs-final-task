@@ -21,6 +21,7 @@ protocol ListDetailViewOutput: AnyObject {
   var title: String { get }
   
   func getMovies(state: StateLoad)
-  func removeMovie(item: MovieModel) 
+  func removeMovie(item: MovieModel)
+  func push(id: Int)
   func viewWillDisappear()
 }

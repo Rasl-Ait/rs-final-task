@@ -12,7 +12,13 @@ final class MovieDetailView: UIView {
   
   // MARK: - Properties
   private lazy var containerTopView = makeContainerView()
-  private lazy var collectionView = makeCollectionView()
+  private lazy var videoCollectionView = makeCollectionView()
+  private lazy var titleLabel = makeLabel(textColor: .cellTitleColor, font: .avenir(.fontL, .Regular))
+  private lazy var dateLabel = makeLabel(textColor: .cellTitleColor, font: .avenir(.fontM, .Regular))
+  private lazy var overviewLabel = makeLabel(textColor: .cellHeaderTitleColor, font: .avenir(.fontXXXL + 6, .Regular))
+  private lazy var movieBodyView = makeMovieBodyView()
+  private lazy var overview = makeOverview()
+  private lazy var similarView = makeSimilarView()
   
   // MARK: - Closure
   var didRemoveButton: ItemClosure<MovieModel>?
@@ -27,6 +33,23 @@ final class MovieDetailView: UIView {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  func configure(type: DetailContentType) {
+    switch type {
+    case .movie(let model):
+      movieBodyView.configure(model: model)
+      titleLabel.text = model.originalTitle
+      dateLabel.text = model.releaseDate.formatDate()
+      overviewLabel.text = "Overview"
+      overview.configure(text: model.overview)
+      containerTopView.configure(model: model)
+    case .video(let videos):
+      videoCollectionView.addMovie(videos)
+    case .similarVideo(let movies):
+    similarView.addMovie(movies)
+    }
+  }
+  
 }
 
 // MARK: - Private Extension
@@ -39,7 +62,13 @@ private extension MovieDetailView {
   
   func setupAppearence() {
     addSubview(containerTopView)
-    addSubview(collectionView)
+    addSubview(videoCollectionView)
+    addSubview(titleLabel)
+    addSubview(dateLabel)
+    addSubview(movieBodyView)
+    addSubview(overviewLabel)
+    addSubview(overview)
+    addSubview(similarView)
   }
   
   func setupLayoutUI() {
@@ -49,10 +78,44 @@ private extension MovieDetailView {
       $0.leading.trailing.equalToSuperview()
     }
     
-    collectionView.snp.makeConstraints {
-      $0.top.equalTo(containerTopView.snp.bottom).offset(20)
+    videoCollectionView.snp.makeConstraints {
+      $0.top.equalTo(containerTopView.snp.bottom).offset(10)
       $0.height.equalTo(180)
       $0.leading.trailing.equalToSuperview()
+    }
+    
+    titleLabel.snp.makeConstraints {
+      $0.top.equalTo(videoCollectionView.snp.bottom).offset(30)
+      $0.height.equalTo(20)
+      $0.centerX.equalToSuperview()
+    }
+    
+    dateLabel.snp.makeConstraints {
+      $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+      $0.height.equalTo(20)
+      $0.centerX.equalToSuperview()
+    }
+    
+    movieBodyView.snp.makeConstraints {
+      $0.top.equalTo(dateLabel.snp.bottom).offset(30)
+      $0.leading.trailing.equalToSuperview().inset(15)
+    }
+    
+    overviewLabel.snp.makeConstraints {
+      $0.top.equalTo(movieBodyView.snp.bottom).offset(30)
+      $0.height.equalTo(40)
+      $0.centerX.equalToSuperview()
+    }
+    
+    overview.snp.makeConstraints {
+      $0.top.equalTo(overviewLabel.snp.bottom).offset(30)
+      $0.leading.trailing.equalToSuperview().inset(15)
+    }
+    similarView.snp.makeConstraints {
+      $0.top.equalTo(overview.snp.bottom).offset(120)
+      $0.leading.trailing.equalToSuperview().inset(15)
+      $0.height.equalTo(250)
+      $0.bottom.equalToSuperview().inset(20)
     }
   }
   
@@ -71,6 +134,29 @@ private extension MovieDetailView {
   
   func makeCollectionView() -> VideoView {
     let view = VideoView()
+    return view
+  }
+  
+  func makeLabel(textColor: UIColor, font: UIFont) -> UILabel {
+    let view = UILabel("title",
+                       alignment: .center,
+                       color: textColor,
+                       fontName: font)
+    return view
+  }
+  
+  func makeMovieBodyView() -> MovieBodyView {
+    let view = MovieBodyView()
+    return view
+  }
+  
+  func makeSimilarView() -> SimilarMovieView {
+    let view = SimilarMovieView()
+    return view
+  }
+  
+  func makeOverview() -> OverviewView {
+    let view = OverviewView()
     return view
   }
 }

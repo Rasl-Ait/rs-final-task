@@ -23,11 +23,18 @@ class VideoCollectionCell: BaseCollectionViewCell {
 
 private extension VideoCollectionCell {
   func setupViews() {
-    backgroundColor = .red
+    backgroundColor = .cellBackgroundColor
+    layer.cornerRadius = .spacingSM
+    clipsToBounds = true
+    addShadow()
+    
+    playerView.layer.cornerRadius = .spacingS
+    playerView.clipsToBounds = true
+    
     addSubview(playerView)
     
     playerView.snp.makeConstraints {
-      $0.edges.equalToSuperview()
+      $0.edges.equalToSuperview().inset(7)
     }
   }
 }

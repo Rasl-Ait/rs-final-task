@@ -13,14 +13,6 @@ struct AccountModel: Codable, Equatable {
   let name: String
   let includeAdult: Bool
   let username: String
-
-  private enum CodingKeys: String, CodingKey {
-    case avatar
-    case id
-    case name
-    case includeAdult = "include_adult"
-    case username
-  }
 }
 
 struct Avatar: Codable, Equatable {

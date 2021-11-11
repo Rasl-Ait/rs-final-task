@@ -7,8 +7,12 @@
 
 import UIKit
 
+enum MovieType {
+  case listDetail
+  case movieSimilar
+}
+
 final class ListDetailCollectionCellView: UIView {
-  
   // MARK: - Properties
   private lazy var imageView = makeImageView()
   private lazy var titleLabel = makeTitleLabel()
@@ -37,12 +41,16 @@ final class ListDetailCollectionCellView: UIView {
     checkButton.isSelected = isSelected
   }
   
-  func configure(_ model: MovieModel) {
+  func configure(_ model: MovieModel, type: MovieType = .listDetail) {
     titleLabel.text = model.originalName != nil ?
       model.originalName :
       model.originalTitle
     checkButton.isHidden = true
     imageView.download(url: model.iconString, placeholder: nil)
+    
+    if type != .movieSimilar {
+      stackView.addArrangedSubview(titleLabel)
+    }
   }
 }
 
@@ -51,11 +59,7 @@ private extension ListDetailCollectionCellView {
   func setupView() {
     backgroundColor = .cellBackgroundColor
     layer.cornerRadius = .spacingSM
-    addShadow(ofColor: .black,
-              radius: 1,
-              offset: CGSize(width: 0, height: 2),
-              opacity: 0.15
-    )
+    addShadow()
     setupAppearence()
     setupLayoutUI()
   }
@@ -71,14 +75,14 @@ private extension ListDetailCollectionCellView {
     }
     
     stackView.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(8)
-      $0.leading.trailing.equalToSuperview().inset(8)
+      $0.top.equalToSuperview().offset(7)
+      $0.leading.trailing.equalToSuperview().inset(7)
     }
     
     checkButton.snp.makeConstraints {
       $0.height.width.equalTo(27)
-      $0.trailing.equalToSuperview().inset(8)
-      $0.bottom.equalToSuperview().inset(8)
+      $0.trailing.equalToSuperview().inset(7)
+      $0.bottom.equalToSuperview().inset(7)
     }
   }
 }
@@ -106,7 +110,6 @@ private extension ListDetailCollectionCellView {
   func makeStackView() -> UIStackView {
     let view = CustomStackView(axis: .vertical, spacing: .spacingL)
     view.addArrangedSubview(imageView)
-    view.addArrangedSubview(titleLabel)
     return view
   }
   

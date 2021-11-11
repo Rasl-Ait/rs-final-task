@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProgressView: UIView {
+final class ProgressView: UIView {
   
   // MARK: - Properties
   private lazy var label = makeLabel()
@@ -19,6 +19,10 @@ class ProgressView: UIView {
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  func configure(movie: MovieDetailModel) {
+    label.text = "\(movie.score)%"
   }
 }
 

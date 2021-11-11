@@ -92,7 +92,6 @@ private extension ListView {
   func makeCollectionView() -> UICollectionView {
     let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
     view.delegate = self
-    view.disableAutoresizingMask()
     view.backgroundColor = .clear
     view.showsVerticalScrollIndicator = false
     view.register(ListCollectionCell.self)

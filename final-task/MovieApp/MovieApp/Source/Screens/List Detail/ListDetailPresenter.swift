@@ -91,4 +91,8 @@ final class ListDetailPresenter: ListDetailViewOutput {
   func viewWillDisappear() {
     coordinator?.pop()
   }
+  
+  func push(id: Int) {
+    coordinator?.pushMovieDetailVC(id: id)
+  }
 }

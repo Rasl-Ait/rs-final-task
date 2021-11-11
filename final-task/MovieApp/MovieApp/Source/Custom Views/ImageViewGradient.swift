@@ -27,7 +27,6 @@ class ImageViewGradient: UIImageView {
   
   func setupGradient() {
     gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
-    layer.cornerRadius = 18
     
     gradient.locations = [0.5, 1.1]
     clipsToBounds = true

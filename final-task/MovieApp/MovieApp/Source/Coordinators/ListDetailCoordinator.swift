@@ -9,6 +9,7 @@ import UIKit
 
 protocol ListDetailCoordinatorProtocol: AnyObject {
   func pop()
+  func pushMovieDetailVC(id: Int)
 }
 
 final class ListDetailCoordinator: Coordinator {
@@ -39,7 +40,13 @@ extension ListDetailCoordinator: ListDetailCoordinatorProtocol {
     let viewController = screenFactory.makeListDetailScreen(self, list: list)
     router.push(viewController)
   }
+  
   func pop() {
     finishFlow?()
+  }
+  
+  func pushMovieDetailVC(id: Int) {
+    let viewController = screenFactory.makeMovieDetailScreen(id: id)
+    router.push(viewController)
   }
 }

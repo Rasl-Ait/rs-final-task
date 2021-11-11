@@ -8,20 +8,19 @@
 
 import Foundation
 
-protocol MovieDetailViewInput: class {
-	func success()
+enum DetailContentType {
+  case movie(MovieDetailModel)
+  case video([MovieVideo])
+  case similarVideo([MovieModel])
+}
+
+protocol MovieDetailViewInput: AnyObject {
+  func success(type: DetailContentType)
 	func failure(error: Error)
 	func hideIndicator()
 	func showIndicator()
 }
 
-protocol MovieDetailViewOutput: class {
+protocol MovieDetailViewOutput: AnyObject {
+  func getMovie()
 }
-
-protocol MovieDetailRouterInput: class {
-}
-
-protocol MovieDetailConfiguratorInput: class {
-	func configure(_ viewController: MovieDetailViewController)
-}
-

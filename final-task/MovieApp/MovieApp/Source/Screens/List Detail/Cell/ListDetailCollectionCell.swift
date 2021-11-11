@@ -33,8 +33,8 @@ final class ListDetailCollectionCell: BaseCollectionViewCell {
     cellView.prepareForReuse()
   }
   
-  func configure(model: MovieModel) {
-    cellView.configure(model)
+  func configure(model: MovieModel, type: MovieType = .listDetail) {
+    cellView.configure(model, type: type)
   }
 }
 

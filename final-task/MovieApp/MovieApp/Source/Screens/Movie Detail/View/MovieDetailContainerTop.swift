@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 final class MovieDetailContainerTop: UIView {
   
@@ -34,8 +33,9 @@ final class MovieDetailContainerTop: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func addMovie(_ items: [MovieModel]) {
-    
+  func configure(model: MovieDetailModel) {
+    progressView.configure(movie: model)
+    movieImage.download(url: model.backdropString, placeholder: nil)
   }
 }
 
@@ -57,7 +57,7 @@ private extension MovieDetailContainerTop {
   
   func setupLayoutUI() {
     closeView.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(30)
+      $0.top.equalToSuperview().offset(30 + safeAreaTop)
       $0.height.width.equalTo(40)
       $0.trailing.equalToSuperview().inset(15)
     }
@@ -69,7 +69,7 @@ private extension MovieDetailContainerTop {
     }
     
     movieImage.snp.makeConstraints {
-      $0.height.width.equalTo(UIScreen.height / 1.6)
+      $0.height.equalTo(UIScreen.height / 1.6)
       $0.leading.trailing.equalToSuperview()
       $0.top.equalToSuperview()
     }

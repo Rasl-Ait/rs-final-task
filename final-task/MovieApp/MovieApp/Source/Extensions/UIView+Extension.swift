@@ -46,7 +46,7 @@ extension UIView {
 		clipsToBounds = true
 	}
   
-  func addShadow(ofColor color: UIColor = .white, radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+  func addShadow(ofColor color: UIColor = .black, radius: CGFloat = 1, offset: CGSize = .init(width: 0, height: 2), opacity: Float = 0.15) {
       layer.shadowColor = color.cgColor
       layer.shadowOffset = offset
       layer.shadowRadius = radius
@@ -72,12 +72,11 @@ extension UIView {
     let blurEffect = UIBlurEffect(style: .dark)
     let blurEffectView = UIVisualEffectView(effect: blurEffect)
     blurEffectView.frame = bounds
-    blurEffectView.alpha = 0.6
     blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     addSubview(blurEffectView)
   }
   
-  func removeblurView() {
+  func removeBlurView() {
     for view in subviews where view is UIVisualEffectView {
         view.removeFromSuperview()
     }

@@ -10,7 +10,6 @@ import UIKit
 extension UILabel {
 	convenience init(_ title: String, alignment: NSTextAlignment, color: UIColor?, fontName: UIFont?) {
 		self.init()
-    disableAutoresizingMask()
 		text = title
 		font = fontName
 		textAlignment = alignment

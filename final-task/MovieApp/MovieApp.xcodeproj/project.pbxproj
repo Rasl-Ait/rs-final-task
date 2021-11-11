@@ -142,6 +142,9 @@
 		DCF7F03A273BF49C00333A2B /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F039273BF49C00333A2B /* ProgressView.swift */; };
 		DCF7F03C273BF9F200333A2B /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F03B273BF9F200333A2B /* VideoView.swift */; };
 		DCF7F03F273C011600333A2B /* VideoCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F03E273C011600333A2B /* VideoCollectionCell.swift */; };
+		DCF7F041273C133000333A2B /* MovieBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F040273C133000333A2B /* MovieBodyView.swift */; };
+		DCF7F043273C1E8400333A2B /* SimilarMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F042273C1E8400333A2B /* SimilarMovieView.swift */; };
+		DCF7F045273C2C4900333A2B /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F044273C2C4900333A2B /* OverviewView.swift */; };
 		EBD5F105474C2A009CCB723A /* Pods_MovieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74AB54E5181F5D8A23A754C3 /* Pods_MovieAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -303,6 +306,9 @@
 		DCF7F039273BF49C00333A2B /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		DCF7F03B273BF9F200333A2B /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		DCF7F03E273C011600333A2B /* VideoCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionCell.swift; sourceTree = "<group>"; };
+		DCF7F040273C133000333A2B /* MovieBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBodyView.swift; sourceTree = "<group>"; };
+		DCF7F042273C1E8400333A2B /* SimilarMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMovieView.swift; sourceTree = "<group>"; };
+		DCF7F044273C2C4900333A2B /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		E471C8B0229D957F1B4BE8A2 /* Pods-MovieApp-MovieAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp-MovieAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MovieApp-MovieAppUITests/Pods-MovieApp-MovieAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EEEE89B4DAB3ABBEC3243A3C /* Pods_MovieApp_MovieAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieApp_MovieAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -431,7 +437,6 @@
 				DCA0C73D273A82BE003AAF77 /* NavigationController.swift */,
 				DCF7F035273BE25400333A2B /* BlurButtonView.swift */,
 				DCF7F037273BF33400333A2B /* ImageViewGradient.swift */,
-				DCF7F039273BF49C00333A2B /* ProgressView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -868,7 +873,11 @@
 				DCF7F03D273C00FE00333A2B /* Cell */,
 				DCF7F031273BCE4000333A2B /* MovieDetailView.swift */,
 				DCF7F033273BCF1200333A2B /* MovieDetailContainerTop.swift */,
+				DCF7F039273BF49C00333A2B /* ProgressView.swift */,
 				DCF7F03B273BF9F200333A2B /* VideoView.swift */,
+				DCF7F040273C133000333A2B /* MovieBodyView.swift */,
+				DCF7F042273C1E8400333A2B /* SimilarMovieView.swift */,
+				DCF7F044273C2C4900333A2B /* OverviewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1164,8 +1173,10 @@
 				DC49A04E272ECE8A00F17DE9 /* Encodable.swift in Sources */,
 				DCF7F02D273BC43F00333A2B /* MovieDetailViewController.swift in Sources */,
 				DC835B952735231500C3A209 /* ListsCoordinator.swift in Sources */,
+				DCF7F041273C133000333A2B /* MovieBodyView.swift in Sources */,
 				DC2B2A232734254A00233F5D /* Router.swift in Sources */,
 				DC2B2A3D2734445600233F5D /* SignInButton.swift in Sources */,
+				DCF7F043273C1E8400333A2B /* SimilarMovieView.swift in Sources */,
 				DC835B9F273523B700C3A209 /* ListsProtocols.swift in Sources */,
 				DCF7F038273BF33400333A2B /* ImageViewGradient.swift in Sources */,
 				DC2B2A202733EEC300233F5D /* CornerRadius.swift in Sources */,
@@ -1246,6 +1257,7 @@
 				DC2B2A3827342BBA00233F5D /* AuthPresenter.swift in Sources */,
 				DCF7F03C273BF9F200333A2B /* VideoView.swift in Sources */,
 				DC49A04A272EAB2500F17DE9 /* BaseAPI.swift in Sources */,
+				DCF7F045273C2C4900333A2B /* OverviewView.swift in Sources */,
 				DCCF8AFA2729A26B00933DD1 /* NSSet+Extension.swift in Sources */,
 				DCCF8AA827299D6700933DD1 /* SceneDelegate.swift in Sources */,
 				DCCF8B082729A26B00933DD1 /* UITableView+Extension.swift in Sources */,

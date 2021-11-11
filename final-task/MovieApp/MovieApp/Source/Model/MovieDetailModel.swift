@@ -11,7 +11,7 @@ struct MovieDetailModel: Codable, Equatable {
   let genres: [Genre]
   let homepage: String?
   let id: Int
-  let imdbId, originalLanguage: String
+  let originalLanguage: String
   let originalTitle, overview: String
   let popularity: Double
   let posterPath: String?
@@ -23,9 +23,34 @@ struct MovieDetailModel: Codable, Equatable {
   let status, title: String
   let voteAverage: Double
   
-  public var backdropURL: URL? {
+  public var backdropString: String? {
     guard let posterPath = posterPath else { return nil }
-    return URL(string: "https://image.tmdb.org/t/p/original" + posterPath)
+    return "https://image.tmdb.org/t/p/original" + posterPath
+  }
+  
+  var score: Double {
+      return voteAverage * 10
+  }
+  
+  var genresString: String {
+      return genres.map { $0.name }.joined(separator: ", ")
+  }
+  
+  var languagesString: String {
+      return spokenLanguages.map { $0.name }.joined(separator: ", ")
+  }
+  
+  var shortFormatDuration: String {
+      let timeFormatter = DateComponentsFormatter()
+      timeFormatter.unitsStyle = .short
+      
+      guard let duration = runtime else { return "0 s" }
+      var time = duration * 60
+      if time > 3600 {
+          time -= time % 60
+      }
+      
+      return timeFormatter.string(from: Double(time)) ?? "0 s"
   }
 }
 

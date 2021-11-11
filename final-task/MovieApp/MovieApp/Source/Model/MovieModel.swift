@@ -17,18 +17,6 @@ struct MovieModel: Codable, Equatable, Hashable {
   let popularity: Double
   let title: String?
   let voteAverage: Double
-
-  private enum CodingKeys: String, CodingKey {
-    case id
-    case originalTitle = "original_title"
-    case overview
-    case releaseDate = "release_date"
-    case posterPath = "poster_path"
-    case popularity
-    case title
-    case voteAverage = "vote_average"
-    case originalName = "original_name"
-  }
   
   public var backdropURL: String? {
       guard let posterPath = posterPath else { return nil }
