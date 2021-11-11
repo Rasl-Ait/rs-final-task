@@ -22,5 +22,8 @@ protocol MovieDetailViewInput: AnyObject {
 }
 
 protocol MovieDetailViewOutput: AnyObject {
-  func getMovie()
+  var movieID: Int { get }
+  
+  func getMovie(id: Int)
+  func didButtonClicked(type: BlurButtonType)
 }

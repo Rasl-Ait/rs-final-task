@@ -145,6 +145,8 @@
 		DCF7F041273C133000333A2B /* MovieBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F040273C133000333A2B /* MovieBodyView.swift */; };
 		DCF7F043273C1E8400333A2B /* SimilarMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F042273C1E8400333A2B /* SimilarMovieView.swift */; };
 		DCF7F045273C2C4900333A2B /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7F044273C2C4900333A2B /* OverviewView.swift */; };
+		DCF8D137273D0577003FFEE7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8D136273D0577003FFEE7 /* WebViewController.swift */; };
+		DCF8D139273D0632003FFEE7 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8D138273D0632003FFEE7 /* AnimationButton.swift */; };
 		EBD5F105474C2A009CCB723A /* Pods_MovieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74AB54E5181F5D8A23A754C3 /* Pods_MovieAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -309,6 +311,8 @@
 		DCF7F040273C133000333A2B /* MovieBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBodyView.swift; sourceTree = "<group>"; };
 		DCF7F042273C1E8400333A2B /* SimilarMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMovieView.swift; sourceTree = "<group>"; };
 		DCF7F044273C2C4900333A2B /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
+		DCF8D136273D0577003FFEE7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		DCF8D138273D0632003FFEE7 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		E471C8B0229D957F1B4BE8A2 /* Pods-MovieApp-MovieAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp-MovieAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MovieApp-MovieAppUITests/Pods-MovieApp-MovieAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EEEE89B4DAB3ABBEC3243A3C /* Pods_MovieApp_MovieAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieApp_MovieAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -437,6 +441,7 @@
 				DCA0C73D273A82BE003AAF77 /* NavigationController.swift */,
 				DCF7F035273BE25400333A2B /* BlurButtonView.swift */,
 				DCF7F037273BF33400333A2B /* ImageViewGradient.swift */,
+				DCF8D138273D0632003FFEE7 /* AnimationButton.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -736,6 +741,7 @@
 		DCCF8AD627299DBA00933DD1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DCF8D135273D0577003FFEE7 /* WebView */,
 				DCF7F025273BC43000333A2B /* Movie Detail */,
 				DCC91BD42737FAE400F0E322 /* List Detail */,
 				DC835B962735239400C3A209 /* Lists */,
@@ -888,6 +894,14 @@
 				DCF7F03E273C011600333A2B /* VideoCollectionCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		DCF8D135273D0577003FFEE7 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				DCF8D136273D0577003FFEE7 /* WebViewController.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1186,6 +1200,7 @@
 				DCCF8AFE2729A26B00933DD1 /* UIButton+Extension.swift in Sources */,
 				DCC91BD72737FCB600F0E322 /* ListDetailView.swift in Sources */,
 				DCCF8B0B2729A26B00933DD1 /* UserDefaults+Extension.swift in Sources */,
+				DCF8D139273D0632003FFEE7 /* AnimationButton.swift in Sources */,
 				DC19401527358367001F78ED /* AccountParams.swift in Sources */,
 				DC49A02E272E88C300F17DE9 /* BaseViewController.swift in Sources */,
 				DC2B2A2F2734274300233F5D /* CoordinatorFactoryImpl.swift in Sources */,
@@ -1249,6 +1264,7 @@
 				DC2B2A33273428CE00233F5D /* ScreenFactoryImpl.swift in Sources */,
 				DC194019273588BA001F78ED /* AccountModel.swift in Sources */,
 				DC864CD827366C0A009BA64A /* Model.xcdatamodeld in Sources */,
+				DCF8D137273D0577003FFEE7 /* WebViewController.swift in Sources */,
 				DCF7F019273BAF7800333A2B /* MovieService.swift in Sources */,
 				DC49A02D272E88C300F17DE9 /* BaseTableViewCell.swift in Sources */,
 				DCCF8B042729A26B00933DD1 /* UIImageView+Extension.swift in Sources */,

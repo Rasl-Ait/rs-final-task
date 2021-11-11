@@ -31,7 +31,8 @@ private extension MovieDetailViewController {
     view.backgroundColor = .backgroundColor
     setupAppearence()
     setupLayoutUI()
-    presenter.getMovie()
+    presenter.getMovie(id: presenter.movieID)
+    closures()
   }
   
   func setupAppearence() {
@@ -63,6 +64,22 @@ private extension MovieDetailViewController {
   func makeMovieDetailView() -> MovieDetailView {
     let view = MovieDetailView()
     return view
+  }
+}
+
+// MARK: Closure
+private extension MovieDetailViewController {
+  func closures() {
+    detailView.didButtonClicked = { [weak self] buttonType in
+      guard let self = self else { return }
+      self.presenter.didButtonClicked(type: buttonType)
+    }
+    
+    detailView.didSimilarSelectRowAt = { [weak self] id in
+      guard let self = self else { return }
+      self.presenter.getMovie(id: id)
+      self.scrollView.setContentOffset(CGPoint(x: 0, y: -self.view.safeAreaTop), animated: false)
+    }
   }
 }
 

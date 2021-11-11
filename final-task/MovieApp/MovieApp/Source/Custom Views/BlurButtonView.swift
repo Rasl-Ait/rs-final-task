@@ -8,26 +8,16 @@
 import UIKit
 
 class BlurButtonView: UIView {
-  
-  enum BlurButtonType {
-    case close
-    case info
-    case list
-    case favorite
-    case rate
-  }
-  
   // MARK: - Properties
   private lazy var button = makeButton()
   
   // MARK: - Closure
-  var didButtonClicked: ItemClosure<UIButton>?
+  var didButtonClicked: VoidClosure?
   
   init(image: UIImage) {
     super.init(frame: .zero)
     button.setImage(image, for: .normal)
     setupViews()
-    
   }
   
   required init?(coder: NSCoder) {
@@ -38,30 +28,16 @@ class BlurButtonView: UIView {
 // MARK: private BlurButtonView
 private extension BlurButtonView {
   func setupViews() {
-
-    layer.cornerRadius = height / 2
+    
+    layer.cornerRadius = 40 / 2
     clipsToBounds = true
-   //
-   addBlurToView()
-    
-//    let blurEffect = UIBlurEffect(style: .dark)
-//    let blurredEffectView = UIVisualEffectView(effect: blurEffect)
-//    blurredEffectView.frame = bounds
-//    addSubview(blurredEffectView)
+    //
+    addBlurToView()
     addSubview(button)
-  
     setupLayoutUI()
-    
- 
   }
   
   func setupLayoutUI() {
-    
-//    blurredEffectView.snp.makeConstraints {
-//      $0.center.equalToSuperview()
-//      $0.height.width.equalTo(40)
-//    }
-    
     button.snp.makeConstraints {
       $0.center.equalToSuperview()
       $0.height.width.equalTo(40)
@@ -71,13 +47,13 @@ private extension BlurButtonView {
   func makeButton() -> UIButton {
     let view = UIButton(type: .system)
     view.setImage(.setImage(.close), for: .normal)
-     view.tintColor = .white
-    view.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+    view.tintColor = .white
+    view.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     return view
   }
   
   // MARK: Action func
-  @objc func buttonTapped(_ sender: UIButton) {
-    didButtonClicked?(sender)
+  @objc func buttonTapped() {
+    didButtonClicked?()
   }
 }

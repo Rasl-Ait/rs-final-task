@@ -13,6 +13,7 @@ extension UIImageView {
     self.image = placeholder
     guard let urlString = url else { return }
     let url = URL(string: urlString)
+    kf.indicatorType = .activity
     self.kf.setImage(with: url)
   }
 }

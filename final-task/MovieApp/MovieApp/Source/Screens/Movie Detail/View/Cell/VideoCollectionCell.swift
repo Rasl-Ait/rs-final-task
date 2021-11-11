@@ -16,6 +16,11 @@ class VideoCollectionCell: BaseCollectionViewCell {
     setupViews()
   }
   
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    playerView.removeWebView()
+  }
+  
   func configure(model: MovieVideo) {
     playerView.load(withVideoId: model.key)
   }

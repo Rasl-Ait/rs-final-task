@@ -11,9 +11,11 @@ import Foundation
 final class MovieDetailPresenter: MovieDetailViewOutput {
 	private let service: MovieServiceProtocol
 	weak var view: MovieDetailViewInput?
+  var coordinator: ListDetailCoordinatorProtocol?
   
-  private var movieId: Int
+  var movieID: Int
   private var page = 1
+  private var movie: MovieDetailModel?
 		
 	init(
     service: MovieServiceProtocol,
@@ -21,21 +23,22 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
     movieId: Int) {
 		self.service = service
 		self.view = view
-    self.movieId = movieId
+    self.movieID = movieId
 	}
   
-  func getMovie() {
+  func getMovie(id: Int) {
     view?.showIndicator()
-    service.getMovie(movieId) { [weak self] result in
+    service.getMovie(id) { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .success(let item):
         mainQueue {
+          self.movie = item
           self.view?.success(type: .movie(item))
         }
         
-        self.getVideo()
-        self.getSimilarMovie()
+        self.getVideo(id: id)
+        self.getSimilarMovie(id: id)
       case .failure(let error):
         mainQueue {
           self.view?.failure(error: error)
@@ -44,8 +47,8 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
     }
   }
   
-  func getVideo() {
-    service.getVideo(movieId) { [weak self] result in
+  func getVideo(id: Int) {
+    service.getVideo(id) { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .success(let item):
@@ -60,8 +63,8 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
     }
   }
   
-  func getSimilarMovie() {
-    service.getMovieSimilar(movieId, page: page) { [weak self] result in
+  func getSimilarMovie(id: Int) {
+    service.getMovieSimilar(id, page: page) { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .success(let item):
@@ -73,6 +76,17 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
           self.view?.failure(error: error)
         }
       }
+    }
+  }
+  
+  func didButtonClicked(type: BlurButtonType) {
+    switch type {
+    case .close:
+      coordinator?.dissmiss()
+    case .info:
+      coordinator?.pushWebViewVC(stringURL: movie?.homepage ?? "")
+    default:
+      break
     }
   }
 }

@@ -195,7 +195,7 @@ private extension ListDetailView {
 extension ListDetailView: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     collectionView.deselectItem(at: indexPath, animated: false)
-    let movie = movies[indexPath.item]
+    guard let movie = self.dataSource.itemIdentifier(for: indexPath) else { return }
     didSelectRowAt?(movie.id)
     
   }

@@ -59,6 +59,7 @@ final class RouterImp: Router {
   
   func present(_ module: Presentable?, animated: Bool) {
     guard let controller = module?.toPresent() else { return }
+    controller.modalPresentationStyle = .currentContext
     rootController?.present(controller, animated: animated, completion: nil)
   }
   

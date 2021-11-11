@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum BlurButtonType {
+  case close
+  case info
+  case list
+  case favorite
+  case rate
+}
+
 final class MovieDetailContainerTop: UIView {
   
   // MARK: - Properties
@@ -21,6 +29,7 @@ final class MovieDetailContainerTop: UIView {
   
   // MARK: - Closure
   var didRemoveButton: ItemClosure<MovieModel>?
+  var didButtonClicked: ItemClosure<BlurButtonType>?
   
   // MARK: - Overriden funcs
   
@@ -45,6 +54,7 @@ private extension MovieDetailContainerTop {
     backgroundColor = .backgroundColor
     setupAppearence()
     setupLayoutUI()
+    closures()
   }
   
   func setupAppearence() {
@@ -89,18 +99,13 @@ private extension MovieDetailContainerTop {
       $0.bottom.equalTo(movieImage.snp.bottom).inset(30)
     }
   }
-  
-  // MARK: Action func
-  @objc func removeButtonTapped() {
-
-  }
 }
 
 // MARK: - Setup UI
 private extension MovieDetailContainerTop {
   func makeMovieImageView() -> ImageViewGradient {
     let view = ImageViewGradient()
-    view.image = UIImage(named: "bg-image")
+    view.backgroundColor = .backgroundColor
     return view
   }
   
@@ -121,6 +126,36 @@ private extension MovieDetailContainerTop {
   func makeProgressView() -> ProgressView {
     let view = ProgressView()
     return view
+  }
+}
+
+// MARK: Closure
+private extension MovieDetailContainerTop {
+  func closures() {
+    closeView.didButtonClicked = { [weak self] in
+      guard let self = self else { return }
+      self.didButtonClicked?(.close)
+    }
+    
+    infoView.didButtonClicked = { [weak self] in
+      guard let self = self else { return }
+      self.didButtonClicked?(.info)
+    }
+    
+    listView.didButtonClicked = { [weak self] in
+      guard let self = self else { return }
+      self.didButtonClicked?(.list)
+    }
+    
+    favoriteView.didButtonClicked = { [weak self] in
+      guard let self = self else { return }
+      self.didButtonClicked?(.favorite)
+    }
+    
+    rateView.didButtonClicked = { [weak self] in
+      guard let self = self else { return }
+      self.didButtonClicked?(.rate)
+    }
   }
 }
 

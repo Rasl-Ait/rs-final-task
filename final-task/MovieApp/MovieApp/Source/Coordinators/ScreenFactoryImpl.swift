@@ -44,11 +44,18 @@ final class ScreenFactoryImpl: ScreenFactory {
     return vc
   }
   
-  func makeMovieDetailScreen(id: Int) -> MovieDetailViewController {
+  func makeMovieDetailScreen(_ coordinator: ListDetailCoordinatorProtocol, id: Int) -> MovieDetailViewController {
     let vc = MovieDetailViewController()
     let service = MovieService(client: NetworkService())
     let presenter = MovieDetailPresenter(service: service, view: vc, movieId: id)
+    presenter.coordinator = coordinator
     vc.presenter = presenter
     return vc
+  }
+  
+  func makeWebViewScreen(_ coordinator: ListDetailCoordinatorProtocol, stringURL: String) -> WebViewController {
+    let view = WebViewController()
+    view.stringURL = stringURL
+    return view
   }
 }

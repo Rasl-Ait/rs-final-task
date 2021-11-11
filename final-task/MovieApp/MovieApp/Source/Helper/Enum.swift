@@ -42,6 +42,15 @@ enum SFSymbolConstants: String {
   // Navigation Bar
   case plus = "plus.circle"
   case arrowDownAndUp = "arrow.up.arrow.down"
+  case back = "arrow.backward"
+  
+  // WebView
+  case arrowClockwise = "arrow.clockwise"
+  case safari
+  case checkmarkCircle = "checkmark.circle"
+  case chevronLeft = "chevron.left"
+  case chevronRight = "chevron.right"
+  case shareAndArrowUp = "square.and.arrow.up"
   
   // icons used on home screen
   case taskDone = "checkmark"

@@ -21,7 +21,8 @@ final class MovieDetailView: UIView {
   private lazy var similarView = makeSimilarView()
   
   // MARK: - Closure
-  var didRemoveButton: ItemClosure<MovieModel>?
+  var didSimilarSelectRowAt: ItemClosure<Int>?
+  var didButtonClicked: ItemClosure<BlurButtonType>?
   
   // MARK: - Overriden funcs
   
@@ -58,6 +59,7 @@ private extension MovieDetailView {
     backgroundColor = .backgroundColor
     setupAppearence()
     setupLayoutUI()
+    closures()
   }
   
   func setupAppearence() {
@@ -85,7 +87,7 @@ private extension MovieDetailView {
     }
     
     titleLabel.snp.makeConstraints {
-      $0.top.equalTo(videoCollectionView.snp.bottom).offset(30)
+      $0.top.equalTo(videoCollectionView.snp.bottom).offset(25)
       $0.height.equalTo(20)
       $0.centerX.equalToSuperview()
     }
@@ -97,22 +99,22 @@ private extension MovieDetailView {
     }
     
     movieBodyView.snp.makeConstraints {
-      $0.top.equalTo(dateLabel.snp.bottom).offset(30)
+      $0.top.equalTo(dateLabel.snp.bottom).offset(25)
       $0.leading.trailing.equalToSuperview().inset(15)
     }
     
     overviewLabel.snp.makeConstraints {
-      $0.top.equalTo(movieBodyView.snp.bottom).offset(30)
+      $0.top.equalTo(movieBodyView.snp.bottom).offset(25)
       $0.height.equalTo(40)
       $0.centerX.equalToSuperview()
     }
     
     overview.snp.makeConstraints {
-      $0.top.equalTo(overviewLabel.snp.bottom).offset(30)
+      $0.top.equalTo(overviewLabel.snp.bottom).offset(25)
       $0.leading.trailing.equalToSuperview().inset(15)
     }
     similarView.snp.makeConstraints {
-      $0.top.equalTo(overview.snp.bottom).offset(120)
+      $0.top.equalTo(overview.snp.bottom).offset(80)
       $0.leading.trailing.equalToSuperview().inset(15)
       $0.height.equalTo(250)
       $0.bottom.equalToSuperview().inset(20)
@@ -158,6 +160,21 @@ private extension MovieDetailView {
   func makeOverview() -> OverviewView {
     let view = OverviewView()
     return view
+  }
+}
+
+// MARK: Closure
+private extension MovieDetailView {
+  func closures() {
+    containerTopView.didButtonClicked = { [weak self] buttonType in
+      guard let self = self else { return }
+      self.didButtonClicked?(buttonType)
+    }
+    
+    similarView.didSelectRowAt = { [weak self] id in
+      guard let self = self else { return }
+      self.didSimilarSelectRowAt?(id)
+    }
   }
 }
 

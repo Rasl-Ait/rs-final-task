@@ -117,14 +117,6 @@ private extension VideoView {
   }
 }
 
-// MARK: UICollectionViewDelegate
-extension VideoView: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    collectionView.deselectItem(at: indexPath, animated: false)
-    print(#function)
-  }
-}
-
 // MARK: - Constants
 extension VideoView {
   private enum Spacing {

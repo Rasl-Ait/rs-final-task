@@ -21,6 +21,9 @@ final class NavigationController: UINavigationController {
     var attrs3 = [NSAttributedString.Key: Any]()
     attrs3[.foregroundColor] = UIColor.navigationBarBarTintColor.withAlphaComponent(0.5)
     
+    UINavigationBar.appearance().backIndicatorImage = .setImage(.back)
+      UINavigationBar.appearance().backIndicatorTransitionMaskImage = .setImage(.back)
+    
     UIBarButtonItem.appearance().setTitleTextAttributes(attrs3, for: .disabled)
     UIBarButtonItem.appearance().setTitleTextAttributes(attrs3, for: .highlighted)
   }

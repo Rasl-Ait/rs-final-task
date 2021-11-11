@@ -22,7 +22,7 @@ final class SimilarMovieView: UIView {
   }
   
   // MARK: - Closure
-  var didRemoveButton: ItemClosure<MovieModel>?
+  var didSelectRowAt: ItemClosure<Int>?
   
   // MARK: - Overriden funcs
   
@@ -63,7 +63,7 @@ private extension SimilarMovieView {
     }
     
     collectionView.snp.makeConstraints {
-      $0.top.equalTo(label.snp.bottom).offset(10)
+      $0.top.equalTo(label.snp.bottom).offset(0)
       $0.right.left.equalToSuperview()
       $0.bottom.equalToSuperview()
     }
@@ -100,6 +100,7 @@ private extension SimilarMovieView {
   
   func makeCollectionView() -> UICollectionView {
     let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
+    view.delegate = self
     view.backgroundColor = .clear
     view.showsVerticalScrollIndicator = false
     view.register(ListDetailCollectionCell.self)
@@ -141,7 +142,8 @@ private extension SimilarMovieView {
 extension SimilarMovieView: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     collectionView.deselectItem(at: indexPath, animated: false)
-    print(#function)
+    guard let movie = self.dataSource.itemIdentifier(for: indexPath) else { return }
+    didSelectRowAt?(movie.id)
     
   }
 }

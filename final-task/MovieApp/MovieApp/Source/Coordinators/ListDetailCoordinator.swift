@@ -9,7 +9,9 @@ import UIKit
 
 protocol ListDetailCoordinatorProtocol: AnyObject {
   func pop()
+  func dissmiss()
   func pushMovieDetailVC(id: Int)
+  func pushWebViewVC(stringURL: String)
 }
 
 final class ListDetailCoordinator: Coordinator {
@@ -42,11 +44,21 @@ extension ListDetailCoordinator: ListDetailCoordinatorProtocol {
   }
   
   func pop() {
+    router.popModule()
     finishFlow?()
   }
   
   func pushMovieDetailVC(id: Int) {
-    let viewController = screenFactory.makeMovieDetailScreen(id: id)
+    let viewController = screenFactory.makeMovieDetailScreen(self, id: id)
     router.push(viewController)
+  }
+  
+  func pushWebViewVC(stringURL: String) {
+    let viewController = screenFactory.makeWebViewScreen(self, stringURL: stringURL)
+    router.push(viewController)
+  }
+  
+  func dissmiss() {
+    router.popModule()
   }
 }

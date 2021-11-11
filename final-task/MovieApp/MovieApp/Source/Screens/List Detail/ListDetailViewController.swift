@@ -23,7 +23,6 @@ final class ListDetailViewController: BaseViewController {
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    presenter.viewWillDisappear()
   }
   
   override func setEditing(_ editing: Bool, animated: Bool) {
@@ -74,7 +73,7 @@ private extension ListDetailViewController {
   func setupAppearence() {
     view.addSubview(listView)
   }
-  
+
   func setupLayoutUI() {
     listView.snp.makeConstraints {
       $0.edges.equalToSuperview()
@@ -98,7 +97,12 @@ private extension ListDetailViewController {
       action: #selector(sortedTapped)
     )
     
+    let backBarButtonItem = UIBarButtonItem(image: .setImage(.back),
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(backTapped))
     navigationItem.rightBarButtonItems = [sortedBarButtonItem, editButtonItem]
+    navigationItem.leftBarButtonItem = backBarButtonItem
   }
 }
 
@@ -109,6 +113,10 @@ private extension ListDetailViewController {
       let titleType = SortedType(rawValue: alert.title ?? "") ?? .date
       self.listView.sorted(type: titleType)
     }
+  }
+  
+  @objc func backTapped() {
+    presenter.viewWillDisappear()
   }
   
   func refresh() {
