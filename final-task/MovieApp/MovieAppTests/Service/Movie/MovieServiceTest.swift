@@ -60,6 +60,21 @@ class MovieServiceTest: XCTestCase {
     XCTAssertEqual(sut.client.inputRequest, request)
   }
 
+  func test_getAccountStateRequest() {
+    let sut = makeSUT()
+
+    let query = [
+      URLQueryItem(name: "session_id", value: sessionID)
+    ]
+
+    sut.service.getAccountStates(10) { _ in }
+    XCTAssertTrue(sut.client.executeCalled)
+    let request: URLRequest = .queryParams("movie/\(10)/account_states",
+                                           param: (query, nil),
+                                           httpMethod: .get)
+    XCTAssertEqual(sut.client.inputRequest, request)
+  }
+  
   func test_getMoviesRequestSuccessResponse() throws {
 
     let results = getResponce(file: "MovieDetail", type: MovieDetailModel.self)
@@ -131,6 +146,19 @@ class MovieServiceTest: XCTestCase {
     var result: Result<SuccessErrorModel, APIError>?
 
     sut.service.movieRate(10, param: param) { result = $0 }
+    XCTAssertEqual(result?.value, item)
+  }
+  
+  func test_AccountStatesSuccessResoponse() throws {
+    let item = MovieStates(id: 1, favorite: true, rated: false, watchlist: false)
+    let response = try JSONEncoder().encode(item)
+
+    let sut = makeSUT()
+    sut.client.result = .success(response)
+
+    var result: Result<MovieStates, APIError>?
+
+    sut.service.getAccountStates(1) { result = $0 }
     XCTAssertEqual(result?.value, item)
   }
   

@@ -22,6 +22,9 @@ protocol MovieServiceProtocol {
     _ id: Int,
     param: MovieRateParam,
     completion: @escaping CompletionBlock<SuccessErrorModel>)
+  func getAccountStates(
+    _ id: Int,
+    completion: @escaping CompletionBlock<MovieStates>)
 }
 
 final class MovieService: BaseAPI<MovieTargetType>, MovieServiceProtocol {
@@ -39,5 +42,9 @@ final class MovieService: BaseAPI<MovieTargetType>, MovieServiceProtocol {
   
   func movieRate(_ id: Int, param: MovieRateParam, completion: @escaping CompletionBlock<SuccessErrorModel>) {
     getData(target: .rateMovie(id, param), completion: completion)
+  }
+  
+  func getAccountStates(_ id: Int, completion: @escaping CompletionBlock<MovieStates>) {
+    getData(target: .accountStates(id), completion: completion)
   }
 }

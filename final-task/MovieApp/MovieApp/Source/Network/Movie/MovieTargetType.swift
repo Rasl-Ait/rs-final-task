@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 enum MovieTargetType {
   enum Constant {
     static let sessionID = UserDefaults.standard.sessionID
@@ -18,6 +16,7 @@ enum MovieTargetType {
   case movieVideo(Int)
   case movieSimilar(Int, Int)
   case rateMovie(Int, MovieRateParam)
+  case accountStates(Int)
 }
 
 extension MovieTargetType: TargetType {
@@ -31,6 +30,8 @@ extension MovieTargetType: TargetType {
       return "movie/\(id)/similar"
     case .rateMovie(let id, _):
       return "movie/\(id)/rating"
+    case .accountStates(let id):
+      return "movie/\(id)/account_states"
     }
   }
   
@@ -44,6 +45,8 @@ extension MovieTargetType: TargetType {
       return .get
     case .rateMovie:
       return .post
+    case .accountStates:
+      return .get
     }
   }
   
@@ -63,6 +66,11 @@ extension MovieTargetType: TargetType {
         URLQueryItem(name: "session_id", value: Constant.sessionID)
       ]
       return .postAndGetParameters(parameters: item, query: param)
+    case .accountStates(_):
+      let param = [
+        URLQueryItem(name: "session_id", value: Constant.sessionID)
+      ]
+      return .urlQueryParameters(parameters: param)
     }
   }
 }

@@ -77,3 +77,10 @@ struct MovieVideo: Codable, Equatable, Hashable {
 struct ResultsVideo: Codable, Equatable {
     var results: [MovieVideo]
 }
+
+struct MovieStates: Codable, Equatable {
+  let id: Int
+  let favorite: Bool
+  let rated: Bool
+  let watchlist: Bool
+}
