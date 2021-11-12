@@ -63,6 +63,9 @@
 		DC7461E5273E4A5400BD3297 /* SearchParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461E4273E4A5400BD3297 /* SearchParam.swift */; };
 		DC7461E7273E4D4200BD3297 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461E6273E4D4200BD3297 /* SearchService.swift */; };
 		DC7461E9273E4E4500BD3297 /* SearchServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461E8273E4E4500BD3297 /* SearchServiceTest.swift */; };
+		DC7461F1273E51EE00BD3297 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461EC273E51EE00BD3297 /* SearchPresenter.swift */; };
+		DC7461F3273E51EE00BD3297 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461EE273E51EE00BD3297 /* SearchViewController.swift */; };
+		DC7461F4273E51EE00BD3297 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461EF273E51EE00BD3297 /* SearchProtocols.swift */; };
 		DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B9027350BED00C3A209 /* TabBarController.swift */; };
 		DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B922735124D00C3A209 /* AuthCoordinator.swift */; };
 		DC835B952735231500C3A209 /* ListsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B942735231500C3A209 /* ListsCoordinator.swift */; };
@@ -230,6 +233,9 @@
 		DC7461E4273E4A5400BD3297 /* SearchParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParam.swift; sourceTree = "<group>"; };
 		DC7461E6273E4D4200BD3297 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		DC7461E8273E4E4500BD3297 /* SearchServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTest.swift; sourceTree = "<group>"; };
+		DC7461EC273E51EE00BD3297 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		DC7461EE273E51EE00BD3297 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DC7461EF273E51EE00BD3297 /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
 		DC835B9027350BED00C3A209 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DC835B922735124D00C3A209 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		DC835B942735231500C3A209 /* ListsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsCoordinator.swift; sourceTree = "<group>"; };
@@ -603,6 +609,16 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		DC7461EB273E51DC00BD3297 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DC7461EE273E51EE00BD3297 /* SearchViewController.swift */,
+				DC7461EC273E51EE00BD3297 /* SearchPresenter.swift */,
+				DC7461EF273E51EE00BD3297 /* SearchProtocols.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		DC835B8F27350BD800C3A209 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -785,6 +801,7 @@
 		DCCF8AD627299DBA00933DD1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC7461EB273E51DC00BD3297 /* Search */,
 				DCF8D135273D0577003FFEE7 /* WebView */,
 				DCF7F025273BC43000333A2B /* Movie Detail */,
 				DCC91BD42737FAE400F0E322 /* List Detail */,
@@ -1234,6 +1251,7 @@
 				DC49A04E272ECE8A00F17DE9 /* Encodable.swift in Sources */,
 				DCF7F02D273BC43F00333A2B /* MovieDetailViewController.swift in Sources */,
 				DC835B952735231500C3A209 /* ListsCoordinator.swift in Sources */,
+				DC7461F4273E51EE00BD3297 /* SearchProtocols.swift in Sources */,
 				DCF7F041273C133000333A2B /* MovieBodyView.swift in Sources */,
 				DC2B2A232734254A00233F5D /* Router.swift in Sources */,
 				DC2B2A3D2734445600233F5D /* SignInButton.swift in Sources */,
@@ -1282,6 +1300,7 @@
 				DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */,
 				DCC91BC32737E6C800F0E322 /* ListEntity.swift in Sources */,
 				DC49A040272E939800F17DE9 /* AuthTargetType.swift in Sources */,
+				DC7461F1273E51EE00BD3297 /* SearchPresenter.swift in Sources */,
 				DCC91BDA273801A600F0E322 /* ListDetailCollectionCell.swift in Sources */,
 				DCF7F03F273C011600333A2B /* VideoCollectionCell.swift in Sources */,
 				DCF8D13B273D4B24003FFEE7 /* Double+Extension.swift in Sources */,
@@ -1336,6 +1355,7 @@
 				DCF7F03A273BF49C00333A2B /* ProgressView.swift in Sources */,
 				DCF7F012273BA7BE00333A2B /* MovieModel.swift in Sources */,
 				DC2B2A3A27342BBA00233F5D /* AuthProtocols.swift in Sources */,
+				DC7461F3273E51EE00BD3297 /* SearchViewController.swift in Sources */,
 				DC864CF027369421009BA64A /* ListViewCell.swift in Sources */,
 				DCA0C744273AA891003AAF77 /* FileManager+Extension.swift in Sources */,
 				DCCF8AF72729A26B00933DD1 /* Date+Extension.swift in Sources */,
