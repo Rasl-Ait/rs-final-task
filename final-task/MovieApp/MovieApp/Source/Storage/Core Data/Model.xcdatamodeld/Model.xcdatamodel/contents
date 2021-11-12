@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G224" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavoriteMovieEntity" representedClassName="FavoriteMovieEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="originalName" optional="YES" attributeType="String"/>
+        <attribute name="originalTitle" optional="YES" attributeType="String"/>
+        <attribute name="overview" attributeType="String"/>
+        <attribute name="popularity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="posterPath" optional="YES" attributeType="String"/>
+        <attribute name="releaseDate" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="voteAverage" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="ListEntity" representedClassName="ListEntity" syncable="YES" codeGenerationType="class">
         <attribute name="descr" optional="YES" attributeType="String"/>
         <attribute name="favoriteCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -24,5 +35,6 @@
     <elements>
         <element name="ListEntity" positionX="-336.40625" positionY="61.64593505859375" width="128" height="134"/>
         <element name="MovieEntity" positionX="-63" positionY="27" width="128" height="179"/>
+        <element name="FavoriteMovieEntity" positionX="-189" positionY="117" width="128" height="164"/>
     </elements>
 </model>
