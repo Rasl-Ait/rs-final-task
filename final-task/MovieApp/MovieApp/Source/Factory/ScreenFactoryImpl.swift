@@ -118,7 +118,13 @@ final class ScreenFactoryImpl: ScreenFactory {
                                     "Accept": "application/json",
                                     "Authorization": "Bearer \(Constant.token)"]
     let service = AccountAndListService(client: NetworkService(session: URLSession(configuration: config)))
-    let presenter = FavoritePresenter(service: service, view: viewController)
+    let coreDataTask = (UIApplication.shared.delegate as? AppDelegate)?.coreDataTask
+       let persistence = MoviePersistence(context: coreDataTask!.managedContext, backgroundContext: coreDataTask!.backgroundContext)
+    let presenter = FavoritePresenter(
+      service: service,
+      view: viewController,
+      persistence: persistence
+    )
     presenter.coordinator = coordinator
     viewController.presenter = presenter
     return viewController

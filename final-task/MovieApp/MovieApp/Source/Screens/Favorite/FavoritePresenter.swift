@@ -10,6 +10,7 @@ import Foundation
 
 final class FavoritePresenter: FavoriteViewOutput {
 	private let service: AccountAndListServiceProtocol
+  private let persistence: StorageProtocol
 	weak var view: FavoriteViewInput?
   weak var coordinator: FavoriteCoordinatorProtocol?
   
@@ -17,9 +18,10 @@ final class FavoritePresenter: FavoriteViewOutput {
   
   init(
     service: AccountAndListServiceProtocol,
-    view: FavoriteViewInput) {
+    view: FavoriteViewInput, persistence: StorageProtocol) {
     self.service = service
     self.view = view
+    self.persistence = persistence
   }
   
   func getFavoriteMovie() {
@@ -28,6 +30,9 @@ final class FavoritePresenter: FavoriteViewOutput {
       guard let self = self else { return }
       switch result {
       case .success(let item):
+        
+        item.results.compactMap { $0 }.forEach(self.persistence.addFavoriteMovie)
+        
         mainQueue {
           self.view?.success(items: item.results)
         }
