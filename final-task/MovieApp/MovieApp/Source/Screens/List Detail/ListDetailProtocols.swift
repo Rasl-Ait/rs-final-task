@@ -11,7 +11,7 @@ import Foundation
 protocol ListDetailViewInput: AnyObject {
   func success(items: [MovieModel])
   func successRemoveMovie()
-	func failure(error: Error)
+	func failure(error: APIError)
 	func hideIndicator()
 	func showIndicator()
 }

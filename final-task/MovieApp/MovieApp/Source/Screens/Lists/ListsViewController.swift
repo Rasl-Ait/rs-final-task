@@ -127,10 +127,12 @@ extension ListsViewController: ListsViewInput {
     hide()
     listView.addList(items)
   }
-	func failure(error: Error) {
+  
+	func failure(error: APIError) {
     hide()
     Alert.showAlert(on: self, with: .warning, message: error.localizedDescription)
   }
+  
 	func hideIndicator() {
     hide()
   }

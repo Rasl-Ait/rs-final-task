@@ -94,7 +94,7 @@ extension MovieDetailViewController: MovieDetailViewInput {
     detailView.configure(type: type)
   }
   
-	func failure(error: Error) {
+	func failure(error: APIError) {
     hide()
     Alert.showAlert(on: self, with: .warning, message: error.localizedDescription)
   }

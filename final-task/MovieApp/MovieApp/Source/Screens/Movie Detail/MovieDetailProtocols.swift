@@ -17,7 +17,7 @@ enum DetailContentType {
 
 protocol MovieDetailViewInput: AnyObject {
   func success(type: DetailContentType)
-	func failure(error: Error)
+	func failure(error: APIError)
 	func hideIndicator()
 	func showIndicator()
 }

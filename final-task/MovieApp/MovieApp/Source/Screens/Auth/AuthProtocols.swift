@@ -10,7 +10,7 @@ import Foundation
 
 protocol AuthViewInput: AnyObject {
 	func success()
-	func failure(error: Error)
+	func failure(error: APIError)
 	func hideIndicator()
 	func showIndicator()
 }

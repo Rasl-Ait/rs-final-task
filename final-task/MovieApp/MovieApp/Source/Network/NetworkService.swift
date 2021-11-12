@@ -13,15 +13,9 @@ protocol HTTPClient {
 
 final class NetworkService: HTTPClient {
   private var session: URLSession
-
-   init(session: URLSession = .shared) {
-    let config = URLSessionConfiguration.default
-    config.requestCachePolicy = .reloadIgnoringLocalCacheData
-    config.urlCache = nil
-    config.httpAdditionalHeaders = ["Content-Type": "application/json",
-                                    "Accept": "application/json",
-                                    "Authorization": "Bearer \(Constant.token)"]
-    self.session = URLSession(configuration: config)
+  
+  init(session: URLSession) {
+    self.session = session
   }
   
   func request(request: URLRequest, completion: @escaping (Result<Data, APIError>) -> Void) {
@@ -31,7 +25,7 @@ final class NetworkService: HTTPClient {
         if error.domain == NSURLErrorDomain && error.code == NSURLErrorCancelled {
           return
         }
-
+        
         completion(.failure(.networkingError(error)))
         return
       }
@@ -41,23 +35,28 @@ final class NetworkService: HTTPClient {
         return
       }
       
-     // print(String(data: data, encoding: .utf8))
+      // print(String(data: data, encoding: .utf8))
       
       switch http.statusCode {
       case 200...201:
-          completion(.success(data))
+        completion(.success(data))
       case 400...499:
         var message = ""
         var statusCode = 0
-        if let json = try! JSONSerialization.jsonObject(with: data, options: [])  as? [String: Any] {
-          if let msgText = json["status_message"] as? String {
-            message = msgText
+        do {
+          if let json = try JSONSerialization.jsonObject(with: data, options: [])  as? [String: Any] {
+            if let msgText = json["status_message"] as? String {
+              message = msgText
+            }
+            
+            if let code = json["status_code"] as? Int {
+              statusCode = code
+            }
           }
-          
-          if let code = json["status_code"] as? Int {
-            statusCode = code
-          }
+        } catch let error {
+          completion(.failure(.jsonSerializationError(error)))
         }
+        
         completion(.failure(.requestError(statusCode, message)))
       case 500...599:
         completion(.failure(.serverError))

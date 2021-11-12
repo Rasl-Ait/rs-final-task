@@ -76,7 +76,7 @@ final class MoviePersistence: StorageProtocol {
         }
         backgroundContext.delete(result)
         try backgroundContext.save()
-        DDLogError("list with id=\(id) removed from the database")
+        DDLogInfo("list with id=\(id) removed from the database")
       } catch let error {
         DDLogError("error when deleting list with ID =\(id)\n\(error.localizedDescription)")
       }
@@ -95,7 +95,7 @@ final class MoviePersistence: StorageProtocol {
         }
         backgroundContext.delete(result)
         try backgroundContext.save()
-        DDLogError("Movie with id=\(id) removed from the database")
+        DDLogInfo("Movie with id=\(id) removed from the database")
       } catch let error {
         DDLogError("error when deleting movie with ID =\(id)\n\(error.localizedDescription)")
       }
@@ -117,7 +117,7 @@ final class MoviePersistence: StorageProtocol {
         DDLogInfo("get List with ID = \(entity.id)")
         return entity
       } catch {
-        DDLogInfo("an entity with this ID = \(id) does not exist")
+        DDLogError("an entity with this ID = \(id) does not exist")
         return nil
       }
     }
@@ -188,7 +188,7 @@ final class MoviePersistence: StorageProtocol {
         DDLogInfo("get list with id = \(entity.id)")
         return ListModel.getEntities(entity: entity)
       } catch {
-        DDLogInfo("an entity with this id = \(id) does not exist")
+        DDLogError("an entity with this id = \(id) does not exist")
         return nil
       }
     }
@@ -209,7 +209,7 @@ final class MoviePersistence: StorageProtocol {
         DDLogInfo("get list with id = \(entity.id)")
         return MovieModel.getMovie(entity: entity)
       } catch {
-        DDLogInfo("an entity with this id = \(id) does not exist")
+        DDLogError("an entity with this id = \(id) does not exist")
         return nil
       }
     }

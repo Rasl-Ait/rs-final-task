@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BlurButtonView: UIView {
+final class BlurButtonView: UIView {
   // MARK: - Properties
   private lazy var button = makeButton()
   

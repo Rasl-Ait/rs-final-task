@@ -4,11 +4,12 @@ import Foundation
 enum APIError: Error {
   case invalidURL
 	case networkingError(Error)
-	case serverError // HTTP 5xx
-	case requestError(Int, String) // HTTP 4xx
+	case serverError
+	case requestError(Int, String)
 	case invalidResponse
 	case decodingError(DecodingError)
   case postParametersEncodingFailure(description: String)
+  case jsonSerializationError(Error)
   
   var localizedDescription: String {
     switch self {
@@ -19,13 +20,15 @@ enum APIError: Error {
     case .serverError:
       return "HTTP 500 Server Error"
     case .requestError(let status, let body):
-      return "HTTP \(status)\n\(body)"
+      return "Status code \(status)\n\(body)"
     case .invalidResponse:
       return "Invalid Response"
     case .decodingError(let error):
       return "Decoding error: \(error.localizedDescription)"
     case .postParametersEncodingFailure(let description):
       return "APIError post parameters failure -> \(description)"
+    case .jsonSerializationError(let error):
+      return "Json serialization error \(error.localizedDescription)"
     }
   }
 }

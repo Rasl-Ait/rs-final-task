@@ -10,7 +10,14 @@ import UIKit
 final class ScreenFactoryImpl: ScreenFactory {
   func makeAuthScreen(_ coordinator: AuthCoordinatorProtocol) -> AuthViewController {
     let vc = AuthViewController()
-    let service = AuthService(client: NetworkService())
+    let config = URLSessionConfiguration.default
+    config.requestCachePolicy = .reloadIgnoringLocalCacheData
+    config.urlCache = nil
+    config.httpAdditionalHeaders = ["Content-Type": "application/json",
+                                    "Accept": "application/json",
+                                    "Authorization": "Bearer \(Constant.token)"]
+    let urlSession = URLSession(configuration: config)
+    let service = AuthService(client: NetworkService(session: urlSession))
     let presenter = AuthPresenter(service: service, view: vc)
     presenter.coordinator = coordinator
     vc.presenter = presenter
@@ -19,7 +26,14 @@ final class ScreenFactoryImpl: ScreenFactory {
   
   func makeListsScreen(_ coordinator: ListsCoordinatorProtocol, mediaID: Int?) -> ListsViewController {
     let vc = ListsViewController()
-    let service = AccountAndListService(client: NetworkService())
+    let config = URLSessionConfiguration.default
+    config.requestCachePolicy = .reloadIgnoringLocalCacheData
+    config.urlCache = nil
+    config.httpAdditionalHeaders = ["Content-Type": "application/json",
+                                    "Accept": "application/json",
+                                    "Authorization": "Bearer \(Constant.token)"]
+    let urlSession = URLSession(configuration: config)
+    let service = AccountAndListService(client: NetworkService(session: urlSession))
  let coreDataTask = (UIApplication.shared.delegate as? AppDelegate)?.coreDataTask
     let persistence = MoviePersistence(context: coreDataTask!.managedContext, backgroundContext: coreDataTask!.backgroundContext)
     let presenter = ListsPresenter(view: vc, service: service, persistence: persistence, mediaID: mediaID)
@@ -30,7 +44,14 @@ final class ScreenFactoryImpl: ScreenFactory {
   
   func makeListDetailScreen(_ coordinator: ListDetailCoordinatorProtocol, list: ListModel) -> ListDetailViewController {
     let vc = ListDetailViewController()
-    let service = AccountAndListService(client: NetworkService())
+    let config = URLSessionConfiguration.default
+    config.requestCachePolicy = .reloadIgnoringLocalCacheData
+    config.urlCache = nil
+    config.httpAdditionalHeaders = ["Content-Type": "application/json",
+                                    "Accept": "application/json",
+                                    "Authorization": "Bearer \(Constant.token)"]
+    let urlSession = URLSession(configuration: config)
+    let service = AccountAndListService(client: NetworkService(session: urlSession))
     let coreDataTask = (UIApplication.shared.delegate as? AppDelegate)?.coreDataTask
        let persistence = MoviePersistence(context: coreDataTask!.managedContext, backgroundContext: coreDataTask!.backgroundContext)
     let presenter = ListDetailPresenter(
@@ -46,8 +67,16 @@ final class ScreenFactoryImpl: ScreenFactory {
   
   func makeMovieDetailScreen(_ coordinator: ListDetailCoordinatorProtocol, id: Int) -> MovieDetailViewController {
     let vc = MovieDetailViewController()
-    let service = MovieService(client: NetworkService())
-    let serviceAccount = AccountAndListService(client: NetworkService())
+    let config = URLSessionConfiguration.default
+    config.requestCachePolicy = .reloadIgnoringLocalCacheData
+    config.urlCache = nil
+    config.httpAdditionalHeaders = ["Content-Type": "application/json",
+                                    "Accept": "application/json",
+                                    "Authorization": "Bearer \(Constant.token)"]
+    let urlSession = URLSession(configuration: config)
+    let service = MovieService(client: NetworkService(session: urlSession))
+    
+    let serviceAccount = AccountAndListService(client: NetworkService(session: urlSession))
     let presenter = MovieDetailPresenter(
       service: service,
       serviceAccount: serviceAccount,
