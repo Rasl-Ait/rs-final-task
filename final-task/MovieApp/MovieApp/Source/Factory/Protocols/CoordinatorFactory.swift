@@ -15,4 +15,5 @@ protocol CoordinatorFactory {
   func makeListDetailCoordinator(router: Router, list: ListModel) -> ListDetailCoordinator
   func makeMovieDetailCoordinator(router: Router, movieID: Int) -> MovieDetailCoordinator
   func makeSearchCoordinator(router: Router, tabBarViewController: TabBarController) -> SearchCoordinator
+  func makeFavoriteCoordinator(router: Router, tabBarViewController: TabBarController) -> FavoriteCoordinator
 }

@@ -108,4 +108,19 @@ final class ScreenFactoryImpl: ScreenFactory {
     viewController.presenter = presenter
     return viewController
   }
+  
+  func makeFavoriteScreen(_ coordinator: FavoriteCoordinatorProtocol) -> FavoriteViewController {
+    let viewController = FavoriteViewController()
+    let config = URLSessionConfiguration.default
+    config.requestCachePolicy = .reloadIgnoringLocalCacheData
+    config.urlCache = nil
+    config.httpAdditionalHeaders = ["Content-Type": "application/json",
+                                    "Accept": "application/json",
+                                    "Authorization": "Bearer \(Constant.token)"]
+    let service = AccountAndListService(client: NetworkService(session: URLSession(configuration: config)))
+    let presenter = FavoritePresenter(service: service, view: viewController)
+    presenter.coordinator = coordinator
+    viewController.presenter = presenter
+    return viewController
+  }
 }

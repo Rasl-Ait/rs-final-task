@@ -31,12 +31,17 @@ extension TabBarCoordinator {
       tabBarViewController: tabBarController
     )
     
-    let searchCoordinator = coordinatorFactory.makeSearchCoordinator(router: router, tabBarViewController: tabBarController)
+    let searchCoordinator = coordinatorFactory.makeSearchCoordinator(router: router,
+                                                                     tabBarViewController: tabBarController)
+    let favoriteCoordinator = coordinatorFactory.makeFavoriteCoordinator(router: router,
+                                                                         tabBarViewController: tabBarController)
     
     addDependency(listCoordinator)
     addDependency(searchCoordinator)
+    addDependency(favoriteCoordinator)
     listCoordinator.start()
     searchCoordinator.start()
+    favoriteCoordinator.start()
    router.setRootModule(tabBarController, hideBar: true)
   }
 }

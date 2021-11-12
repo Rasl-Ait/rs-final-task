@@ -11,6 +11,7 @@ import Foundation
 final class FavoritePresenter: FavoriteViewOutput {
 	private let service: AccountAndListServiceProtocol
 	weak var view: FavoriteViewInput?
+  weak var coordinator: FavoriteCoordinatorProtocol?
 		
 	init(service: AccountAndListServiceProtocol, view: FavoriteViewInput) {
 		self.service = service

@@ -20,6 +20,12 @@ final class FavoriteViewController: UIViewController {
 // MARK: - Private Extension
 private extension FavoriteViewController {
   func setupViews() {
+    configureNavigationBar()
+  }
+  
+  func configureNavigationBar() {
+    navigationController?.navigationBar.prefersLargeTitles = true
+    navigationItem.title = "Favorite"
   }
 }
 

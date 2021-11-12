@@ -46,4 +46,8 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
   func makeSearchCoordinator(router: Router, tabBarViewController: TabBarController) -> SearchCoordinator {
     SearchCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory, tabBarViewController: tabBarViewController)
   }
+  
+  func makeFavoriteCoordinator(router: Router, tabBarViewController: TabBarController) -> FavoriteCoordinator {
+    FavoriteCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory, tabBarViewController: tabBarViewController)
+  }
 }

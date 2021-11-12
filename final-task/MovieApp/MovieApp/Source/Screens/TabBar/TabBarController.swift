@@ -13,7 +13,7 @@ final class TabBarController: UITabBarController {
     case home
     case movies
     case search
-    case news
+    case favorite
     case profile
   }
   

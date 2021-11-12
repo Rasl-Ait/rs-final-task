@@ -14,4 +14,5 @@ protocol ScreenFactory {
   func makeMovieDetailScreen(_ coordinator: MovieDetailCoordinatorProtocol, id: Int) -> MovieDetailViewController
   func makeWebViewScreen(_ coordinator: MovieDetailCoordinatorProtocol, stringURL: String) -> WebViewController
   func makeSearchScreen(_ coordinator: SearchCoordinatorProtocol) -> SearchViewController
+  func makeFavoriteScreen(_ coordinator: FavoriteCoordinatorProtocol) -> FavoriteViewController
 }

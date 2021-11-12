@@ -72,6 +72,7 @@
 		DC746205273E8FD700BD3297 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC746200273E8FD700BD3297 /* FavoritePresenter.swift */; };
 		DC746207273E8FD700BD3297 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC746202273E8FD700BD3297 /* FavoriteViewController.swift */; };
 		DC746208273E8FD700BD3297 /* FavoriteProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC746203273E8FD700BD3297 /* FavoriteProtocols.swift */; };
+		DC74620B273E90D500BD3297 /* FavoriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74620A273E90D500BD3297 /* FavoriteCoordinator.swift */; };
 		DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B9027350BED00C3A209 /* TabBarController.swift */; };
 		DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B922735124D00C3A209 /* AuthCoordinator.swift */; };
 		DC835B952735231500C3A209 /* ListsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B942735231500C3A209 /* ListsCoordinator.swift */; };
@@ -248,6 +249,7 @@
 		DC746200273E8FD700BD3297 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
 		DC746202273E8FD700BD3297 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		DC746203273E8FD700BD3297 /* FavoriteProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProtocols.swift; sourceTree = "<group>"; };
+		DC74620A273E90D500BD3297 /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
 		DC835B9027350BED00C3A209 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DC835B922735124D00C3A209 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		DC835B942735231500C3A209 /* ListsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsCoordinator.swift; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 				DCC91BDD2738131500F0E322 /* ListDetailCoordinator.swift */,
 				DC7461F8273E557C00BD3297 /* MovieDetailCoordinator.swift */,
 				DC7461FA273E62DC00BD3297 /* SearchCoordinator.swift */,
+				DC74620A273E90D500BD3297 /* FavoriteCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -1316,6 +1319,7 @@
 				DCCF8AAA27299D6700933DD1 /* AuthViewController.swift in Sources */,
 				DCF7F01B273BB1C600333A2B /* MovieParams.swift in Sources */,
 				DC2B2A172733DB3600233F5D /* LoginPasswordTextField.swift in Sources */,
+				DC74620B273E90D500BD3297 /* FavoriteCoordinator.swift in Sources */,
 				DCC91BDE2738131500F0E322 /* ListDetailCoordinator.swift in Sources */,
 				DCCF8B172729A30200933DD1 /* ReusableView.swift in Sources */,
 				DC7461E3273E495700BD3297 /* SearchTargetType.swift in Sources */,
