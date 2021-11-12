@@ -10,6 +10,7 @@ import UIKit
 enum MovieType {
   case listDetail
   case movieSimilar
+  case search
 }
 
 final class ListDetailCollectionCellView: UIView {
@@ -77,6 +78,7 @@ private extension ListDetailCollectionCellView {
     stackView.snp.makeConstraints {
       $0.top.equalToSuperview().offset(7)
       $0.leading.trailing.equalToSuperview().inset(7)
+      $0.bottom.equalToSuperview().inset(10)
     }
     
     checkButton.snp.makeConstraints {
@@ -93,7 +95,7 @@ private extension ListDetailCollectionCellView {
     let view = UILabel(
       "List", alignment: .center,
       color: .cellTitleColor,
-      fontName: .avenir(.fontML, .SemiBold)
+      fontName: .avenir(.fontSM, .SemiBold)
     )
     view.numberOfLines = 0
     return view
@@ -108,7 +110,7 @@ private extension ListDetailCollectionCellView {
   }
   
   func makeStackView() -> UIStackView {
-    let view = CustomStackView(axis: .vertical, spacing: .spacingL)
+    let view = CustomStackView(axis: .vertical, spacing: .spacingXS)
     view.addArrangedSubview(imageView)
     return view
   }
