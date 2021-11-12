@@ -17,7 +17,7 @@ protocol MovieServiceProtocol {
   func getMovieSimilar(
     _ id: Int,
     page: Int,
-    completion: @escaping CompletionBlock<FavoriteMovieResponce>)
+    completion: @escaping CompletionBlock<MovieResponce>)
   func movieRate(
     _ id: Int,
     param: MovieRateParam,
@@ -36,7 +36,7 @@ final class MovieService: BaseAPI<MovieTargetType>, MovieServiceProtocol {
     getData(target: .movieVideo(id), completion: completion)
   }
   
-  func getMovieSimilar(_ id: Int, page: Int, completion: @escaping CompletionBlock<FavoriteMovieResponce>) {
+  func getMovieSimilar(_ id: Int, page: Int, completion: @escaping CompletionBlock<MovieResponce>) {
     getData(target: .movieSimilar(id, page), completion: completion)
   }
   

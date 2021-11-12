@@ -186,7 +186,7 @@ class AccountServiceTest: XCTestCase {
   }
 
   func test_getFavoriteMoviesSuccessResponse() throws {
-    let results = getResponce(file: "Movie", type: FavoriteMovieResponce.self)
+    let results = getResponce(file: "Movie", type: MovieResponce.self)
 
     guard
       let response = results.responce,
@@ -198,7 +198,7 @@ class AccountServiceTest: XCTestCase {
     let sut = makeSUT()
     sut.client.result = .success(response)
 
-    var result: Result<FavoriteMovieResponce, APIError>?
+    var result: Result<MovieResponce, APIError>?
 
     sut.service.getFavoriteMovies(1) { result = $0 }
     XCTAssertEqual(result?.value, movie)

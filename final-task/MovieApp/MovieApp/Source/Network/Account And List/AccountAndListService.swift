@@ -15,7 +15,7 @@ protocol AccountAndListServiceProtocol {
     completion: @escaping CompletionBlock<ListResponce>)
   func getFavoriteMovies(
     _ page: Int,
-    completion: @escaping CompletionBlock<FavoriteMovieResponce>)
+    completion: @escaping CompletionBlock<MovieResponce>)
   func markAsFavorite(
     _ param: ListFavoriteParam,
     completion: @escaping CompletionBlock<SuccessErrorModel>)
@@ -48,7 +48,7 @@ final class AccountAndListService: BaseAPI<AccountAndListTargetType>, AccountAnd
     getData(target: .lists(UserDefaults.standard.accountID, page), completion: completion)
   }
   
-  func getFavoriteMovies(_ page: Int, completion: @escaping CompletionBlock<FavoriteMovieResponce>) {
+  func getFavoriteMovies(_ page: Int, completion: @escaping CompletionBlock<MovieResponce>) {
     getData(target: .movieFavorite(UserDefaults.standard.accountID, page), completion: completion)
   }
   

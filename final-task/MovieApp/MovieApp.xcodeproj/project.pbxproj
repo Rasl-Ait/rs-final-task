@@ -15,7 +15,7 @@
 		DC19401527358367001F78ED /* AccountParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401427358367001F78ED /* AccountParams.swift */; };
 		DC19401727358844001F78ED /* AccountAndListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401627358844001F78ED /* AccountAndListService.swift */; };
 		DC194019273588BA001F78ED /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC194018273588BA001F78ED /* AccountModel.swift */; };
-		DC19401B27358A0A001F78ED /* FavoriteMovieResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401A27358A0A001F78ED /* FavoriteMovieResponce.swift */; };
+		DC19401B27358A0A001F78ED /* MovieResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401A27358A0A001F78ED /* MovieResponce.swift */; };
 		DC19401D27358A80001F78ED /* SuccessErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401C27358A80001F78ED /* SuccessErrorModel.swift */; };
 		DC19401F273592B2001F78ED /* AccountServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC19401E273592B2001F78ED /* AccountServiceTest.swift */; };
 		DC1940252735A08C001F78ED /* Account.json in Resources */ = {isa = PBXBuildFile; fileRef = DC1940242735A08C001F78ED /* Account.json */; };
@@ -59,6 +59,10 @@
 		DC49A050272EE8E800F17DE9 /* AuthServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC49A04F272EE8E800F17DE9 /* AuthServiceTest.swift */; };
 		DC49A059272EE9C300F17DE9 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC49A057272EE9C300F17DE9 /* SharedTestHelpers.swift */; };
 		DC49A05A272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC49A058272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift */; };
+		DC7461E3273E495700BD3297 /* SearchTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461E2273E495700BD3297 /* SearchTargetType.swift */; };
+		DC7461E5273E4A5400BD3297 /* SearchParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461E4273E4A5400BD3297 /* SearchParam.swift */; };
+		DC7461E7273E4D4200BD3297 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461E6273E4D4200BD3297 /* SearchService.swift */; };
+		DC7461E9273E4E4500BD3297 /* SearchServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461E8273E4E4500BD3297 /* SearchServiceTest.swift */; };
 		DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B9027350BED00C3A209 /* TabBarController.swift */; };
 		DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B922735124D00C3A209 /* AuthCoordinator.swift */; };
 		DC835B952735231500C3A209 /* ListsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B942735231500C3A209 /* ListsCoordinator.swift */; };
@@ -182,7 +186,7 @@
 		DC19401427358367001F78ED /* AccountParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountParams.swift; sourceTree = "<group>"; };
 		DC19401627358844001F78ED /* AccountAndListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAndListService.swift; sourceTree = "<group>"; };
 		DC194018273588BA001F78ED /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
-		DC19401A27358A0A001F78ED /* FavoriteMovieResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieResponce.swift; sourceTree = "<group>"; };
+		DC19401A27358A0A001F78ED /* MovieResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponce.swift; sourceTree = "<group>"; };
 		DC19401C27358A80001F78ED /* SuccessErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessErrorModel.swift; sourceTree = "<group>"; };
 		DC19401E273592B2001F78ED /* AccountServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceTest.swift; sourceTree = "<group>"; };
 		DC1940242735A08C001F78ED /* Account.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Account.json; sourceTree = "<group>"; };
@@ -222,6 +226,10 @@
 		DC49A04F272EE8E800F17DE9 /* AuthServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTest.swift; sourceTree = "<group>"; };
 		DC49A057272EE9C300F17DE9 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		DC49A058272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestsCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		DC7461E2273E495700BD3297 /* SearchTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTargetType.swift; sourceTree = "<group>"; };
+		DC7461E4273E4A5400BD3297 /* SearchParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParam.swift; sourceTree = "<group>"; };
+		DC7461E6273E4D4200BD3297 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		DC7461E8273E4E4500BD3297 /* SearchServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTest.swift; sourceTree = "<group>"; };
 		DC835B9027350BED00C3A209 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DC835B922735124D00C3A209 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		DC835B942735231500C3A209 /* ListsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsCoordinator.swift; sourceTree = "<group>"; };
@@ -495,6 +503,7 @@
 				DC47F80A27300135009603EE /* AuthParams.swift */,
 				DC19401427358367001F78ED /* AccountParams.swift */,
 				DCF7F01A273BB1C600333A2B /* MovieParams.swift */,
+				DC7461E4273E4A5400BD3297 /* SearchParam.swift */,
 			);
 			path = Params;
 			sourceTree = "<group>";
@@ -512,6 +521,7 @@
 		DC49A03C272E911500F17DE9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				DC7461E1273E493200BD3297 /* Search */,
 				DCF7F015273BA87400333A2B /* Movie */,
 				DC194011273581B8001F78ED /* Account And List */,
 				DC194010273581AB001F78ED /* Auth */,
@@ -541,7 +551,7 @@
 		DC49A044272EA67D00F17DE9 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				DC19401A27358A0A001F78ED /* FavoriteMovieResponce.swift */,
+				DC19401A27358A0A001F78ED /* MovieResponce.swift */,
 				DC49A045272EA72E00F17DE9 /* AuthenticationToken.swift */,
 			);
 			path = Auth;
@@ -574,6 +584,23 @@
 				DC2B2A2C273426F300233F5D /* CoordinatorFactory.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DC7461E1273E493200BD3297 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DC7461E2273E495700BD3297 /* SearchTargetType.swift */,
+				DC7461E6273E4D4200BD3297 /* SearchService.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DC7461EA273E507A00BD3297 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DC7461E8273E4E4500BD3297 /* SearchServiceTest.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		DC835B8F27350BD800C3A209 /* TabBar */ = {
@@ -859,6 +886,7 @@
 				DC19402027359FED001F78ED /* Account And List */,
 				DC864CD427365043009BA64A /* Auth */,
 				DCF7F01D273BB42700333A2B /* Movie */,
+				DC7461EA273E507A00BD3297 /* Search */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1237,6 +1265,7 @@
 				DC2B2A172733DB3600233F5D /* LoginPasswordTextField.swift in Sources */,
 				DCC91BDE2738131500F0E322 /* ListDetailCoordinator.swift in Sources */,
 				DCCF8B172729A30200933DD1 /* ReusableView.swift in Sources */,
+				DC7461E3273E495700BD3297 /* SearchTargetType.swift in Sources */,
 				DC2B2A082733D7D000233F5D /* CustomStackView.swift in Sources */,
 				DCC91BC52737F87100F0E322 /* ListDetailResponce.swift in Sources */,
 				DCF7F017273BA89F00333A2B /* MovieTargetType.swift in Sources */,
@@ -1261,7 +1290,8 @@
 				DCCF8B132729A30200933DD1 /* Alert.swift in Sources */,
 				DC864CEE27369380009BA64A /* ListCollectionCell.swift in Sources */,
 				DC49A046272EA72E00F17DE9 /* AuthenticationToken.swift in Sources */,
-				DC19401B27358A0A001F78ED /* FavoriteMovieResponce.swift in Sources */,
+				DC19401B27358A0A001F78ED /* MovieResponce.swift in Sources */,
+				DC7461E5273E4A5400BD3297 /* SearchParam.swift in Sources */,
 				DCCF8AFB2729A26B00933DD1 /* String+Extension.swift in Sources */,
 				DCCF8B012729A26B00933DD1 /* UIEdgeInsets+Extension.swift in Sources */,
 				DC49A04C272EAB6400F17DE9 /* NetworkService.swift in Sources */,
@@ -1314,6 +1344,7 @@
 				DC2B29F02733C8CA00233F5D /* AuthView.swift in Sources */,
 				DC2B2A2A2734267C00233F5D /* AppCoordinator.swift in Sources */,
 				DC49A048272EA92900F17DE9 /* APIError.swift in Sources */,
+				DC7461E7273E4D4200BD3297 /* SearchService.swift in Sources */,
 				DC2B2A1E2733EEAC00233F5D /* FontSize.swift in Sources */,
 				DCF7F014273BA7CB00333A2B /* MovieDetailModel.swift in Sources */,
 			);
@@ -1324,6 +1355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC864CE3273673A2009BA64A /* MoviePersistenceTest.swift in Sources */,
+				DC7461E9273E4E4500BD3297 /* SearchServiceTest.swift in Sources */,
 				DCF7F01F273BB45E00333A2B /* MovieServiceTest.swift in Sources */,
 				DC49A050272EE8E800F17DE9 /* AuthServiceTest.swift in Sources */,
 				DC19401F273592B2001F78ED /* AccountServiceTest.swift in Sources */,

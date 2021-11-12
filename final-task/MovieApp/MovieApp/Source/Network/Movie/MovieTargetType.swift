@@ -66,7 +66,7 @@ extension MovieTargetType: TargetType {
         URLQueryItem(name: "session_id", value: Constant.sessionID)
       ]
       return .postAndGetParameters(parameters: item, query: param)
-    case .accountStates(_):
+    case .accountStates:
       let param = [
         URLQueryItem(name: "session_id", value: Constant.sessionID)
       ]

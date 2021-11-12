@@ -116,7 +116,7 @@ class MovieServiceTest: XCTestCase {
   }
   
   func test_getMovieSimilarSuccessResponse() throws {
-    let results = getResponce(file: "Movie", type: FavoriteMovieResponce.self)
+    let results = getResponce(file: "Movie", type: MovieResponce.self)
 
     guard
       let response = results.responce,
@@ -128,7 +128,7 @@ class MovieServiceTest: XCTestCase {
     let sut = makeSUT()
     sut.client.result = .success(response)
 
-    var result: Result<FavoriteMovieResponce, APIError>?
+    var result: Result<MovieResponce, APIError>?
 
     sut.service.getMovieSimilar(10, page: 1) { result = $0 }
     XCTAssertEqual(result?.value, movie)
