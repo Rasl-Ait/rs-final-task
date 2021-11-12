@@ -11,6 +11,7 @@ enum MovieType {
   case listDetail
   case movieSimilar
   case search
+  case favorite
 }
 
 final class ListDetailCollectionCellView: UIView {
@@ -18,7 +19,11 @@ final class ListDetailCollectionCellView: UIView {
   private lazy var imageView = makeImageView()
   private lazy var titleLabel = makeTitleLabel()
   private lazy var checkButton = makeCheckButton()
+  private lazy var favoriteView = makeFavoriteView()
   private lazy var stackView = makeStackView()
+  
+  // MARK: Closure
+  var didSelectFavorite: VoidClosure?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -52,6 +57,11 @@ final class ListDetailCollectionCellView: UIView {
     if type != .movieSimilar {
       stackView.addArrangedSubview(titleLabel)
     }
+    
+    if type == .favorite {
+      favoriteView.isHidden = false
+      stackView.addArrangedSubview(titleLabel)
+    }
   }
 }
 
@@ -63,16 +73,18 @@ private extension ListDetailCollectionCellView {
     addShadow()
     setupAppearence()
     setupLayoutUI()
+    closure()
   }
   
   func setupAppearence() {
     addSubview(stackView)
+    addSubview(favoriteView)
     addSubview(checkButton)
   }
   
   func setupLayoutUI() {
     imageView.snp.makeConstraints {
-      $0.height.equalTo(150)
+      $0.height.equalTo(160)
     }
     
     stackView.snp.makeConstraints {
@@ -85,6 +97,19 @@ private extension ListDetailCollectionCellView {
       $0.height.width.equalTo(27)
       $0.trailing.equalToSuperview().inset(7)
       $0.bottom.equalToSuperview().inset(7)
+    }
+    
+    favoriteView.snp.makeConstraints {
+      $0.height.width.equalTo(27)
+      $0.trailing.equalToSuperview().inset(12)
+      $0.top.equalToSuperview().inset(12)
+    }
+  }
+  
+  func closure() {
+    favoriteView.didButtonClicked = { [weak self] in
+      guard let self = self else { return }
+      self.didSelectFavorite?()
     }
   }
 }
@@ -103,7 +128,7 @@ private extension ListDetailCollectionCellView {
   
   func makeImageView() -> UIImageView {
     let view = UIImageView()
-    view.contentMode = .scaleAspectFill
+    view.contentMode = .scaleToFill
     view.layer.cornerRadius = .spacingS
     view.clipsToBounds = true
     return view
@@ -120,6 +145,14 @@ private extension ListDetailCollectionCellView {
     view.isUserInteractionEnabled = false
     view.setImage(.setImage(.circle).withColor(.checkButtonColor), for: .normal)
     view.setImage(.setImage(.circleSelect).withColor(.checkButtonColor), for: .selected)
+    return view
+  }
+  
+  func makeFavoriteView() -> BlurButtonView {
+    let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 11))
+    let view = BlurButtonView(image: .setImage(.heartFill, configuration: config))
+    view.layer.cornerRadius = 27 / 2
+    view.isHidden = true
     return view
   }
 }

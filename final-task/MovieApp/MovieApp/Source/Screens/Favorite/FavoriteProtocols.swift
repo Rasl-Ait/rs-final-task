@@ -9,11 +9,14 @@
 import Foundation
 
 protocol FavoriteViewInput: AnyObject {
-	func success()
+  func success(items: [MovieModel])
+  func successDeleteMovie()
 	func failure(error: APIError)
 	func hideIndicator()
 	func showIndicator()
 }
 
 protocol FavoriteViewOutput: AnyObject {
+  func didSelect(type: FavoriteTappedType)
+  func getFavoriteMovie()
 }

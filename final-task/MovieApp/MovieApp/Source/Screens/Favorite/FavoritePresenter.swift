@@ -12,9 +12,56 @@ final class FavoritePresenter: FavoriteViewOutput {
 	private let service: AccountAndListServiceProtocol
 	weak var view: FavoriteViewInput?
   weak var coordinator: FavoriteCoordinatorProtocol?
-		
-	init(service: AccountAndListServiceProtocol, view: FavoriteViewInput) {
-		self.service = service
-		self.view = view
-	}
+  
+  private var page = 1
+  
+  init(
+    service: AccountAndListServiceProtocol,
+    view: FavoriteViewInput) {
+    self.service = service
+    self.view = view
+  }
+  
+  func getFavoriteMovie() {
+    view?.showIndicator()
+    service.getFavoriteMovies(1) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let item):
+        mainQueue {
+          self.view?.success(items: item.results)
+        }
+      case .failure(let error):
+        mainQueue {
+          self.view?.failure(error: error)
+        }
+      }
+    }
+  }
+  
+  func markAdFavorite(id: Int) {
+    let param = ListFavoriteParam(mediaType: "movie", mediaID: id, favorite: false)
+    service.markAsFavorite(param) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success:
+        mainQueue {
+          self.view?.successDeleteMovie()
+        }
+      case .failure(let error):
+        mainQueue {
+          self.view?.failure(error: error)
+        }
+      }
+    }
+  }
+  
+  func didSelect(type: FavoriteTappedType) {
+    switch type {
+    case .cell(let id):
+      coordinator?.pushMovieDetailVC(id: id)
+    case .favorite(let id):
+      markAdFavorite(id: id)
+    }
+  }
 }

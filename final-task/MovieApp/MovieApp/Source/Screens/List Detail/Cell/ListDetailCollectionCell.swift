@@ -12,6 +12,13 @@ final class ListDetailCollectionCell: BaseCollectionViewCell {
   // MARK: - Properties
   private lazy var cellView = makeCellView()
   
+  // MARK: Closure
+  var didSelectFavorite: VoidClosure? {
+    didSet {
+      cellView.didSelectFavorite = didSelectFavorite
+    }
+  }
+  
   // MARK: Overriden
   var isEditing: Bool = false {
     didSet {
