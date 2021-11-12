@@ -8,6 +8,7 @@
 import UIKit
 
 protocol ListsCoordinatorProtocol: AnyObject {
+  func pop()
   func pushListDetailVC(list: ListModel)
 }
 
@@ -17,7 +18,7 @@ final class ListsCoordinator: BaseCoordinator {
   private let screenFactory: ScreenFactory
   let tabBarViewController: TabBarController
   var screenType: ScreenType = .home
-  
+  var finishFlow: VoidClosure?
   var mediaID: Int?
   
   init(
@@ -57,5 +58,10 @@ extension ListsCoordinator: ListsCoordinatorProtocol {
     }
     addDependency(child)
     child.start()
+  }
+  
+  func pop() {
+    router.popModule()
+    finishFlow?()
   }
 }

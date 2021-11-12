@@ -103,8 +103,8 @@ private extension ProgressView {
   func makeLabel() -> UILabel {
     let view = UILabel("0%",
                        alignment: .center,
-                       color: .systemGray6,
-                       fontName: .avenir(.fontM, .Bold)
+                       color: .averageTintColor,
+                       fontName: .avenir(.fontML, .Bold)
     )
     return view
   }

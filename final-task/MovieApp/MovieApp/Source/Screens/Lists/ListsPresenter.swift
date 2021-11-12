@@ -141,4 +141,8 @@ final class ListsPresenter: ListsViewOutput {
       coordinator?.pushListDetailVC(list: list)
     }
   }
+  
+  func pop() {
+    coordinator?.pop()
+  }
 }

@@ -23,4 +23,5 @@ extension UIColor {
   static let cellHeaderTitleColor = UIColor(named: "CellHeaderTitleColor")!
   static let logoBackgroundColor = UIColor(named: "LogoBackgroundColor")!
   static let refreshTintColor = UIColor(named: "RefreshTintColor")!
+  static let averageTintColor = UIColor(named: "AverageColor")!
 }

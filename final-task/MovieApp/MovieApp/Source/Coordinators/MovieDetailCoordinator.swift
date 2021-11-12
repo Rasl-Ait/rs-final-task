@@ -63,6 +63,12 @@ extension MovieDetailCoordinator: MovieDetailCoordinatorProtocol {
       router: router,
       tabBarViewController: TabBarController()
     )
+    
+    listCoordinator.finishFlow = { [weak self, weak listCoordinator] in
+      guard let self = self else { return }
+      self.removeChildCoordinator(listCoordinator)
+    }
+    
     listCoordinator.mediaID = mediaID
     listCoordinator.screenType = .movieDetail
     addDependency(listCoordinator)
