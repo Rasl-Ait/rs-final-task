@@ -21,7 +21,7 @@ final class TabBarController: UITabBarController {
     UITabBarItem(title: ScreenType.home.rawValue.capitalized, image: .setImage(.home), tag: 0),
     UITabBarItem(title: ScreenType.movies.rawValue.capitalized, image: .setImage(.movies), tag: 1),
     UITabBarItem(title: ScreenType.search.rawValue.capitalized, image: .setImage(.search), tag: 2),
-    UITabBarItem(title: ScreenType.news.rawValue.capitalized, image: .setImage(.news), tag: 3),
+    UITabBarItem(title: ScreenType.favorite.rawValue.capitalized, image: .setImage(.heart), tag: 3),
     UITabBarItem(title: ScreenType.profile.rawValue.capitalized, image: .setImage(.profile), tag: 4)
   ]
   

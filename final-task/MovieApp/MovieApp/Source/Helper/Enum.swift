@@ -37,7 +37,6 @@ enum SFSymbolConstants: String {
   case home = "house"
   case movies = "film"
   case search = "magnifyingglass"
-  case news = "newspaper"
   case profile = "person.crop.circle"
   
   // Navigation Bar
@@ -92,7 +91,7 @@ enum ScreenType: String {
   case home
   case movies
   case search
-  case news
+  case favorite
   case profile
   case movieDetail
 }

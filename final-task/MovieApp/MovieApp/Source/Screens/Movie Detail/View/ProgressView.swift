@@ -91,7 +91,6 @@ private extension ProgressView {
     shapeLayer.strokeEnd = 0
   
     layer.addSublayer(shapeLayer)
-  
   }
   
   func setupLayoutUI() {

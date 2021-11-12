@@ -39,6 +39,8 @@ private extension SearchViewController {
   }
   
   func setupSearchBar() {
+    navigationItem.title = "Search"
+    navigationController?.navigationBar.prefersLargeTitles = true
     searchController.searchBar.placeholder = "Search for a movie"
     searchController.searchBar.barStyle = .default
     searchController.searchBar.tintColor = .navigationBarTintColor
@@ -46,7 +48,6 @@ private extension SearchViewController {
     navigationItem.searchController = searchController
     searchController.searchResultsUpdater = self
     searchController.obscuresBackgroundDuringPresentation = false
-    
   }
   
   func setupLayoutUI() {
@@ -70,7 +71,6 @@ extension SearchViewController: UISearchResultsUpdating {
     guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
       return
     }
-    
     presenter.search(searchText: searchText)
   }
 }
