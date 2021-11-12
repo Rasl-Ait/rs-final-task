@@ -12,7 +12,7 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
 	private let service: MovieServiceProtocol
   private let serviceAccount: AccountAndListServiceProtocol
 	weak var view: MovieDetailViewInput?
-  var coordinator: ListDetailCoordinatorProtocol?
+  var coordinator: MovieDetailCoordinatorProtocol?
   
   var movieID: Int
   private var page = 1
@@ -117,7 +117,7 @@ final class MovieDetailPresenter: MovieDetailViewOutput {
   func didButtonClicked(type: BlurButtonType) {
     switch type {
     case .close:
-      coordinator?.dissmiss()
+      coordinator?.pop()
     case .info:
       coordinator?.pushWebViewVC(stringURL: movie?.homepage ?? "")
     case .list:

@@ -57,6 +57,7 @@ private extension ListsViewController {
   }
   
   func configureNavigationBar() {
+    navigationController?.navigationBar.prefersLargeTitles = true
     navigationItem.title = "Lists"
     let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 30))
     let plusBarButtonItem = UIBarButtonItem(image: .setImage(.plus, configuration: config), style: .plain, target: self, action: #selector(plusTapped))

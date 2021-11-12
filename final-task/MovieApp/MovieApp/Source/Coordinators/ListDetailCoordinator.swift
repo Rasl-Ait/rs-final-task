@@ -9,10 +9,7 @@ import UIKit
 
 protocol ListDetailCoordinatorProtocol: AnyObject {
   func pop()
-  func dissmiss()
   func pushMovieDetailVC(id: Int)
-  func pushWebViewVC(stringURL: String)
-  func pushList(mediaID: Int)
 }
 
 final class ListDetailCoordinator: BaseCoordinator {
@@ -52,27 +49,13 @@ extension ListDetailCoordinator: ListDetailCoordinatorProtocol {
   }
   
   func pushMovieDetailVC(id: Int) {
-    let viewController = screenFactory.makeMovieDetailScreen(self, id: id)
-    router.push(viewController)
-  }
-  
-  func pushWebViewVC(stringURL: String) {
-    let viewController = screenFactory.makeWebViewScreen(self, stringURL: stringURL)
-    router.push(viewController)
-  }
-  
-  func pushList(mediaID: Int) {
-    let listCoordinator = coordinatorFactory.makeListsCoordinator(
-      router: router,
-      tabBarViewController: TabBarController()
-    )
-    listCoordinator.mediaID = mediaID
-    listCoordinator.screenType = .movieDetail
-    addDependency(listCoordinator)
-    listCoordinator.start()
-  }
-  
-  func dissmiss() {
-    router.popModule()
+    let coordinator = coordinatorFactory.makeMovieDetailCoordinator(router: router, movieID: id)
+    coordinator.finishFlow = { [weak self, weak coordinator] in
+      guard let self = self else { return }
+      self.removeChildCoordinator(coordinator)
+    }
+    
+    addDependency(coordinator)
+    coordinator.start()
   }
 }

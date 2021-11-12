@@ -36,15 +36,15 @@ final class AppCoordinator: BaseCoordinator {
   }
   
   private func pushTabBar() {
-    let listCoordinator = coordinatorFactory.makeListsCoordinator(
-      router: router,
-      tabBarViewController: TabBarController()
-    )
-    addDependency(listCoordinator)
-    listCoordinator.start()
+//    let listCoordinator = coordinatorFactory.makeListsCoordinator(
+//      router: router,
+//      tabBarViewController: TabBarController()
+//    )
+//    addDependency(listCoordinator)
+//    listCoordinator.start()
     //router.setRootModule(tabBarController, hideBar: true)
-//    let coordinator = coordinatorFactory.makeTabBarCoordinator(router: router)
-//    addDependency(coordinator)
-//    coordinator.start()
+    let coordinator = coordinatorFactory.makeTabBarCoordinator(router: router)
+    addDependency(coordinator)
+    coordinator.start()
   }
 }

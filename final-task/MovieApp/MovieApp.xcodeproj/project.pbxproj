@@ -66,6 +66,8 @@
 		DC7461F1273E51EE00BD3297 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461EC273E51EE00BD3297 /* SearchPresenter.swift */; };
 		DC7461F3273E51EE00BD3297 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461EE273E51EE00BD3297 /* SearchViewController.swift */; };
 		DC7461F4273E51EE00BD3297 /* SearchProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461EF273E51EE00BD3297 /* SearchProtocols.swift */; };
+		DC7461F9273E557C00BD3297 /* MovieDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461F8273E557C00BD3297 /* MovieDetailCoordinator.swift */; };
+		DC7461FB273E62DC00BD3297 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7461FA273E62DC00BD3297 /* SearchCoordinator.swift */; };
 		DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B9027350BED00C3A209 /* TabBarController.swift */; };
 		DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B922735124D00C3A209 /* AuthCoordinator.swift */; };
 		DC835B952735231500C3A209 /* ListsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B942735231500C3A209 /* ListsCoordinator.swift */; };
@@ -236,6 +238,8 @@
 		DC7461EC273E51EE00BD3297 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		DC7461EE273E51EE00BD3297 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DC7461EF273E51EE00BD3297 /* SearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProtocols.swift; sourceTree = "<group>"; };
+		DC7461F8273E557C00BD3297 /* MovieDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailCoordinator.swift; sourceTree = "<group>"; };
+		DC7461FA273E62DC00BD3297 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		DC835B9027350BED00C3A209 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DC835B922735124D00C3A209 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		DC835B942735231500C3A209 /* ListsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsCoordinator.swift; sourceTree = "<group>"; };
@@ -491,6 +495,8 @@
 				DC2B2A222734254A00233F5D /* Router.swift */,
 				DC835BA12735282500C3A209 /* TabBarCoordinator.swift */,
 				DCC91BDD2738131500F0E322 /* ListDetailCoordinator.swift */,
+				DC7461F8273E557C00BD3297 /* MovieDetailCoordinator.swift */,
+				DC7461FA273E62DC00BD3297 /* SearchCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -1315,9 +1321,11 @@
 				DCCF8B012729A26B00933DD1 /* UIEdgeInsets+Extension.swift in Sources */,
 				DC49A04C272EAB6400F17DE9 /* NetworkService.swift in Sources */,
 				DCF7F02E273BC43F00333A2B /* MovieDetailProtocols.swift in Sources */,
+				DC7461FB273E62DC00BD3297 /* SearchCoordinator.swift in Sources */,
 				DCCF8AF52729A26B00933DD1 /* CALayer+Extension.swift in Sources */,
 				DC2B2A282734262700233F5D /* Coordinator.swift in Sources */,
 				DCCF8AF82729A26B00933DD1 /* Int+Extension.swift in Sources */,
+				DC7461F9273E557C00BD3297 /* MovieDetailCoordinator.swift in Sources */,
 				DCCF8B052729A26B00933DD1 /* UILabel+Extension.swift in Sources */,
 				DC19400C27356180001F78ED /* DI.swift in Sources */,
 				DC835B9C273523B700C3A209 /* ListsPresenter.swift in Sources */,

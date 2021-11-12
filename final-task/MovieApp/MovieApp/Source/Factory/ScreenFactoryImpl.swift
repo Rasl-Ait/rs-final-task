@@ -65,7 +65,7 @@ final class ScreenFactoryImpl: ScreenFactory {
     return vc
   }
   
-  func makeMovieDetailScreen(_ coordinator: ListDetailCoordinatorProtocol, id: Int) -> MovieDetailViewController {
+  func makeMovieDetailScreen(_ coordinator: MovieDetailCoordinatorProtocol, id: Int) -> MovieDetailViewController {
     let vc = MovieDetailViewController()
     let config = URLSessionConfiguration.default
     config.requestCachePolicy = .reloadIgnoringLocalCacheData
@@ -88,9 +88,24 @@ final class ScreenFactoryImpl: ScreenFactory {
     return vc
   }
   
-  func makeWebViewScreen(_ coordinator: ListDetailCoordinatorProtocol, stringURL: String) -> WebViewController {
+  func makeWebViewScreen(_ coordinator: MovieDetailCoordinatorProtocol, stringURL: String) -> WebViewController {
     let view = WebViewController()
     view.stringURL = stringURL
     return view
+  }
+  
+  func makeSearchScreen(_ coordinator: SearchCoordinatorProtocol) -> SearchViewController {
+    let viewController = SearchViewController()
+    let config = URLSessionConfiguration.default
+    config.requestCachePolicy = .reloadIgnoringLocalCacheData
+    config.urlCache = nil
+    config.httpAdditionalHeaders = ["Content-Type": "application/json",
+                                    "Accept": "application/json",
+                                    "Authorization": "Bearer \(Constant.token)"]
+    let service = SearchService(client: NetworkService(session: URLSession(configuration: config)))
+    let presenter = SearchPresenter(service: service, view: viewController)
+    presenter.coordinator = coordinator
+    viewController.presenter = presenter
+    return viewController
   }
 }

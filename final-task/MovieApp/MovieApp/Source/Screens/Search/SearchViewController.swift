@@ -8,7 +8,9 @@
 
 import UIKit
 
-final class SearchViewController: UIViewController {
+final class SearchViewController: BaseViewController {
+  
+  
 	var presenter: SearchViewOutput!
     
 	override func viewDidLoad() {
@@ -22,3 +24,23 @@ extension SearchViewController: SearchViewInput {
 	func hideIndicator() {}
 	func showIndicator() {}
 }
+
+#if DEBUG
+import SwiftUI
+
+struct SearchViewRepresentable: UIViewRepresentable {
+  func makeUIView(context: Context) -> UIView {
+    return SearchViewController().view
+  }
+  func updateUIView(_ view: UIView, context: Context) {
+    // do your logic here
+  }
+}
+
+@available(iOS 13.0, *)
+struct SearchViewController_Preview: PreviewProvider {
+  static var previews: some View {
+    SearchViewRepresentable()
+  }
+}
+#endif

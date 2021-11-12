@@ -16,7 +16,6 @@ final class NavigationController: UINavigationController {
     navigationBar.tintColor = UIColor.navigationBarTintColor
     navigationBar.isTranslucent = true
     view.backgroundColor = UIColor.navigationBarBarTintColor
-    navigationBar.prefersLargeTitles = true
     
     var attrs3 = [NSAttributedString.Key: Any]()
     attrs3[.foregroundColor] = UIColor.navigationBarBarTintColor.withAlphaComponent(0.5)

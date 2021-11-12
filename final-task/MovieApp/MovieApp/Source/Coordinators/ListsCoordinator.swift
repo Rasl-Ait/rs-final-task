@@ -40,9 +40,9 @@ final class ListsCoordinator: BaseCoordinator {
 extension ListsCoordinator: ListsCoordinatorProtocol {
   func pushLists() {
     let viewController = screenFactory.makeListsScreen(self, mediaID: mediaID)
-    // let navController = NavigationController(rootViewController: viewController)
+     let navController = NavigationController(rootViewController: viewController)
     if screenType != .movieDetail {
-      router.setRootModule(viewController)
+      tabBarViewController.appendNavigationController(navController, item: .home)
     } else {
       router.push(viewController, animated: true)
     }

@@ -38,4 +38,12 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
   func makeListDetailCoordinator(router: Router, list: ListModel) -> ListDetailCoordinator {
     ListDetailCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory, list: list)
   }
+  
+  func makeMovieDetailCoordinator(router: Router, movieID: Int) -> MovieDetailCoordinator {
+    MovieDetailCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory, movieID: movieID)
+  }
+  
+  func makeSearchCoordinator(router: Router, tabBarViewController: TabBarController) -> SearchCoordinator {
+    SearchCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory, tabBarViewController: tabBarViewController)
+  }
 }

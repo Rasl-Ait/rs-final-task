@@ -11,6 +11,7 @@ import Foundation
 final class SearchPresenter: SearchViewOutput {
 	private let service: SearchServiceProtocol
 	weak var view: SearchViewInput?
+  weak var coordinator: SearchCoordinatorProtocol?
 		
 	init(service: SearchServiceProtocol, view: SearchViewInput) {
 		self.service = service
