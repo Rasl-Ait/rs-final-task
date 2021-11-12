@@ -74,6 +74,7 @@
 		DC746208273E8FD700BD3297 /* FavoriteProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC746203273E8FD700BD3297 /* FavoriteProtocols.swift */; };
 		DC74620B273E90D500BD3297 /* FavoriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74620A273E90D500BD3297 /* FavoriteCoordinator.swift */; };
 		DC74620E273E942700BD3297 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74620D273E942700BD3297 /* FavoriteView.swift */; };
+		DC746210273EAC8B00BD3297 /* FavoriteMovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74620F273EAC8B00BD3297 /* FavoriteMovieEntity.swift */; };
 		DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B9027350BED00C3A209 /* TabBarController.swift */; };
 		DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B922735124D00C3A209 /* AuthCoordinator.swift */; };
 		DC835B952735231500C3A209 /* ListsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B942735231500C3A209 /* ListsCoordinator.swift */; };
@@ -252,6 +253,7 @@
 		DC746203273E8FD700BD3297 /* FavoriteProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProtocols.swift; sourceTree = "<group>"; };
 		DC74620A273E90D500BD3297 /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
 		DC74620D273E942700BD3297 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		DC74620F273EAC8B00BD3297 /* FavoriteMovieEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieEntity.swift; sourceTree = "<group>"; };
 		DC835B9027350BED00C3A209 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DC835B922735124D00C3A209 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		DC835B942735231500C3A209 /* ListsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsCoordinator.swift; sourceTree = "<group>"; };
@@ -752,6 +754,7 @@
 			children = (
 				DCC91BC22737E6C800F0E322 /* ListEntity.swift */,
 				DCA0C73F273A89A6003AAF77 /* MovieEntity.swift */,
+				DC74620F273EAC8B00BD3297 /* FavoriteMovieEntity.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1409,6 +1412,7 @@
 				DCCF8B032729A26B00933DD1 /* UIImage+Extension.swift in Sources */,
 				DCF7F03A273BF49C00333A2B /* ProgressView.swift in Sources */,
 				DCF7F012273BA7BE00333A2B /* MovieModel.swift in Sources */,
+				DC746210273EAC8B00BD3297 /* FavoriteMovieEntity.swift in Sources */,
 				DC2B2A3A27342BBA00233F5D /* AuthProtocols.swift in Sources */,
 				DC7461F3273E51EE00BD3297 /* SearchViewController.swift in Sources */,
 				DC864CF027369421009BA64A /* ListViewCell.swift in Sources */,

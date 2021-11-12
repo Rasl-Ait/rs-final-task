@@ -26,29 +26,25 @@ class MoviePersistenceTest: XCTestCase {
                      posterPath: nil)
   }
   
-  func test_addIList() throws {
-    let request: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
-    let context = coredataStack.managedContext
-    
+  func test_addIListNotNil() throws {
     persistence.addList(list)
-    let count = try context.count(for: request)
-    XCTAssertEqual(count, 1)
+    let item = persistence.fetchItem(.uid(list.id))
+    XCTAssertNotNil(item)
+  }
+  
+  func test_addIListNil() throws {
+    let item = persistence.fetchItem(.uid(list.id))
+    XCTAssertNil(item)
   }
   
   func test_addIListDuplication() throws {
-    let request: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
-    let context = coredataStack.managedContext
-    
     persistence.addList(list)
     persistence.addList(list)
-    let count = try context.count(for: request)
-    XCTAssertEqual(count, 1)
+    persistence.fetch(nil)
+    XCTAssertEqual(persistence.items.count, 1)
   }
   
-  func test_movieAdd() throws {
-    let request: NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
-    let context = coredataStack.managedContext
-    
+  func test_movieAddNil() throws {
     persistence.addList(list)
     
     let movie = MovieModel(id: 1,
@@ -60,8 +56,36 @@ class MoviePersistenceTest: XCTestCase {
                            popularity: 2.0,
                            title: "Venom",
                            voteAverage: 10.0)
+    let item = persistence.fetchMovie(.uid(movie.id))
+    XCTAssertNil(item)
+  }
+  
+  func test_addMovieDuplication() throws {
+    let request: NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
+    let context = coredataStack.managedContext
+    
+    let movie = MovieModel(id: 1,
+                           originalTitle: "title",
+                           originalName: nil,
+                           overview: "overview",
+                           releaseDate: "2015-05-12",
+                           posterPath: "image",
+                           popularity: 2.0,
+                           title: "Venom",
+                           voteAverage: 10.0)
+    
+    let movie2 = MovieModel(id: 1,
+                            originalTitle: "title",
+                            originalName: nil,
+                            overview: "overview",
+                            releaseDate: "2015-05-12",
+                            posterPath: "image",
+                            popularity: 2.0,
+                            title: "Venom",
+                            voteAverage: 10.0)
     
     persistence.addMovie(movie, listID: list.id)
+    persistence.addMovie(movie2, listID: list.id)
     let count = try context.count(for: request)
     XCTAssertEqual(count, 1)
   }
@@ -166,6 +190,130 @@ class MoviePersistenceTest: XCTestCase {
     persistence.removeMovie(with: movie.id)
     let model = persistence.fetchMovie(.uid(movie.id))
 
+    XCTAssertNil(model)
+  }
+  
+  func test_addFavoriteMovieNotNil() throws {
+    let movie = MovieModel(id: 1,
+                           originalTitle: "title",
+                           originalName: nil,
+                           overview: "overview",
+                           releaseDate: "2015-05-12",
+                           posterPath: "image",
+                           popularity: 2.0,
+                           title: "Venom",
+                           voteAverage: 10.0)
+    
+    persistence.addFavoriteMovie(movie)
+    let item = persistence.fetchFavoriteMovie(.uid(movie.id))
+    XCTAssertNotNil(item)
+  }
+  
+  func test_addFavoriteMovieNil() throws {
+    let movie = MovieModel(id: 1,
+                           originalTitle: "title",
+                           originalName: nil,
+                           overview: "overview",
+                           releaseDate: "2015-05-12",
+                           posterPath: "image",
+                           popularity: 2.0,
+                           title: "Venom",
+                           voteAverage: 10.0)
+    
+    persistence.addFavoriteMovie(movie)
+    let item = persistence.fetchFavoriteMovie(.uid(2))
+    XCTAssertNil(item)
+  }
+  
+  func test_addFavoriteMovieDuplication() throws {
+    let request: NSFetchRequest<FavoriteMovieEntity> = FavoriteMovieEntity.fetchRequest()
+    let context = coredataStack.managedContext
+    
+    let movie = MovieModel(id: 1,
+                           originalTitle: "title",
+                           originalName: nil,
+                           overview: "overview",
+                           releaseDate: "2015-05-12",
+                           posterPath: "image",
+                           popularity: 2.0,
+                           title: "Venom",
+                           voteAverage: 10.0)
+    
+    let movie2 = MovieModel(id: 1,
+                            originalTitle: "title",
+                            originalName: nil,
+                            overview: "overview",
+                            releaseDate: "2015-05-12",
+                            posterPath: "image",
+                            popularity: 2.0,
+                            title: "Venom",
+                            voteAverage: 10.0)
+    
+    persistence.addFavoriteMovie(movie)
+    persistence.addFavoriteMovie(movie2)
+    let count = try context.count(for: request)
+    XCTAssertEqual(count, 1)
+  }
+  
+  func test_fetchFavoriteMovieItemNotNil() throws {
+    let movie = MovieModel(id: 1,
+                           originalTitle: "title",
+                           originalName: nil,
+                           overview: "overview",
+                           releaseDate: "2015-05-12",
+                           posterPath: "image",
+                           popularity: 2.0,
+                           title: "Venom",
+                           voteAverage: 10.0)
+    
+    persistence.addFavoriteMovie(movie)
+    let item = self.persistence.fetchFavoriteMovie(.uid(movie.id))
+    XCTAssertNotNil(item)
+  }
+  
+  func test_fetchFavoriteMovieItemNil() throws {
+    let movie = MovieModel(id: 1,
+                           originalTitle: "title",
+                           originalName: nil,
+                           overview: "overview",
+                           releaseDate: "2015-05-12",
+                           posterPath: "image",
+                           popularity: 2.0,
+                           title: "Venom",
+                           voteAverage: 10.0)
+    
+    persistence.addFavoriteMovie(movie)
+    let item = self.persistence.fetchFavoriteMovie(.uid(2))
+    XCTAssertNil(item)
+  }
+  
+  func test_removeFavoriteMovieNil() throws {
+    
+    let movie = MovieModel(id: 1,
+                           originalTitle: "title",
+                           originalName: nil,
+                           overview: "overview",
+                           releaseDate: "2015-05-12",
+                           posterPath: "image",
+                           popularity: 2.0,
+                           title: "Venom",
+                           voteAverage: 10.0)
+    
+    let movie2 = MovieModel(id: 10,
+                            originalTitle: "title",
+                            originalName: nil,
+                            overview: "overview",
+                            releaseDate: "2015-05-12",
+                            posterPath: "image",
+                            popularity: 2.0,
+                            title: "Venom",
+                            voteAverage: 10.0)
+    
+    persistence.addFavoriteMovie(movie)
+    persistence.addFavoriteMovie(movie2)
+
+    persistence.removeFavoriteMovie(with: movie.id)
+    let model = persistence.fetchFavoriteMovie(.uid(movie.id))
     XCTAssertNil(model)
   }
 }

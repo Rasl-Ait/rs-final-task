@@ -42,6 +42,18 @@ extension MovieModel {
     entity.voteAverage = voteAverage
    }
   
+  func createEntity(_ entity: FavoriteMovieEntity) {
+   entity.title = title
+   entity.id = Int32(id)
+   entity.originalTitle = originalTitle
+   entity.overview = overview
+   entity.releaseDate = releaseDate
+   entity.posterPath = posterPath
+   entity.originalName = originalName
+   entity.popularity = popularity
+   entity.voteAverage = voteAverage
+  }
+  
   static func getMovies(_ entities: [MovieEntity]) -> [MovieModel] {
     var items: [MovieModel] = []
     
@@ -62,6 +74,18 @@ extension MovieModel {
   }
   
   static func getMovie(entity: MovieEntity) -> MovieModel {
+    return MovieModel(id: Int(entity.id),
+                      originalTitle: entity.originalTitle,
+                      originalName: entity.originalName,
+                      overview: entity.overview ?? "",
+                      releaseDate: entity.releaseDate,
+                      posterPath: entity.posterPath,
+                      popularity: entity.popularity,
+                      title: entity.title,
+                      voteAverage: entity.voteAverage)
+  }
+  
+  static func getFavoriteMovie(entity: FavoriteMovieEntity) -> MovieModel {
     return MovieModel(id: Int(entity.id),
                       originalTitle: entity.originalTitle,
                       originalName: entity.originalName,

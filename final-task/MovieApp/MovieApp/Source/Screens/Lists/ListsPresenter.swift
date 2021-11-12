@@ -33,7 +33,7 @@ final class ListsPresenter: ListsViewOutput {
   }
   
   func getAccount(completion: @escaping VoidClosure) {
-    service.getAccount() { [weak self] result in
+    service.getAccount { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .success(let item):
