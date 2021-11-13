@@ -10,8 +10,8 @@ import UIKit
 final class NavigationController: UINavigationController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationBar.setTitleFont(.avenir(.fontML, .Bold), color: UIColor.navigationBarTitleColor)
-    navigationBar.setLargeTitleFont(.avenir(.fontXXXL, .Bold), color: UIColor.navigationBarTitleColor)
+    navigationBar.setTitleFont(.avenir(.fontML, .Bold), color: .navigationBarTitleColor)
+    navigationBar.setLargeTitleFont(.avenir(.fontXXXL, .Bold), color: .navigationBarTitleColor)
     navigationBar.barTintColor = UIColor.navigationBarBarTintColor
     navigationBar.tintColor = UIColor.navigationBarTintColor
     navigationBar.isTranslucent = true

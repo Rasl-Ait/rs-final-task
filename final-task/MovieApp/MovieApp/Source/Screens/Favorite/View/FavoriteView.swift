@@ -171,4 +171,3 @@ struct FavoriteView_Preview: PreviewProvider {
   }
 }
 #endif
-

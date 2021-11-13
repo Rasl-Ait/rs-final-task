@@ -8,11 +8,13 @@
 import UIKit
 
 final class TabBarCoordinator: BaseCoordinator {
-  let router: Router
-  let coordinatorFactory: CoordinatorFactory
-  let screenFactory: ScreenFactory
+  private let router: Router
+  private let coordinatorFactory: CoordinatorFactory
+  private let screenFactory: ScreenFactory
   
-  init(router: Router, screenFactory: ScreenFactory, coordinatorFactory: CoordinatorFactory) {
+  init(router: Router,
+       screenFactory: ScreenFactory,
+       coordinatorFactory: CoordinatorFactory) {
     self.router = router
     self.screenFactory = screenFactory
     self.coordinatorFactory = coordinatorFactory
@@ -28,8 +30,7 @@ extension TabBarCoordinator {
     let tabBarController = TabBarController()
     let listCoordinator = coordinatorFactory.makeListsCoordinator(
       router: router,
-      tabBarViewController: tabBarController
-    )
+      tabBarViewController: tabBarController)
     
     let searchCoordinator = coordinatorFactory.makeSearchCoordinator(router: router,
                                                                      tabBarViewController: tabBarController)
@@ -42,6 +43,6 @@ extension TabBarCoordinator {
     listCoordinator.start()
     searchCoordinator.start()
     favoriteCoordinator.start()
-   router.setRootModule(tabBarController, hideBar: true)
+   router.setRootModule(tabBarController, hideBar: false)
   }
 }

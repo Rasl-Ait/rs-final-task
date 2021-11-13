@@ -20,7 +20,7 @@ final class ListsCoordinator: BaseCoordinator {
   var screenType: ScreenType = .home
   var finishFlow: VoidClosure?
   var mediaID: Int?
-  
+
   init(
     router: Router,
     coordinatorFactory: CoordinatorFactory,

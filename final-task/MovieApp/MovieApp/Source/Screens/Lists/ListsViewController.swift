@@ -24,6 +24,11 @@ final class ListsViewController: BaseViewController {
 		super.viewDidLoad()
     setupViews()
 	}
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    configureNavigationBar(isHidden: false, barStyle: .default)
+  }
 }
 
 // MARK: - ListsViewController
@@ -51,7 +56,10 @@ private extension ListsViewController {
     
     refreshLoadData = { [weak self] in
       guard let self = self else { return }
-      self.presenter.getLists(state: .refresh)
+      if InternetConnection().isConnectedToNetwork() == true {
+        self.presenter.getLists(state: .refresh)
+      }
+      
       self.listView.collectionView.refreshControl?.endRefreshing()
     }
   }

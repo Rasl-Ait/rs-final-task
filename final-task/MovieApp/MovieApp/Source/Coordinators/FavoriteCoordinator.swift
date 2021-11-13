@@ -44,7 +44,6 @@ extension FavoriteCoordinator: FavoriteCoordinatorProtocol {
   }
   
   func pop() {
-    router.popModule()
     finishFlow?()
   }
   

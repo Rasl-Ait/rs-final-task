@@ -32,6 +32,17 @@ final class TabBarController: UITabBarController {
     tabBar.isTranslucent = true
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    configureNavigationBar(isHidden: true, barStyle: .default)
+  }
+  
+  func configureNavigationBar(isHidden: Bool, barStyle: UIBarStyle) {
+    navigationController?.navigationBar.isHidden = isHidden
+    navigationController?.navigationBar.barStyle = barStyle
+  }
+  
+  
   func appendNavigationController(_ vc: UINavigationController, item: TabBarItem) {
       customizeNavigationController(vc, item: item)
       viewControllers = (viewControllers ?? []) + [vc]

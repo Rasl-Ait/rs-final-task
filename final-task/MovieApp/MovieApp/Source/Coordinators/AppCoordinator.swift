@@ -8,9 +8,9 @@
 import UIKit
 
 final class AppCoordinator: BaseCoordinator {
-  let router: Router
-  let coordinatorFactory: CoordinatorFactory
-  let screenFactory: ScreenFactory
+  private let router: Router
+  private let coordinatorFactory: CoordinatorFactory
+  private let screenFactory: ScreenFactory
   
   init(
        router: Router,

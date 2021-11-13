@@ -56,8 +56,15 @@ final class ListDetailPresenter: ListDetailViewOutput {
           self.view?.success(items: item.items)
         }
       case .failure(let error):
-        mainQueue {
-          self.view?.failure(error: error)
+        if InternetConnection().isConnectedToNetwork() {
+          mainQueue {
+            self.view?.failure(error: error)
+          }
+        } else {
+          self.persistence.fetch(nil)
+          mainQueue {
+            self.view?.success(items: self.list.movies ?? [])
+          }
         }
       }
     }

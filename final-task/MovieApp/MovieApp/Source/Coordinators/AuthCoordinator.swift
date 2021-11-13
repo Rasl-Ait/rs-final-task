@@ -12,9 +12,9 @@ protocol AuthCoordinatorProtocol: AnyObject {
 }
 
 final class AuthCoordinator: BaseCoordinator {
-  let router: Router
-  let screenFactory: ScreenFactory
-  let coordinatorFactory: CoordinatorFactory
+  private let router: Router
+  private let screenFactory: ScreenFactory
+  private let coordinatorFactory: CoordinatorFactory
   
   init(
     router: Router,
@@ -34,7 +34,6 @@ final class AuthCoordinator: BaseCoordinator {
 extension AuthCoordinator: AuthCoordinatorProtocol {
    func pushAuth() {
     let viewController = screenFactory.makeAuthScreen(self)
-    router.setRootModule(viewController)
   }
   
    func pushTabBar() {

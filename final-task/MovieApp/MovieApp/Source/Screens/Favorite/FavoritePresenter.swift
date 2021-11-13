@@ -18,7 +18,8 @@ final class FavoritePresenter: FavoriteViewOutput {
   
   init(
     service: AccountAndListServiceProtocol,
-    view: FavoriteViewInput, persistence: StorageProtocol) {
+    view: FavoriteViewInput,
+    persistence: StorageProtocol) {
     self.service = service
     self.view = view
     self.persistence = persistence
@@ -50,6 +51,7 @@ final class FavoritePresenter: FavoriteViewOutput {
       guard let self = self else { return }
       switch result {
       case .success:
+        self.persistence.removeFavoriteMovie(with: id)
         mainQueue {
           self.view?.successDeleteMovie()
         }

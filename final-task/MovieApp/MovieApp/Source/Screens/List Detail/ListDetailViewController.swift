@@ -21,6 +21,11 @@ final class ListDetailViewController: BaseViewController {
     setupViews()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    configureNavigationBar(isHidden: false, barStyle: .default)
+  }
+  
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
   }
@@ -28,7 +33,15 @@ final class ListDetailViewController: BaseViewController {
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
     editButtonItem.tintColor = !isEditing ? .navigationBarTintColor : .doneButtonColor
-    listView.setEditing(isEditing: isEditing)
+    if InternetConnection().isConnectedToNetwork() {
+      listView.setEditing(isEditing: isEditing)
+    } else {
+      Alert.showAlert(on: self,
+                      with: .attention,
+                      message: "Removal is available only when the Internet is on") { _ in
+        self.isEditing = false
+      }
+    }
   }
   
   deinit {
@@ -48,7 +61,9 @@ private extension ListDetailViewController {
     
     refreshLoadData = { [weak self] in
       guard let self = self else { return }
-      self.refresh()
+      if InternetConnection().isConnectedToNetwork() {
+        self.refresh()
+      }
     }
     
     listView.didRemoveButton = { [weak self] item in
@@ -90,6 +105,7 @@ private extension ListDetailViewController {
   
   func setupConfigureNavigationBar() {
     navigationItem.title = presenter.title
+    navigationController?.navigationBar.prefersLargeTitles = true
     let sortedBarButtonItem = UIBarButtonItem(
       image: .setImage(.arrowDownAndUp),
       style: .plain,
