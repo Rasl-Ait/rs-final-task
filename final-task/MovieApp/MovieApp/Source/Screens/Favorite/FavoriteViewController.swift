@@ -18,6 +18,11 @@ final class FavoriteViewController: BaseViewController {
 		super.viewDidLoad()
     setupViews()
 	}
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    presenter.getFavoriteMovie()
+  }
 }
 
 // MARK: - Private Extension
@@ -25,9 +30,7 @@ private extension FavoriteViewController {
   func setupViews() {
     configureNavigationBar()
     setupAppearence()
-    setupLayoutUI()
-    
-    presenter.getFavoriteMovie()
+    setupLayoutUI()    
     closure()
   }
   

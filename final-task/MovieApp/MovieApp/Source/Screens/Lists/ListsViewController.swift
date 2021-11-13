@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum StateLoad {
-  case refresh
-  case noRefresh
-}
-
 final class ListsViewController: BaseViewController {
   
   // MARK: - Properties
@@ -28,6 +23,7 @@ final class ListsViewController: BaseViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     configureNavigationBar(isHidden: false, barStyle: .default)
+    presenter.getLists(state: .noRefresh)
   }
 }
 
@@ -39,13 +35,22 @@ private extension ListsViewController {
     setupAppearence()
     setupRefreshControl(listView.collectionView)
     setupLayoutUI()
-    presenter.getLists(state: .noRefresh)
+    
     
     listView.didRemoveButton = { [weak self] id in
       guard let self = self else { return }
-      Alert.showAlertAction(on: self, title: .delete, message: .deleteList, primaryTitle: .delete) { _ in
-        self.presenter.deleteList(id: id)
-      } secondAction: { _ in
+      
+      if InternetConnection().isConnectedToNetwork() {
+        Alert.showAlertAction(on: self, title: .delete, message: .deleteList, primaryTitle: .delete) { _ in
+          self.presenter.deleteList(id: id)
+        } secondAction: { _ in
+        }
+      } else {
+        Alert.showAlert(on: self,
+                        with: .attention,
+                        message: "Removal is available only when the Internet is on") { _ in
+
+        }
       }
     }
     
@@ -56,10 +61,7 @@ private extension ListsViewController {
     
     refreshLoadData = { [weak self] in
       guard let self = self else { return }
-      if InternetConnection().isConnectedToNetwork() == true {
-        self.presenter.getLists(state: .refresh)
-      }
-      
+      self.presenter.getLists(state: .refresh)
       self.listView.collectionView.refreshControl?.endRefreshing()
     }
   }
@@ -84,15 +86,24 @@ private extension ListsViewController {
 
   // MARK: - Action funcs
   @objc func plusTapped() {
-    Alert.showAlertText(on: self,
-                        title: .createList,
-                        text: .none,
-                        placeholder: TextType.newList.rawValue,
-                        editingChangedTarget: self,
-                        editingChangedSelector: #selector(alertTextFieldValueChanged(textField:))) { _ in
-      self.presenter.createList()
-    } secondAction: { _ in
-      
+    
+    if InternetConnection().isConnectedToNetwork() {
+      Alert.showAlertText(on: self,
+                          title: .createList,
+                          text: .none,
+                          placeholder: TextType.newList.rawValue,
+                          editingChangedTarget: self,
+                          editingChangedSelector: #selector(alertTextFieldValueChanged(textField:))) { _ in
+        self.presenter.createList()
+      } secondAction: { _ in
+        
+      }
+    } else {
+      Alert.showAlert(on: self,
+                      with: .attention,
+                      message: "Creating a new sheet is only available when the web is turned on") { _ in
+
+      }
     }
   }
   

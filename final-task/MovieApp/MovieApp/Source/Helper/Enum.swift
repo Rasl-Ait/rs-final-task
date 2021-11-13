@@ -51,8 +51,7 @@ enum SFSymbolConstants: String {
   case chevronLeft = "chevron.left"
   case chevronRight = "chevron.right"
   case shareAndArrowUp = "square.and.arrow.up"
-  
-  // icons used on home screen
+
   case taskDone = "checkmark"
   case circle = "circle"
   case profileIcon = "person.crop.circle.fill"
@@ -64,21 +63,9 @@ enum SFSymbolConstants: String {
   case heart = "heart"
   case heartFill = "heart.fill"
   case star = "star"
-  
-  // settings icons
-  case feedback = "square.and.pencil"
-  case changePassword = "lock"
+
   case logout = "power"
   case delete = "trash.circle"
-  
-  // dismiss sheet button icon
-  case xCircle = "x.circle.fill"
-  
-  // report violation icon
-  case reportComment = "exclamationmark.bubble"
-  
-  // ellipsis icon ("..."). used to show additional controls
-  case ellipsis = "ellipsis"
   
 }
 
@@ -96,6 +83,11 @@ enum ScreenType: String {
   case movieDetail
 }
 
+enum StateLoad {
+  case refresh
+  case noRefresh
+}
+
 enum DateFormatType: String {
   case MMMM_dd_yyyy = "MMMM dd, yyyy"
   case d_MMM = "d MMM"
@@ -110,11 +102,6 @@ enum ActionType {
 
 enum PredicateType {
   case uid(Int)
-}
-
-enum SegmentType: Int {
-  case outcome = 0
-  case income
 }
 
 enum AlertButton: String {

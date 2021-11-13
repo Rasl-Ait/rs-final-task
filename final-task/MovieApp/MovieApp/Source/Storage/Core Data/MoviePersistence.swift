@@ -206,7 +206,11 @@ final class MoviePersistence: StorageProtocol {
       let fetchResult = try backgroundContext.fetch(request)
       fetchResult.forEach {
         let item = MovieModel.getFavoriteMovie(entity: $0)
-        favorites.append(item)
+        guard let index = firstFavoriteIndex(with: item.id) else {
+          favorites.append(item)
+          return
+        }
+        favorites[index] = item
       }
       DDLogInfo("get all Favorites movie")
       // completion(.success((self.items)))
@@ -267,7 +271,11 @@ final class MoviePersistence: StorageProtocol {
       let fetchResult = try backgroundContext.fetch(request)
       fetchResult.forEach {
         let item = ListModel.getEntities(entity: $0)
-        items.append(item)
+        guard let index = firstIndex(with: item.id) else {
+          items.append(item)
+          return
+        }
+        items[index] = item
       }
       DDLogInfo("get all Lists")
       // completion(.success((self.items)))
@@ -275,6 +283,14 @@ final class MoviePersistence: StorageProtocol {
       DDLogError("error while receiving lists \(error.localizedDescription)")
      // completion(.failure(.fetch(error)))
     }
+  }
+  
+  private func firstIndex(with id: Int) -> Int? {
+    return items.firstIndex(where: { $0.id == id })
+  }
+  
+  private func firstFavoriteIndex(with id: Int) -> Int? {
+    return favorites.firstIndex(where: { $0.id == id })
   }
   
   private func save(_ context: NSManagedObjectContext) {

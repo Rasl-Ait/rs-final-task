@@ -18,7 +18,7 @@ final class ListsPresenter: ListsViewOutput {
   private let persistence: StorageProtocol
   private var page = 1
   
-  private var param: NewListParam!
+  var param: NewListParam?
   private var mediaID: Int?
 
   init(
@@ -67,10 +67,10 @@ final class ListsPresenter: ListsViewOutput {
         guard let self = self else { return }
         switch result {
         case .success(let item):
+          item.results.compactMap { $0 }.forEach(self.persistence.addList)
           mainQueue {
             self.lists = item.results
             self.view?.success(items: item.results)
-            item.results.compactMap { $0 }.forEach(self.persistence.addList)
           }
         case .failure(let error):
           mainQueue {
@@ -83,6 +83,9 @@ final class ListsPresenter: ListsViewOutput {
   
   func createList() {
     view?.showIndicator()
+    guard let param = param else {
+      return
+    }
     service.createList(param) { [weak self] result in
       guard let self = self else { return }
       switch result {

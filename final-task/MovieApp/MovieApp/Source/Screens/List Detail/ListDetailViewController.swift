@@ -43,7 +43,6 @@ final class ListDetailViewController: BaseViewController {
       }
     }
   }
-  
   deinit {
     print("delete vc List detail")
   }

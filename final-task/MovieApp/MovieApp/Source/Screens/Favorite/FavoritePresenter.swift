@@ -43,10 +43,9 @@ final class FavoritePresenter: FavoriteViewOutput {
             self.view?.failure(error: error)
           }
         } else {
-          self.persistence.fetch(nil)
+          self.persistence.fetchAllFavoriteMovie()
           mainQueue {
-            print("")
-            //self.view?.success(items: self.list.movies ?? [])
+            self.view?.success(items: self.persistence.favorites)
           }
         }
       }
@@ -72,11 +71,11 @@ final class FavoritePresenter: FavoriteViewOutput {
   }
   
   func didSelect(type: FavoriteTappedType) {
-    switch type {
-    case .cell(let id):
-      coordinator?.pushMovieDetailVC(id: id)
-    case .favorite(let id):
-      markAdFavorite(id: id)
+      switch type {
+      case .cell(let id):
+        coordinator?.pushMovieDetailVC(id: id)
+      case .favorite(let id):
+        markAdFavorite(id: id)
     }
   }
 }

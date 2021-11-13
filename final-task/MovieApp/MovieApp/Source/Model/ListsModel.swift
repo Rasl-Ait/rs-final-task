@@ -53,5 +53,5 @@ struct NewListResponce: Codable, Equatable {
   let statusMessage: String
   let success: Bool
   let statusCode: Int
-  let listID: Int
+  let listId: Int
 }

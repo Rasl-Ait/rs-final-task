@@ -22,6 +22,7 @@ protocol ListsViewInput: AnyObject {
 
 protocol ListsViewOutput: AnyObject {
   var lists: [ListModel] { get }
+  var param: NewListParam? { get set }
   
   func getLists(state: StateLoad)
   func createList()

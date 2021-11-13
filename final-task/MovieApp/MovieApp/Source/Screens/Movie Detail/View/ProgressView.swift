@@ -26,6 +26,7 @@ final class ProgressView: UIView {
   }
   
   func configure(movie: MovieDetailModel) {
+    time = 0
     average = movie.score.toInt
     runTimer()
   }
@@ -42,6 +43,7 @@ final class ProgressView: UIView {
     time += 1
     if time == average {
       timer?.invalidate()
+     
     }
     
     mainQueue {

@@ -167,7 +167,7 @@ class AccountServiceTest: XCTestCase {
   }
 
   func test_getListsSuccessResponse() throws {
-    let results = getResponce(file: "List", type: ListResponce.self)
+    let results = getResponce(file: "ListModel", type: ListResponce.self)
 
     guard
       let response = results.responce,
@@ -221,7 +221,7 @@ class AccountServiceTest: XCTestCase {
   
   func test_createListSuccessResponse() throws {
     let item = NewListResponce(statusMessage: "The item/record was created successfully.",
-                               success: true, statusCode: 4, listID: 5861)
+                               success: true, statusCode: 4, listId: 5861)
     let response = try JSONEncoder().encode(item)
 
     let param = NewListParam(name: "New list")

@@ -31,6 +31,7 @@ private func readLocalFile(forName name: String) -> Data? {
 
 func decodeJSON<T: Decodable>(type: T.Type, data: Data) -> T? {
   let decoder = JSONDecoder()
+  decoder.keyDecodingStrategy = .convertFromSnakeCase
   
   do {
     let objects = try decoder.decode(type.self, from: data)
