@@ -101,6 +101,11 @@
 		DC95098627405F4300BAA43E /* ListDetailPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95098527405F4300BAA43E /* ListDetailPresenterTest.swift */; };
 		DC9509892740617000BAA43E /* ListsViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9509882740617000BAA43E /* ListsViewControllerMock.swift */; };
 		DC95098C274061E300BAA43E /* AccountAndListServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95098B274061E300BAA43E /* AccountAndListServiceSpy.swift */; };
+		DC95098E2740666C00BAA43E /* MovieDetailPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95098D2740666C00BAA43E /* MovieDetailPresenterTest.swift */; };
+		DC9509902740670A00BAA43E /* MovieServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95098F2740670A00BAA43E /* MovieServiceSpy.swift */; };
+		DC9509922740681C00BAA43E /* MovieDetailControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9509912740681C00BAA43E /* MovieDetailControllerMock.swift */; };
+		DC95099427406D4100BAA43E /* FavoritePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95099327406D4100BAA43E /* FavoritePresenterTest.swift */; };
+		DC95099627406D9900BAA43E /* FavoriteControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95099527406D9900BAA43E /* FavoriteControllerMock.swift */; };
 		DCA0C73E273A82BE003AAF77 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0C73D273A82BE003AAF77 /* NavigationController.swift */; };
 		DCA0C740273A89A6003AAF77 /* MovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0C73F273A89A6003AAF77 /* MovieEntity.swift */; };
 		DCA0C742273AA861003AAF77 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0C741273AA861003AAF77 /* ImageManager.swift */; };
@@ -282,6 +287,11 @@
 		DC95098527405F4300BAA43E /* ListDetailPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailPresenterTest.swift; sourceTree = "<group>"; };
 		DC9509882740617000BAA43E /* ListsViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewControllerMock.swift; sourceTree = "<group>"; };
 		DC95098B274061E300BAA43E /* AccountAndListServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAndListServiceSpy.swift; sourceTree = "<group>"; };
+		DC95098D2740666C00BAA43E /* MovieDetailPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenterTest.swift; sourceTree = "<group>"; };
+		DC95098F2740670A00BAA43E /* MovieServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceSpy.swift; sourceTree = "<group>"; };
+		DC9509912740681C00BAA43E /* MovieDetailControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailControllerMock.swift; sourceTree = "<group>"; };
+		DC95099327406D4100BAA43E /* FavoritePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenterTest.swift; sourceTree = "<group>"; };
+		DC95099527406D9900BAA43E /* FavoriteControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteControllerMock.swift; sourceTree = "<group>"; };
 		DCA0C73D273A82BE003AAF77 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DCA0C73F273A89A6003AAF77 /* MovieEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEntity.swift; sourceTree = "<group>"; };
 		DCA0C741273AA861003AAF77 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
@@ -776,7 +786,9 @@
 				DC95098A274061D200BAA43E /* Service */,
 				DC9509872740615400BAA43E /* View */,
 				DC950978273FEAAD00BAA43E /* ListsPresenterTest.swift */,
+				DC95098D2740666C00BAA43E /* MovieDetailPresenterTest.swift */,
 				DC95098527405F4300BAA43E /* ListDetailPresenterTest.swift */,
+				DC95099327406D4100BAA43E /* FavoritePresenterTest.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -785,6 +797,8 @@
 			isa = PBXGroup;
 			children = (
 				DC9509882740617000BAA43E /* ListsViewControllerMock.swift */,
+				DC9509912740681C00BAA43E /* MovieDetailControllerMock.swift */,
+				DC95099527406D9900BAA43E /* FavoriteControllerMock.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -793,6 +807,7 @@
 			isa = PBXGroup;
 			children = (
 				DC95098B274061E300BAA43E /* AccountAndListServiceSpy.swift */,
+				DC95098F2740670A00BAA43E /* MovieServiceSpy.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1483,9 +1498,14 @@
 				DC950979273FEAAD00BAA43E /* ListsPresenterTest.swift in Sources */,
 				DCF7F01F273BB45E00333A2B /* MovieServiceTest.swift in Sources */,
 				DC49A050272EE8E800F17DE9 /* AuthServiceTest.swift in Sources */,
+				DC95098E2740666C00BAA43E /* MovieDetailPresenterTest.swift in Sources */,
+				DC95099627406D9900BAA43E /* FavoriteControllerMock.swift in Sources */,
 				DC95098C274061E300BAA43E /* AccountAndListServiceSpy.swift in Sources */,
+				DC95099427406D4100BAA43E /* FavoritePresenterTest.swift in Sources */,
 				DC19401F273592B2001F78ED /* AccountServiceTest.swift in Sources */,
+				DC9509902740670A00BAA43E /* MovieServiceSpy.swift in Sources */,
 				DC49A05A272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift in Sources */,
+				DC9509922740681C00BAA43E /* MovieDetailControllerMock.swift in Sources */,
 				DC47F808272FDE24009603EE /* Result+Extenstion.swift in Sources */,
 				DC49A059272EE9C300F17DE9 /* SharedTestHelpers.swift in Sources */,
 				DC95098627405F4300BAA43E /* ListDetailPresenterTest.swift in Sources */,

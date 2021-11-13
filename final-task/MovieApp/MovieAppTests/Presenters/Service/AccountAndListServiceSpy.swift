@@ -14,6 +14,7 @@ class AccountAndListServiceSpy: AccountAndListService {
   var responseSuccessError: SuccessErrorModel?
   var responseAccount: AccountModel?
   var responseListDetail: ListDetailResponce?
+  var responseMovie: MovieResponce?
   
   override func getAccount(_ completion: @escaping CompletionBlock<AccountModel>) {
     if let response = responseAccount {
@@ -71,6 +72,15 @@ class AccountAndListServiceSpy: AccountAndListService {
   
   override func removeMovie(_ id: Int, param: RemoveMovieParam, completion: @escaping CompletionBlock<SuccessErrorModel>) {
     if let response = responseSuccessError {
+      completion(.success(response))
+    } else {
+      let error = NSError(domain: "", code: 0, userInfo: nil)
+      completion(.failure(.requestError(0, error.localizedDescription)))
+    }
+  }
+  
+  override func getFavoriteMovies(_ page: Int, completion: @escaping CompletionBlock<MovieResponce>) {
+    if let response = responseMovie {
       completion(.success(response))
     } else {
       let error = NSError(domain: "", code: 0, userInfo: nil)
