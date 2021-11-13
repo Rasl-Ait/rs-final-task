@@ -98,6 +98,9 @@
 		DC95098227402BF800BAA43E /* MovieVideo.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF7F023273BB94300333A2B /* MovieVideo.json */; };
 		DC95098327402C0800BAA43E /* MovieDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF7F021273BB77200333A2B /* MovieDetail.json */; };
 		DC95098427402C1500BAA43E /* ListModel.json in Resources */ = {isa = PBXBuildFile; fileRef = DC1940262735A5FF001F78ED /* ListModel.json */; };
+		DC95098627405F4300BAA43E /* ListDetailPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95098527405F4300BAA43E /* ListDetailPresenterTest.swift */; };
+		DC9509892740617000BAA43E /* ListsViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9509882740617000BAA43E /* ListsViewControllerMock.swift */; };
+		DC95098C274061E300BAA43E /* AccountAndListServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC95098B274061E300BAA43E /* AccountAndListServiceSpy.swift */; };
 		DCA0C73E273A82BE003AAF77 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0C73D273A82BE003AAF77 /* NavigationController.swift */; };
 		DCA0C740273A89A6003AAF77 /* MovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0C73F273A89A6003AAF77 /* MovieEntity.swift */; };
 		DCA0C742273AA861003AAF77 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA0C741273AA861003AAF77 /* ImageManager.swift */; };
@@ -276,6 +279,9 @@
 		DC950972273FC48C00BAA43E /* CheckInternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInternetConnection.swift; sourceTree = "<group>"; };
 		DC950975273FE95F00BAA43E /* BaseCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorTest.swift; sourceTree = "<group>"; };
 		DC950978273FEAAD00BAA43E /* ListsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsPresenterTest.swift; sourceTree = "<group>"; };
+		DC95098527405F4300BAA43E /* ListDetailPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailPresenterTest.swift; sourceTree = "<group>"; };
+		DC9509882740617000BAA43E /* ListsViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewControllerMock.swift; sourceTree = "<group>"; };
+		DC95098B274061E300BAA43E /* AccountAndListServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAndListServiceSpy.swift; sourceTree = "<group>"; };
 		DCA0C73D273A82BE003AAF77 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DCA0C73F273A89A6003AAF77 /* MovieEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEntity.swift; sourceTree = "<group>"; };
 		DCA0C741273AA861003AAF77 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
@@ -767,9 +773,28 @@
 		DC950977273FEA7C00BAA43E /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				DC95098A274061D200BAA43E /* Service */,
+				DC9509872740615400BAA43E /* View */,
 				DC950978273FEAAD00BAA43E /* ListsPresenterTest.swift */,
+				DC95098527405F4300BAA43E /* ListDetailPresenterTest.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		DC9509872740615400BAA43E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DC9509882740617000BAA43E /* ListsViewControllerMock.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DC95098A274061D200BAA43E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DC95098B274061E300BAA43E /* AccountAndListServiceSpy.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		DCC91BC12737E6A100F0E322 /* Extension */ = {
@@ -1453,14 +1478,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC864CE3273673A2009BA64A /* MoviePersistenceTest.swift in Sources */,
+				DC9509892740617000BAA43E /* ListsViewControllerMock.swift in Sources */,
 				DC7461E9273E4E4500BD3297 /* SearchServiceTest.swift in Sources */,
 				DC950979273FEAAD00BAA43E /* ListsPresenterTest.swift in Sources */,
 				DCF7F01F273BB45E00333A2B /* MovieServiceTest.swift in Sources */,
 				DC49A050272EE8E800F17DE9 /* AuthServiceTest.swift in Sources */,
+				DC95098C274061E300BAA43E /* AccountAndListServiceSpy.swift in Sources */,
 				DC19401F273592B2001F78ED /* AccountServiceTest.swift in Sources */,
 				DC49A05A272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift in Sources */,
 				DC47F808272FDE24009603EE /* Result+Extenstion.swift in Sources */,
 				DC49A059272EE9C300F17DE9 /* SharedTestHelpers.swift in Sources */,
+				DC95098627405F4300BAA43E /* ListDetailPresenterTest.swift in Sources */,
 				DC950976273FE95F00BAA43E /* BaseCoordinatorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
