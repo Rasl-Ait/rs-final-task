@@ -13,6 +13,7 @@ final class MoviePersistence: StorageProtocol {
   typealias T = ListModel
   
   private(set) var items: [T] = []
+  private(set) var favorites: [MovieModel] = []
   
   private let backgroundContext: NSManagedObjectContext!
   private let context: NSManagedObjectContext!
@@ -193,6 +194,25 @@ final class MoviePersistence: StorageProtocol {
       backgroundContext.performAndWait {
         save(backgroundContext)
       }
+    }
+  }
+  
+  func fetchAllFavoriteMovie() {
+    let request: NSFetchRequest<FavoriteMovieEntity> = FavoriteMovieEntity.fetchRequest()
+    let sortDescriptor = NSSortDescriptor(keyPath: \FavoriteMovieEntity.title, ascending: false)
+    request.sortDescriptors = [sortDescriptor]
+    
+    do {
+      let fetchResult = try backgroundContext.fetch(request)
+      fetchResult.forEach {
+        let item = MovieModel.getFavoriteMovie(entity: $0)
+        favorites.append(item)
+      }
+      DDLogInfo("get all Favorites movie")
+      // completion(.success((self.items)))
+    } catch {
+      DDLogError("error while receiving Favorites movie \(error.localizedDescription)")
+     // completion(.failure(.fetch(error)))
     }
   }
   

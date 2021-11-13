@@ -271,6 +271,44 @@ class MoviePersistenceTest: XCTestCase {
     XCTAssertNotNil(item)
   }
   
+  func test_fetchAllFavoriteMovieItemNotNil() throws {
+    let movie = MovieModel(id: 1,
+                           originalTitle: "title",
+                           originalName: nil,
+                           overview: "overview",
+                           releaseDate: "2015-05-12",
+                           posterPath: "image",
+                           popularity: 2.0,
+                           title: "Venom",
+                           voteAverage: 10.0)
+    
+    let movie2 = MovieModel(id: 2,
+                            originalTitle: "title",
+                            originalName: nil,
+                            overview: "overview",
+                            releaseDate: "2015-05-12",
+                            posterPath: "image",
+                            popularity: 2.0,
+                            title: "Venom",
+                            voteAverage: 10.0)
+    
+    let movie3 = MovieModel(id: 3,
+                            originalTitle: "title",
+                            originalName: nil,
+                            overview: "overview",
+                            releaseDate: "2015-05-12",
+                            posterPath: "image",
+                            popularity: 2.0,
+                            title: "Venom",
+                            voteAverage: 10.0)
+    
+    persistence.addFavoriteMovie(movie)
+    persistence.addFavoriteMovie(movie2)
+    persistence.addFavoriteMovie(movie3)
+    persistence.fetchAllFavoriteMovie()
+    XCTAssertEqual(persistence.favorites.count, 3)
+  }
+  
   func test_fetchFavoriteMovieItemNil() throws {
     let movie = MovieModel(id: 1,
                            originalTitle: "title",

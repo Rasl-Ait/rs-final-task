@@ -3,6 +3,7 @@ import Foundation
 
 protocol StorageProtocol: AnyObject {
   var items: [ListModel] { get }
+  var favorites: [MovieModel] { get }
   
   func addList(_ item: ListModel)
   func addMovie(_ item: MovieModel, listID: Int)
@@ -10,6 +11,7 @@ protocol StorageProtocol: AnyObject {
   func fetchItem(_ predicateType: PredicateType) -> ListModel?
   func fetchMovie(_ predicateType: PredicateType) -> MovieModel?
   func fetchFavoriteMovie(_ predicateType: PredicateType) -> MovieModel?
+  func fetchAllFavoriteMovie()
   func remove(with id: Int)
   func removeMovie(with id: Int)
   func removeFavoriteMovie(with id: Int)
