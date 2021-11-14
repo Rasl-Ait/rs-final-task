@@ -8,9 +8,10 @@
 
 import Foundation
 
-final class ListDetailPresenter: ListDetailViewOutput {
+final class ListDetailPresenter: ListDetailViewOutput {  
   // MARK: - Properties
   private(set) var alertTitles = ["Date", "Popular", "Rate"]
+  var movies: [MovieModel] = []
   
 	private let service: AccountAndListServiceProtocol
   private let persistence: StorageProtocol
@@ -53,7 +54,8 @@ final class ListDetailPresenter: ListDetailViewOutput {
         }
         
         mainQueue {
-          self.view?.success(items: item.items)
+          self.movies = item.items
+          self.view?.success(items: item.items, state: state)
         }
       case .failure(let error):
         if InternetConnection().isConnectedToNetwork() {
@@ -63,7 +65,7 @@ final class ListDetailPresenter: ListDetailViewOutput {
         } else {
           self.persistence.fetch(nil)
           mainQueue {
-            self.view?.success(items: self.list.movies ?? [])
+            self.view?.success(items: self.list.movies ?? [], state: state)
           }
         }
       }
@@ -92,7 +94,18 @@ final class ListDetailPresenter: ListDetailViewOutput {
   }
   
   deinit {
-    print("delete prenseter")
+    print("delete ListDetail  presenter")
+  }
+  
+  func sorted(type: SortedType) -> [MovieModel] {
+    switch type {
+    case .popular:
+      return movies.sorted(by: { $0.popularity > $1.popularity })
+    case .date:
+      return movies.sorted(by: { $0.releaseDate?.toDate() ?? Date() < $1.releaseDate?.toDate() ?? Date() })
+    case .rate:
+      return movies.sorted(by: { $0.voteAverage > $1.voteAverage })
+    }
   }
   
   func viewWillDisappear() {

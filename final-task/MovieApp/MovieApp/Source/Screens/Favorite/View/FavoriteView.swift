@@ -84,12 +84,12 @@ private extension FavoriteView {
       
       let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1.0))
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
-      let spacing = CGFloat(Spacing.section)
+      let spacing = CGFloat(10)
       group.interItemSpacing = .fixed(spacing)
       
       let section = NSCollectionLayoutSection(group: group)
       section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)
-      section.interGroupSpacing = Spacing.section
+      section.interGroupSpacing = 10
       
       return section
     }

@@ -115,7 +115,6 @@
 		DCC91BCF2737FAD800F0E322 /* ListDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BCA2737FAD800F0E322 /* ListDetailPresenter.swift */; };
 		DCC91BD12737FAD800F0E322 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BCC2737FAD800F0E322 /* ListDetailViewController.swift */; };
 		DCC91BD22737FAD800F0E322 /* ListDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BCD2737FAD800F0E322 /* ListDetailProtocols.swift */; };
-		DCC91BD72737FCB600F0E322 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BD62737FCB600F0E322 /* ListDetailView.swift */; };
 		DCC91BDA273801A600F0E322 /* ListDetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BD9273801A600F0E322 /* ListDetailCollectionCell.swift */; };
 		DCC91BDC2738023500F0E322 /* ListDetailCollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BDB2738023500F0E322 /* ListDetailCollectionCellView.swift */; };
 		DCC91BDE2738131500F0E322 /* ListDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC91BDD2738131500F0E322 /* ListDetailCoordinator.swift */; };
@@ -305,7 +304,6 @@
 		DCC91BCA2737FAD800F0E322 /* ListDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailPresenter.swift; sourceTree = "<group>"; };
 		DCC91BCC2737FAD800F0E322 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		DCC91BCD2737FAD800F0E322 /* ListDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailProtocols.swift; sourceTree = "<group>"; };
-		DCC91BD62737FCB600F0E322 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		DCC91BD9273801A600F0E322 /* ListDetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCollectionCell.swift; sourceTree = "<group>"; };
 		DCC91BDB2738023500F0E322 /* ListDetailCollectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCollectionCellView.swift; sourceTree = "<group>"; };
 		DCC91BDD2738131500F0E322 /* ListDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCoordinator.swift; sourceTree = "<group>"; };
@@ -834,11 +832,10 @@
 		DCC91BD42737FAE400F0E322 /* List Detail */ = {
 			isa = PBXGroup;
 			children = (
+				DCC91BCD2737FAD800F0E322 /* ListDetailProtocols.swift */,
+				DCC91BCA2737FAD800F0E322 /* ListDetailPresenter.swift */,
 				DCC91BD82738019700F0E322 /* Cell */,
 				DCC91BD52737FCAD00F0E322 /* View */,
-				DCC91BCC2737FAD800F0E322 /* ListDetailViewController.swift */,
-				DCC91BCA2737FAD800F0E322 /* ListDetailPresenter.swift */,
-				DCC91BCD2737FAD800F0E322 /* ListDetailProtocols.swift */,
 			);
 			path = "List Detail";
 			sourceTree = "<group>";
@@ -846,7 +843,7 @@
 		DCC91BD52737FCAD00F0E322 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DCC91BD62737FCB600F0E322 /* ListDetailView.swift */,
+				DCC91BCC2737FAD800F0E322 /* ListDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1381,7 +1378,6 @@
 				DCC91BDC2738023500F0E322 /* ListDetailCollectionCellView.swift in Sources */,
 				DC864CDD27367010009BA64A /* MoviePersistence.swift in Sources */,
 				DCCF8AFE2729A26B00933DD1 /* UIButton+Extension.swift in Sources */,
-				DCC91BD72737FCB600F0E322 /* ListDetailView.swift in Sources */,
 				DCCF8B0B2729A26B00933DD1 /* UserDefaults+Extension.swift in Sources */,
 				DCF8D139273D0632003FFEE7 /* AnimationButton.swift in Sources */,
 				DC19401527358367001F78ED /* AccountParams.swift in Sources */,

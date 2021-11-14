@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ListDetailViewInput: AnyObject {
-  func success(items: [MovieModel])
+  func success(items: [MovieModel], state: StateLoad)
   func successRemoveMovie()
 	func failure(error: APIError)
 	func hideIndicator()
@@ -23,5 +23,6 @@ protocol ListDetailViewOutput: AnyObject {
   func getMovies(state: StateLoad)
   func removeMovie(item: MovieModel)
   func push(id: Int)
+  func sorted(type: SortedType) -> [MovieModel]
   func viewWillDisappear()
 }

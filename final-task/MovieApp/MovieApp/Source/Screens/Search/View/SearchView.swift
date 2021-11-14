@@ -37,6 +37,7 @@ final class SearchView: UIView {
   func addMovie(_ items: [MovieModel]) {
     self.movies = items
     updateSnapshot(items)
+    layoutIfNeeded()
   }
 }
 
