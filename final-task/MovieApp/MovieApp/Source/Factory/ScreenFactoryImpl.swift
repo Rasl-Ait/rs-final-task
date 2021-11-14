@@ -34,9 +34,14 @@ final class ScreenFactoryImpl: ScreenFactory {
                                     "Authorization": "Bearer \(Constant.token)"]
     let urlSession = URLSession(configuration: config)
     let service = AccountAndListService(client: NetworkService(session: urlSession))
+    let serviceAuth = AuthService(client: NetworkService(session: urlSession))
  let coreDataTask = (UIApplication.shared.delegate as? AppDelegate)?.coreDataTask
     let persistence = MoviePersistence(context: coreDataTask!.managedContext, backgroundContext: coreDataTask!.backgroundContext)
-    let presenter = ListsPresenter(view: vc, service: service, persistence: persistence, mediaID: mediaID)
+    let presenter = ListsPresenter(view: vc,
+                                   service: service,
+                                   persistence: persistence,
+                                   mediaID: mediaID,
+                                   serviceAuth: serviceAuth)
     presenter.coordinator = coordinator
     vc.presenter = presenter
     return vc

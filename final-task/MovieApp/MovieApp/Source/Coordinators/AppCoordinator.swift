@@ -37,6 +37,12 @@ final class AppCoordinator: BaseCoordinator {
   
   private func pushTabBar() {
     let coordinator = coordinatorFactory.makeTabBarCoordinator(router: router)
+    
+    coordinator.finishFlow = { [weak self, weak coordinator] in
+      guard let self = self else { return }
+      self.removeChildCoordinator(coordinator)
+    }
+    
     addDependency(coordinator)
     coordinator.start()
   }

@@ -10,7 +10,6 @@ import Foundation
 enum AccountAndListTargetType {
   enum Constant {
     static let account = "account"
-    static let sessionID = UserDefaults.standard.sessionID
   }
   
   case account
@@ -62,33 +61,33 @@ extension AccountAndListTargetType: TargetType {
   var task: Task {
     switch self {
     case .account:
-      let param = [URLQueryItem(name: "session_id", value: Constant.sessionID)]
+      let param = [URLQueryItem(name: "session_id", value: UserDefaults.standard.sessionID)]
       return .urlQueryParameters(parameters: param)
     case .lists(_, let page):
       let param = [
         URLQueryItem(name: "page", value: page.toString),
-        URLQueryItem(name: "session_id", value: Constant.sessionID)
+        URLQueryItem(name: "session_id", value: UserDefaults.standard.sessionID)
       ]
       return .urlQueryParameters(parameters: param)
     case .movieFavorite(_, let page):
       let param = [
         URLQueryItem(name: "page", value: page.toString),
-        URLQueryItem(name: "session_id", value: Constant.sessionID)
+        URLQueryItem(name: "session_id", value: UserDefaults.standard.sessionID)
       ]
       return .urlQueryParameters(parameters: param)
     case .markFavorite(_, let item):
       let param = [
-        URLQueryItem(name: "session_id", value: Constant.sessionID)
+        URLQueryItem(name: "session_id", value: UserDefaults.standard.sessionID)
       ]
       return .postAndGetParameters(parameters: item, query: param)
     case .list(let item):
       let param = [
-        URLQueryItem(name: "session_id", value: Constant.sessionID)
+        URLQueryItem(name: "session_id", value: UserDefaults.standard.sessionID)
       ]
       return .postAndGetParameters(parameters: item, query: param)
     case .listDelete:
       let param = [
-        URLQueryItem(name: "session_id", value: Constant.sessionID)
+        URLQueryItem(name: "session_id", value: UserDefaults.standard.sessionID)
       ]
       return .urlQueryParameters(parameters: param)
     case .listDetail:
@@ -96,13 +95,13 @@ extension AccountAndListTargetType: TargetType {
       
     case .movieToList(_, let item):
       let param = [
-        URLQueryItem(name: "session_id", value: Constant.sessionID)
+        URLQueryItem(name: "session_id", value: UserDefaults.standard.sessionID)
       ]
       return .postAndGetParameters(parameters: item, query: param)
       
     case .removeMovie(_, let item):
       let param = [
-        URLQueryItem(name: "session_id", value: Constant.sessionID)
+        URLQueryItem(name: "session_id", value: UserDefaults.standard.sessionID)
       ]
       return .postAndGetParameters(parameters: item, query: param)
     }

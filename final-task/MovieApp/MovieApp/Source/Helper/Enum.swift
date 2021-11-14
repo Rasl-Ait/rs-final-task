@@ -16,6 +16,7 @@ enum TextType: String {
 
 enum AlertMessageType: String {
   case deleteList = "Delete List?"
+  case logout = "Want to get out?"
   case none = ""
 }
 
@@ -43,6 +44,7 @@ enum SFSymbolConstants: String {
   case plus = "plus.circle"
   case arrowDownAndUp = "arrow.up.arrow.down"
   case back = "arrow.backward"
+  case logout = "power"
   
   // WebView
   case arrowClockwise = "arrow.clockwise"
@@ -64,7 +66,6 @@ enum SFSymbolConstants: String {
   case heartFill = "heart.fill"
   case star = "star"
 
-  case logout = "power"
   case delete = "trash.circle"
   
 }

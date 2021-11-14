@@ -42,8 +42,8 @@ final class AuthPresenter: AuthViewOutput {
       guard let self = self else { return }
       switch result {
       case .success(let item):
-        UserDefaults.standard.sessionID = item.sessionId ?? ""
         mainQueue {
+          UserDefaults.standard.sessionID = item.sessionId ?? ""
           self.view?.success()
           self.coordinator?.pushTabBar()
         }

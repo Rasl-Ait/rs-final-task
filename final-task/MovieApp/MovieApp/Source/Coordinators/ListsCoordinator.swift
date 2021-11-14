@@ -10,6 +10,7 @@ import UIKit
 protocol ListsCoordinatorProtocol: AnyObject {
   func pop()
   func pushListDetailVC(list: ListModel)
+  func pushAuthVC()
 }
 
 final class ListsCoordinator: BaseCoordinator {
@@ -58,6 +59,13 @@ extension ListsCoordinator: ListsCoordinatorProtocol {
     }
     addDependency(child)
     child.start()
+  }
+  
+  func pushAuthVC() {
+    finishFlow?()
+    let coordinator = coordinatorFactory.makeAuthCoordinator(router: router)
+    addDependency(coordinator)
+    coordinator.start()
   }
   
   func pop() {

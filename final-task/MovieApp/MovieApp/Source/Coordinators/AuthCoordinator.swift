@@ -39,6 +39,7 @@ extension AuthCoordinator: AuthCoordinatorProtocol {
   
    func pushTabBar() {
     let coordinator = coordinatorFactory.makeTabBarCoordinator(router: router)
+
     addDependency(coordinator)
     coordinator.start()
   }

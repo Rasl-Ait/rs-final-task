@@ -12,6 +12,8 @@ final class TabBarCoordinator: BaseCoordinator {
   private let coordinatorFactory: CoordinatorFactory
   private let screenFactory: ScreenFactory
   
+  var finishFlow: VoidClosure?
+  
   init(router: Router,
        screenFactory: ScreenFactory,
        coordinatorFactory: CoordinatorFactory) {
@@ -31,6 +33,11 @@ extension TabBarCoordinator {
     let listCoordinator = coordinatorFactory.makeListsCoordinator(
       router: router,
       tabBarViewController: tabBarController)
+    
+    listCoordinator.finishFlow = { [weak self] in
+      guard let self = self else { return }
+      self.finishFlow?()
+    }
     
     let searchCoordinator = coordinatorFactory.makeSearchCoordinator(router: router,
                                                                      tabBarViewController: tabBarController)

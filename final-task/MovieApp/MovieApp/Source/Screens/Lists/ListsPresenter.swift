@@ -15,6 +15,7 @@ final class ListsPresenter: ListsViewOutput {
   private(set) var lists: [ListModel] = []
   
   private let service: AccountAndListServiceProtocol
+  private let serviceAuth: AuthServiceProtocol
   private let persistence: StorageProtocol
   private var page = 1
   
@@ -25,11 +26,13 @@ final class ListsPresenter: ListsViewOutput {
     view: ListsViewInput,
     service: AccountAndListServiceProtocol,
     persistence: StorageProtocol,
-    mediaID: Int?) {
+    mediaID: Int?,
+    serviceAuth: AuthServiceProtocol) {
     self.view = view
     self.service = service
     self.persistence = persistence
     self.mediaID = mediaID
+    self.serviceAuth = serviceAuth
   }
   
   func getAccount(completion: @escaping VoidClosure) {
@@ -113,6 +116,28 @@ final class ListsPresenter: ListsViewOutput {
       case .failure(let error):
         mainQueue {
           self.persistence.remove(with: id)
+          self.view?.failure(error: error)
+        }
+      }
+    }
+  }
+  
+  func logout() {
+    view?.showIndicator()
+    let param = SessionParam(id: UserDefaults.standard.sessionID)
+    serviceAuth.logout(param) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let item):
+        if item.success {
+          UserDefaults.standard.sessionID = ""
+        }
+        mainQueue {
+          self.view?.hideIndicator()
+          self.coordinator?.pushAuthVC()
+        }
+      case .failure(let error):
+        mainQueue {
           self.view?.failure(error: error)
         }
       }

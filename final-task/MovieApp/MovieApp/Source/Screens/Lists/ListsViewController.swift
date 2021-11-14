@@ -11,7 +11,7 @@ import UIKit
 final class ListsViewController: BaseViewController {
   
   // MARK: - Properties
-  lazy var listView = makeListView()
+  private lazy var listView = makeListView()
   
 	var presenter: ListsViewOutput!
     
@@ -35,7 +35,6 @@ private extension ListsViewController {
     setupAppearence()
     setupRefreshControl(listView.collectionView)
     setupLayoutUI()
-    
     
     listView.didRemoveButton = { [weak self] id in
       guard let self = self else { return }
@@ -70,8 +69,18 @@ private extension ListsViewController {
     navigationController?.navigationBar.prefersLargeTitles = true
     navigationItem.title = "Lists"
     let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 30))
-    let plusBarButtonItem = UIBarButtonItem(image: .setImage(.plus, configuration: config), style: .plain, target: self, action: #selector(plusTapped))
+    let plusBarButtonItem = UIBarButtonItem(image: .setImage(.plus, configuration: config),
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(plusTapped))
+    let logoutBarButtonItem = UIBarButtonItem(image: .setImage(.logout),
+                                              style: .plain,
+                                              target: self,
+                                              action: #selector(logoutTapped))
+    
     navigationItem.rightBarButtonItem = plusBarButtonItem
+    navigationItem.leftBarButtonItem = logoutBarButtonItem
+    
   }
   
   func setupAppearence() {
@@ -113,6 +122,20 @@ private extension ListsViewController {
       return
     }
     presenter.addText(name: text)
+  }
+  
+  @objc func logoutTapped() {
+    Alert.showAlertAction(on: self, title: .attention,
+                          message: .logout,
+                          messageText: nil,
+                          primaryTitle: .yes,
+                          secondTitle: .cancel,
+                          preferredStyle: .alert) { _ in
+      self.presenter.logout()
+    } secondAction: { _ in
+      
+    }
+
   }
 }
 
