@@ -115,3 +115,8 @@ enum SortedType: String {
   case date = "Date"
   case rate = "Rate"
 }
+
+enum FavoriteTappedType {
+  case cell(Int)
+  case favorite(Int)
+}

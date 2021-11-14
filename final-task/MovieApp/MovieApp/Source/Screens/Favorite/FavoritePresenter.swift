@@ -25,8 +25,11 @@ final class FavoritePresenter: FavoriteViewOutput {
     self.persistence = persistence
   }
   
-  func getFavoriteMovie() {
-    view?.showIndicator()
+  func getFavoriteMovie(state: StateLoad) {
+    if state != .refresh {
+      view?.showIndicator()
+    }
+    
     service.getFavoriteMovies(1) { [weak self] result in
       guard let self = self else { return }
       switch result {
@@ -35,7 +38,7 @@ final class FavoritePresenter: FavoriteViewOutput {
         item.results.compactMap { $0 }.forEach(self.persistence.addFavoriteMovie)
         
         mainQueue {
-          self.view?.success(items: item.results)
+          self.view?.success(items: item.results, state: state)
         }
       case .failure(let error):
         if InternetConnection().isConnectedToNetwork() {
@@ -45,7 +48,7 @@ final class FavoritePresenter: FavoriteViewOutput {
         } else {
           self.persistence.fetchAllFavoriteMovie()
           mainQueue {
-            self.view?.success(items: self.persistence.favorites)
+            self.view?.success(items: self.persistence.favorites, state: state)
           }
         }
       }

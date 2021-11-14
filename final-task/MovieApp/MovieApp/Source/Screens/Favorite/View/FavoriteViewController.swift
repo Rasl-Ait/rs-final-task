@@ -1,46 +1,70 @@
 //
-//  FavoriteView.swift
+//  FavoriteViewController.swift
 //  MovieApp
 //
 //  Created by rasul on 11/12/21.
+//  
 //
 
 import UIKit
 
-enum FavoriteTappedType {
-  case cell(Int)
-  case favorite(Int)
-}
-
-final class FavoriteView: UIView {
+final class FavoriteViewController: BaseViewController {
   
   // MARK: - Properties
-  lazy var collectionView = makeCollectionView()
+  private lazy var collectionView = makeCollectionView()
   private lazy var dataSource = configureDataSource()
   
   private var selectIndexPath: IndexPath!
-  private var movies: [MovieModel] = []
+  
+	var presenter: FavoriteViewOutput!
   
   enum Section {
     case all
   }
+    
+	override func viewDidLoad() {
+		super.viewDidLoad()
+    setupViews()
+	}
   
-  // MARK: - Closure
-  var didSelect: ItemClosure<FavoriteTappedType>?
-  
-  // MARK: - Overriden funcs
-  
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    setupView()
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    presenter.getFavoriteMovie(state: .noRefresh)
+  }
+}
+
+// MARK: - Private Extension
+private extension FavoriteViewController {
+  func setupViews() {
+    configureNavigationBar()
+    setupAppearence()
+    setupLayoutUI()
+    setupRefreshControl(collectionView)
+    
+    refreshLoadData = { [weak self] in
+      guard let self = self else { return }
+      if InternetConnection().isConnectedToNetwork() {
+        self.refresh()
+      }
+    }
   }
   
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+  func setupAppearence() {
+    view.addSubview(collectionView)
+  }
+
+  func setupLayoutUI() {
+    collectionView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
+  }
+  
+  func configureNavigationBar() {
+    navigationController?.navigationBar.prefersLargeTitles = true
+    navigationItem.title = "Favorite"
   }
   
   func addMovie(_ items: [MovieModel]) {
-    self.movies = items
     updateSnapshot(items)
   }
   
@@ -50,31 +74,14 @@ final class FavoriteView: UIView {
     snapshot.deleteItems([movie])
     dataSource.apply(snapshot, animatingDifferences: true)
   }
-}
-
-// MARK: - Private Extension
-private extension FavoriteView {
-  func setupView() {
-    backgroundColor = .backgroundColor
-    setupAppearence()
-    setupLayoutUI()
-    collectionView.dataSource = dataSource
-  }
   
-  func setupAppearence() {
-    addSubview(collectionView)
-  }
-  
-  func setupLayoutUI() {
-    collectionView.snp.makeConstraints {
-      $0.top.equalTo(safeAreaLayoutGuide.snp.top)
-      $0.right.left.bottom.equalToSuperview()
-    }
+  @objc func refresh() {
+    presenter.getFavoriteMovie(state: .refresh)
   }
 }
 
 // MARK: - Setup UI
-private extension FavoriteView {
+private extension FavoriteViewController {
   func configureCollectionViewLayout() -> UICollectionViewCompositionalLayout {
     let sectionProvider = { (_: Int, _: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
       
@@ -108,17 +115,16 @@ private extension FavoriteView {
 }
 
 // MARK: - Data Source
-private extension FavoriteView {
+private extension FavoriteViewController {
   func configureDataSource() -> UICollectionViewDiffableDataSource<Section, MovieModel> {
     let dataSource = UICollectionViewDiffableDataSource<Section, MovieModel>(
       collectionView: collectionView) { collectionView, indexPath, model in
       let cell: ListDetailCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
       cell.configure(model: model, type: .favorite)
-      
       cell.didSelectFavorite = { [weak self] in
         guard let self = self else { return }
         self.selectIndexPath = indexPath
-        self.didSelect?(.favorite(model.id))
+        self.presenter.didSelect(type: .favorite(model.id))
       }
       
       return cell
@@ -131,43 +137,45 @@ private extension FavoriteView {
     var snapshot = NSDiffableDataSourceSnapshot<Section, MovieModel>()
     snapshot.appendSections([.all])
     snapshot.appendItems(items, toSection: .all)
-    
     dataSource.apply(snapshot, animatingDifferences: false)
   }
 }
 
 // MARK: UICollectionViewDelegate
-extension FavoriteView: UICollectionViewDelegate {
+extension FavoriteViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     collectionView.deselectItem(at: indexPath, animated: false)
     guard let movie = self.dataSource.itemIdentifier(for: indexPath) else { return }
-    didSelect?(.cell(movie.id))
+    presenter.didSelect(type: .cell(movie.id))
   }
 }
 
-// MARK: - Constants
-extension FavoriteView {
-  private enum Spacing {
-    static let section: CGFloat = .spacingL
+// MARK: FavoriteViewInput
+extension FavoriteViewController: FavoriteViewInput {
+  func success(items: [MovieModel], state: StateLoad) {
+    addMovie(items)
+   
+    if state == .refresh {
+      collectionView.refreshControl?.endRefreshing()
+    } else {
+      hide()
+    }
+  }
+  
+  func successDeleteMovie() {
+    removeFavorite()
+  }
+  
+  func failure(error: APIError) {
+    hide()
+    Alert.showAlert(on: self, with: .warning, message: error.localizedDescription)
+  }
+  
+  func hideIndicator() {
+    hide()
+  }
+  
+  func showIndicator() {
+    show()
   }
 }
-
-#if DEBUG
-import SwiftUI
-
-struct FavoriteViewwRepresentable: UIViewRepresentable {
-  func makeUIView(context: Context) -> UIView {
-    return FavoriteView()
-  }
-  func updateUIView(_ view: UIView, context: Context) {
-    // do your logic here
-  }
-}
-
-@available(iOS 13.0, *)
-struct FavoriteView_Preview: PreviewProvider {
-  static var previews: some View {
-    FavoriteViewwRepresentable()
-  }
-}
-#endif

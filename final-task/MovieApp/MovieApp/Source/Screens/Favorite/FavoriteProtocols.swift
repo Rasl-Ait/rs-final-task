@@ -9,7 +9,7 @@
 import Foundation
 
 protocol FavoriteViewInput: AnyObject {
-  func success(items: [MovieModel])
+  func success(items: [MovieModel], state: StateLoad)
   func successDeleteMovie()
 	func failure(error: APIError)
 	func hideIndicator()
@@ -18,5 +18,5 @@ protocol FavoriteViewInput: AnyObject {
 
 protocol FavoriteViewOutput: AnyObject {
   func didSelect(type: FavoriteTappedType)
-  func getFavoriteMovie()
+  func getFavoriteMovie(state: StateLoad)
 }

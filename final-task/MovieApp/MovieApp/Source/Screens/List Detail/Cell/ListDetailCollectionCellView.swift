@@ -35,8 +35,7 @@ final class ListDetailCollectionCellView: UIView {
   }
 
   func prepareForReuse() {
-    titleLabel.text = nil
-    imageView.image = nil
+  
   }
   
   func isEditing(isEditing: Bool) {
@@ -48,19 +47,19 @@ final class ListDetailCollectionCellView: UIView {
   }
   
   func configure(_ model: MovieModel, type: MovieType = .listDetail) {
+    imageView.download(url: model.iconString, placeholder: nil)
     titleLabel.text = model.originalName != nil ?
       model.originalName :
       model.originalTitle
     checkButton.isHidden = true
-    imageView.download(url: model.iconString, placeholder: nil)
-    
+
     if type != .movieSimilar {
-      stackView.addArrangedSubview(titleLabel)
+      titleLabel.isHidden = false
     }
-    
+
     if type == .favorite {
       favoriteView.isHidden = false
-      stackView.addArrangedSubview(titleLabel)
+      titleLabel.isHidden = false
     }
   }
 }
@@ -77,20 +76,21 @@ private extension ListDetailCollectionCellView {
   }
   
   func setupAppearence() {
-    addSubview(stackView)
+    addSubview(imageView)
+    addSubview(titleLabel)
     addSubview(favoriteView)
     addSubview(checkButton)
   }
   
   func setupLayoutUI() {
     imageView.snp.makeConstraints {
-      $0.height.equalTo(160)
+      $0.top.leading.trailing.equalToSuperview().inset(7)
+      $0.height.equalTo(180)
     }
     
-    stackView.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(7)
-      $0.leading.trailing.equalToSuperview().inset(7)
-      $0.bottom.equalToSuperview().inset(10)
+    titleLabel.snp.makeConstraints {
+      $0.top.equalTo(imageView.snp.bottom).offset(10)
+      $0.leading.trailing.bottom.equalToSuperview().inset(7)
     }
     
     checkButton.snp.makeConstraints {
@@ -123,6 +123,7 @@ private extension ListDetailCollectionCellView {
       fontName: .avenir(.fontSM, .SemiBold)
     )
     view.numberOfLines = 0
+   
     return view
   }
   

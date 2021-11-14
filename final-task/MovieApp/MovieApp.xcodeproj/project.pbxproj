@@ -70,7 +70,6 @@
 		DC746207273E8FD700BD3297 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC746202273E8FD700BD3297 /* FavoriteViewController.swift */; };
 		DC746208273E8FD700BD3297 /* FavoriteProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC746203273E8FD700BD3297 /* FavoriteProtocols.swift */; };
 		DC74620B273E90D500BD3297 /* FavoriteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74620A273E90D500BD3297 /* FavoriteCoordinator.swift */; };
-		DC74620E273E942700BD3297 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74620D273E942700BD3297 /* FavoriteView.swift */; };
 		DC746210273EAC8B00BD3297 /* FavoriteMovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC74620F273EAC8B00BD3297 /* FavoriteMovieEntity.swift */; };
 		DC835B9127350BED00C3A209 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B9027350BED00C3A209 /* TabBarController.swift */; };
 		DC835B932735124D00C3A209 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC835B922735124D00C3A209 /* AuthCoordinator.swift */; };
@@ -265,7 +264,6 @@
 		DC746202273E8FD700BD3297 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		DC746203273E8FD700BD3297 /* FavoriteProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProtocols.swift; sourceTree = "<group>"; };
 		DC74620A273E90D500BD3297 /* FavoriteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinator.swift; sourceTree = "<group>"; };
-		DC74620D273E942700BD3297 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		DC74620F273EAC8B00BD3297 /* FavoriteMovieEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieEntity.swift; sourceTree = "<group>"; };
 		DC835B9027350BED00C3A209 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DC835B922735124D00C3A209 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
@@ -680,7 +678,6 @@
 			isa = PBXGroup;
 			children = (
 				DC74620C273E941A00BD3297 /* View */,
-				DC746202273E8FD700BD3297 /* FavoriteViewController.swift */,
 				DC746200273E8FD700BD3297 /* FavoritePresenter.swift */,
 				DC746203273E8FD700BD3297 /* FavoriteProtocols.swift */,
 			);
@@ -690,7 +687,7 @@
 		DC74620C273E941A00BD3297 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DC74620D273E942700BD3297 /* FavoriteView.swift */,
+				DC746202273E8FD700BD3297 /* FavoriteViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1430,7 +1427,6 @@
 				DCCF8AFB2729A26B00933DD1 /* String+Extension.swift in Sources */,
 				DCCF8B012729A26B00933DD1 /* UIEdgeInsets+Extension.swift in Sources */,
 				DC49A04C272EAB6400F17DE9 /* NetworkService.swift in Sources */,
-				DC74620E273E942700BD3297 /* FavoriteView.swift in Sources */,
 				DCF7F02E273BC43F00333A2B /* MovieDetailProtocols.swift in Sources */,
 				DC7461FB273E62DC00BD3297 /* SearchCoordinator.swift in Sources */,
 				DCCF8AF52729A26B00933DD1 /* CALayer+Extension.swift in Sources */,

@@ -40,6 +40,7 @@ final class ListDetailViewController: BaseViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     configureNavigationBar(isHidden: false, barStyle: .default)
+    presenter.getMovies(state: .noRefresh)
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -82,7 +83,6 @@ private extension ListDetailViewController {
     setupAppearence()
     setupRefresh(collectionView)
     setupLayoutUI()
-    presenter.getMovies(state: .noRefresh)
     isEditingToggle = false
     
     refreshLoadData = { [weak self] in
@@ -154,7 +154,7 @@ private extension ListDetailViewController {
   func configureCollectionViewLayout() -> UICollectionViewCompositionalLayout {
     let sectionProvider = { (_: Int, _: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
       
-      let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1.0))
+      let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(250.0))
       let item = NSCollectionLayoutItem(layoutSize: itemSize)
       // item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
       
@@ -249,7 +249,7 @@ private extension ListDetailViewController {
     var snapshot = NSDiffableDataSourceSnapshot<Section, MovieModel>()
     snapshot.appendSections([.all])
     snapshot.appendItems(items, toSection: .all)
-    dataSource.apply(snapshot, animatingDifferences: true)
+    dataSource.apply(snapshot, animatingDifferences: false)
   }
 }
 
