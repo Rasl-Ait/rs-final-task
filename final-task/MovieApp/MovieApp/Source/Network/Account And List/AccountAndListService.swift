@@ -39,7 +39,7 @@ protocol AccountAndListServiceProtocol {
   
 }
 
- class AccountAndListService: BaseAPI<AccountAndListTargetType>, AccountAndListServiceProtocol {
+final class AccountAndListService: BaseAPI<AccountAndListTargetType>, AccountAndListServiceProtocol {
   func getAccount(_ completion: @escaping CompletionBlock<AccountModel>) {
     getData(target: .account, completion: completion)
   }

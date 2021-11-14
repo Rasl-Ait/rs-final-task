@@ -80,7 +80,7 @@ class FavoritePresenterTest: XCTestCase {
   private func makeSUT() -> (serviceAccount: AccountAndListServiceSpy,
                              presenter: FavoritePresenter,
                              view: FavoriteControllerMock) {
-    let serviceAccount = AccountAndListServiceSpy(client: NetworkService(session: URLSession.shared))
+    let serviceAccount = AccountAndListServiceSpy()
     let view = FavoriteControllerMock()
     let coredataStack = CoreDataStack(modelName: "Model", storageType: .inMemory)
     let persistence = MoviePersistence(context: coredataStack.managedContext, backgroundContext: coredataStack.managedContext)

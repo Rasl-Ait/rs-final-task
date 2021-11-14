@@ -118,7 +118,7 @@ class ListDetailPresenterTest: XCTestCase {
   }
   
   private func makeSUT() -> (service: AccountAndListServiceSpy, presenter: ListDetailPresenter, view: ListDetailViewControllerMock) {
-    let service = AccountAndListServiceSpy(client: NetworkService(session: URLSession.shared))
+    let service = AccountAndListServiceSpy()
     let view = ListDetailViewControllerMock()
     let coredataStack = CoreDataStack(modelName: "Model", storageType: .inMemory)
     let persistence = MoviePersistence(context: coredataStack.managedContext, backgroundContext: coredataStack.managedContext)

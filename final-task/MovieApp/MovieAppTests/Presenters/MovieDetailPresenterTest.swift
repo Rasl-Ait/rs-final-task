@@ -89,7 +89,7 @@ class MovieDetailPresenterTest: XCTestCase {
                              presenter: MovieDetailPresenter,
                              view: MovieDetailControllerMock) {
     let serviceMovie = MovieServiceSpy()
-    let serviceAccount = AccountAndListServiceSpy(client: NetworkService(session: URLSession.shared))
+    let serviceAccount = AccountAndListServiceSpy()
     let view = MovieDetailControllerMock()
     
     let presenter = MovieDetailPresenter(service: serviceMovie, serviceAccount: serviceAccount, view: view, movieId: 1)

@@ -1,5 +1,5 @@
 //
-//  FavoriteControllerMock.swift
+//  SearchControllerMock.swift
 //  MovieAppTests
 //
 //  Created by rasul on 11/14/21.
@@ -8,22 +8,16 @@
 import XCTest
 @testable import MovieApp
 
-class FavoriteControllerMock: FavoriteViewInput {
-  
+class SearchControllerMock: SearchViewInput {
   var isCalledSuccess: Bool!
-  var isDeleteSuccess: Bool!
   
   func success(items: [MovieModel]) {
     isCalledSuccess = true
   }
-  
-  func successDeleteMovie() {
-    isDeleteSuccess = true
-  }
 
   func failure(error: APIError) {
     isCalledSuccess = false
-    isDeleteSuccess = false
+
   }
   
   func hideIndicator() {
