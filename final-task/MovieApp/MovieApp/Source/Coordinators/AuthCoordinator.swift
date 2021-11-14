@@ -34,16 +34,10 @@ final class AuthCoordinator: BaseCoordinator {
 extension AuthCoordinator: AuthCoordinatorProtocol {
    func pushAuth() {
     let viewController = screenFactory.makeAuthScreen(self)
+    router.push(viewController)
   }
   
    func pushTabBar() {
-//    let listCoordinator = coordinatorFactory.makeListsCoordinator(
-//      router: router,
-//      tabBarViewController: TabBarController()
-//    )
-//    addDependency(listCoordinator)
-//    listCoordinator.start()
-    
     let coordinator = coordinatorFactory.makeTabBarCoordinator(router: router)
     addDependency(coordinator)
     coordinator.start()

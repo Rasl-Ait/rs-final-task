@@ -65,7 +65,7 @@ private extension FavoriteViewController {
   }
   
   func addMovie(_ items: [MovieModel]) {
-    updateSnapshot(items)
+    updateSnapshot(items, animatingChange: true)
   }
   
   func removeFavorite() {
@@ -123,7 +123,7 @@ private extension FavoriteViewController {
       cell.configure(model: model, type: .favorite)
       cell.didSelectFavorite = { [weak self] in
         guard let self = self else { return }
-        self.selectIndexPath = indexPath
+        self.selectIndexPath = collectionView.indexPath(for: cell)
         self.presenter.didSelect(type: .favorite(model.id))
       }
       
@@ -137,7 +137,7 @@ private extension FavoriteViewController {
     var snapshot = NSDiffableDataSourceSnapshot<Section, MovieModel>()
     snapshot.appendSections([.all])
     snapshot.appendItems(items, toSection: .all)
-    dataSource.apply(snapshot, animatingDifferences: false)
+    dataSource.apply(snapshot, animatingDifferences: animatingChange)
   }
 }
 

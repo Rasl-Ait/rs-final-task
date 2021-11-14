@@ -1,5 +1,5 @@
 //
-//  TabBarCooridnator.swift
+//  TabBarCoordinator.swift
 //  MovieApp
 //
 //  Created by rasul on 11/5/21.
