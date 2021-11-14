@@ -13,7 +13,7 @@ class FavoriteControllerMock: FavoriteViewInput {
   var isCalledSuccess: Bool!
   var isDeleteSuccess: Bool!
   
-  func success(items: [MovieModel]) {
+  func success(items: [MovieModel], state: StateLoad) {
     isCalledSuccess = true
   }
   

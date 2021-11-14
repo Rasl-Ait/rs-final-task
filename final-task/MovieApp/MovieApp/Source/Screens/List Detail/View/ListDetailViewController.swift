@@ -119,7 +119,7 @@ private extension ListDetailViewController {
   }
   
   func addMovie(_ items: [MovieModel]) {
-    updateSnapshot(items)
+    updateSnapshot(items, animatingChange: true)
   }
   
   func removeMovie() {
@@ -199,7 +199,7 @@ private extension ListDetailViewController {
     Alert.showAlertSheet(on: self, title: "Choose your option", titles: presenter.alertTitles) { alert in
       let sortedType = SortedType(rawValue: alert.title ?? "") ?? .date
       let sortedMovies = self.presenter.sorted(type: sortedType)
-      self.updateSnapshot(sortedMovies)
+      self.updateSnapshot(sortedMovies, animatingChange: true)
     }
   }
   
@@ -249,7 +249,7 @@ private extension ListDetailViewController {
     var snapshot = NSDiffableDataSourceSnapshot<Section, MovieModel>()
     snapshot.appendSections([.all])
     snapshot.appendItems(items, toSection: .all)
-    dataSource.apply(snapshot, animatingDifferences: false)
+    dataSource.apply(snapshot, animatingDifferences: animatingChange)
   }
 }
 

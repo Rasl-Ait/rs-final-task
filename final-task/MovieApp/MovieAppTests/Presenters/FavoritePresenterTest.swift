@@ -15,11 +15,11 @@ class FavoritePresenterTest: XCTestCase {
     let sut = makeSUT()
     sut.serviceAccount.responseMovie = results.item
     
-    sut.presenter.getFavoriteMovie()
+    sut.presenter.getFavoriteMovie(state: .noRefresh)
     sut.serviceAccount.getFavoriteMovies(1) { result in
       switch result {
       case .success(let item):
-        sut.view.success(items: item.results)
+        sut.view.success(items: item.results, state: .noRefresh)
         XCTAssertTrue(sut.view.isCalledSuccess)
       case .failure:
         break
@@ -30,7 +30,7 @@ class FavoritePresenterTest: XCTestCase {
   func test_getMoviesFailure() {
     let sut = makeSUT()
     
-    sut.presenter.getFavoriteMovie()
+    sut.presenter.getFavoriteMovie(state: .noRefresh)
     sut.serviceAccount.getFavoriteMovies(1) { result in
       switch result {
       case .success:

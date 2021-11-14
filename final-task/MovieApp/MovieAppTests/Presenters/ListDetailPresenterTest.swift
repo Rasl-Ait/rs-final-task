@@ -13,7 +13,7 @@ class ListDetailViewControllerMock: ListDetailViewInput {
   var isCalledFetchListsDetail: Bool!
   var isCalledRemoveMovie: Bool!
   
-  func success(items: [MovieModel]) {
+  func success(items: [MovieModel], state: StateLoad) {
     isCalledFetchListsDetail = true
   }
   
@@ -47,7 +47,7 @@ class ListDetailPresenterTest: XCTestCase {
     sut.service.listDetail(1) { result in
       switch result {
       case .success(let item):
-        sut.view.success(items: item.items)
+        sut.view.success(items: item.items, state: .noRefresh)
         XCTAssertTrue(sut.view.isCalledFetchListsDetail)
       case .failure(let error):
         sut.view.failure(error: error)
@@ -62,7 +62,7 @@ class ListDetailPresenterTest: XCTestCase {
     sut.service.listDetail(1) { result in
       switch result {
       case .success(let item):
-        sut.view.success(items: item.items)
+        sut.view.success(items: item.items, state: .noRefresh)
         XCTAssertTrue(sut.view.isCalledFetchListsDetail)
       case .failure(let error):
         sut.view.failure(error: error)

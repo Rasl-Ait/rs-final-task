@@ -27,7 +27,7 @@ final class MoviePersistence: StorageProtocol {
   func addList(_ item: T) {
     let list = fetchList(.uid(item.id))
     if list != nil {
-      if !filter(id: item.id, entityID: Int(list!.id)) {
+      if !filter(id: item.itemCount, entityID: Int(list!.itemCount)) {
         let entity = ListEntity.find(byID: item.id, context: backgroundContext)
         item.createEntity(entity)
         backgroundContext.performAndWait {
@@ -113,6 +113,7 @@ final class MoviePersistence: StorageProtocol {
         let entity = MovieEntity.find(byID: item.id, context: backgroundContext)
         item.createEntity(entity)
         listEntity?.addToMovies(entity)
+        listEntity?.itemCount += 1
         backgroundContext.performAndWait {
           save(backgroundContext)
         }
@@ -122,6 +123,7 @@ final class MoviePersistence: StorageProtocol {
       let entity = MovieEntity.find(byID: item.id, context: backgroundContext)
       item.createEntity(entity)
       listEntity?.addToMovies(entity)
+      listEntity?.itemCount += 1
       backgroundContext.performAndWait {
         save(backgroundContext)
       }
