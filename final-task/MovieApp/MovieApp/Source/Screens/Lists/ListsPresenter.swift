@@ -20,7 +20,7 @@ final class ListsPresenter: ListsViewOutput {
   private var page = 1
   
   var param: NewListParam?
-  private var mediaID: Int?
+  var mediaID: Int?
 
   init(
     view: ListsViewInput,

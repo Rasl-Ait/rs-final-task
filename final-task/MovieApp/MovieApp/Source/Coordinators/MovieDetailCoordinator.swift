@@ -74,8 +74,4 @@ extension MovieDetailCoordinator: MovieDetailCoordinatorProtocol {
     addDependency(listCoordinator)
     listCoordinator.start()
   }
-  
-  func dissmiss() {
-    router.popModule()
-  }
 }

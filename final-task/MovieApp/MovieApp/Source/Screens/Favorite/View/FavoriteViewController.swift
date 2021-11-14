@@ -123,8 +123,18 @@ private extension FavoriteViewController {
       cell.configure(model: model, type: .favorite)
       cell.didSelectFavorite = { [weak self] in
         guard let self = self else { return }
-        self.selectIndexPath = collectionView.indexPath(for: cell)
-        self.presenter.didSelect(type: .favorite(model.id))
+        
+        if InternetConnection().isConnectedToNetwork() {
+          self.selectIndexPath = collectionView.indexPath(for: cell)
+          self.presenter.didSelect(type: .favorite(model.id))
+        } else {
+          Alert.showAlert(
+            on: self,
+            with: .attention,
+            message: "Removal is available only when the Internet is on") { _ in
+            
+          }
+        }
       }
       
       return cell

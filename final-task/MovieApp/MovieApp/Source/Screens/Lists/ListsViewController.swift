@@ -79,8 +79,10 @@ private extension ListsViewController {
                                               action: #selector(logoutTapped))
     
     navigationItem.rightBarButtonItem = plusBarButtonItem
-    navigationItem.leftBarButtonItem = logoutBarButtonItem
     
+    if presenter.mediaID == nil {
+      navigationItem.leftBarButtonItem = logoutBarButtonItem
+    }
   }
   
   func setupAppearence() {

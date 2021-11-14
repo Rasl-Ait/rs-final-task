@@ -35,8 +35,9 @@ final class ScreenFactoryImpl: ScreenFactory {
     let urlSession = URLSession(configuration: config)
     let service = AccountAndListService(client: NetworkService(session: urlSession))
     let serviceAuth = AuthService(client: NetworkService(session: urlSession))
- let coreDataTask = (UIApplication.shared.delegate as? AppDelegate)?.coreDataTask
-    let persistence = MoviePersistence(context: coreDataTask!.managedContext, backgroundContext: coreDataTask!.backgroundContext)
+    let coreDataTask = (UIApplication.shared.delegate as? AppDelegate)?.coreDataTask
+    let persistence = MoviePersistence(context: coreDataTask!.managedContext,
+                                       backgroundContext: coreDataTask!.backgroundContext)
     let presenter = ListsPresenter(view: vc,
                                    service: service,
                                    persistence: persistence,
@@ -58,7 +59,8 @@ final class ScreenFactoryImpl: ScreenFactory {
     let urlSession = URLSession(configuration: config)
     let service = AccountAndListService(client: NetworkService(session: urlSession))
     let coreDataTask = (UIApplication.shared.delegate as? AppDelegate)?.coreDataTask
-       let persistence = MoviePersistence(context: coreDataTask!.managedContext, backgroundContext: coreDataTask!.backgroundContext)
+    let persistence = MoviePersistence(context: coreDataTask!.managedContext,
+                                       backgroundContext: coreDataTask!.backgroundContext)
     let presenter = ListDetailPresenter(
       view: vc,
       service: service,
@@ -124,7 +126,8 @@ final class ScreenFactoryImpl: ScreenFactory {
                                     "Authorization": "Bearer \(Constant.token)"]
     let service = AccountAndListService(client: NetworkService(session: URLSession(configuration: config)))
     let coreDataTask = (UIApplication.shared.delegate as? AppDelegate)?.coreDataTask
-       let persistence = MoviePersistence(context: coreDataTask!.managedContext, backgroundContext: coreDataTask!.backgroundContext)
+    let persistence = MoviePersistence(context: coreDataTask!.managedContext,
+                                       backgroundContext: coreDataTask!.backgroundContext)
     let presenter = FavoritePresenter(
       service: service,
       view: viewController,

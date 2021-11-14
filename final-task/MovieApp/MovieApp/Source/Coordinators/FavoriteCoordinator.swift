@@ -8,7 +8,6 @@
 import UIKit
 
 protocol FavoriteCoordinatorProtocol: AnyObject {
-  func pop()
   func pushMovieDetailVC(id: Int)
 }
 
@@ -41,10 +40,6 @@ extension FavoriteCoordinator: FavoriteCoordinatorProtocol {
     let viewController = screenFactory.makeFavoriteScreen(self)
     let navVC = NavigationController(rootViewController: viewController)
     tabBarViewController.appendNavigationController(navVC, item: .favorite)
-  }
-  
-  func pop() {
-    finishFlow?()
   }
   
   func pushMovieDetailVC(id: Int) {

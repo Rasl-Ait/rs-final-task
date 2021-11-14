@@ -204,10 +204,11 @@ class ListsPresenterTest: XCTestCase {
   
   private func makeSUT() -> (service: AccountAndListServiceSpy, presenter: ListsPresenter, view: ListsViewControllerMock) {
     let service = AccountAndListServiceSpy()
+    let serviceAuth = AuthService(client: MockHTTPClient())
     let view = ListsViewControllerMock()
     let coredataStack = CoreDataStack(modelName: "Model", storageType: .inMemory)
     let persistence = MoviePersistence(context: coredataStack.managedContext, backgroundContext: coredataStack.managedContext)
-    let presenter = ListsPresenter(view: view, service: service, persistence: persistence, mediaID: 1)
+    let presenter = ListsPresenter(view: view, service: service, persistence: persistence, mediaID: 1, serviceAuth: serviceAuth)
     return (service, presenter, view)
   }
 }

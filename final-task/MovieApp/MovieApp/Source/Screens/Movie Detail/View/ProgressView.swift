@@ -27,6 +27,7 @@ final class ProgressView: UIView {
   
   func configure(movie: MovieDetailModel) {
     time = 0
+    self.shapeLayer.strokeEnd = 0
     average = movie.score.toInt
     runTimer()
   }
@@ -43,6 +44,7 @@ final class ProgressView: UIView {
     time += 1
     if time == average {
       timer?.invalidate()
+      timer = nil
      
     }
     
@@ -57,7 +59,7 @@ final class ProgressView: UIView {
         self.shapeLayer.strokeColor = UIColor.green.withAlphaComponent(0.5).cgColor
       }
       
-      self.shapeLayer.strokeEnd = CGFloat(Double(self.time) / 100)
+      self.shapeLayer.strokeEnd = CGFloat(Double(self.time) / 120)
     }
   }
 }

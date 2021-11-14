@@ -64,6 +64,11 @@ struct Alert {
     if primaryTitle == .delete {
       action.setValue(UIColor.alertDeleteItem, forKey: "titleTextColor")
     }
+    
+    if primaryTitle == .yes {
+      action.setValue(UIColor.alertPrimaryAction, forKey: "titleTextColor")
+    }
+    
     alert.addAction(actionCancel)
     alert.addAction(action)
     DispatchQueue.main.async {
@@ -91,7 +96,8 @@ struct Alert {
     }
     alert.view.tintColor = .alertTintColor
     let action = UIAlertAction(title: primaryTitle.rawValue, style: .default, handler: primaryAction)
-    
+    action.setValue(UIColor.alertPrimaryAction, forKey: "titleTextColor")
+  
     let actionCancel = UIAlertAction(title: secondTitle.rawValue, style: .default, handler: secondAction)
   //  action.setValue(UIColor.red, forKey: "titleTextColor")
     alert.addAction(actionCancel)

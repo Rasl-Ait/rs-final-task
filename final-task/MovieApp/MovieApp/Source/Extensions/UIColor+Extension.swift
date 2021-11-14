@@ -24,4 +24,6 @@ extension UIColor {
   static let logoBackgroundColor = UIColor(named: "LogoBackgroundColor")!
   static let refreshTintColor = UIColor(named: "RefreshTintColor")!
   static let averageTintColor = UIColor(named: "AverageColor")!
+  static let alertPrimaryAction = UIColor(named: "AlertPrimaryAction")!
+  
 }

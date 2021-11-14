@@ -76,20 +76,18 @@ private extension ListDetailCollectionCellView {
   }
   
   func setupAppearence() {
-    addSubview(imageView)
-    addSubview(titleLabel)
+    addSubview(stackView)
     addSubview(favoriteView)
     addSubview(checkButton)
   }
   
   func setupLayoutUI() {
     imageView.snp.makeConstraints {
-      $0.top.leading.trailing.equalToSuperview().inset(7)
       $0.height.equalTo(180)
     }
     
-    titleLabel.snp.makeConstraints {
-      $0.top.equalTo(imageView.snp.bottom).offset(10)
+    stackView.snp.makeConstraints {
+      $0.top.equalToSuperview().offset(7)
       $0.leading.trailing.bottom.equalToSuperview().inset(7)
     }
     
@@ -123,7 +121,7 @@ private extension ListDetailCollectionCellView {
       fontName: .avenir(.fontSM, .SemiBold)
     )
     view.numberOfLines = 0
-   
+    view.isHidden = true
     return view
   }
   
@@ -138,6 +136,7 @@ private extension ListDetailCollectionCellView {
   func makeStackView() -> UIStackView {
     let view = CustomStackView(axis: .vertical, spacing: .spacingXS)
     view.addArrangedSubview(imageView)
+    view.addArrangedSubview(titleLabel)
     return view
   }
   
