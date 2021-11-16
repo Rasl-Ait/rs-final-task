@@ -40,7 +40,7 @@ final class WebViewController: BaseViewController {
   private lazy var safariButton: UIBarButtonItem = {
     let button = AnimationButton(image: .setImage(.safari))
     button.tintColor = .navigationBarTintColor
-    button.addTarget(self, action: #selector(safari), for: .touchUpInside)
+    button.addTarget(self, action: #selector(showSafari), for: .touchUpInside)
     let view = UIBarButtonItem(customView: button)
     return view
   }()
@@ -146,15 +146,18 @@ private extension WebViewController {
     present(activityController, animated: true, completion: nil)
   }
   
-  @objc func safari() {
+  @objc func showSafari() {
     UIApplication.shared.open(URL(string: stringURL)!)
   }
 }
 
 // MARK: WKNavigationDelegate
 extension WebViewController: WKNavigationDelegate {
-  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-   
+  override func observeValue(forKeyPath keyPath: String?,
+                             of object: Any?,
+                             change: [NSKeyValueChangeKey: Any]?,
+                             context: UnsafeMutableRawPointer?) {
+    
     if keyPath == "estimatedProgress" {
       reloadButton.isEnabled = webView.isLoading
       backButton.isEnabled = webView.canGoBack

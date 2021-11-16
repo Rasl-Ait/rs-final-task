@@ -25,16 +25,15 @@ final class MoviePersistence: StorageProtocol {
   
   // MARK: List Entity
   func addList(_ item: T) {
-    let list = fetchList(.uid(item.id))
-    if list != nil {
-      if !filter(id: item.itemCount, entityID: Int(list!.itemCount)) {
-        let entity = ListEntity.find(byID: item.id, context: backgroundContext)
-        item.createEntity(entity)
-        backgroundContext.performAndWait {
-          save(backgroundContext)
-        }
+    guard let list = fetchList(.uid(item.id)) else {
+      let entity = ListEntity.find(byID: item.id, context: backgroundContext)
+      item.createEntity(entity)
+      backgroundContext.performAndWait {
+        save(backgroundContext)
       }
-    } else {
+      return
+    }
+    if !filter(id: item.itemCount, entityID: Int(list.itemCount)) {
       let entity = ListEntity.find(byID: item.id, context: backgroundContext)
       item.createEntity(entity)
       backgroundContext.performAndWait {
@@ -47,7 +46,7 @@ final class MoviePersistence: StorageProtocol {
     let request: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
     switch predicateType {
     case .uid(let id):
-     let predicate = NSPredicate(format: "id = %d", id)
+      let predicate = NSPredicate(format: "id = %d", id)
       request.predicate = predicate
       
       do {
@@ -68,7 +67,7 @@ final class MoviePersistence: StorageProtocol {
     let request: NSFetchRequest<ListEntity> = ListEntity.fetchRequest()
     switch predicateType {
     case .uid(let id):
-     let predicate = NSPredicate(format: "id = %d", id)
+      let predicate = NSPredicate(format: "id = %d", id)
       request.predicate = predicate
       
       do {
@@ -106,19 +105,19 @@ final class MoviePersistence: StorageProtocol {
   
   // MARK: Movie Entity
   func addMovie(_ item: MovieModel, listID: Int) {
-    let movie = fetchMovie(.uid(item.id))
-    if movie != nil {
-      if !filter(id: item.id, entityID: Int(movie!.id)) {
-        let listEntity = fetchList(.uid(listID))
-        let entity = MovieEntity.find(byID: item.id, context: backgroundContext)
-        item.createEntity(entity)
-        listEntity?.addToMovies(entity)
-        listEntity?.itemCount += 1
-        backgroundContext.performAndWait {
-          save(backgroundContext)
-        }
+    guard let movie = fetchMovie(.uid(item.id)) else {
+      let listEntity = fetchList(.uid(listID))
+      let entity = MovieEntity.find(byID: item.id, context: backgroundContext)
+      item.createEntity(entity)
+      listEntity?.addToMovies(entity)
+      listEntity?.itemCount += 1
+      backgroundContext.performAndWait {
+        save(backgroundContext)
       }
-    } else {
+      return
+    }
+    
+    if !filter(id: item.id, entityID: Int(movie.id)) {
       let listEntity = fetchList(.uid(listID))
       let entity = MovieEntity.find(byID: item.id, context: backgroundContext)
       item.createEntity(entity)
@@ -134,7 +133,7 @@ final class MoviePersistence: StorageProtocol {
     let request: NSFetchRequest<MovieEntity> = MovieEntity.fetchRequest()
     switch predicateType {
     case .uid(let id):
-     let predicate = NSPredicate(format: "id = %d", id)
+      let predicate = NSPredicate(format: "id = %d", id)
       request.predicate = predicate
       
       do {
@@ -178,24 +177,25 @@ final class MoviePersistence: StorageProtocol {
     }
   }
   
-// MARK: Favorite movie Entity
+  // MARK: Favorite movie Entity
   
   func addFavoriteMovie(_ item: MovieModel) {
-    let movie = fetchFavoriteMovie(.uid(item.id))
-    if movie != nil {
-      if !filter(id: item.id, entityID: Int(movie!.id)) {
-        let entity = FavoriteMovieEntity.find(byID: item.id, context: backgroundContext)
-        item.createEntity(entity)
-        backgroundContext.performAndWait {
-          save(backgroundContext)
-        }
-      }
-    } else {
+    guard let movie = fetchFavoriteMovie(.uid(item.id)) else {
       let entity = FavoriteMovieEntity.find(byID: item.id, context: backgroundContext)
       item.createEntity(entity)
       backgroundContext.performAndWait {
         save(backgroundContext)
       }
+      return
+    }
+    
+    if !filter(id: item.id, entityID: Int(movie.id)) {
+      let entity = FavoriteMovieEntity.find(byID: item.id, context: backgroundContext)
+      item.createEntity(entity)
+      backgroundContext.performAndWait {
+        save(backgroundContext)
+      }
+      
     }
   }
   
@@ -218,7 +218,7 @@ final class MoviePersistence: StorageProtocol {
       // completion(.success((self.items)))
     } catch {
       DDLogError("error while receiving Favorites movie \(error.localizedDescription)")
-     // completion(.failure(.fetch(error)))
+      // completion(.failure(.fetch(error)))
     }
   }
   
@@ -226,7 +226,7 @@ final class MoviePersistence: StorageProtocol {
     let request: NSFetchRequest<FavoriteMovieEntity> = FavoriteMovieEntity.fetchRequest()
     switch predicateType {
     case .uid(let id):
-     let predicate = NSPredicate(format: "id = %d", id)
+      let predicate = NSPredicate(format: "id = %d", id)
       request.predicate = predicate
       
       do {
@@ -283,7 +283,7 @@ final class MoviePersistence: StorageProtocol {
       // completion(.success((self.items)))
     } catch {
       DDLogError("error while receiving lists \(error.localizedDescription)")
-     // completion(.failure(.fetch(error)))
+      // completion(.failure(.fetch(error)))
     }
   }
   

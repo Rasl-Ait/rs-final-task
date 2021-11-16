@@ -42,17 +42,16 @@ final class TabBarController: UITabBarController {
     navigationController?.navigationBar.barStyle = barStyle
   }
   
-  
   func appendNavigationController(_ vc: UINavigationController, item: TabBarItem) {
-      customizeNavigationController(vc, item: item)
-      viewControllers = (viewControllers ?? []) + [vc]
+    customizeNavigationController(vc, item: item)
+    viewControllers = (viewControllers ?? []) + [vc]
   }
 }
 
 private extension TabBarController {
-    private func customizeNavigationController(
-        _ navigationController: UINavigationController,
-        item: TabBarItem) {
-        navigationController.tabBarItem = tabBarItems[item.rawValue]
-    }
+  private func customizeNavigationController(
+    _ navigationController: UINavigationController,
+    item: TabBarItem) {
+    navigationController.tabBarItem = tabBarItems[item.rawValue]
+  }
 }

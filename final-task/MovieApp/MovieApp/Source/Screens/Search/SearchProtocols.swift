@@ -16,6 +16,9 @@ protocol SearchViewInput: AnyObject {
 }
 
 protocol SearchViewOutput: AnyObject {
+  var page: Int { get set }
+  var isFetching: Bool { get set }
+  
   func search(searchText: String)
   func push(id: Int)
 }

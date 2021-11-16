@@ -10,7 +10,7 @@ class InternetConnection {
     guard let defaultRouteReachability = withUnsafePointer(to: &zeroAddress, {
       $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
         zeroSockAddress in SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)}
-    } ) else {
+    }) else {
       return false
     }
     var flags : SCNetworkReachabilityFlags = []

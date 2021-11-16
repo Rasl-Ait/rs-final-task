@@ -14,6 +14,7 @@ final class SearchViewController: BaseViewController {
   private let searchController = UISearchController(searchResultsController: nil)
   
 	var presenter: SearchViewOutput!
+  var searchText = ""
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,6 +32,11 @@ private extension SearchViewController {
     searchView.didSelectRowAt = { [weak self] id in
       guard let self = self else { return }
       self.presenter.push(id: id)
+    }
+    
+    searchView.load = { [weak self] in
+      guard let self = self else { return }
+      self.presenter.search(searchText: self.searchText)
     }
   }
   
@@ -69,8 +75,10 @@ private extension SearchViewController {
 extension SearchViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
+      presenter.page = 1
       return
     }
+    self.searchText = searchText
     presenter.search(searchText: searchText)
   }
 }
@@ -79,7 +87,7 @@ extension SearchViewController: UISearchResultsUpdating {
 extension SearchViewController: SearchViewInput {
   func success(items: [MovieModel]) {
     hide()
-    searchView.addMovie(items)
+    searchView.addMovie(items, isFetching: presenter.isFetching)
   }
   
   func failure(error: APIError) {

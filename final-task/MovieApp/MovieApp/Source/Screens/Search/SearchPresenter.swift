@@ -13,7 +13,9 @@ final class SearchPresenter: SearchViewOutput {
 	weak var view: SearchViewInput?
   var coordinator: SearchCoordinatorProtocol?
   
-  private var page = 1
+  var page = 1
+  var isFetching = false
+  private var results: [MovieModel] = []
   
 	init(service: SearchServiceProtocol, view: SearchViewInput) {
 		self.service = service
@@ -22,13 +24,18 @@ final class SearchPresenter: SearchViewOutput {
   
   func search(searchText: String) {
     view?.showIndicator()
+    isFetching = true
     let param = SearchParam(query: searchText, page: page, includeAdult: false)
     service.search(param) { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .success(let item):
+        
         mainQueue {
-          self.view?.success(items: item.results)
+          self.isFetching = self.page == item.totalPages
+          self.page += 1
+          self.results.append(contentsOf: item.results)
+          self.view?.success(items: self.results)
         }
       case .failure(let error):
         mainQueue {

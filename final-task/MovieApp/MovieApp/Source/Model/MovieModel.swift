@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieModel: Codable, Equatable, Hashable {
+struct MovieModel: Codable, Equatable {
   let id: Int
   let originalTitle: String?
   let originalName: String?
@@ -27,6 +27,16 @@ struct MovieModel: Codable, Equatable, Hashable {
       guard let posterPath = posterPath else { return nil }
       return "https://image.tmdb.org/t/p/w500" + posterPath
   }
+}
+
+extension MovieModel: Hashable {
+  static func == (lhs: MovieModel, rhs: MovieModel) -> Bool {
+         return lhs.id == rhs.id
+     }
+
+     func hash(into hasher: inout Hasher) {
+         hasher.combine(id)
+     }
 }
 
 extension MovieModel {

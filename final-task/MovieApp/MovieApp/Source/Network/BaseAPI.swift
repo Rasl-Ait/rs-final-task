@@ -31,7 +31,7 @@ extension URLRequest {
     if !param.0.isEmpty {
       components.queryItems = param.0
     }
-   
+    
     var request = URLRequest(url: components.url!)
     request.httpMethod = httpMethod?.rawValue
     
@@ -53,7 +53,7 @@ extension BaseAPI {
     case .requestPostParameters(parameters: let param):
       return ([], param)
     case .postAndGetParameters(parameters: let param, query: let query):
-    return (query, param)
+      return (query, param)
     }
   }
   
@@ -64,10 +64,10 @@ extension BaseAPI {
         guard let object = self.decodeJSON(type: T.self, data: data) else {
           return
         }
-          completion(.success(object))
-      
+        completion(.success(object))
+        
       case .failure(let error):
-          completion(.failure(error))
+        completion(.failure(error))
       }
     }
   }

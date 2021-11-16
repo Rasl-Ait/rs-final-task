@@ -29,7 +29,8 @@ final class NetworkService: HTTPClient {
         switch URLError.Code(rawValue: error.code) {
         case .notConnectedToInternet:
             print("NotConnectedToInternet")
-        default: break
+        default:
+          break
         }
         
         completion(.failure(.networkingError(error)))

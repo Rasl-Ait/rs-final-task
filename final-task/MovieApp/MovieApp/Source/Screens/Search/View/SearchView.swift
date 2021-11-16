@@ -15,6 +15,7 @@ final class SearchView: UIView {
   
   private var deleteIndexPath: IndexPath!
   private var movies: [MovieModel] = []
+  private var isFetching = false
   
   enum Section {
     case all
@@ -22,6 +23,7 @@ final class SearchView: UIView {
   
   // MARK: - Closure
   var didSelectRowAt: ItemClosure<Int>?
+  var load: VoidClosure?
   
   // MARK: - Overriden funcs
   
@@ -34,7 +36,8 @@ final class SearchView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func addMovie(_ items: [MovieModel]) {
+  func addMovie(_ items: [MovieModel], isFetching: Bool) {
+    self.isFetching = isFetching
     self.movies = items
     updateSnapshot(items, animatingChange: true)
   }
@@ -122,6 +125,15 @@ extension SearchView: UICollectionViewDelegate {
     collectionView.deselectItem(at: indexPath, animated: false)
     guard let movie = self.dataSource.itemIdentifier(for: indexPath) else { return }
     didSelectRowAt?(movie.id)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    print(indexPath.item)
+    if indexPath.row == movies.count - 1 && !isFetching {
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        self.load?()
+      }
+    }
   }
 }
 
