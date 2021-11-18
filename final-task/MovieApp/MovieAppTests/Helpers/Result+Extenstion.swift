@@ -1,9 +1,3 @@
-//
-//  Result+Extenstion.swift
-//  MovieAppTests
-//
-//  Created by rasul on 11/1/21.
-//
 
 import Foundation
 

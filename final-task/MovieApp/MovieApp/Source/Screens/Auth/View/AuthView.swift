@@ -5,7 +5,7 @@
 //  Created by rasul on 11/4/21.
 //
 
-import Foundation
+import UIKit
 import SnapKit
 
 final class AuthView: UIView {

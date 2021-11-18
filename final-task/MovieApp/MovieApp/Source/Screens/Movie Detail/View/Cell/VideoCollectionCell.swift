@@ -35,11 +35,19 @@ private extension VideoCollectionCell {
     
     playerView.layer.cornerRadius = .spacingS
     playerView.clipsToBounds = true
+    playerView.delegate = self
+    playerView.backgroundColor = .backgroundColor
     
     addSubview(playerView)
     
     playerView.snp.makeConstraints {
       $0.edges.equalToSuperview().inset(7)
     }
+  }
+}
+
+extension VideoCollectionCell: YTPlayerViewDelegate {
+  func playerViewPreferredWebViewBackgroundColor(_ playerView: YTPlayerView) -> UIColor {
+    return .backgroundColor
   }
 }

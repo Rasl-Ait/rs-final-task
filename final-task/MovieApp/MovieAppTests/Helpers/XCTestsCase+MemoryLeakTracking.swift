@@ -1,9 +1,3 @@
-//
-//  XCTestsCase+MemoryLeakTracking.swift
-//  EssentialFeedTests
-//
-//  Created by Alex Tapia on 06/01/21.
-//
 
 import XCTest
 

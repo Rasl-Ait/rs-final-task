@@ -10,7 +10,7 @@ import XCTest
 class FavoritePresenterTest: XCTestCase {
   
   func test_getMoviesSuccess() {
-    let results = getResponce(file: "MovieModel", type: MovieResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "MovieModel", type: MovieResponce.self)
     
     let sut = makeSUT()
     sut.serviceAccount.responseMovie = results.item

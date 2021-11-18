@@ -11,7 +11,7 @@ import XCTest
 class ListsPresenterTest: XCTestCase {
   
   func test_getAccountSuccess() {
-    let results = getResponce(file: "Account", type: AccountModel.self)
+    let results = SharedTestHelpers.getResponce(file: "Account", type: AccountModel.self)
     
     let sut = makeSUT()
     sut.service.responseAccount = results.item
@@ -30,7 +30,7 @@ class ListsPresenterTest: XCTestCase {
   }
   
   func test_getAccountFailure() {
-    let results = getResponce(file: "Account", type: AccountModel.self)
+    let results = SharedTestHelpers.getResponce(file: "Account", type: AccountModel.self)
     
     let sut = makeSUT()
     sut.service.responseAccount = results.item
@@ -51,7 +51,7 @@ class ListsPresenterTest: XCTestCase {
   
   func test_getListsSuccess() {
     
-    let results = getResponce(file: "ListModel", type: ListResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "ListModel", type: ListResponce.self)
     
     let sut = makeSUT()
     sut.service.responseList = results.item
@@ -70,7 +70,7 @@ class ListsPresenterTest: XCTestCase {
   
   func test_getListsFailure() {
     
-    let results = getResponce(file: "ListModel1", type: ListResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "ListModel1", type: ListResponce.self)
     
     let sut = makeSUT()
     sut.service.responseList = results.item

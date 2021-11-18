@@ -22,7 +22,7 @@ class SearchServiceTest: XCTestCase {
   }
   
   func test_getMovieSimilarSuccessResponse() throws {
-    let results = getResponce(file: "Movie", type: MovieResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "Movie", type: MovieResponce.self)
 
     guard
       let response = results.responce,

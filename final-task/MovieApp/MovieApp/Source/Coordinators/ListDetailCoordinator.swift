@@ -13,10 +13,10 @@ protocol ListDetailCoordinatorProtocol: AnyObject {
 }
 
 final class ListDetailCoordinator: BaseCoordinator {
-  let router: Router
-  let coordinatorFactory: CoordinatorFactory
-  let screenFactory: ScreenFactory
-  let list: ListModel
+  private let router: Router
+  private let coordinatorFactory: CoordinatorFactory
+  private let screenFactory: ScreenFactory
+  private let list: ListModel
   
   var finishFlow: VoidClosure?
   

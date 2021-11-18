@@ -8,7 +8,6 @@ import XCTest
 @testable import MovieApp
 
 class AccountAndListServiceSpy: AccountAndListServiceProtocol {
-    
   var responseList: ListResponce?
   var responseNewList: NewListResponce?
   var responseSuccessError: SuccessErrorModel?

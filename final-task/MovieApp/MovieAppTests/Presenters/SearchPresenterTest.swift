@@ -11,7 +11,7 @@ import XCTest
 class SearchPresenterTest: XCTestCase {
   
   func test_getMoviesSuccess() {
-    let results = getResponce(file: "MovieModel", type: MovieResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "MovieModel", type: MovieResponce.self)
     let param = SearchParam(query: "Venom", page: 1, includeAdult: false)
     
     let sut = makeSUT()

@@ -147,7 +147,7 @@ class AccountServiceTest: XCTestCase {
   
   func test_getAccountRequestSuccessResponse() throws {
 
-    let results = getResponce(file: "Account", type: AccountModel.self)
+    let results = SharedTestHelpers.getResponce(file: "Account", type: AccountModel.self)
 
     guard
       let response = results.responce,
@@ -167,7 +167,7 @@ class AccountServiceTest: XCTestCase {
   }
 
   func test_getListsSuccessResponse() throws {
-    let results = getResponce(file: "ListModel", type: ListResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "ListModel", type: ListResponce.self)
 
     guard
       let response = results.responce,
@@ -186,7 +186,7 @@ class AccountServiceTest: XCTestCase {
   }
 
   func test_getFavoriteMoviesSuccessResponse() throws {
-    let results = getResponce(file: "Movie", type: MovieResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "Movie", type: MovieResponce.self)
 
     guard
       let response = results.responce,
@@ -249,7 +249,7 @@ class AccountServiceTest: XCTestCase {
   }
   
   func test_listDetailSuccessResponse() throws {
-    let results = getResponce(file: "ListDetail", type: ListDetailResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "ListDetail", type: ListDetailResponce.self)
 
     guard
       let response = results.responce,

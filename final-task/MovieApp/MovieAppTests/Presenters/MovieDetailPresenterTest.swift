@@ -11,7 +11,7 @@ import XCTest
 class MovieDetailPresenterTest: XCTestCase {
   
   func test_getMovieDetailSuccess() {
-    let results = getResponce(file: "MovieDetail", type: MovieDetailModel.self)
+    let results = SharedTestHelpers.getResponce(file: "MovieDetail", type: MovieDetailModel.self)
     
     let movieId = results.item?.id
     
@@ -31,7 +31,7 @@ class MovieDetailPresenterTest: XCTestCase {
   }
   
   func test_getMovieDetailFailure() {
-    let results = getResponce(file: "MovieDetail", type: MovieDetailModel.self)
+    let results = SharedTestHelpers.getResponce(file: "MovieDetail", type: MovieDetailModel.self)
     
     let movieId = results.item?.id
     
@@ -96,4 +96,3 @@ class MovieDetailPresenterTest: XCTestCase {
     return (serviceMovie, serviceAccount, presenter, view)
   }
 }
-

@@ -77,7 +77,7 @@ class MovieServiceTest: XCTestCase {
   
   func test_getMoviesRequestSuccessResponse() throws {
 
-    let results = getResponce(file: "MovieDetail", type: MovieDetailModel.self)
+    let results = SharedTestHelpers.getResponce(file: "MovieDetail", type: MovieDetailModel.self)
 
     guard
       let response = results.responce,
@@ -97,7 +97,7 @@ class MovieServiceTest: XCTestCase {
   }
 
   func test_getVideoSuccessResponse() throws {
-    let results = getResponce(file: "MovieVideo", type: ResultsVideo.self)
+    let results = SharedTestHelpers.getResponce(file: "MovieVideo", type: ResultsVideo.self)
 
     guard
       let response = results.responce,
@@ -116,7 +116,7 @@ class MovieServiceTest: XCTestCase {
   }
   
   func test_getMovieSimilarSuccessResponse() throws {
-    let results = getResponce(file: "Movie", type: MovieResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "Movie", type: MovieResponce.self)
 
     guard
       let response = results.responce,

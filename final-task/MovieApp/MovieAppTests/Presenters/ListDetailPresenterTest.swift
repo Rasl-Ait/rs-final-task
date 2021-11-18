@@ -38,7 +38,7 @@ class ListDetailViewControllerMock: ListDetailViewInput {
 class ListDetailPresenterTest: XCTestCase {
   
   func test_getListDetailSuccess() {
-    let results = getResponce(file: "ListDetail", type: ListDetailResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "ListDetail", type: ListDetailResponce.self)
     
     let sut = makeSUT()
     sut.service.responseListDetail = results.item
@@ -73,7 +73,7 @@ class ListDetailPresenterTest: XCTestCase {
   
   func test_deleteMovieFromListSuccess() {
     
-    let results = getResponce(file: "Movie", type: MovieResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "Movie", type: MovieResponce.self)
     let movie = results.item?.results.first
     
     let responseSuccessError = SuccessErrorModel(statusCode: 12, statusMessage: "The item/record was updated successfully.")
@@ -97,7 +97,7 @@ class ListDetailPresenterTest: XCTestCase {
 
   func test_deleteMovieFromListFailure() {
     
-    let results = getResponce(file: "Movie", type: MovieResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "Movie", type: MovieResponce.self)
     let movie = results.item?.results.first
     
     let param = RemoveMovieParam(mediaID: movie?.id ?? 0)
@@ -123,7 +123,7 @@ class ListDetailPresenterTest: XCTestCase {
     let coredataStack = CoreDataStack(modelName: "Model", storageType: .inMemory)
     let persistence = MoviePersistence(context: coredataStack.managedContext, backgroundContext: coredataStack.managedContext)
     
-    let results = getResponce(file: "ListModel", type: ListResponce.self)
+    let results = SharedTestHelpers.getResponce(file: "ListModel", type: ListResponce.self)
     
     let list = results.item?.results.first!
     
