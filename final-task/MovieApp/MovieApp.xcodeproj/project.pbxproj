@@ -155,6 +155,7 @@
 		DCD0109427477B6700E26606 /* AppCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109327477B6700E26606 /* AppCoordinatorTest.swift */; };
 		DCD0109627477F2E00E26606 /* AuthCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109527477F2E00E26606 /* AuthCoordinatorTest.swift */; };
 		DCD0109827477FBF00E26606 /* ListCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109727477FBF00E26606 /* ListCoordinatorTest.swift */; };
+		DCD0109A2747802700E26606 /* ListDetailCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD010992747802700E26606 /* ListDetailCoordinatorTest.swift */; };
 		DCDAE9712740D11E00E38C2D /* SearchPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9702740D11E00E38C2D /* SearchPresenterTest.swift */; };
 		DCDAE9732740D13400E38C2D /* SearchServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9722740D13400E38C2D /* SearchServiceSpy.swift */; };
 		DCDAE9752740D19C00E38C2D /* SearchControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9742740D19C00E38C2D /* SearchControllerMock.swift */; };
@@ -352,6 +353,7 @@
 		DCD0109327477B6700E26606 /* AppCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTest.swift; sourceTree = "<group>"; };
 		DCD0109527477F2E00E26606 /* AuthCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorTest.swift; sourceTree = "<group>"; };
 		DCD0109727477FBF00E26606 /* ListCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinatorTest.swift; sourceTree = "<group>"; };
+		DCD010992747802700E26606 /* ListDetailCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCoordinatorTest.swift; sourceTree = "<group>"; };
 		DCDAE9702740D11E00E38C2D /* SearchPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenterTest.swift; sourceTree = "<group>"; };
 		DCDAE9722740D13400E38C2D /* SearchServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceSpy.swift; sourceTree = "<group>"; };
 		DCDAE9742740D19C00E38C2D /* SearchControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerMock.swift; sourceTree = "<group>"; };
@@ -788,6 +790,7 @@
 				DCD0109327477B6700E26606 /* AppCoordinatorTest.swift */,
 				DCD0109527477F2E00E26606 /* AuthCoordinatorTest.swift */,
 				DCD0109727477FBF00E26606 /* ListCoordinatorTest.swift */,
+				DCD010992747802700E26606 /* ListDetailCoordinatorTest.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -1536,6 +1539,7 @@
 				DCD0109427477B6700E26606 /* AppCoordinatorTest.swift in Sources */,
 				DC47F808272FDE24009603EE /* Result+Extenstion.swift in Sources */,
 				DC49A059272EE9C300F17DE9 /* SharedTestHelpers.swift in Sources */,
+				DCD0109A2747802700E26606 /* ListDetailCoordinatorTest.swift in Sources */,
 				DC95098627405F4300BAA43E /* ListDetailPresenterTest.swift in Sources */,
 				DC950976273FE95F00BAA43E /* BaseCoordinatorTest.swift in Sources */,
 			);
