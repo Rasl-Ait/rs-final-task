@@ -1,23 +1,34 @@
-Movie App
+# Movie
 
-API used - https://api.themoviedb.org
+Приложение Movie предназначено для выбора фильма для просмотра.
 
- Application for selecting movies to watch.
-You can create your own lists with movies, add to favorites and delete.
+* Пользователь имеет возможность:
+ * Находить и смотреть информацию понравившегося фильма, можно воспользоваться строкой поиска по наименованию, или выбрать один из фильтров – популярные, лучшие, ожидаемые, смотрят сейчас);
+ * Добавлять в избранное, удалять из избранного;
+ * Формировать, дополнять или сокращать списки выбранных фильмов.
+ * Данные, доступные в приложении, автоматически синхронизируются с https://www.themoviedb.org/ - международной базой фильмов и телевизионных передач, которая существует и регулярно пополняется с 2008 года.
+ * Фильм добавленный в избранное, автоматически загрузится на смартфон и будет доступен даже оффлайн. 
+ * Сформированные списки также доступны пользователю для просмотра вне зависимости от того, подключено к сети или нет (при этом в режиме оффлайн доступен только просмотр списка без его редактирования). Эта опция дает возможность смотреть списки даже без подключения к сети интернет, что выгодно отличает Movie от аналогичных приложений, представленных в App store.
 
-The application works without a network, data is downloaded from Core Data if there is no network connection.
-Without a network, you can watch movies in favorites and movie lists.
 
-All application data is synchronized with the site https://www.themoviedb.org/
+* Приложение написано с применением архитектуры MVP-C-R. 
+* Для постоянного хранения данных используется CoreData;
+* Описаны unit-тесты;
+* Приложение написано без использование Storyboard и Xib, полностью кодом;
+* Минимальная версия: iOS 13;
+* Интерфейс рисуется в UIKit;
+* API - https://developers.themoviedb.org/3/getting-started/introduction
 
-The application is written using the MVC-C-R architecture
 
-Used factory for coordinators and screens
+* Использованы библиотеки:
+ * Kingfisher - кэш и загрузка изображения из глобальной сети;
+ * MBProgressHUD - индикация загрузки;
+ * Snapkit – Autolayout;
+ * CocoaLumberjack – логирование;
+ * SwiftLint – автопроверка кода;
+ * Mockolo - генерация моков
 
-Libraries:
-Kingfisher - for caching and downloading images from the network
-MBProgressHUD - for the loading indicator
-Snapkit - for autolayout
-CocoaLumberjack - logging
+Movie – удобное приложение для создания списков с фильмами для разный жанр с дружелюбным, интуитивно понятным интерфейсом для настоящих киноманов.
+
 
 [Link to my design](https://www.figma.com/file/8OpqOoPTrh2BdNiHlsKdCT/Untitled?node-id=1%3A254)
