@@ -298,6 +298,21 @@ class AccountAndListServiceProtocolMock: AccountAndListServiceProtocol {
     }
 }
 
+class SearchServiceProtocolMock: SearchServiceProtocol {
+    init() { }
+
+
+    private(set) var searchCallCount = 0
+    var searchHandler: ((SearchParam, @escaping CompletionBlock<MovieResponce>) -> ())?
+    func search(_ param: SearchParam, _ completion: @escaping CompletionBlock<MovieResponce>)  {
+        searchCallCount += 1
+        if let searchHandler = searchHandler {
+            searchHandler(param, completion)
+        }
+        
+    }
+}
+
 class FavoriteCoordinatorProtocolMock: FavoriteCoordinatorProtocol {
     init() { }
 

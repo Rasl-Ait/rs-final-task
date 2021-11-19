@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// @mockable
 protocol SearchServiceProtocol {
   func search(
     _ param: SearchParam ,
