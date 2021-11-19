@@ -63,7 +63,7 @@ extension ListsCoordinator: ListsCoordinatorProtocol {
   }
   
   func pushAuthVC() {
-    finishFlow?()
+    tabBarViewController.viewControllers?.removeAll()
     let coordinator = coordinatorFactory.makeAuthCoordinator(router: router)
     addDependency(coordinator)
     coordinator.start()

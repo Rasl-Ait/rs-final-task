@@ -8,20 +8,30 @@
 import Foundation
 
 protocol MovieServiceProtocol {
+  
+  /// Get the primary information about a movie.
   func getMovie(
     _ id: Int,
     _ completion: @escaping CompletionBlock<MovieDetailModel>)
+  
+  /// Get the videos that have been added to a movie.
   func getVideo(
     _ id: Int,
     completion: @escaping CompletionBlock<ResultsVideo>)
+  
+  /// Get a list of similar movies
   func getMovieSimilar(
     _ id: Int,
     page: Int,
     completion: @escaping CompletionBlock<MovieResponce>)
+  
+  /// Rate a movie.
   func movieRate(
     _ id: Int,
     param: MovieRateParam,
     completion: @escaping CompletionBlock<SuccessErrorModel>)
+  
+  /// Grab the following account states for a session
   func getAccountStates(
     _ id: Int,
     completion: @escaping CompletionBlock<MovieStates>)

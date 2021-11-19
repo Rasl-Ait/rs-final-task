@@ -40,18 +40,6 @@ class AuthPresenterTest: XCTestCase {
       }
     }
     
-//    self.service.sessionNew(requestTokenParam) { [weak self] result in
-//      guard let self = self else { return }
-//      switch result {
-//      case .success(let item):
-//        XCTAssertEqual(item.success, true)
-//        XCTAssertEqual(item.sessionId, "fc5c282cffd26800ecd")
-//        self.view.success()
-//      case .failure(let error):
-//        self.view.failure(error: error)
-//      }
-//    }
-//
       presenter.newToken(param)
     
     XCTAssertEqual(view.successCallCount, 1)
@@ -90,7 +78,7 @@ class AuthPresenterTest: XCTestCase {
   func test_validationSuccess() {
     let token = AuthenticationToken(success: true, expiresAt: "2016-08-26 17:04:39 UTC", requestToken: "ff5c7eeb5a8870efe3cd7fc5c282cffd26800ecd")
     let param = ValidationWithLoginParam(username: "lol", password: "ken", token: token.requestToken)
-    let session = AuthenticationSession(success: true, sessionId: "fc5c282cffd26800ecd")
+    let session = AuthenticationSession(success: true, sessionId: UserDefaults.standard.sessionID)
     let requestTokenParam = RequestTokenParam(token: token.requestToken)
 
     service.validateWithLoginHandler = { _, completion in
@@ -106,8 +94,8 @@ class AuthPresenterTest: XCTestCase {
       guard let self = self else { return }
       switch result {
       case .success(let item):
-        XCTAssertEqual(item.success, true)
-        XCTAssertEqual(item.sessionId, "fc5c282cffd26800ecd")
+        XCTAssertEqual(item.success, session.success)
+        XCTAssertEqual(item.sessionId, session.sessionId)
         self.view.success()
       case .failure(let error):
         self.view.failure(error: error)
@@ -153,8 +141,6 @@ class AuthPresenterTest: XCTestCase {
       guard let self = self else { return }
       switch result {
       case .success(let item):
-        XCTAssertEqual(item.success, true)
-        XCTAssertEqual(item.sessionId, "fc5c282cffd26800ecd")
         self.view.success()
       case .failure(let error):
         self.view.failure(error: error)

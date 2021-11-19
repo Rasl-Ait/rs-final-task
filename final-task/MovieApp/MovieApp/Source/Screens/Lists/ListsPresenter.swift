@@ -42,10 +42,11 @@ final class ListsPresenter: ListsViewOutput {
       case .success(let item):
         UserDefaults.standard.accountID = item.id
       completion()
-      case .failure(let error):
+      case .failure:
         if InternetConnection().isConnectedToNetwork() == true {
           mainQueue {
-            self.view?.failure(error: error)
+            self.view?.hideIndicator()
+            self.coordinator?.pushAuthVC()
           }
         } else {
           self.persistence.fetch(nil)

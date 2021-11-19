@@ -9,30 +9,48 @@ import Foundation
 
 /// @mockable
 protocol AccountAndListServiceProtocol {
+  
+  /// Get your account details.
   func getAccount(
     _ completion: @escaping CompletionBlock<AccountModel>)
+  
+  /// Get all of the lists
   func getLists(
     _ page: Int,
     completion: @escaping CompletionBlock<ListResponce>)
+  
+  /// Get the list of favorite movies
   func getFavoriteMovies(
     _ page: Int,
     completion: @escaping CompletionBlock<MovieResponce>)
+  
+  /// Mark as Favorite
   func markAsFavorite(
     _ param: ListFavoriteParam,
     completion: @escaping CompletionBlock<SuccessErrorModel>)
+  
+  /// Get Created Lists
   func createList(
     _ param: NewListParam,
     completion: @escaping CompletionBlock<NewListResponce>)
+  
+  /// Delete List
   func deleteList(
     _ id: Int,
     completion: @escaping CompletionBlock<SuccessErrorModel>)
+  
+  /// Get the details of a list.
   func listDetail(
     _ id: Int,
     completion: @escaping CompletionBlock<ListDetailResponce>)
+  
+  /// Add a movie to a list.
   func movieToList(
     _ id: Int,
     param: MovieToListParam,
     completion: @escaping CompletionBlock<SuccessErrorModel>)
+  
+  /// Remove a movie from a list.
   func removeMovie(
     _ id: Int,
     param: RemoveMovieParam,

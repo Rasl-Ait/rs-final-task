@@ -9,6 +9,8 @@ import Foundation
 
 /// @mockable
 protocol SearchServiceProtocol {
+  
+  /// Search for movies
   func search(
     _ param: SearchParam ,
     _ completion: @escaping CompletionBlock<MovieResponce>)

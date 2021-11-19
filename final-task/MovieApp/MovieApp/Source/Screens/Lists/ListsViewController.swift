@@ -147,6 +147,16 @@ private extension ListsViewController {
     let view = ListView()
     return view
   }
+  
+  func setupEmptyView() {
+    let emptyView = EmptyView()
+    emptyView.setText(text: "You haven't added any list yet")
+    view.addSubview(emptyView)
+    emptyView.snp.makeConstraints {
+      $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
+      $0.leading.trailing.bottom.equalToSuperview()
+    }
+  }
 }
 
 // MARK: - ListsViewInput
@@ -171,6 +181,12 @@ extension ListsViewController: ListsViewInput {
   }
   
   func success(items: [ListModel]) {
+    if items.isEmpty {
+      hide()
+      setupEmptyView()
+      return
+    }
+    
     hide()
     listView.addList(items)
   }

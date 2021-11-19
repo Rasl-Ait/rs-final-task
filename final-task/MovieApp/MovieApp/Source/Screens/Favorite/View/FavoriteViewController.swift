@@ -112,6 +112,16 @@ private extension FavoriteViewController {
     view.register(ListDetailCollectionCell.self)
     return view
   }
+  
+  func setupEmptyView() {
+    let emptyView = EmptyView()
+    emptyView.setText(text: "You haven't added any movies yet")
+    view.addSubview(emptyView)
+    emptyView.snp.makeConstraints {
+      $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
+      $0.leading.trailing.bottom.equalToSuperview()
+    }
+  }
 }
 
 // MARK: - Data Source
@@ -163,6 +173,12 @@ extension FavoriteViewController: UICollectionViewDelegate {
 // MARK: FavoriteViewInput
 extension FavoriteViewController: FavoriteViewInput {
   func success(items: [MovieModel], state: StateLoad) {
+    if items.isEmpty {
+      hide()
+      setupEmptyView()
+      return
+    }
+    
     addMovie(items)
    
     if state == .refresh {

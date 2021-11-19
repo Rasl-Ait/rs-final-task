@@ -9,14 +9,21 @@ import Foundation
 
 /// @mockable
 protocol AuthServiceProtocol {
+  /// Create Request Token
   func newToken(
     _ completion: @escaping CompletionBlock<AuthenticationToken>)
+  
+  /// Create Session
   func sessionNew(
     _ param: RequestTokenParam,
     completion: @escaping CompletionBlock<AuthenticationSession>)
+  
+  /// Create Session With Login
   func validateWithLogin(
     _ param: ValidationWithLoginParam,
     completion: @escaping CompletionBlock<AuthenticationToken>)
+  
+  /// Delete Session
   func logout(
     _ param: SessionParam,
     completion: @escaping CompletionBlock<AuthenticationSession>)
