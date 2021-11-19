@@ -13,16 +13,30 @@ class ListsPresenterTest: XCTestCase {
   func test_getAccountSuccess() {
     let results = SharedTestHelpers.getResponce(file: "Account", type: AccountModel.self)
     
+    let responceList = SharedTestHelpers.getResponce(file: "ListModel", type: ListResponce.self)
+    
     let sut = makeSUT()
     sut.service.responseAccount = results.item
     
     sut.presenter.getAccount {
       
     }
+    
+    sut.service.getLists(1) { result in
+      switch result {
+      case .success(let item):
+        sut.view.success(items: item.results)
+        XCTAssertTrue(sut.view.isCalledFetchLists)
+      case .failure(let error):
+        sut.view.failure(error: error)
+      }
+    }
+    
     sut.service.getAccount { result in
       switch result {
       case .success(let item):
         XCTAssertNotNil(item)
+        sut.presenter.getLists(state: .noRefresh)
       case .failure(let error):
         sut.view.failure(error: error)
       }
@@ -49,24 +63,16 @@ class ListsPresenterTest: XCTestCase {
     }
   }
   
-  func test_getListsSuccess() {
-    
-    let results = SharedTestHelpers.getResponce(file: "ListModel", type: ListResponce.self)
-    
-    let sut = makeSUT()
-    sut.service.responseList = results.item
-    
-    sut.presenter.getLists(state: .noRefresh)
-    sut.service.getLists(1) { result in
-      switch result {
-      case .success(let item):
-        sut.view.success(items: item.results)
-        XCTAssertTrue(sut.view.isCalledFetchLists)
-      case .failure(let error):
-        sut.view.failure(error: error)
-      }
-    }
-  }
+//  func test_getListsSuccess() {
+//
+//    let results = SharedTestHelpers.getResponce(file: "ListModel", type: ListResponce.self)
+//
+//    let sut = makeSUT()
+//    sut.service.responseList = results.item
+//
+//    sut.presenter.getLists(state: .noRefresh)
+//
+//  }
   
   func test_getListsFailure() {
     
