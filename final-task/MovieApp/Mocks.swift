@@ -4,9 +4,54 @@
 
 
 
-import XCTest
-@testable import MovieApp
+import Foundation
+import UIKit
 
+
+class AuthServiceProtocolMock: AuthServiceProtocol {
+    init() { }
+
+
+    private(set) var newTokenCallCount = 0
+    var newTokenHandler: ((@escaping CompletionBlock<AuthenticationToken>) -> ())?
+    func newToken(_ completion: @escaping CompletionBlock<AuthenticationToken>)  {
+        newTokenCallCount += 1
+        if let newTokenHandler = newTokenHandler {
+            newTokenHandler(completion)
+        }
+        
+    }
+
+    private(set) var sessionNewCallCount = 0
+    var sessionNewHandler: ((RequestTokenParam, @escaping CompletionBlock<AuthenticationSession>) -> ())?
+    func sessionNew(_ param: RequestTokenParam, completion: @escaping CompletionBlock<AuthenticationSession>)  {
+        sessionNewCallCount += 1
+        if let sessionNewHandler = sessionNewHandler {
+            sessionNewHandler(param, completion)
+        }
+        
+    }
+
+    private(set) var validateWithLoginCallCount = 0
+    var validateWithLoginHandler: ((ValidationWithLoginParam, @escaping CompletionBlock<AuthenticationToken>) -> ())?
+    func validateWithLogin(_ param: ValidationWithLoginParam, completion: @escaping CompletionBlock<AuthenticationToken>)  {
+        validateWithLoginCallCount += 1
+        if let validateWithLoginHandler = validateWithLoginHandler {
+            validateWithLoginHandler(param, completion)
+        }
+        
+    }
+
+    private(set) var logoutCallCount = 0
+    var logoutHandler: ((SessionParam, @escaping CompletionBlock<AuthenticationSession>) -> ())?
+    func logout(_ param: SessionParam, completion: @escaping CompletionBlock<AuthenticationSession>)  {
+        logoutCallCount += 1
+        if let logoutHandler = logoutHandler {
+            logoutHandler(param, completion)
+        }
+        
+    }
+}
 
 class AuthCoordinatorProtocolMock: AuthCoordinatorProtocol {
     init() { }
@@ -158,6 +203,101 @@ class SearchCoordinatorProtocolMock: SearchCoordinatorProtocol {
     }
 }
 
+class AccountAndListServiceProtocolMock: AccountAndListServiceProtocol {
+    init() { }
+
+
+    private(set) var getAccountCallCount = 0
+    var getAccountHandler: ((@escaping CompletionBlock<AccountModel>) -> ())?
+    func getAccount(_ completion: @escaping CompletionBlock<AccountModel>)  {
+        getAccountCallCount += 1
+        if let getAccountHandler = getAccountHandler {
+            getAccountHandler(completion)
+        }
+        
+    }
+
+    private(set) var getListsCallCount = 0
+    var getListsHandler: ((Int, @escaping CompletionBlock<ListResponce>) -> ())?
+    func getLists(_ page: Int, completion: @escaping CompletionBlock<ListResponce>)  {
+        getListsCallCount += 1
+        if let getListsHandler = getListsHandler {
+            getListsHandler(page, completion)
+        }
+        
+    }
+
+    private(set) var getFavoriteMoviesCallCount = 0
+    var getFavoriteMoviesHandler: ((Int, @escaping CompletionBlock<MovieResponce>) -> ())?
+    func getFavoriteMovies(_ page: Int, completion: @escaping CompletionBlock<MovieResponce>)  {
+        getFavoriteMoviesCallCount += 1
+        if let getFavoriteMoviesHandler = getFavoriteMoviesHandler {
+            getFavoriteMoviesHandler(page, completion)
+        }
+        
+    }
+
+    private(set) var markAsFavoriteCallCount = 0
+    var markAsFavoriteHandler: ((ListFavoriteParam, @escaping CompletionBlock<SuccessErrorModel>) -> ())?
+    func markAsFavorite(_ param: ListFavoriteParam, completion: @escaping CompletionBlock<SuccessErrorModel>)  {
+        markAsFavoriteCallCount += 1
+        if let markAsFavoriteHandler = markAsFavoriteHandler {
+            markAsFavoriteHandler(param, completion)
+        }
+        
+    }
+
+    private(set) var createListCallCount = 0
+    var createListHandler: ((NewListParam, @escaping CompletionBlock<NewListResponce>) -> ())?
+    func createList(_ param: NewListParam, completion: @escaping CompletionBlock<NewListResponce>)  {
+        createListCallCount += 1
+        if let createListHandler = createListHandler {
+            createListHandler(param, completion)
+        }
+        
+    }
+
+    private(set) var deleteListCallCount = 0
+    var deleteListHandler: ((Int, @escaping CompletionBlock<SuccessErrorModel>) -> ())?
+    func deleteList(_ id: Int, completion: @escaping CompletionBlock<SuccessErrorModel>)  {
+        deleteListCallCount += 1
+        if let deleteListHandler = deleteListHandler {
+            deleteListHandler(id, completion)
+        }
+        
+    }
+
+    private(set) var listDetailCallCount = 0
+    var listDetailHandler: ((Int, @escaping CompletionBlock<ListDetailResponce>) -> ())?
+    func listDetail(_ id: Int, completion: @escaping CompletionBlock<ListDetailResponce>)  {
+        listDetailCallCount += 1
+        if let listDetailHandler = listDetailHandler {
+            listDetailHandler(id, completion)
+        }
+        
+    }
+
+    private(set) var movieToListCallCount = 0
+    var movieToListHandler: ((Int, MovieToListParam, @escaping CompletionBlock<SuccessErrorModel>) -> ())?
+    func movieToList(_ id: Int, param: MovieToListParam, completion: @escaping CompletionBlock<SuccessErrorModel>)  {
+        movieToListCallCount += 1
+        if let movieToListHandler = movieToListHandler {
+            movieToListHandler(id, param, completion)
+        }
+        
+    }
+
+    private(set) var removeMovieCallCount = 0
+    var removeMovieHandler: ((Int, RemoveMovieParam, @escaping CompletionBlock<SuccessErrorModel>) -> ())?
+    func removeMovie(_ id: Int, param: RemoveMovieParam, completion: @escaping CompletionBlock<SuccessErrorModel>)  {
+        removeMovieCallCount += 1
+        if let removeMovieHandler = removeMovieHandler {
+            removeMovieHandler(id, param, completion)
+        }
+        
+    }
+}
+
 class FavoriteCoordinatorProtocolMock: FavoriteCoordinatorProtocol {
     init() { }
 
@@ -193,6 +333,126 @@ class ListDetailCoordinatorProtocolMock: ListDetailCoordinatorProtocol {
         pushMovieDetailVCCallCount += 1
         if let pushMovieDetailVCHandler = pushMovieDetailVCHandler {
             pushMovieDetailVCHandler(id)
+        }
+        
+    }
+}
+
+class AuthViewInputMock: AuthViewInput {
+    init() { }
+
+
+    private(set) var successCallCount = 0
+    var successHandler: (() -> ())?
+    func success()  {
+        successCallCount += 1
+        if let successHandler = successHandler {
+            successHandler()
+        }
+        
+    }
+
+    private(set) var failureCallCount = 0
+    var failureHandler: ((APIError) -> ())?
+    func failure(error: APIError)  {
+        failureCallCount += 1
+        if let failureHandler = failureHandler {
+            failureHandler(error)
+        }
+        
+    }
+
+    private(set) var hideIndicatorCallCount = 0
+    var hideIndicatorHandler: (() -> ())?
+    func hideIndicator()  {
+        hideIndicatorCallCount += 1
+        if let hideIndicatorHandler = hideIndicatorHandler {
+            hideIndicatorHandler()
+        }
+        
+    }
+
+    private(set) var showIndicatorCallCount = 0
+    var showIndicatorHandler: (() -> ())?
+    func showIndicator()  {
+        showIndicatorCallCount += 1
+        if let showIndicatorHandler = showIndicatorHandler {
+            showIndicatorHandler()
+        }
+        
+    }
+}
+
+class ListsViewInputMock: ListsViewInput {
+    init() { }
+
+
+    private(set) var successCallCount = 0
+    var successHandler: (([ListModel]) -> ())?
+    func success(items: [ListModel])  {
+        successCallCount += 1
+        if let successHandler = successHandler {
+            successHandler(items)
+        }
+        
+    }
+
+    private(set) var successCreateListCallCount = 0
+    var successCreateListHandler: ((String) -> ())?
+    func successCreateList(text: String)  {
+        successCreateListCallCount += 1
+        if let successCreateListHandler = successCreateListHandler {
+            successCreateListHandler(text)
+        }
+        
+    }
+
+    private(set) var successDeleteListCallCount = 0
+    var successDeleteListHandler: ((String) -> ())?
+    func successDeleteList(text: String)  {
+        successDeleteListCallCount += 1
+        if let successDeleteListHandler = successDeleteListHandler {
+            successDeleteListHandler(text)
+        }
+        
+    }
+
+    private(set) var successAddMovieToListCallCount = 0
+    var successAddMovieToListHandler: ((String) -> ())?
+    func successAddMovieToList(text: String)  {
+        successAddMovieToListCallCount += 1
+        if let successAddMovieToListHandler = successAddMovieToListHandler {
+            successAddMovieToListHandler(text)
+        }
+        
+    }
+
+    private(set) var failureCallCount = 0
+    var failureHandler: ((APIError) -> ())?
+    func failure(error: APIError)  {
+        failureCallCount += 1
+        if let failureHandler = failureHandler {
+            failureHandler(error)
+        }
+        
+    }
+
+    private(set) var hideIndicatorCallCount = 0
+    var hideIndicatorHandler: (() -> ())?
+    func hideIndicator()  {
+        hideIndicatorCallCount += 1
+        if let hideIndicatorHandler = hideIndicatorHandler {
+            hideIndicatorHandler()
+        }
+        
+    }
+
+    private(set) var showIndicatorCallCount = 0
+    var showIndicatorHandler: (() -> ())?
+    func showIndicator()  {
+        showIndicatorCallCount += 1
+        if let showIndicatorHandler = showIndicatorHandler {
+            showIndicatorHandler()
         }
         
     }
@@ -283,6 +543,51 @@ class CoordinatorFactoryMock: CoordinatorFactory {
     }
 }
 
+class SearchViewInputMock: SearchViewInput {
+    init() { }
+
+
+    private(set) var successCallCount = 0
+    var successHandler: (([MovieModel]) -> ())?
+    func success(items: [MovieModel])  {
+        successCallCount += 1
+        if let successHandler = successHandler {
+            successHandler(items)
+        }
+        
+    }
+
+    private(set) var failureCallCount = 0
+    var failureHandler: ((APIError) -> ())?
+    func failure(error: APIError)  {
+        failureCallCount += 1
+        if let failureHandler = failureHandler {
+            failureHandler(error)
+        }
+        
+    }
+
+    private(set) var hideIndicatorCallCount = 0
+    var hideIndicatorHandler: (() -> ())?
+    func hideIndicator()  {
+        hideIndicatorCallCount += 1
+        if let hideIndicatorHandler = hideIndicatorHandler {
+            hideIndicatorHandler()
+        }
+        
+    }
+
+    private(set) var showIndicatorCallCount = 0
+    var showIndicatorHandler: (() -> ())?
+    func showIndicator()  {
+        showIndicatorCallCount += 1
+        if let showIndicatorHandler = showIndicatorHandler {
+            showIndicatorHandler()
+        }
+        
+    }
+}
+
 class MovieDetailCoordinatorProtocolMock: MovieDetailCoordinatorProtocol {
     init() { }
 
@@ -313,6 +618,21 @@ class MovieDetailCoordinatorProtocolMock: MovieDetailCoordinatorProtocol {
         pushListCallCount += 1
         if let pushListHandler = pushListHandler {
             pushListHandler(mediaID)
+        }
+        
+    }
+}
+
+class AuthViewOutputMock: AuthViewOutput {
+    init() { }
+
+
+    private(set) var newTokenCallCount = 0
+    var newTokenHandler: ((AuthParam) -> ())?
+    func newToken(_ param: AuthParam)  {
+        newTokenCallCount += 1
+        if let newTokenHandler = newTokenHandler {
+            newTokenHandler(param)
         }
         
     }
@@ -473,6 +793,41 @@ class RouterMock: Router {
     }
 }
 
+class SearchViewOutputMock: SearchViewOutput {
+    init() { }
+    init(page: Int = 0, isFetching: Bool = false) {
+        self.page = page
+        self.isFetching = isFetching
+    }
+
+
+    private(set) var pageSetCallCount = 0
+    var page: Int = 0 { didSet { pageSetCallCount += 1 } }
+
+    private(set) var isFetchingSetCallCount = 0
+    var isFetching: Bool = false { didSet { isFetchingSetCallCount += 1 } }
+
+    private(set) var searchCallCount = 0
+    var searchHandler: ((String) -> ())?
+    func search(searchText: String)  {
+        searchCallCount += 1
+        if let searchHandler = searchHandler {
+            searchHandler(searchText)
+        }
+        
+    }
+
+    private(set) var pushCallCount = 0
+    var pushHandler: ((Int) -> ())?
+    func push(id: Int)  {
+        pushCallCount += 1
+        if let pushHandler = pushHandler {
+            pushHandler(id)
+        }
+        
+    }
+}
+
 class AppFactoryMock: AppFactory {
     init() { }
 
@@ -485,6 +840,95 @@ class AppFactoryMock: AppFactory {
             return makeKeyWindowWithCoordinatorHandler(window)
         }
         fatalError("makeKeyWindowWithCoordinatorHandler returns can't have a default value thus its handler must be set")
+    }
+}
+
+class ListsViewOutputMock: ListsViewOutput {
+    init() { }
+    init(lists: [ListModel] = [ListModel](), param: NewListParam? = nil, mediaID: Int? = nil) {
+        self.lists = lists
+        self.param = param
+        self.mediaID = mediaID
+    }
+
+
+    private(set) var listsSetCallCount = 0
+    var lists: [ListModel] = [ListModel]() { didSet { listsSetCallCount += 1 } }
+
+    private(set) var paramSetCallCount = 0
+    var param: NewListParam? = nil { didSet { paramSetCallCount += 1 } }
+
+    private(set) var mediaIDSetCallCount = 0
+    var mediaID: Int? = nil { didSet { mediaIDSetCallCount += 1 } }
+
+    private(set) var getListsCallCount = 0
+    var getListsHandler: ((StateLoad) -> ())?
+    func getLists(state: StateLoad)  {
+        getListsCallCount += 1
+        if let getListsHandler = getListsHandler {
+            getListsHandler(state)
+        }
+        
+    }
+
+    private(set) var createListCallCount = 0
+    var createListHandler: (() -> ())?
+    func createList()  {
+        createListCallCount += 1
+        if let createListHandler = createListHandler {
+            createListHandler()
+        }
+        
+    }
+
+    private(set) var deleteListCallCount = 0
+    var deleteListHandler: ((Int) -> ())?
+    func deleteList(id: Int)  {
+        deleteListCallCount += 1
+        if let deleteListHandler = deleteListHandler {
+            deleteListHandler(id)
+        }
+        
+    }
+
+    private(set) var didSelectRowAtCallCount = 0
+    var didSelectRowAtHandler: ((ListModel) -> ())?
+    func didSelectRowAt(list: ListModel)  {
+        didSelectRowAtCallCount += 1
+        if let didSelectRowAtHandler = didSelectRowAtHandler {
+            didSelectRowAtHandler(list)
+        }
+        
+    }
+
+    private(set) var logoutCallCount = 0
+    var logoutHandler: (() -> ())?
+    func logout()  {
+        logoutCallCount += 1
+        if let logoutHandler = logoutHandler {
+            logoutHandler()
+        }
+        
+    }
+
+    private(set) var addTextCallCount = 0
+    var addTextHandler: ((String) -> ())?
+    func addText(name: String)  {
+        addTextCallCount += 1
+        if let addTextHandler = addTextHandler {
+            addTextHandler(name)
+        }
+        
+    }
+
+    private(set) var popCallCount = 0
+    var popHandler: (() -> ())?
+    func pop()  {
+        popCallCount += 1
+        if let popHandler = popHandler {
+            popHandler()
+        }
+        
     }
 }
 

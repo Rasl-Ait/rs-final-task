@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// @mockable
 protocol AccountAndListServiceProtocol {
   func getAccount(
     _ completion: @escaping CompletionBlock<AccountModel>)

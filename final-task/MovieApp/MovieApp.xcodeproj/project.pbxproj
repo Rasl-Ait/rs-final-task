@@ -151,7 +151,6 @@
 		DCCF8B162729A30200933DD1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8B102729A30200933DD1 /* Global.swift */; };
 		DCCF8B172729A30200933DD1 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8B112729A30200933DD1 /* ReusableView.swift */; };
 		DCCF8B182729A30200933DD1 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8B122729A30200933DD1 /* Typealias.swift */; };
-		DCD0109227477B0D00E26606 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109127477B0D00E26606 /* Mocks.swift */; };
 		DCD0109427477B6700E26606 /* AppCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109327477B6700E26606 /* AppCoordinatorTest.swift */; };
 		DCD0109627477F2E00E26606 /* AuthCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109527477F2E00E26606 /* AuthCoordinatorTest.swift */; };
 		DCD0109827477FBF00E26606 /* ListCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109727477FBF00E26606 /* ListCoordinatorTest.swift */; };
@@ -159,6 +158,8 @@
 		DCD0109C2747808400E26606 /* MovieDetailCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109B2747808400E26606 /* MovieDetailCoordinatorTest.swift */; };
 		DCD0109E2747815300E26606 /* SearchCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109D2747815300E26606 /* SearchCoordinatorTest.swift */; };
 		DCD010A0274781B400E26606 /* FavoriteCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109F274781B400E26606 /* FavoriteCoordinatorTest.swift */; };
+		DCD010A1274785FA00E26606 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109127477B0D00E26606 /* Mocks.swift */; };
+		DCD010A327478B4C00E26606 /* AuthPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD010A227478B4C00E26606 /* AuthPresenterTest.swift */; };
 		DCDAE9712740D11E00E38C2D /* SearchPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9702740D11E00E38C2D /* SearchPresenterTest.swift */; };
 		DCDAE9732740D13400E38C2D /* SearchServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9722740D13400E38C2D /* SearchServiceSpy.swift */; };
 		DCDAE9752740D19C00E38C2D /* SearchControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9742740D19C00E38C2D /* SearchControllerMock.swift */; };
@@ -360,6 +361,7 @@
 		DCD0109B2747808400E26606 /* MovieDetailCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailCoordinatorTest.swift; sourceTree = "<group>"; };
 		DCD0109D2747815300E26606 /* SearchCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinatorTest.swift; sourceTree = "<group>"; };
 		DCD0109F274781B400E26606 /* FavoriteCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoordinatorTest.swift; sourceTree = "<group>"; };
+		DCD010A227478B4C00E26606 /* AuthPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenterTest.swift; sourceTree = "<group>"; };
 		DCDAE9702740D11E00E38C2D /* SearchPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenterTest.swift; sourceTree = "<group>"; };
 		DCDAE9722740D13400E38C2D /* SearchServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceSpy.swift; sourceTree = "<group>"; };
 		DCDAE9742740D19C00E38C2D /* SearchControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerMock.swift; sourceTree = "<group>"; };
@@ -814,6 +816,7 @@
 				DC95098527405F4300BAA43E /* ListDetailPresenterTest.swift */,
 				DC95099327406D4100BAA43E /* FavoritePresenterTest.swift */,
 				DCDAE9702740D11E00E38C2D /* SearchPresenterTest.swift */,
+				DCD010A227478B4C00E26606 /* AuthPresenterTest.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -902,6 +905,7 @@
 		DCCF8AA427299D6700933DD1 /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				DCD0109027477AB100E26606 /* Mocks tests */,
 				DCCF8AD727299DC500933DD1 /* Source */,
 				DCCF8AD827299DFC00933DD1 /* Resources */,
 			);
@@ -911,7 +915,6 @@
 		DCCF8ABB27299D6A00933DD1 /* MovieAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				DCD0109027477AB100E26606 /* Mocks tests */,
 				DC19402127359FFC001F78ED /* Json */,
 				DC950977273FEA7C00BAA43E /* Presenters */,
 				DC950974273FE95200BAA43E /* Coordinators */,
@@ -1398,6 +1401,7 @@
 				DCF7F041273C133000333A2B /* MovieBodyView.swift in Sources */,
 				DC2B2A232734254A00233F5D /* Router.swift in Sources */,
 				DC7461FE273E6D6200BD3297 /* SearchView.swift in Sources */,
+				DCD010A1274785FA00E26606 /* Mocks.swift in Sources */,
 				DC2B2A3D2734445600233F5D /* SignInButton.swift in Sources */,
 				DCF7F043273C1E8400333A2B /* SimilarMovieView.swift in Sources */,
 				DC835B9F273523B700C3A209 /* ListsProtocols.swift in Sources */,
@@ -1537,8 +1541,8 @@
 				DC49A050272EE8E800F17DE9 /* AuthServiceTest.swift in Sources */,
 				DCD0109827477FBF00E26606 /* ListCoordinatorTest.swift in Sources */,
 				DC95098E2740666C00BAA43E /* MovieDetailPresenterTest.swift in Sources */,
+				DCD010A327478B4C00E26606 /* AuthPresenterTest.swift in Sources */,
 				DC95099627406D9900BAA43E /* FavoriteControllerMock.swift in Sources */,
-				DCD0109227477B0D00E26606 /* Mocks.swift in Sources */,
 				DC95098C274061E300BAA43E /* AccountAndListServiceSpy.swift in Sources */,
 				DC95099427406D4100BAA43E /* FavoritePresenterTest.swift in Sources */,
 				DCD010A0274781B400E26606 /* FavoriteCoordinatorTest.swift in Sources */,

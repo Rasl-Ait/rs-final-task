@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// @mockable
 protocol AuthServiceProtocol {
   func newToken(
     _ completion: @escaping CompletionBlock<AuthenticationToken>)

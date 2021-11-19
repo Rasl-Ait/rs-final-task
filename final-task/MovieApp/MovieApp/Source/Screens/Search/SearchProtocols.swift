@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// @mockable
 protocol SearchViewInput: AnyObject {
   func success(items: [MovieModel])
 	func failure(error: APIError)
@@ -15,6 +16,7 @@ protocol SearchViewInput: AnyObject {
 	func showIndicator()
 }
 
+/// @mockable
 protocol SearchViewOutput: AnyObject {
   var page: Int { get set }
   var isFetching: Bool { get set }

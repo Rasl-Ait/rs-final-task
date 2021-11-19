@@ -55,10 +55,6 @@ final class AuthPresenter: AuthViewOutput {
     }
   }
   
-  func getAccount() {
-    
-  }
-  
   func validationLogin(_ param: ValidationWithLoginParam) {
     service.validateWithLogin(param) { [weak self] result in
       guard let self = self else { return }

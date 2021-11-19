@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/// @mockable
 protocol ListsViewInput: AnyObject {
   func success(items: [ListModel])
   func successCreateList(text: String)
@@ -20,6 +20,7 @@ protocol ListsViewInput: AnyObject {
   func showIndicator()
 }
 
+/// @mockable
 protocol ListsViewOutput: AnyObject {
   var lists: [ListModel] { get }
   var param: NewListParam? { get set }

@@ -8,13 +8,14 @@
 
 import Foundation
 
+/// @mockable
 protocol AuthViewInput: AnyObject {
 	func success()
 	func failure(error: APIError)
 	func hideIndicator()
 	func showIndicator()
 }
-
+/// @mockable
 protocol AuthViewOutput: AnyObject {
   func newToken(_ param: AuthParam)
 }
