@@ -156,6 +156,7 @@
 		DCD0109627477F2E00E26606 /* AuthCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109527477F2E00E26606 /* AuthCoordinatorTest.swift */; };
 		DCD0109827477FBF00E26606 /* ListCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109727477FBF00E26606 /* ListCoordinatorTest.swift */; };
 		DCD0109A2747802700E26606 /* ListDetailCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD010992747802700E26606 /* ListDetailCoordinatorTest.swift */; };
+		DCD0109C2747808400E26606 /* MovieDetailCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109B2747808400E26606 /* MovieDetailCoordinatorTest.swift */; };
 		DCDAE9712740D11E00E38C2D /* SearchPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9702740D11E00E38C2D /* SearchPresenterTest.swift */; };
 		DCDAE9732740D13400E38C2D /* SearchServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9722740D13400E38C2D /* SearchServiceSpy.swift */; };
 		DCDAE9752740D19C00E38C2D /* SearchControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9742740D19C00E38C2D /* SearchControllerMock.swift */; };
@@ -354,6 +355,7 @@
 		DCD0109527477F2E00E26606 /* AuthCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorTest.swift; sourceTree = "<group>"; };
 		DCD0109727477FBF00E26606 /* ListCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinatorTest.swift; sourceTree = "<group>"; };
 		DCD010992747802700E26606 /* ListDetailCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailCoordinatorTest.swift; sourceTree = "<group>"; };
+		DCD0109B2747808400E26606 /* MovieDetailCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailCoordinatorTest.swift; sourceTree = "<group>"; };
 		DCDAE9702740D11E00E38C2D /* SearchPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenterTest.swift; sourceTree = "<group>"; };
 		DCDAE9722740D13400E38C2D /* SearchServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceSpy.swift; sourceTree = "<group>"; };
 		DCDAE9742740D19C00E38C2D /* SearchControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerMock.swift; sourceTree = "<group>"; };
@@ -791,6 +793,7 @@
 				DCD0109527477F2E00E26606 /* AuthCoordinatorTest.swift */,
 				DCD0109727477FBF00E26606 /* ListCoordinatorTest.swift */,
 				DCD010992747802700E26606 /* ListDetailCoordinatorTest.swift */,
+				DCD0109B2747808400E26606 /* MovieDetailCoordinatorTest.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -1521,6 +1524,7 @@
 				DC864CE3273673A2009BA64A /* MoviePersistenceTest.swift in Sources */,
 				DC9509892740617000BAA43E /* ListsViewControllerMock.swift in Sources */,
 				DC7461E9273E4E4500BD3297 /* SearchServiceTest.swift in Sources */,
+				DCD0109C2747808400E26606 /* MovieDetailCoordinatorTest.swift in Sources */,
 				DC950979273FEAAD00BAA43E /* ListsPresenterTest.swift in Sources */,
 				DCF7F01F273BB45E00333A2B /* MovieServiceTest.swift in Sources */,
 				DCDAE9752740D19C00E38C2D /* SearchControllerMock.swift in Sources */,
