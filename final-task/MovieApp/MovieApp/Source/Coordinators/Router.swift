@@ -17,6 +17,7 @@ extension UIViewController: Presentable {
   }
 }
 
+/// @mockable
 protocol Router: Presentable {
   
   func present(_ module: Presentable?)

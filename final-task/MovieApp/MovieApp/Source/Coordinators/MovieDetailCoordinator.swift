@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// @mockable
 protocol MovieDetailCoordinatorProtocol: AnyObject {
   func pop()
   func pushWebViewVC(stringURL: String)

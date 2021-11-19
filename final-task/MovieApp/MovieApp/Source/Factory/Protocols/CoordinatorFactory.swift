@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// @mockable
 protocol CoordinatorFactory {
   func makeAppCoordinator(router: Router) -> AppCoordinator
   func makeAuthCoordinator(router: Router) -> AuthCoordinator

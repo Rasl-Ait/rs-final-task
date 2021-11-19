@@ -18,6 +18,7 @@ final class Di {
   }
 }
 
+/// @mockable
 protocol AppFactory {
   func makeKeyWindowWithCoordinator(window: UIWindow) -> AppCoordinator
 }

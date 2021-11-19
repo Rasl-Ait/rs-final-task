@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class AppCoordinator: BaseCoordinator {
+protocol AppCoordinatorProtocol: AnyObject {
+  func pushAuth()
+  func pushTabBar()
+}
+
+final class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
   private let router: Router
   private let coordinatorFactory: CoordinatorFactory
   private let screenFactory: ScreenFactory
@@ -29,13 +34,13 @@ final class AppCoordinator: BaseCoordinator {
     }
   }
   
-  private func pushAuth() {
+   func pushAuth() {
     let coordinator = coordinatorFactory.makeAuthCoordinator(router: router)
     addDependency(coordinator)
     coordinator.start()
   }
   
-  private func pushTabBar() {
+   func pushTabBar() {
     let coordinator = coordinatorFactory.makeTabBarCoordinator(router: router)
     
     coordinator.finishFlow = { [weak self, weak coordinator] in

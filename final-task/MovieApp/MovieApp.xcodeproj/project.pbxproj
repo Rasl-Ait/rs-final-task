@@ -151,6 +151,8 @@
 		DCCF8B162729A30200933DD1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8B102729A30200933DD1 /* Global.swift */; };
 		DCCF8B172729A30200933DD1 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8B112729A30200933DD1 /* ReusableView.swift */; };
 		DCCF8B182729A30200933DD1 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF8B122729A30200933DD1 /* Typealias.swift */; };
+		DCD0109227477B0D00E26606 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109127477B0D00E26606 /* Mocks.swift */; };
+		DCD0109427477B6700E26606 /* AppCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109327477B6700E26606 /* AppCoordinatorTest.swift */; };
 		DCDAE9712740D11E00E38C2D /* SearchPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9702740D11E00E38C2D /* SearchPresenterTest.swift */; };
 		DCDAE9732740D13400E38C2D /* SearchServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9722740D13400E38C2D /* SearchServiceSpy.swift */; };
 		DCDAE9752740D19C00E38C2D /* SearchControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9742740D19C00E38C2D /* SearchControllerMock.swift */; };
@@ -344,6 +346,8 @@
 		DCCF8B102729A30200933DD1 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		DCCF8B112729A30200933DD1 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		DCCF8B122729A30200933DD1 /* Typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		DCD0109127477B0D00E26606 /* Mocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = SOURCE_ROOT; };
+		DCD0109327477B6700E26606 /* AppCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTest.swift; sourceTree = "<group>"; };
 		DCDAE9702740D11E00E38C2D /* SearchPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenterTest.swift; sourceTree = "<group>"; };
 		DCDAE9722740D13400E38C2D /* SearchServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceSpy.swift; sourceTree = "<group>"; };
 		DCDAE9742740D19C00E38C2D /* SearchControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerMock.swift; sourceTree = "<group>"; };
@@ -777,6 +781,7 @@
 			isa = PBXGroup;
 			children = (
 				DC950975273FE95F00BAA43E /* BaseCoordinatorTest.swift */,
+				DCD0109327477B6700E26606 /* AppCoordinatorTest.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -888,6 +893,7 @@
 		DCCF8ABB27299D6A00933DD1 /* MovieAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				DCD0109027477AB100E26606 /* Mocks tests */,
 				DC19402127359FFC001F78ED /* Json */,
 				DC950977273FEA7C00BAA43E /* Presenters */,
 				DC950974273FE95200BAA43E /* Coordinators */,
@@ -1007,6 +1013,14 @@
 				DCA0C741273AA861003AAF77 /* ImageManager.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		DCD0109027477AB100E26606 /* Mocks tests */ = {
+			isa = PBXGroup;
+			children = (
+				DCD0109127477B0D00E26606 /* Mocks.swift */,
+			);
+			path = "Mocks tests";
 			sourceTree = "<group>";
 		};
 		DCF7F015273BA87400333A2B /* Movie */ = {
@@ -1504,12 +1518,14 @@
 				DC49A050272EE8E800F17DE9 /* AuthServiceTest.swift in Sources */,
 				DC95098E2740666C00BAA43E /* MovieDetailPresenterTest.swift in Sources */,
 				DC95099627406D9900BAA43E /* FavoriteControllerMock.swift in Sources */,
+				DCD0109227477B0D00E26606 /* Mocks.swift in Sources */,
 				DC95098C274061E300BAA43E /* AccountAndListServiceSpy.swift in Sources */,
 				DC95099427406D4100BAA43E /* FavoritePresenterTest.swift in Sources */,
 				DC19401F273592B2001F78ED /* AccountServiceTest.swift in Sources */,
 				DC9509902740670A00BAA43E /* MovieServiceSpy.swift in Sources */,
 				DC49A05A272EE9C300F17DE9 /* XCTestsCase+MemoryLeakTracking.swift in Sources */,
 				DC9509922740681C00BAA43E /* MovieDetailControllerMock.swift in Sources */,
+				DCD0109427477B6700E26606 /* AppCoordinatorTest.swift in Sources */,
 				DC47F808272FDE24009603EE /* Result+Extenstion.swift in Sources */,
 				DC49A059272EE9C300F17DE9 /* SharedTestHelpers.swift in Sources */,
 				DC95098627405F4300BAA43E /* ListDetailPresenterTest.swift in Sources */,

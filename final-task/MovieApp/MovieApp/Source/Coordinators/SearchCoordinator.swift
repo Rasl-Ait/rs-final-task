@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// @mockable
 protocol SearchCoordinatorProtocol: AnyObject {
   func pop()
   func pushMovieDetailVC(id: Int)

@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// @mockable
 protocol AuthCoordinatorProtocol: AnyObject {
   func pushTabBar()
 }

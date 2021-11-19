@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// @mockable
 protocol ListDetailCoordinatorProtocol: AnyObject {
   func pop()
   func pushMovieDetailVC(id: Int)

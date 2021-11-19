@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// @mockable
 protocol ScreenFactory {
   func makeAuthScreen(_ coordinator: AuthCoordinatorProtocol) -> AuthViewController
   func makeListsScreen(_ coordinator: ListsCoordinatorProtocol, mediaID: Int?) -> ListsViewController

@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// @mockable
 protocol ListsCoordinatorProtocol: AnyObject {
   func pop()
   func pushListDetailVC(list: ListModel)
