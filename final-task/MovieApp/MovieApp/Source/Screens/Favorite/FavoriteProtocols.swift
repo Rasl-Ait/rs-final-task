@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// @mockable
 protocol FavoriteViewInput: AnyObject {
   func success(items: [MovieModel], state: StateLoad)
   func successDeleteMovie()
@@ -16,6 +17,7 @@ protocol FavoriteViewInput: AnyObject {
 	func showIndicator()
 }
 
+/// @mockable
 protocol FavoriteViewOutput: AnyObject {
   func didSelect(type: FavoriteTappedType)
   func getFavoriteMovie(state: StateLoad)

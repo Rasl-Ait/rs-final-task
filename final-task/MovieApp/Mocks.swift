@@ -603,6 +603,61 @@ class SearchViewInputMock: SearchViewInput {
     }
 }
 
+class FavoriteViewInputMock: FavoriteViewInput {
+    init() { }
+
+
+    private(set) var successCallCount = 0
+    var successHandler: (([MovieModel], StateLoad) -> ())?
+    func success(items: [MovieModel], state: StateLoad)  {
+        successCallCount += 1
+        if let successHandler = successHandler {
+            successHandler(items, state)
+        }
+        
+    }
+
+    private(set) var successDeleteMovieCallCount = 0
+    var successDeleteMovieHandler: (() -> ())?
+    func successDeleteMovie()  {
+        successDeleteMovieCallCount += 1
+        if let successDeleteMovieHandler = successDeleteMovieHandler {
+            successDeleteMovieHandler()
+        }
+        
+    }
+
+    private(set) var failureCallCount = 0
+    var failureHandler: ((APIError) -> ())?
+    func failure(error: APIError)  {
+        failureCallCount += 1
+        if let failureHandler = failureHandler {
+            failureHandler(error)
+        }
+        
+    }
+
+    private(set) var hideIndicatorCallCount = 0
+    var hideIndicatorHandler: (() -> ())?
+    func hideIndicator()  {
+        hideIndicatorCallCount += 1
+        if let hideIndicatorHandler = hideIndicatorHandler {
+            hideIndicatorHandler()
+        }
+        
+    }
+
+    private(set) var showIndicatorCallCount = 0
+    var showIndicatorHandler: (() -> ())?
+    func showIndicator()  {
+        showIndicatorCallCount += 1
+        if let showIndicatorHandler = showIndicatorHandler {
+            showIndicatorHandler()
+        }
+        
+    }
+}
+
 class MovieDetailCoordinatorProtocolMock: MovieDetailCoordinatorProtocol {
     init() { }
 
@@ -838,6 +893,31 @@ class SearchViewOutputMock: SearchViewOutput {
         pushCallCount += 1
         if let pushHandler = pushHandler {
             pushHandler(id)
+        }
+        
+    }
+}
+
+class FavoriteViewOutputMock: FavoriteViewOutput {
+    init() { }
+
+
+    private(set) var didSelectCallCount = 0
+    var didSelectHandler: ((FavoriteTappedType) -> ())?
+    func didSelect(type: FavoriteTappedType)  {
+        didSelectCallCount += 1
+        if let didSelectHandler = didSelectHandler {
+            didSelectHandler(type)
+        }
+        
+    }
+
+    private(set) var getFavoriteMovieCallCount = 0
+    var getFavoriteMovieHandler: ((StateLoad) -> ())?
+    func getFavoriteMovie(state: StateLoad)  {
+        getFavoriteMovieCallCount += 1
+        if let getFavoriteMovieHandler = getFavoriteMovieHandler {
+            getFavoriteMovieHandler(state)
         }
         
     }

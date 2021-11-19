@@ -30,7 +30,7 @@ final class FavoritePresenter: FavoriteViewOutput {
       view?.showIndicator()
     }
     
-    service.getFavoriteMovies(1) { [weak self] result in
+    service.getFavoriteMovies(page) { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .success(let item):
