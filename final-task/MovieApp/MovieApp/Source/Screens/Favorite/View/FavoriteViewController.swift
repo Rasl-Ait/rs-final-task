@@ -13,6 +13,7 @@ final class FavoriteViewController: BaseViewController {
   // MARK: - Properties
   private lazy var collectionView = makeCollectionView()
   private lazy var dataSource = configureDataSource()
+  private var emptyView: EmptyView!
   
   private var selectIndexPath: IndexPath!
   
@@ -73,6 +74,10 @@ private extension FavoriteViewController {
     var snapshot = dataSource.snapshot()
     snapshot.deleteItems([movie])
     dataSource.apply(snapshot, animatingDifferences: true)
+    
+    if snapshot.numberOfItems == 0 {
+      setupEmptyView()
+    }
   }
   
   @objc func refresh() {
@@ -114,7 +119,7 @@ private extension FavoriteViewController {
   }
   
   func setupEmptyView() {
-    let emptyView = EmptyView()
+    emptyView = EmptyView()
     emptyView.setText(text: "You haven't added any movies yet")
     view.addSubview(emptyView)
     emptyView.snp.makeConstraints {
@@ -177,10 +182,13 @@ extension FavoriteViewController: FavoriteViewInput {
       hide()
       setupEmptyView()
       return
+    } else {
+      if emptyView != nil {
+        emptyView.removeFromSuperview()
+      }
+      addMovie(items)
     }
     
-    addMovie(items)
-   
     if state == .refresh {
       collectionView.refreshControl?.endRefreshing()
     } else {

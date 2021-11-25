@@ -14,6 +14,7 @@ final class ListDetailViewController: BaseViewController {
   lazy var collectionView = makeCollectionView()
   private lazy var dataSource = configureDataSource()
   private lazy var removeButton = makeRemoveButton()
+  private var emptyView: EmptyView!
   
   private var deleteIndexPath: IndexPath!
   
@@ -128,6 +129,10 @@ private extension ListDetailViewController {
     var snapshot = dataSource.snapshot()
     snapshot.deleteItems(movies)
     dataSource.apply(snapshot, animatingDifferences: true)
+    
+    if snapshot.numberOfItems == 0 {
+      setupEmptyView()
+    }
   }
 }
 
@@ -193,7 +198,7 @@ private extension ListDetailViewController {
   }
   
   func setupEmptyView() {
-    let emptyView = EmptyView()
+    emptyView = EmptyView()
     emptyView.setText(text: "You haven't added any movies yet")
     view.addSubview(emptyView)
     emptyView.snp.makeConstraints {
