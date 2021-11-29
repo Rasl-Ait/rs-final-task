@@ -18,7 +18,6 @@ final class ListsCoordinator: BaseCoordinator {
   private let router: Router
   private let coordinatorFactory: CoordinatorFactory
   private let screenFactory: ScreenFactory
-  let tabBarViewController: TabBarController
   var screenType: ScreenType = .home
   var finishFlow: VoidClosure?
   var mediaID: Int?
@@ -26,11 +25,9 @@ final class ListsCoordinator: BaseCoordinator {
   init(
     router: Router,
     coordinatorFactory: CoordinatorFactory,
-    screenFactory: ScreenFactory,
-    tabBarViewController: TabBarController) {
+    screenFactory: ScreenFactory) {
     self.router = router
     self.screenFactory = screenFactory
-    self.tabBarViewController = tabBarViewController
     self.coordinatorFactory = coordinatorFactory
   }
   
@@ -43,9 +40,8 @@ final class ListsCoordinator: BaseCoordinator {
 extension ListsCoordinator: ListsCoordinatorProtocol {
   func pushLists() {
     let viewController = screenFactory.makeListsScreen(self, mediaID: mediaID)
-     let navController = NavigationController(rootViewController: viewController)
     if screenType != .movieDetail {
-      tabBarViewController.appendNavigationController(navController, item: .home)
+      router.setRootModule(viewController)
     } else {
       router.push(viewController, animated: true)
     }
@@ -63,10 +59,7 @@ extension ListsCoordinator: ListsCoordinatorProtocol {
   }
   
   func pushAuthVC() {
-    tabBarViewController.viewControllers?.removeAll()
-    let coordinator = coordinatorFactory.makeAuthCoordinator(router: router)
-    addDependency(coordinator)
-    coordinator.start()
+    finishFlow?()
   }
   
   func pop() {

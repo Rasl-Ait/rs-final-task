@@ -10,7 +10,7 @@ import Foundation
 
 final class AuthPresenter: AuthViewOutput {
 	private let service: AuthServiceProtocol
-  var coordinator: AuthCoordinatorProtocol?
+  weak var coordinator: AuthCoordinatorProtocol?
 	weak var view: AuthViewInput?
 	
 	init(service: AuthServiceProtocol, view: AuthViewInput) {

@@ -15,34 +15,46 @@ protocol AppCoordinatorProtocol: AnyObject {
 final class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
   private let router: Router
   private let coordinatorFactory: CoordinatorFactory
-  private let screenFactory: ScreenFactory
   
   init(
-       router: Router,
-       screenFactory: ScreenFactory,
-       coordinatorFactory: CoordinatorFactory) {
-    self.router = router
-    self.screenFactory = screenFactory
-    self.coordinatorFactory = coordinatorFactory
-  }
+    router: Router,
+    coordinatorFactory: CoordinatorFactory) {
+      self.router = router
+      self.coordinatorFactory = coordinatorFactory
+    }
   
   override func start() {
-    if UserDefaults.standard.sessionID != "" {
+    if !UserDefaults.standard.isAuth {
       pushTabBar()
     } else {
       pushAuth()
+      UserDefaults.standard.isAuth = false
     }
   }
   
-   func pushAuth() {
+  func pushAuth() {
     let coordinator = coordinatorFactory.makeAuthCoordinator(router: router)
+    
+    coordinator.finishFlow = { [weak self] in
+      guard let self = self else { return }
+      self.start()
+    }
+    
     addDependency(coordinator)
     coordinator.start()
   }
   
-   func pushTabBar() {
-    let coordinator = coordinatorFactory.makeTabBarCoordinator(router: router)
+  func pushTabBar() {
+    let (coordinator, module) = coordinatorFactory.makeTabBarCoordinator()
+    
+    coordinator.finishFlow = { [weak self, weak coordinator] in
+      guard let self = self else { return }
+      self.start()
+      self.removeChildCoordinator(coordinator)
+    }
+    
     addDependency(coordinator)
+    router.setRootModule(module, hideBar: true)
     coordinator.start()
   }
 }

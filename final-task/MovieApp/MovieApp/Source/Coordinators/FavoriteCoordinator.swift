@@ -16,18 +16,15 @@ final class FavoriteCoordinator: BaseCoordinator {
   private let router: Router
   private let coordinatorFactory: CoordinatorFactory
   private let screenFactory: ScreenFactory
-  private let tabBarViewController: TabBarController
   
   var finishFlow: VoidClosure?
   
   init(router: Router,
        coordinatorFactory: CoordinatorFactory,
-       screenFactory: ScreenFactory,
-       tabBarViewController: TabBarController) {
+       screenFactory: ScreenFactory) {
     self.router = router
     self.screenFactory = screenFactory
     self.coordinatorFactory = coordinatorFactory
-    self.tabBarViewController = tabBarViewController
   }
   
   override func start() {
@@ -39,8 +36,7 @@ final class FavoriteCoordinator: BaseCoordinator {
 extension FavoriteCoordinator: FavoriteCoordinatorProtocol {
    func pushFavorite() {
     let viewController = screenFactory.makeFavoriteScreen(self)
-    let navVC = NavigationController(rootViewController: viewController)
-    tabBarViewController.appendNavigationController(navVC, item: .favorite)
+     router.setRootModule(viewController)
   }
   
   func pushMovieDetailVC(id: Int) {

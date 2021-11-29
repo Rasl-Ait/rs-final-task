@@ -7,51 +7,64 @@
 
 import UIKit
 
-final class TabBarController: UITabBarController {
-  
-  enum TabBarItem: Int {
-    case home
-    case movies
-    case search
-    case favorite
-    case profile
-  }
+final class TabBarController: UITabBarController, TabBarViewProtocol {
+  var onViewDidLoad: ItemClosure<NavigationController>?
+  var onListsFlowSelect: ItemClosure<NavigationController>?
+  var onSearchFlowSelect: ItemClosure<NavigationController>?
+  var onFavoriteFlowSelect: ItemClosure<NavigationController>?
   
   private let tabBarItems = [
     UITabBarItem(title: ScreenType.home.rawValue.capitalized, image: .setImage(.home), tag: 0),
-    UITabBarItem(title: ScreenType.movies.rawValue.capitalized, image: .setImage(.movies), tag: 1),
-    UITabBarItem(title: ScreenType.search.rawValue.capitalized, image: .setImage(.search), tag: 2),
-    UITabBarItem(title: ScreenType.favorite.rawValue.capitalized, image: .setImage(.heart), tag: 3),
-    UITabBarItem(title: ScreenType.profile.rawValue.capitalized, image: .setImage(.profile), tag: 4)
+    UITabBarItem(title: ScreenType.search.rawValue.capitalized, image: .setImage(.search), tag: 1),
+    UITabBarItem(title: ScreenType.favorite.rawValue.capitalized, image: .setImage(.heart), tag: 2)
   ]
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupTabBar()
+  }
+  
+  private func setupTabBar() {
     tabBar.tintColor = .tabBarTintColor
     tabBar.barTintColor = .tabBarBarTintColor
     tabBar.isTranslucent = true
+    delegate = self
+    viewControllers = [generateViewController(item: .home),
+                       generateViewController(item: .search),
+                       generateViewController(item: .favorite)]
+    setOnViewDidLoadCompletion()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    configureNavigationBar(isHidden: true, barStyle: .default)
-  }
-  
-  func configureNavigationBar(isHidden: Bool, barStyle: UIBarStyle) {
-    navigationController?.navigationBar.isHidden = isHidden
-    navigationController?.navigationBar.barStyle = barStyle
-  }
-  
-  func appendNavigationController(_ vc: UINavigationController, item: TabBarItem) {
-    customizeNavigationController(vc, item: item)
-    viewControllers = (viewControllers ?? []) + [vc]
+  private func setOnViewDidLoadCompletion() {
+    guard let controller = viewControllers?.first as? NavigationController else { return }
+    DispatchQueue.main.async {
+      self.onViewDidLoad?(controller)
+    }
   }
 }
 
 private extension TabBarController {
-  private func customizeNavigationController(
-    _ navigationController: UINavigationController,
-    item: TabBarItem) {
+  private func generateViewController(item: TabBarItem) -> NavigationController {
+    let navigationController = NavigationController()
     navigationController.tabBarItem = tabBarItems[item.rawValue]
+    return navigationController
+  }
+}
+
+// MARK: UITabBarControllerDelegate
+extension TabBarController: UITabBarControllerDelegate {
+  func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    guard let controller = viewControllers?[selectedIndex] as? NavigationController else { return }
+    
+     switch selectedIndex {
+     case 0:
+       onListsFlowSelect?(controller)
+     case 1:
+       onSearchFlowSelect?(controller)
+     case 2:
+       onFavoriteFlowSelect?(controller)
+     default:
+       break
+     }
   }
 }

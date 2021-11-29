@@ -15,23 +15,24 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
   }
   
   func makeAppCoordinator(router: Router) -> AppCoordinator {
-    AppCoordinator(router: router, screenFactory: screenFactory, coordinatorFactory: self)
+    AppCoordinator(router: router, coordinatorFactory: self)
   }
   
   func makeAuthCoordinator(router: Router) -> AuthCoordinator {
     AuthCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory)
   }
   
-  func makeTabBarCoordinator(router: Router) -> TabBarCoordinator {
-    TabBarCoordinator(router: router, screenFactory: screenFactory, coordinatorFactory: self)
+  func makeTabBarCoordinator() -> (coordinator: TabBarCoordinator, toPresent: Presentable) {
+    let controller = TabBarController()
+    let coordinator = TabBarCoordinator(tabBarView: controller, coordinatorFactory: self)
+    return (coordinator, controller)
   }
   
-  func makeListsCoordinator(router: Router, tabBarViewController: TabBarController) -> ListsCoordinator {
-    ListsCoordinator(
+  func makeListsCoordinator(router: Router) -> ListsCoordinator {
+    return ListsCoordinator(
       router: router,
       coordinatorFactory: self,
-      screenFactory: screenFactory,
-      tabBarViewController: tabBarViewController
+      screenFactory: screenFactory
     )
   }
   
@@ -43,11 +44,16 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
     MovieDetailCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory, movieID: movieID)
   }
   
-  func makeSearchCoordinator(router: Router, tabBarViewController: TabBarController) -> SearchCoordinator {
-    SearchCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory, tabBarViewController: tabBarViewController)
+  func makeSearchCoordinator(navigationController: NavigationController) -> SearchCoordinator {
+    let router = RouterImp(rootController: navigationController)
+    return SearchCoordinator(router: router,
+                             coordinatorFactory: self,
+                             screenFactory: screenFactory)
   }
   
-  func makeFavoriteCoordinator(router: Router, tabBarViewController: TabBarController) -> FavoriteCoordinator {
-    FavoriteCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory, tabBarViewController: tabBarViewController)
+  func makeFavoriteCoordinator(navigationController: NavigationController) -> FavoriteCoordinator {
+    let router = RouterImp(rootController: navigationController)
+    return FavoriteCoordinator(router: router, coordinatorFactory: self,
+                               screenFactory: screenFactory)
   }
 }

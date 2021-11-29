@@ -17,15 +17,15 @@ final class SearchCoordinator: BaseCoordinator {
   private let router: Router
   private let coordinatorFactory: CoordinatorFactory
   private let screenFactory: ScreenFactory
-  private let tabBarViewController: TabBarController
   
   var finishFlow: VoidClosure?
   
-  init(router: Router, coordinatorFactory: CoordinatorFactory, screenFactory: ScreenFactory, tabBarViewController: TabBarController) {
+  init(router: Router,
+       coordinatorFactory: CoordinatorFactory,
+       screenFactory: ScreenFactory) {
     self.router = router
     self.screenFactory = screenFactory
     self.coordinatorFactory = coordinatorFactory
-    self.tabBarViewController = tabBarViewController
   }
   
   override func start() {
@@ -37,8 +37,7 @@ final class SearchCoordinator: BaseCoordinator {
 extension SearchCoordinator: SearchCoordinatorProtocol {
    func pushSearch() {
     let viewController = screenFactory.makeSearchScreen(self)
-    let navVC = NavigationController(rootViewController: viewController)
-    tabBarViewController.appendNavigationController(navVC, item: .search)
+     router.setRootModule(viewController)
   }
   
   func pop() {

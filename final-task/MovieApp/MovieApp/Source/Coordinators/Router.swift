@@ -42,10 +42,10 @@ protocol Router: Presentable {
 }
 
 final class RouterImp: Router {
-  private weak var rootController: NavigationController?
+  private weak var rootController: UINavigationController?
   private var completions: [UIViewController : () -> Void]
   
-  init(rootController: NavigationController) {
+  init(rootController: UINavigationController) {
     self.rootController = rootController
     completions = [:]
   }

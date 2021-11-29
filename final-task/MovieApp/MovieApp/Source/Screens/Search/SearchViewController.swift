@@ -20,6 +20,11 @@ final class SearchViewController: BaseViewController {
 		super.viewDidLoad()
     setupViews()
 	}
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    configureNavigationBar(isHidden: false, barStyle: .default)
+  }
 }
 
 // MARK: - Private Extension
@@ -31,6 +36,7 @@ private extension SearchViewController {
     
     searchView.didSelectRowAt = { [weak self] id in
       guard let self = self else { return }
+      self.searchController.searchBar.text = nil
       self.presenter.push(id: id)
     }
     

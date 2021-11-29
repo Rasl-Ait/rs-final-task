@@ -93,10 +93,6 @@ final class ListDetailPresenter: ListDetailViewOutput {
     }
   }
   
-  deinit {
-    print("delete ListDetail  presenter")
-  }
-  
   func sorted(type: SortedType) -> [MovieModel] {
     switch type {
     case .popular:

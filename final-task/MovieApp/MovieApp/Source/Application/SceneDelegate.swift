@@ -11,6 +11,7 @@ import CocoaLumberjackSwift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   private lazy var appFactory: AppFactory = Di()
+  private var coordinator: AppCoordinator?
   let coreDataTask = CoreDataStack(modelName: "Model")
   var window: UIWindow?
   
@@ -21,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let windowScene = (scene as? UIWindowScene) else { return }
     
     window = UIWindow(windowScene: windowScene)
-    let coordinator = appFactory.makeKeyWindowWithCoordinator(window: window!)
-    coordinator.start()
+    coordinator = appFactory.makeKeyWindowWithCoordinator(window: window!)
+    coordinator?.start()
 
     setupLogger()
     getCoreDataDBPath()

@@ -11,10 +11,10 @@ import UIKit
 protocol CoordinatorFactory {
   func makeAppCoordinator(router: Router) -> AppCoordinator
   func makeAuthCoordinator(router: Router) -> AuthCoordinator
-  func makeTabBarCoordinator(router: Router) -> TabBarCoordinator
-  func makeListsCoordinator(router: Router, tabBarViewController: TabBarController) -> ListsCoordinator
+  func makeTabBarCoordinator() -> (coordinator: TabBarCoordinator, toPresent: Presentable)
+  func makeListsCoordinator(router: Router) -> ListsCoordinator
   func makeListDetailCoordinator(router: Router, list: ListModel) -> ListDetailCoordinator
   func makeMovieDetailCoordinator(router: Router, movieID: Int) -> MovieDetailCoordinator
-  func makeSearchCoordinator(router: Router, tabBarViewController: TabBarController) -> SearchCoordinator
-  func makeFavoriteCoordinator(router: Router, tabBarViewController: TabBarController) -> FavoriteCoordinator
+  func makeSearchCoordinator(navigationController: NavigationController) -> SearchCoordinator
+  func makeFavoriteCoordinator(navigationController: NavigationController) -> FavoriteCoordinator
 }

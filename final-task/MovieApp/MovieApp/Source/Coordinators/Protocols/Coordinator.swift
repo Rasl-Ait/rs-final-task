@@ -6,27 +6,31 @@
 //
 
  protocol Coordinator: AnyObject {
+   var childCoordinators: [Coordinator] { get }
   func start()
 }
 
 class BaseCoordinator: Coordinator {
   var childCoordinators: [Coordinator] = []
   
-  func start() {
-    
-  }
+  func start() { }
+  
   func addDependency(_ coordinator: Coordinator) {
-    print("coordinator add vc")
-    guard !childCoordinators.contains(where: { $0 === coordinator }) else { return }
-    childCoordinators.append(coordinator)
+      guard !childCoordinators.contains(where: { $0 === coordinator }) else { return }
+      childCoordinators.append(coordinator)
+    print("count \(childCoordinators.count)")
   }
   
   func removeChildCoordinator(_ coordinator: Coordinator?) {
-    print("coordinator delete")
-    for (index, coordinator) in childCoordinators.enumerated()
-    where coordinator === coordinator {
-      childCoordinators.remove(at: index)
-        break
+    guard !childCoordinators.isEmpty,
+          let coordinator = coordinator as? BaseCoordinator,
+          !coordinator.childCoordinators.isEmpty else { return }
+    coordinator.childCoordinators
+        .filter { $0 !== coordinator }
+        .forEach { coordinator.removeChildCoordinator($0) }
+    for (index, element) in childCoordinators.enumerated() where element === coordinator {
+        childCoordinators.remove(at: index)
+        return
     }
   }
   

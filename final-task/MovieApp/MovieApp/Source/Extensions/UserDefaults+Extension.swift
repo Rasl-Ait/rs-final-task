@@ -10,6 +10,7 @@ import Foundation
 struct UserDefaultsKeys {
   static let sessionID = "session_id"
   static let accountID = "account_id"
+  static let isAuth = "is_auth"
 }
 
 extension UserDefaults {
@@ -29,6 +30,15 @@ extension UserDefaults {
     }
     set(value) {
       UserDefaults.standard.set(value, forKey: UserDefaultsKeys.accountID)
+    }
+  }
+  
+  var isAuth: Bool {
+    get {
+      UserDefaults.standard.bool(forKey: UserDefaultsKeys.isAuth)
+    }
+    set(value) {
+      UserDefaults.standard.set(value, forKey: UserDefaultsKeys.isAuth)
     }
   }
 }

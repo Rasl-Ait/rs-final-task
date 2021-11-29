@@ -36,17 +36,13 @@ final class MovieDetailCoordinator: BaseCoordinator {
   override func start() {
     pushMovieDetail()
   }
-  
-  deinit {
-    print("delete coordinator movie detail")
-  }
 }
 
 // MARK: - MovieDetailCoordinator
 extension MovieDetailCoordinator: MovieDetailCoordinatorProtocol {
   func pushMovieDetail() {
     let viewController = screenFactory.makeMovieDetailScreen(self, id: movieID)
-    router.push(viewController)
+    router.push(viewController, hideBottomBar: true)
   }
   
   func pop() {
@@ -61,8 +57,7 @@ extension MovieDetailCoordinator: MovieDetailCoordinatorProtocol {
   
   func pushList(mediaID: Int) {
     let listCoordinator = coordinatorFactory.makeListsCoordinator(
-      router: router,
-      tabBarViewController: TabBarController()
+      router: router
     )
     
     listCoordinator.finishFlow = { [weak self, weak listCoordinator] in

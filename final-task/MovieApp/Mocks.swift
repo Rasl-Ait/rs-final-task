@@ -423,21 +423,21 @@ class CoordinatorFactoryMock: CoordinatorFactory {
     }
 
     private(set) var makeTabBarCoordinatorCallCount = 0
-    var makeTabBarCoordinatorHandler: ((Router) -> (TabBarCoordinator))?
-    func makeTabBarCoordinator(router: Router) -> TabBarCoordinator {
+    var makeTabBarCoordinatorHandler: (() -> (coordinator: TabBarCoordinator, toPresent: Presentable))?
+    func makeTabBarCoordinator() -> (coordinator: TabBarCoordinator, toPresent: Presentable) {
         makeTabBarCoordinatorCallCount += 1
         if let makeTabBarCoordinatorHandler = makeTabBarCoordinatorHandler {
-            return makeTabBarCoordinatorHandler(router)
+            return makeTabBarCoordinatorHandler()
         }
         fatalError("makeTabBarCoordinatorHandler returns can't have a default value thus its handler must be set")
     }
 
     private(set) var makeListsCoordinatorCallCount = 0
-    var makeListsCoordinatorHandler: ((Router, TabBarController) -> (ListsCoordinator))?
-    func makeListsCoordinator(router: Router, tabBarViewController: TabBarController) -> ListsCoordinator {
+    var makeListsCoordinatorHandler: ((Router) -> (ListsCoordinator))?
+    func makeListsCoordinator(router: Router) -> ListsCoordinator {
         makeListsCoordinatorCallCount += 1
         if let makeListsCoordinatorHandler = makeListsCoordinatorHandler {
-            return makeListsCoordinatorHandler(router, tabBarViewController)
+            return makeListsCoordinatorHandler(router)
         }
         fatalError("makeListsCoordinatorHandler returns can't have a default value thus its handler must be set")
     }
@@ -463,21 +463,21 @@ class CoordinatorFactoryMock: CoordinatorFactory {
     }
 
     private(set) var makeSearchCoordinatorCallCount = 0
-    var makeSearchCoordinatorHandler: ((Router, TabBarController) -> (SearchCoordinator))?
-    func makeSearchCoordinator(router: Router, tabBarViewController: TabBarController) -> SearchCoordinator {
+    var makeSearchCoordinatorHandler: ((NavigationController) -> (SearchCoordinator))?
+    func makeSearchCoordinator(navigationController: NavigationController) -> SearchCoordinator {
         makeSearchCoordinatorCallCount += 1
         if let makeSearchCoordinatorHandler = makeSearchCoordinatorHandler {
-            return makeSearchCoordinatorHandler(router, tabBarViewController)
+            return makeSearchCoordinatorHandler(navigationController)
         }
         fatalError("makeSearchCoordinatorHandler returns can't have a default value thus its handler must be set")
     }
 
     private(set) var makeFavoriteCoordinatorCallCount = 0
-    var makeFavoriteCoordinatorHandler: ((Router, TabBarController) -> (FavoriteCoordinator))?
-    func makeFavoriteCoordinator(router: Router, tabBarViewController: TabBarController) -> FavoriteCoordinator {
+    var makeFavoriteCoordinatorHandler: ((NavigationController) -> (FavoriteCoordinator))?
+    func makeFavoriteCoordinator(navigationController: NavigationController) -> FavoriteCoordinator {
         makeFavoriteCoordinatorCallCount += 1
         if let makeFavoriteCoordinatorHandler = makeFavoriteCoordinatorHandler {
-            return makeFavoriteCoordinatorHandler(router, tabBarViewController)
+            return makeFavoriteCoordinatorHandler(navigationController)
         }
         fatalError("makeFavoriteCoordinatorHandler returns can't have a default value thus its handler must be set")
     }

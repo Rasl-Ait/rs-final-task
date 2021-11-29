@@ -17,14 +17,16 @@ final class AuthCoordinator: BaseCoordinator {
   private let screenFactory: ScreenFactory
   private let coordinatorFactory: CoordinatorFactory
   
+  var finishFlow: VoidClosure?
+  
   init(
     router: Router,
     coordinatorFactory: CoordinatorFactory,
     screenFactory: ScreenFactory) {
-    self.router = router
-    self.screenFactory = screenFactory
-    self.coordinatorFactory = coordinatorFactory
-  }
+      self.router = router
+      self.screenFactory = screenFactory
+      self.coordinatorFactory = coordinatorFactory
+    }
   
   override func start() {
     pushAuth()
@@ -33,14 +35,12 @@ final class AuthCoordinator: BaseCoordinator {
 
 // MARK: - AuthCoordinatorProtocol
 extension AuthCoordinator: AuthCoordinatorProtocol {
-   func pushAuth() {
+  func pushAuth() {
     let viewController = screenFactory.makeAuthScreen(self)
     router.push(viewController)
   }
   
-   func pushTabBar() {
-    let coordinator = coordinatorFactory.makeTabBarCoordinator(router: router)
-    addDependency(coordinator)
-    coordinator.start()
+  func pushTabBar() {
+    finishFlow?()
   }
 }

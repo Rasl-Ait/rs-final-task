@@ -7,44 +7,70 @@
 
 import UIKit
 
+protocol TabBarViewProtocol: AnyObject {
+  var onListsFlowSelect: ItemClosure<NavigationController>? { get set }
+  var onViewDidLoad: ItemClosure<NavigationController>? { get set }
+  var onSearchFlowSelect: ItemClosure<NavigationController>? { get set }
+  var onFavoriteFlowSelect: ItemClosure<NavigationController>? { get set }
+}
+
 final class TabBarCoordinator: BaseCoordinator {
-  private let router: Router
+  private let tabBarView: TabBarViewProtocol
   private let coordinatorFactory: CoordinatorFactory
-  private let screenFactory: ScreenFactory
   
   var finishFlow: VoidClosure?
   
-  init(router: Router,
-       screenFactory: ScreenFactory,
+  init(tabBarView: TabBarViewProtocol,
        coordinatorFactory: CoordinatorFactory) {
-    self.router = router
-    self.screenFactory = screenFactory
+    self.tabBarView = tabBarView
     self.coordinatorFactory = coordinatorFactory
   }
   
   override func start() {
-    pushTabBar()
+    tabBarView.onViewDidLoad = runListsFlow()
+    tabBarView.onListsFlowSelect = runListsFlow()
+    tabBarView.onSearchFlowSelect = runSearchFlow()
+    tabBarView.onFavoriteFlowSelect = runFavoriteFlow()
   }
 }
 
 extension TabBarCoordinator {
-   func pushTabBar() {
-    let tabBarController = TabBarController()
-    let listCoordinator = coordinatorFactory.makeListsCoordinator(
-      router: router,
-      tabBarViewController: tabBarController)
-    
-    let searchCoordinator = coordinatorFactory.makeSearchCoordinator(router: router,
-                                                                     tabBarViewController: tabBarController)
-    let favoriteCoordinator = coordinatorFactory.makeFavoriteCoordinator(router: router,
-                                                                         tabBarViewController: tabBarController)
-    
-    addDependency(listCoordinator)
-    addDependency(searchCoordinator)
-    addDependency(favoriteCoordinator)
-    listCoordinator.start()
-    searchCoordinator.start()
-    favoriteCoordinator.start()
-   router.setRootModule(tabBarController, hideBar: false)
+  private func runListsFlow() -> ItemClosure<NavigationController> {
+    return { [weak self] navigationController in
+      guard let self = self,
+            navigationController.viewControllers.isEmpty else { return }
+      let router = RouterImp(rootController: navigationController)
+      let coordinator = self.coordinatorFactory.makeListsCoordinator(router: router)
+      
+      coordinator.finishFlow = { [weak self] in
+        guard let self = self else { return }
+        self.finishFlow?()
+      }
+      
+      self.addDependency(coordinator)
+      coordinator.start()
+    }
+  }
+  
+  private func runSearchFlow() -> ItemClosure<NavigationController> {
+    return { [weak self] navigationController in
+      guard let self = self,
+            navigationController.viewControllers.isEmpty else { return }
+      let coordinator = self.coordinatorFactory.makeSearchCoordinator(navigationController: navigationController)
+      
+      self.addDependency(coordinator)
+      coordinator.start()
+    }
+  }
+  
+  private func runFavoriteFlow() -> ItemClosure<NavigationController> {
+    return { [weak self] navigationController in
+      guard let self = self,
+            navigationController.viewControllers.isEmpty else { return }
+      let coordinator = self.coordinatorFactory.makeFavoriteCoordinator(navigationController: navigationController)
+      
+      self.addDependency(coordinator)
+      coordinator.start()
+    }
   }
 }

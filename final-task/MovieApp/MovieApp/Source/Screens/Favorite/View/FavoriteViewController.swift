@@ -30,6 +30,7 @@ final class FavoriteViewController: BaseViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    configureNavigationBar(isHidden: false, barStyle: .default)
     presenter.getFavoriteMovie(state: .noRefresh)
   }
 }

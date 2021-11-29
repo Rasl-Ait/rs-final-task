@@ -121,3 +121,10 @@ enum FavoriteTappedType {
   case cell(Int)
   case favorite(Int)
 }
+
+enum TabBarItem: Int {
+  case home
+  case search
+  case favorite
+
+}

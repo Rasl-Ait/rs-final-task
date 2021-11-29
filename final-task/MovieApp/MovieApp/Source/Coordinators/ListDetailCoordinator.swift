@@ -31,17 +31,13 @@ final class ListDetailCoordinator: BaseCoordinator {
   override func start() {
     pushListDetail()
   }
-  
-  deinit {
-    print("delete coordinator List detail")
-  }
 }
 
 // MARK: - ListDetailCoordinator
 extension ListDetailCoordinator: ListDetailCoordinatorProtocol {
    func pushListDetail() {
     let viewController = screenFactory.makeListDetailScreen(self, list: list)
-    router.push(viewController)
+    router.push(viewController, hideBottomBar: true)
   }
   
   func pop() {
