@@ -21,7 +21,7 @@ class FavoriteCoordinatorTest: XCTestCase {
     router = RouterMock()
     screenFactory = ScreenFactoryMock()
     coordinatorFactory = CoordinatorFactoryMock()
-    favoriteCoordinator = FavoriteCoordinator(router: router, coordinatorFactory: coordinatorFactory, screenFactory: screenFactory, tabBarViewController: TabBarController())
+    favoriteCoordinator = FavoriteCoordinator(router: router, coordinatorFactory: coordinatorFactory, screenFactory: screenFactory)
   }
   
   func test_pushMovieDetailVC() {
@@ -36,7 +36,7 @@ class FavoriteCoordinatorTest: XCTestCase {
     
     favoriteCoordinator.pushMovieDetailVC(id: 10)
     
-    XCTAssertEqual(router.pushCallCount, 1)
+    XCTAssertEqual(router.pushModuleCallCount, 1)
     XCTAssertEqual(coordinatorFactory.makeMovieDetailCoordinatorCallCount, 1)
     XCTAssertEqual(screenFactory.makeMovieDetailScreenCallCount, 1)
   }

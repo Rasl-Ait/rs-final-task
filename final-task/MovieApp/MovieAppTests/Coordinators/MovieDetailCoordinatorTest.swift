@@ -32,11 +32,10 @@ class MovieDetailCoordinatorTest: XCTestCase {
       return ListsViewController()
     }
     
-    self.coordinatorFactory.makeListsCoordinatorHandler = { router, vc in
-      let coordinator = ListsCoordinator(router: router,
+    self.coordinatorFactory.makeListsCoordinatorHandler = { _ in
+      let coordinator = ListsCoordinator(router: self.router,
                                          coordinatorFactory: self.coordinatorFactory,
-                                         screenFactory: self.screenFactory,
-                                         tabBarViewController: vc)
+                                         screenFactory: self.screenFactory)
       coordinator.screenType = .movieDetail
       return coordinator
     }
@@ -65,4 +64,3 @@ class MovieDetailCoordinatorTest: XCTestCase {
     XCTAssertEqual(screenFactory.makeWebViewScreenCallCount, 1)
   }
 }
-

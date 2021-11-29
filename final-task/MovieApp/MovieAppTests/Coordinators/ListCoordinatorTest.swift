@@ -23,8 +23,7 @@ class ListCoordinatorTest: XCTestCase {
     coordinatorFactory = CoordinatorFactoryMock()
     listsCoordinator = ListsCoordinator(router: router,
                                         coordinatorFactory: coordinatorFactory,
-                                        screenFactory: screenFactory,
-                                        tabBarViewController: tabBarController)
+                                        screenFactory: screenFactory)
   }
   
   func test_pushDetailVC() {
@@ -45,7 +44,7 @@ class ListCoordinatorTest: XCTestCase {
     
     listsCoordinator.pushListDetailVC(list: list)
     
-    XCTAssertEqual(router.pushCallCount, 1)
+    XCTAssertEqual(router.pushModuleCallCount, 1)
     XCTAssertEqual(coordinatorFactory.makeListDetailCoordinatorCallCount, 1)
     XCTAssertEqual(screenFactory.makeListDetailScreenCallCount, 1)
   }
@@ -53,25 +52,5 @@ class ListCoordinatorTest: XCTestCase {
   func test_pop() {
     listsCoordinator.pop()
     XCTAssertEqual(router.popModuleCallCount, 1)
-  }
-  
-  func test_pushListDetailVC() {
-    
-    screenFactory.makeAuthScreenHandler = { _ in
-      return AuthViewController()
-    }
-    
-    coordinatorFactory.makeAuthCoordinatorHandler = { router in
-      return AuthCoordinator(router: router,
-                             coordinatorFactory: self.coordinatorFactory,
-                             screenFactory: self.screenFactory)
-      
-    }
-    
-    listsCoordinator.pushAuthVC()
-    
-    XCTAssertEqual(router.pushCallCount, 1)
-    XCTAssertEqual(coordinatorFactory.makeAuthCoordinatorCallCount, 1)
-    XCTAssertEqual(screenFactory.makeAuthScreenCallCount, 1)
   }
 }

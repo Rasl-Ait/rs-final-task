@@ -9,6 +9,7 @@ import UIKit
 
 /// @mockable
 protocol AuthCoordinatorProtocol: AnyObject {
+  var finishFlow: VoidClosure? { get set }
   func pushTabBar()
 }
 

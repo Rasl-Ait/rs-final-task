@@ -47,7 +47,7 @@ private extension ListsViewController {
       } else {
         Alert.showAlert(on: self,
                         with: .attention,
-                        message: "Removal is available only when the Internet is on") { _ in
+                        message: .removeMovieFailure) { _ in
 
         }
       }
@@ -67,7 +67,7 @@ private extension ListsViewController {
   
   func configureNavigationBar() {
     navigationController?.navigationBar.prefersLargeTitles = true
-    navigationItem.title = "Lists"
+    navigationItem.title = ScreenTitle.lists.title
     let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 30))
     let plusBarButtonItem = UIBarButtonItem(image: .setImage(.plus, configuration: config),
                                             style: .plain,
@@ -112,7 +112,7 @@ private extension ListsViewController {
     } else {
       Alert.showAlert(on: self,
                       with: .attention,
-                      message: "Creating a new sheet is only available when the web is turned on") { _ in
+                      message: .createNewListFailure) { _ in
 
       }
     }
@@ -120,7 +120,7 @@ private extension ListsViewController {
   
   @objc func alertTextFieldValueChanged(textField: UITextField) {
     guard let text = textField.text else {
-      Alert.showAlert(on: self, with: .attention, message: "Provide a name for the new list")
+      Alert.showAlert(on: self, with: .attention, message: .newListNameFailure)
       return
     }
     presenter.addText(name: text)
@@ -150,7 +150,7 @@ private extension ListsViewController {
   
   func setupEmptyView() {
     let emptyView = EmptyView()
-    emptyView.setText(text: "You haven't added any list yet")
+    emptyView.setText(text: .listEmpty)
     view.addSubview(emptyView)
     emptyView.snp.makeConstraints {
       $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
@@ -199,6 +199,7 @@ extension ListsViewController: ListsViewInput {
 	func hideIndicator() {
     hide()
   }
+  
 	func showIndicator() {
     show()
   }

@@ -33,9 +33,21 @@ struct Alert {
   static func showAlert(
     on vc: UIViewController,
     with title: AlertTitleType,
+    message: AlertMessageType = .none,
+    action: ((UIAlertAction) -> Void)? = nil) {
+      let alert = UIAlertController(title: title.rawValue, message: message.rawValue, preferredStyle: .alert)
+    alert.view.tintColor = .alertTintColor
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: action))
+    
+    DispatchQueue.main.async { vc.present(alert, animated: true, completion: nil) }
+  }
+  
+  static func showAlert(
+    on vc: UIViewController,
+    with title: AlertTitleType,
     message: String,
     action: ((UIAlertAction) -> Void)? = nil) {
-    let alert = UIAlertController(title: title.rawValue, message: message, preferredStyle: .alert)
+      let alert = UIAlertController(title: title.rawValue, message: message, preferredStyle: .alert)
     alert.view.tintColor = .alertTintColor
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: action))
     

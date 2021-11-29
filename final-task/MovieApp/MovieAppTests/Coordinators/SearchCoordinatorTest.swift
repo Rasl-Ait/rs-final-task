@@ -21,7 +21,7 @@ class SearchCoordinatorTest: XCTestCase {
     router = RouterMock()
     screenFactory = ScreenFactoryMock()
     coordinatorFactory = CoordinatorFactoryMock()
-    searchCoordinator = SearchCoordinator(router: router, coordinatorFactory: coordinatorFactory, screenFactory: screenFactory, tabBarViewController: TabBarController())
+    searchCoordinator = SearchCoordinator(router: router, coordinatorFactory: coordinatorFactory, screenFactory: screenFactory)
   }
   
   func test_pushMovieDetailVC() {
@@ -35,7 +35,7 @@ class SearchCoordinatorTest: XCTestCase {
     
     searchCoordinator.pushMovieDetailVC(id: 10)
     
-    XCTAssertEqual(router.pushCallCount, 1)
+    XCTAssertEqual(router.pushModuleCallCount, 1)
     XCTAssertEqual(coordinatorFactory.makeMovieDetailCoordinatorCallCount, 1)
     XCTAssertEqual(screenFactory.makeMovieDetailScreenCallCount, 1)
   }

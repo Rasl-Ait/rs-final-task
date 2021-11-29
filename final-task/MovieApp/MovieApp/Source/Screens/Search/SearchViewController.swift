@@ -51,9 +51,9 @@ private extension SearchViewController {
   }
   
   func setupSearchBar() {
-    navigationItem.title = "Search"
+    navigationItem.title = ScreenTitle.search.title
     navigationController?.navigationBar.prefersLargeTitles = true
-    searchController.searchBar.placeholder = "Search for a movie"
+    searchController.searchBar.placeholder = TextPlaceholder.search.placeholder
     searchController.searchBar.barStyle = .default
     searchController.searchBar.tintColor = .navigationBarTintColor
     definesPresentationContext = true

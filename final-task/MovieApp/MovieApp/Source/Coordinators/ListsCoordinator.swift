@@ -11,6 +11,7 @@ import UIKit
 protocol ListsCoordinatorProtocol: AnyObject {
   func pop()
   func pushListDetailVC(list: ListModel)
+  var finishFlow: VoidClosure? { get set }
   func pushAuthVC()
 }
 

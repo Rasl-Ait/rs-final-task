@@ -55,7 +55,13 @@ class AuthServiceProtocolMock: AuthServiceProtocol {
 
 class AuthCoordinatorProtocolMock: AuthCoordinatorProtocol {
     init() { }
+    init(finishFlow: VoidClosure? = nil) {
+        self.finishFlow = finishFlow
+    }
 
+
+    private(set) var finishFlowSetCallCount = 0
+    var finishFlow: VoidClosure? = nil { didSet { finishFlowSetCallCount += 1 } }
 
     private(set) var pushTabBarCallCount = 0
     var pushTabBarHandler: (() -> ())?
@@ -70,6 +76,9 @@ class AuthCoordinatorProtocolMock: AuthCoordinatorProtocol {
 
 class ListsCoordinatorProtocolMock: ListsCoordinatorProtocol {
     init() { }
+    init(finishFlow: VoidClosure? = nil) {
+        self.finishFlow = finishFlow
+    }
 
 
     private(set) var popCallCount = 0
@@ -91,6 +100,9 @@ class ListsCoordinatorProtocolMock: ListsCoordinatorProtocol {
         }
         
     }
+
+    private(set) var finishFlowSetCallCount = 0
+    var finishFlow: VoidClosure? = nil { didSet { finishFlowSetCallCount += 1 } }
 
     private(set) var pushAuthVCCallCount = 0
     var pushAuthVCHandler: (() -> ())?

@@ -196,7 +196,7 @@ private extension ListDetailViewController {
   
   func setupEmptyView() {
     emptyView = EmptyView()
-    emptyView.setText(text: "You haven't added any movies yet")
+    emptyView.setText(text: .movieEmpty)
     view.addSubview(emptyView)
     emptyView.snp.makeConstraints {
       $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)

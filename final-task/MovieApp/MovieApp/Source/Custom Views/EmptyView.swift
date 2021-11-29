@@ -23,8 +23,8 @@ final class EmptyView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func setText(text: String) {
-    emptyLabel.text = text
+  func setText(text: TextType) {
+    emptyLabel.text = text.rawValue
   }
 }
 

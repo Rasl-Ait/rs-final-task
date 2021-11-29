@@ -12,12 +12,17 @@ enum TextType: String {
   case password
   case signIn = "Sign In"
   case newList = "Enter new list"
+  case listEmpty = "You haven't added any list yet"
+  case movieEmpty = "You haven't added any movies yet"
 }
 
 enum AlertMessageType: String {
   case deleteList = "Delete List?"
   case logout = "Want to get out?"
   case none = ""
+  case removeMovieFailure = "Removal is available only when the Internet is on"
+  case createNewListFailure = "Creating a new sheet is only available when the web is turned on"
+  case newListNameFailure = "Provide a name for the new list"
 }
 
 enum AlertTitleType: String {
@@ -126,5 +131,32 @@ enum TabBarItem: Int {
   case home
   case search
   case favorite
+}
 
+enum ScreenTitle {
+  case lists
+  case search
+  case favorite
+  
+  var title: String {
+    switch self {
+    case.lists:
+      return "Lists"
+    case .search:
+      return "Search"
+    case .favorite:
+      return "Favorite"
+    }
+  }
+}
+
+enum TextPlaceholder {
+  case search
+  
+  var placeholder: String {
+    switch self {
+    case .search:
+      return "Search for a movie"
+    }
+  }
 }

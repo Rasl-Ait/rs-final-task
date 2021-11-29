@@ -63,7 +63,7 @@ private extension FavoriteViewController {
   
   func configureNavigationBar() {
     navigationController?.navigationBar.prefersLargeTitles = true
-    navigationItem.title = "Favorite"
+    navigationItem.title = ScreenTitle.lists.title
   }
   
   func addMovie(_ items: [MovieModel]) {
@@ -121,7 +121,7 @@ private extension FavoriteViewController {
   
   func setupEmptyView() {
     emptyView = EmptyView()
-    emptyView.setText(text: "You haven't added any movies yet")
+    emptyView.setText(text: .movieEmpty)
     view.addSubview(emptyView)
     emptyView.snp.makeConstraints {
       $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)

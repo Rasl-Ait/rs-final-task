@@ -45,7 +45,7 @@ class ListDetailCoordinatorTest: XCTestCase {
     
     listsDetailCoordinator.pushMovieDetailVC(id: list.id)
     
-    XCTAssertEqual(router.pushCallCount, 1)
+    XCTAssertEqual(router.pushModuleCallCount, 1)
     XCTAssertEqual(coordinatorFactory.makeMovieDetailCoordinatorCallCount, 1)
     XCTAssertEqual(screenFactory.makeMovieDetailScreenCallCount, 1)
   }
