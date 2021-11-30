@@ -24,11 +24,10 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
     }
   
   override func start() {
-    if !UserDefaults.standard.isAuth {
+    if UserDefaults.standard.sessionID != "" {
       pushTabBar()
     } else {
       pushAuth()
-      UserDefaults.standard.isAuth = false
     }
   }
   
