@@ -12,9 +12,10 @@ protocol MovieDetailCoordinatorProtocol: AnyObject {
   func pop()
   func pushWebViewVC(stringURL: String)
   func pushList(mediaID: Int)
+  var finishFlow: VoidClosure? { get set }
 }
 
-final class MovieDetailCoordinator: BaseCoordinator {
+final class MovieDetailCoordinator: BaseCoordinator, MovieDetailCoordinatorProtocol {
   private let router: Router
   private let coordinatorFactory: CoordinatorFactory
   private let screenFactory: ScreenFactory
@@ -39,7 +40,7 @@ final class MovieDetailCoordinator: BaseCoordinator {
 }
 
 // MARK: - MovieDetailCoordinator
-extension MovieDetailCoordinator: MovieDetailCoordinatorProtocol {
+extension MovieDetailCoordinator {
   func pushMovieDetail() {
     let viewController = screenFactory.makeMovieDetailScreen(self, id: movieID)
     router.push(viewController, hideBottomBar: true)

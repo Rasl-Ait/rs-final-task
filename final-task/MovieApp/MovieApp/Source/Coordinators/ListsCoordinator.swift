@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 /// @mockable
 protocol ListsCoordinatorProtocol: AnyObject {
@@ -34,6 +35,10 @@ final class ListsCoordinator: BaseCoordinator {
   
   override func start() {
     pushLists()
+  }
+  
+  deinit {
+    DDLogInfo("Delete lists coordinator")
   }
 }
 

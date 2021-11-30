@@ -21,6 +21,10 @@ final class SearchViewController: BaseViewController {
     setupViews()
 	}
   
+  deinit {
+    print("Delete search vc")
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     configureNavigationBar(isHidden: false, barStyle: .default)

@@ -25,6 +25,10 @@ final class ListsViewController: BaseViewController {
     configureNavigationBar(isHidden: false, barStyle: .default)
     presenter.getLists(state: .noRefresh)
   }
+  
+  deinit {
+    print("Delete lists vc")
+  }
 }
 
 // MARK: - ListsViewController

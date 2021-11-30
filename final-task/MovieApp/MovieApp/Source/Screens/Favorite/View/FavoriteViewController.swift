@@ -28,6 +28,10 @@ final class FavoriteViewController: BaseViewController {
     setupViews()
 	}
   
+  deinit {
+    print("Delete favorite vc")
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     configureNavigationBar(isHidden: false, barStyle: .default)
@@ -63,7 +67,7 @@ private extension FavoriteViewController {
   
   func configureNavigationBar() {
     navigationController?.navigationBar.prefersLargeTitles = true
-    navigationItem.title = ScreenTitle.lists.title
+    navigationItem.title = ScreenTitle.favorite.title
   }
   
   func addMovie(_ items: [MovieModel]) {

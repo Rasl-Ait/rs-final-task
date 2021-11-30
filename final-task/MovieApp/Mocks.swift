@@ -4,6 +4,7 @@
 
 
 
+import CocoaLumberjackSwift
 import Foundation
 import UIKit
 
@@ -62,57 +63,6 @@ class AuthCoordinatorProtocolMock: AuthCoordinatorProtocol {
 
     private(set) var finishFlowSetCallCount = 0
     var finishFlow: VoidClosure? = nil { didSet { finishFlowSetCallCount += 1 } }
-
-    private(set) var pushTabBarCallCount = 0
-    var pushTabBarHandler: (() -> ())?
-    func pushTabBar()  {
-        pushTabBarCallCount += 1
-        if let pushTabBarHandler = pushTabBarHandler {
-            pushTabBarHandler()
-        }
-        
-    }
-}
-
-class ListsCoordinatorProtocolMock: ListsCoordinatorProtocol {
-    init() { }
-    init(finishFlow: VoidClosure? = nil) {
-        self.finishFlow = finishFlow
-    }
-
-
-    private(set) var popCallCount = 0
-    var popHandler: (() -> ())?
-    func pop()  {
-        popCallCount += 1
-        if let popHandler = popHandler {
-            popHandler()
-        }
-        
-    }
-
-    private(set) var pushListDetailVCCallCount = 0
-    var pushListDetailVCHandler: ((ListModel) -> ())?
-    func pushListDetailVC(list: ListModel)  {
-        pushListDetailVCCallCount += 1
-        if let pushListDetailVCHandler = pushListDetailVCHandler {
-            pushListDetailVCHandler(list)
-        }
-        
-    }
-
-    private(set) var finishFlowSetCallCount = 0
-    var finishFlow: VoidClosure? = nil { didSet { finishFlowSetCallCount += 1 } }
-
-    private(set) var pushAuthVCCallCount = 0
-    var pushAuthVCHandler: (() -> ())?
-    func pushAuthVC()  {
-        pushAuthVCCallCount += 1
-        if let pushAuthVCHandler = pushAuthVCHandler {
-            pushAuthVCHandler()
-        }
-        
-    }
 }
 
 class ScreenFactoryMock: ScreenFactory {
@@ -187,31 +137,6 @@ class ScreenFactoryMock: ScreenFactory {
             return makeFavoriteScreenHandler(coordinator)
         }
         fatalError("makeFavoriteScreenHandler returns can't have a default value thus its handler must be set")
-    }
-}
-
-class SearchCoordinatorProtocolMock: SearchCoordinatorProtocol {
-    init() { }
-
-
-    private(set) var popCallCount = 0
-    var popHandler: (() -> ())?
-    func pop()  {
-        popCallCount += 1
-        if let popHandler = popHandler {
-            popHandler()
-        }
-        
-    }
-
-    private(set) var pushMovieDetailVCCallCount = 0
-    var pushMovieDetailVCHandler: ((Int) -> ())?
-    func pushMovieDetailVC(id: Int)  {
-        pushMovieDetailVCCallCount += 1
-        if let pushMovieDetailVCHandler = pushMovieDetailVCHandler {
-            pushMovieDetailVCHandler(id)
-        }
-        
     }
 }
 
@@ -320,21 +245,6 @@ class SearchServiceProtocolMock: SearchServiceProtocol {
         searchCallCount += 1
         if let searchHandler = searchHandler {
             searchHandler(param, completion)
-        }
-        
-    }
-}
-
-class FavoriteCoordinatorProtocolMock: FavoriteCoordinatorProtocol {
-    init() { }
-
-
-    private(set) var pushMovieDetailVCCallCount = 0
-    var pushMovieDetailVCHandler: ((Int) -> ())?
-    func pushMovieDetailVC(id: Int)  {
-        pushMovieDetailVCCallCount += 1
-        if let pushMovieDetailVCHandler = pushMovieDetailVCHandler {
-            pushMovieDetailVCHandler(id)
         }
         
     }
@@ -597,6 +507,9 @@ class FavoriteViewInputMock: FavoriteViewInput {
 
 class MovieDetailCoordinatorProtocolMock: MovieDetailCoordinatorProtocol {
     init() { }
+    init(finishFlow: VoidClosure? = nil) {
+        self.finishFlow = finishFlow
+    }
 
 
     private(set) var popCallCount = 0
@@ -628,6 +541,102 @@ class MovieDetailCoordinatorProtocolMock: MovieDetailCoordinatorProtocol {
         }
         
     }
+
+    private(set) var finishFlowSetCallCount = 0
+    var finishFlow: VoidClosure? = nil { didSet { finishFlowSetCallCount += 1 } }
+}
+
+class ListsCoordinatorProtocolMock: ListsCoordinatorProtocol {
+    init() { }
+    init(finishFlow: VoidClosure? = nil) {
+        self.finishFlow = finishFlow
+    }
+
+
+    private(set) var popCallCount = 0
+    var popHandler: (() -> ())?
+    func pop()  {
+        popCallCount += 1
+        if let popHandler = popHandler {
+            popHandler()
+        }
+        
+    }
+
+    private(set) var pushListDetailVCCallCount = 0
+    var pushListDetailVCHandler: ((ListModel) -> ())?
+    func pushListDetailVC(list: ListModel)  {
+        pushListDetailVCCallCount += 1
+        if let pushListDetailVCHandler = pushListDetailVCHandler {
+            pushListDetailVCHandler(list)
+        }
+        
+    }
+
+    private(set) var finishFlowSetCallCount = 0
+    var finishFlow: VoidClosure? = nil { didSet { finishFlowSetCallCount += 1 } }
+
+    private(set) var pushAuthVCCallCount = 0
+    var pushAuthVCHandler: (() -> ())?
+    func pushAuthVC()  {
+        pushAuthVCCallCount += 1
+        if let pushAuthVCHandler = pushAuthVCHandler {
+            pushAuthVCHandler()
+        }
+        
+    }
+}
+
+class SearchCoordinatorProtocolMock: SearchCoordinatorProtocol {
+    init() { }
+    init(finishFlow: VoidClosure? = nil) {
+        self.finishFlow = finishFlow
+    }
+
+
+    private(set) var popCallCount = 0
+    var popHandler: (() -> ())?
+    func pop()  {
+        popCallCount += 1
+        if let popHandler = popHandler {
+            popHandler()
+        }
+        
+    }
+
+    private(set) var pushMovieDetailVCCallCount = 0
+    var pushMovieDetailVCHandler: ((Int) -> ())?
+    func pushMovieDetailVC(id: Int)  {
+        pushMovieDetailVCCallCount += 1
+        if let pushMovieDetailVCHandler = pushMovieDetailVCHandler {
+            pushMovieDetailVCHandler(id)
+        }
+        
+    }
+
+    private(set) var finishFlowSetCallCount = 0
+    var finishFlow: VoidClosure? = nil { didSet { finishFlowSetCallCount += 1 } }
+}
+
+class FavoriteCoordinatorProtocolMock: FavoriteCoordinatorProtocol {
+    init() { }
+    init(finishFlow: VoidClosure? = nil) {
+        self.finishFlow = finishFlow
+    }
+
+
+    private(set) var pushMovieDetailVCCallCount = 0
+    var pushMovieDetailVCHandler: ((Int) -> ())?
+    func pushMovieDetailVC(id: Int)  {
+        pushMovieDetailVCCallCount += 1
+        if let pushMovieDetailVCHandler = pushMovieDetailVCHandler {
+            pushMovieDetailVCHandler(id)
+        }
+        
+    }
+
+    private(set) var finishFlowSetCallCount = 0
+    var finishFlow: VoidClosure? = nil { didSet { finishFlowSetCallCount += 1 } }
 }
 
 class AuthViewOutputMock: AuthViewOutput {

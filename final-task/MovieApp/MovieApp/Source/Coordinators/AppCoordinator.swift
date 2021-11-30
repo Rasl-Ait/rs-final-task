@@ -34,9 +34,11 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
   func pushAuth() {
     let coordinator = coordinatorFactory.makeAuthCoordinator(router: router)
     
-    coordinator.finishFlow = { [weak self] in
+    coordinator.finishFlow = { [weak self, weak coordinator] in
       guard let self = self else { return }
       self.start()
+      self.removeChildCoordinator(coordinator)
+     
     }
     
     addDependency(coordinator)

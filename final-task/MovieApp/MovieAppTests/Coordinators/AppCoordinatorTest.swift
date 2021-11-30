@@ -35,7 +35,7 @@ class AppCoordinatorTest: XCTestCase {
     
     appCoordinator.pushAuth()
     
-    XCTAssertEqual(router.pushCallCount, 1)
+    XCTAssertEqual(router.setRootModuleCallCount, 1)
     XCTAssertEqual(coordinatorFactory.makeAuthCoordinatorCallCount, 1)
     XCTAssertEqual(screenFactory.makeAuthScreenCallCount, 1)
   }

@@ -24,6 +24,10 @@ final class TabBarController: UITabBarController, TabBarViewProtocol {
     setupTabBar()
   }
   
+  deinit {
+    print("Delete tabbar vc")
+  }
+  
   private func setupTabBar() {
     tabBar.tintColor = .tabBarTintColor
     tabBar.barTintColor = .tabBarBarTintColor

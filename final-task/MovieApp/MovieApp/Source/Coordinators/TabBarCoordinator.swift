@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 protocol TabBarViewProtocol: AnyObject {
   var onListsFlowSelect: ItemClosure<NavigationController>? { get set }
@@ -31,6 +32,10 @@ final class TabBarCoordinator: BaseCoordinator {
     tabBarView.onListsFlowSelect = runListsFlow()
     tabBarView.onSearchFlowSelect = runSearchFlow()
     tabBarView.onFavoriteFlowSelect = runFavoriteFlow()
+  }
+  
+  deinit {
+    DDLogInfo("Delete Tabbar coordinator")
   }
 }
 

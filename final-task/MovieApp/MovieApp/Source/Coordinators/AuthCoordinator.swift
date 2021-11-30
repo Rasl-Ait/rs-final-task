@@ -10,10 +10,9 @@ import UIKit
 /// @mockable
 protocol AuthCoordinatorProtocol: AnyObject {
   var finishFlow: VoidClosure? { get set }
-  func pushTabBar()
 }
 
-final class AuthCoordinator: BaseCoordinator {
+final class AuthCoordinator: BaseCoordinator, AuthCoordinatorProtocol {
   private let router: Router
   private let screenFactory: ScreenFactory
   private let coordinatorFactory: CoordinatorFactory
@@ -32,16 +31,16 @@ final class AuthCoordinator: BaseCoordinator {
   override func start() {
     pushAuth()
   }
+  
+  deinit {
+    print("Delete Auth Coordinator")
+  }
 }
 
 // MARK: - AuthCoordinatorProtocol
-extension AuthCoordinator: AuthCoordinatorProtocol {
+extension AuthCoordinator {
   func pushAuth() {
     let viewController = screenFactory.makeAuthScreen(self)
-    router.push(viewController)
-  }
-  
-  func pushTabBar() {
-    finishFlow?()
+    router.setRootModule(viewController)
   }
 }

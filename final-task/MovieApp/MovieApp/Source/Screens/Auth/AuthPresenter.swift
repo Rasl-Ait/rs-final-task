@@ -45,7 +45,7 @@ final class AuthPresenter: AuthViewOutput {
         mainQueue {
           UserDefaults.standard.sessionID = item.sessionId ?? ""
           self.view?.success()
-          self.coordinator?.pushTabBar()
+          self.coordinator?.finishFlow?()
         }
       case .failure(let error):
         mainQueue {

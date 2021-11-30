@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 /// @mockable
 protocol SearchCoordinatorProtocol: AnyObject {
   func pop()
   func pushMovieDetailVC(id: Int)
+  var finishFlow: VoidClosure? { get set }
 }
 
-final class SearchCoordinator: BaseCoordinator {
+final class SearchCoordinator: BaseCoordinator, SearchCoordinatorProtocol {
   private let router: Router
   private let coordinatorFactory: CoordinatorFactory
   private let screenFactory: ScreenFactory
@@ -31,10 +33,14 @@ final class SearchCoordinator: BaseCoordinator {
   override func start() {
     pushSearch()
   }
+  
+  deinit {
+    DDLogInfo("Delete search coordinator")
+  }
 }
 
 // MARK: - SearchCoordinator
-extension SearchCoordinator: SearchCoordinatorProtocol {
+extension SearchCoordinator {
    func pushSearch() {
     let viewController = screenFactory.makeSearchScreen(self)
      router.setRootModule(viewController)

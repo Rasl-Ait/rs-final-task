@@ -11,7 +11,7 @@ import Foundation
 final class SearchPresenter: SearchViewOutput {
 	private let service: SearchServiceProtocol
 	weak var view: SearchViewInput?
-  var coordinator: SearchCoordinatorProtocol?
+  weak var coordinator: SearchCoordinatorProtocol?
   
   var page = 1
   var isFetching = false

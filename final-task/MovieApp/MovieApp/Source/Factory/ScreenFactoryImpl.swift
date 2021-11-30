@@ -20,7 +20,7 @@ final class ScreenFactoryImpl: ScreenFactory {
     let service = AuthService(client: NetworkService(session: urlSession))
     let presenter = AuthPresenter(service: service, view: vc)
     presenter.coordinator = coordinator
-    vc.presenter = presenter
+   vc.presenter = presenter
     return vc
   }
   

@@ -10,7 +10,7 @@ import Foundation
 
 final class ListsPresenter: ListsViewOutput {
   weak var view: ListsViewInput?
-  var coordinator: ListsCoordinatorProtocol?
+  weak var coordinator: ListsCoordinatorProtocol?
   
   private(set) var lists: [ListModel] = []
   

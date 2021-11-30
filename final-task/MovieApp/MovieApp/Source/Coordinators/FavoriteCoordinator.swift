@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 /// @mockable
 protocol FavoriteCoordinatorProtocol: AnyObject {
   func pushMovieDetailVC(id: Int)
+  var finishFlow: VoidClosure? { get set }
 }
 
 final class FavoriteCoordinator: BaseCoordinator {
@@ -29,6 +31,10 @@ final class FavoriteCoordinator: BaseCoordinator {
   
   override func start() {
     pushFavorite()
+  }
+  
+  deinit {
+    DDLogInfo("Delete favorite coordinator")
   }
 }
 

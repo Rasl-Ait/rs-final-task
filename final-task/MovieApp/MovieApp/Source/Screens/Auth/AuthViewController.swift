@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
+import CocoaLumberjackSwiftLogBackend
 
 final class AuthViewController: BaseViewController {
   
@@ -19,6 +21,10 @@ final class AuthViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
+  }
+  
+  deinit {
+    DDLogInfo("Delete auth vc")
   }
   
   override func viewWillAppear(_ animated: Bool) {

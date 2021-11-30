@@ -52,7 +52,6 @@ class SearchPresenterTest: XCTestCase {
       switch result {
       case .success(let item):
         sut.view.success(items: item.results)
-        break
       case .failure(let error):
         sut.view.failure(error: error)
       }
