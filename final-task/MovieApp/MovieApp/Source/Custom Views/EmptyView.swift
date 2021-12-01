@@ -73,4 +73,3 @@ struct EmptyView_Preview: PreviewProvider {
   }
 }
 #endif
-

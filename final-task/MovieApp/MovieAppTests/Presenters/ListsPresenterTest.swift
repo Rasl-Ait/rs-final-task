@@ -12,9 +12,7 @@ class ListsPresenterTest: XCTestCase {
   
   func test_getAccountSuccess() {
     let results = SharedTestHelpers.getResponce(file: "Account", type: AccountModel.self)
-    
-    let responceList = SharedTestHelpers.getResponce(file: "ListModel", type: ListResponce.self)
-    
+      
     let sut = makeSUT()
     sut.service.responseAccount = results.item
     

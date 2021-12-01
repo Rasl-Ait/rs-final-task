@@ -6,13 +6,13 @@
 //
 
 import UIKit
-import CocoaLumberjackSwift
 
 /// @mockable
 protocol ListsCoordinatorProtocol: AnyObject {
+  var finishFlow: VoidClosure? { get set }
+  
   func pop()
   func pushListDetailVC(list: ListModel)
-  var finishFlow: VoidClosure? { get set }
   func pushAuthVC()
 }
 
@@ -38,7 +38,7 @@ final class ListsCoordinator: BaseCoordinator {
   }
   
   deinit {
-    DDLogInfo("Delete lists coordinator")
+    Log.logInfo(text: "Delete lists coordinator")
   }
 }
 

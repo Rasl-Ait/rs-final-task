@@ -25,7 +25,7 @@ final class TabBarController: UITabBarController, TabBarViewProtocol {
   }
   
   deinit {
-    print("Delete tabbar vc")
+    Log.logInfo(text: "Delete tabBar vc")
   }
   
   private func setupTabBar() {

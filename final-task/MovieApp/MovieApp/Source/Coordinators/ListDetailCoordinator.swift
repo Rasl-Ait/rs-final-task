@@ -11,9 +11,11 @@ import UIKit
 protocol ListDetailCoordinatorProtocol: AnyObject {
   func pop()
   func pushMovieDetailVC(id: Int)
+  
+  var finishFlow: VoidClosure? { get set }
 }
 
-final class ListDetailCoordinator: BaseCoordinator {
+final class ListDetailCoordinator: BaseCoordinator, ListDetailCoordinatorProtocol {
   private let router: Router
   private let coordinatorFactory: CoordinatorFactory
   private let screenFactory: ScreenFactory
@@ -31,10 +33,14 @@ final class ListDetailCoordinator: BaseCoordinator {
   override func start() {
     pushListDetail()
   }
+  
+  deinit {
+    Log.logInfo(text: "Delete List detail coordinator")
+  }
 }
 
 // MARK: - ListDetailCoordinator
-extension ListDetailCoordinator: ListDetailCoordinatorProtocol {
+extension ListDetailCoordinator {
    func pushListDetail() {
     let viewController = screenFactory.makeListDetailScreen(self, list: list)
     router.push(viewController, hideBottomBar: true)

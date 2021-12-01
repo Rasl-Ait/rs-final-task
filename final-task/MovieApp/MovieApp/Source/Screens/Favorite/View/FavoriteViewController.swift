@@ -29,9 +29,9 @@ final class FavoriteViewController: BaseViewController {
 	}
   
   deinit {
-    print("Delete favorite vc")
+    Log.logInfo(text: "Delete Favorite vc")
   }
-  
+
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     configureNavigationBar(isHidden: false, barStyle: .default)

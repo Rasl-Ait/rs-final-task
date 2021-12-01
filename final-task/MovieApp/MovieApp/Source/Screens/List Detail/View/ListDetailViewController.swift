@@ -38,6 +38,10 @@ final class ListDetailViewController: BaseViewController {
     setupViews()
   }
   
+  deinit {
+    Log.logInfo(text: "Delete List Detail vc")
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     configureNavigationBar(isHidden: false, barStyle: .default)

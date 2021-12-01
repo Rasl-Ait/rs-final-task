@@ -18,7 +18,7 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
     AppCoordinator(router: router, coordinatorFactory: self)
   }
   
-  func makeAuthCoordinator(router: Router) -> AuthCoordinator {
+  func makeAuthCoordinator(router: Router) -> AuthCoordinator & AuthCoordinatorProtocol {
     AuthCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory)
   }
   
@@ -28,7 +28,7 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
     return (coordinator, controller)
   }
   
-  func makeListsCoordinator(router: Router) -> ListsCoordinator {
+  func makeListsCoordinator(router: Router) -> ListsCoordinator & ListsCoordinatorProtocol {
     return ListsCoordinator(
       router: router,
       coordinatorFactory: self,
@@ -36,22 +36,22 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
     )
   }
   
-  func makeListDetailCoordinator(router: Router, list: ListModel) -> ListDetailCoordinator {
+  func makeListDetailCoordinator(router: Router, list: ListModel) -> ListDetailCoordinator & ListDetailCoordinatorProtocol {
     ListDetailCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory, list: list)
   }
   
-  func makeMovieDetailCoordinator(router: Router, movieID: Int) -> MovieDetailCoordinator {
+  func makeMovieDetailCoordinator(router: Router, movieID: Int) -> MovieDetailCoordinator & MovieDetailCoordinatorProtocol {
     MovieDetailCoordinator(router: router, coordinatorFactory: self, screenFactory: screenFactory, movieID: movieID)
   }
   
-  func makeSearchCoordinator(navigationController: NavigationController) -> SearchCoordinator {
+  func makeSearchCoordinator(navigationController: NavigationController) -> SearchCoordinator & SearchCoordinatorProtocol {
     let router = RouterImp(rootController: navigationController)
     return SearchCoordinator(router: router,
                              coordinatorFactory: self,
                              screenFactory: screenFactory)
   }
   
-  func makeFavoriteCoordinator(navigationController: NavigationController) -> FavoriteCoordinator {
+  func makeFavoriteCoordinator(navigationController: NavigationController) -> FavoriteCoordinator & FavoriteCoordinatorProtocol {
     let router = RouterImp(rootController: navigationController)
     return FavoriteCoordinator(router: router, coordinatorFactory: self,
                                screenFactory: screenFactory)

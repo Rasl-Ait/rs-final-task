@@ -42,6 +42,8 @@
 		DC2B2A3A27342BBA00233F5D /* AuthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A3627342BBA00233F5D /* AuthProtocols.swift */; };
 		DC2B2A3D2734445600233F5D /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A3C2734445600233F5D /* SignInButton.swift */; };
 		DC2B2A3F2734494800233F5D /* UIControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B2A3E2734494800233F5D /* UIControl+Extension.swift */; };
+		DC2D640E275742CD00E43206 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D640D275742CD00E43206 /* Log.swift */; };
+		DC2D64142757629200E43206 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2D64132757629200E43206 /* Mocks.swift */; };
 		DC47F808272FDE24009603EE /* Result+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC47F807272FDE24009603EE /* Result+Extenstion.swift */; };
 		DC47F80B27300135009603EE /* AuthParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC47F80A27300135009603EE /* AuthParams.swift */; };
 		DC49A02C272E88C300F17DE9 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC49A029272E88C300F17DE9 /* BaseCollectionViewCell.swift */; };
@@ -158,7 +160,6 @@
 		DCD0109C2747808400E26606 /* MovieDetailCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109B2747808400E26606 /* MovieDetailCoordinatorTest.swift */; };
 		DCD0109E2747815300E26606 /* SearchCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109D2747815300E26606 /* SearchCoordinatorTest.swift */; };
 		DCD010A0274781B400E26606 /* FavoriteCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109F274781B400E26606 /* FavoriteCoordinatorTest.swift */; };
-		DCD010A1274785FA00E26606 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD0109127477B0D00E26606 /* Mocks.swift */; };
 		DCD010A327478B4C00E26606 /* AuthPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD010A227478B4C00E26606 /* AuthPresenterTest.swift */; };
 		DCDAE9712740D11E00E38C2D /* SearchPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9702740D11E00E38C2D /* SearchPresenterTest.swift */; };
 		DCDAE9732740D13400E38C2D /* SearchServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAE9722740D13400E38C2D /* SearchServiceSpy.swift */; };
@@ -244,6 +245,8 @@
 		DC2B2A3627342BBA00233F5D /* AuthProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProtocols.swift; sourceTree = "<group>"; };
 		DC2B2A3C2734445600233F5D /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
 		DC2B2A3E2734494800233F5D /* UIControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Extension.swift"; sourceTree = "<group>"; };
+		DC2D640D275742CD00E43206 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		DC2D64132757629200E43206 /* Mocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = SOURCE_ROOT; };
 		DC47F807272FDE24009603EE /* Result+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extenstion.swift"; sourceTree = "<group>"; };
 		DC47F80A27300135009603EE /* AuthParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthParams.swift; sourceTree = "<group>"; };
 		DC49A029272E88C300F17DE9 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -354,7 +357,6 @@
 		DCCF8B102729A30200933DD1 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		DCCF8B112729A30200933DD1 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		DCCF8B122729A30200933DD1 /* Typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
-		DCD0109127477B0D00E26606 /* Mocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = SOURCE_ROOT; };
 		DCD0109327477B6700E26606 /* AppCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTest.swift; sourceTree = "<group>"; };
 		DCD0109527477F2E00E26606 /* AuthCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinatorTest.swift; sourceTree = "<group>"; };
 		DCD0109727477FBF00E26606 /* ListCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinatorTest.swift; sourceTree = "<group>"; };
@@ -1035,6 +1037,7 @@
 				DCCF8B112729A30200933DD1 /* ReusableView.swift */,
 				DCCF8B122729A30200933DD1 /* Typealias.swift */,
 				DCA0C741273AA861003AAF77 /* ImageManager.swift */,
+				DC2D640D275742CD00E43206 /* Log.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1042,7 +1045,7 @@
 		DCD0109027477AB100E26606 /* Mocks tests */ = {
 			isa = PBXGroup;
 			children = (
-				DCD0109127477B0D00E26606 /* Mocks.swift */,
+				DC2D64132757629200E43206 /* Mocks.swift */,
 			);
 			path = "Mocks tests";
 			sourceTree = "<group>";
@@ -1405,7 +1408,6 @@
 				DCF7F041273C133000333A2B /* MovieBodyView.swift in Sources */,
 				DC2B2A232734254A00233F5D /* Router.swift in Sources */,
 				DC7461FE273E6D6200BD3297 /* SearchView.swift in Sources */,
-				DCD010A1274785FA00E26606 /* Mocks.swift in Sources */,
 				DC2B2A3D2734445600233F5D /* SignInButton.swift in Sources */,
 				DCF7F043273C1E8400333A2B /* SimilarMovieView.swift in Sources */,
 				DC835B9F273523B700C3A209 /* ListsProtocols.swift in Sources */,
@@ -1485,9 +1487,11 @@
 				DCCF8AFF2729A26B00933DD1 /* UICollectionView+Extension.swift in Sources */,
 				DC835B9E273523B700C3A209 /* ListsViewController.swift in Sources */,
 				DC19400F27357FCA001F78ED /* ListsModel.swift in Sources */,
+				DC2D64142757629200E43206 /* Mocks.swift in Sources */,
 				DC2B2A33273428CE00233F5D /* ScreenFactoryImpl.swift in Sources */,
 				DC194019273588BA001F78ED /* AccountModel.swift in Sources */,
 				DC864CD827366C0A009BA64A /* Model.xcdatamodeld in Sources */,
+				DC2D640E275742CD00E43206 /* Log.swift in Sources */,
 				DCF8D137273D0577003FFEE7 /* WebViewController.swift in Sources */,
 				DCF7F019273BAF7800333A2B /* MovieService.swift in Sources */,
 				DC49A02D272E88C300F17DE9 /* BaseTableViewCell.swift in Sources */,

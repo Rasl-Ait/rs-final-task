@@ -24,7 +24,7 @@ final class AuthViewController: BaseViewController {
   }
   
   deinit {
-    DDLogInfo("Delete auth vc")
+    Log.logInfo(text: "Delete auth vc")
   }
   
   override func viewWillAppear(_ animated: Bool) {

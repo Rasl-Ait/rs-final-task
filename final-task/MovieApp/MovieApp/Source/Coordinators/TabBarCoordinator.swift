@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import CocoaLumberjackSwift
 
+/// @mockable
 protocol TabBarViewProtocol: AnyObject {
   var onListsFlowSelect: ItemClosure<NavigationController>? { get set }
   var onViewDidLoad: ItemClosure<NavigationController>? { get set }
@@ -21,8 +21,7 @@ final class TabBarCoordinator: BaseCoordinator {
   
   var finishFlow: VoidClosure?
   
-  init(tabBarView: TabBarViewProtocol,
-       coordinatorFactory: CoordinatorFactory) {
+  init(tabBarView: TabBarViewProtocol, coordinatorFactory: CoordinatorFactory ) {
     self.tabBarView = tabBarView
     self.coordinatorFactory = coordinatorFactory
   }
@@ -35,7 +34,7 @@ final class TabBarCoordinator: BaseCoordinator {
   }
   
   deinit {
-    DDLogInfo("Delete Tabbar coordinator")
+    Log.logInfo(text: "Delete Tabbar coordinator")
   }
 }
 

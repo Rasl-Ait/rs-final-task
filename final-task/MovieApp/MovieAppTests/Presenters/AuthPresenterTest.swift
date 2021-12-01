@@ -140,7 +140,7 @@ class AuthPresenterTest: XCTestCase {
     self.service.sessionNew(requestTokenParam) { [weak self] result in
       guard let self = self else { return }
       switch result {
-      case .success(let item):
+      case .success:
         self.view.success()
       case .failure(let error):
         self.view.failure(error: error)

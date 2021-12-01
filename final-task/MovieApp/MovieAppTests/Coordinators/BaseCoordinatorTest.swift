@@ -9,12 +9,10 @@ import XCTest
 @testable import MovieApp
 
 class BaseCoordinatorTest: XCTestCase {
-  
-  var coordinator: BaseCoordinator!
+  private var coordinator: BaseCoordinator!
   
   override func setUp() {
     super.setUp()
-    
     coordinator = BaseCoordinator()
   }
   

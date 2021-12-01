@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CocoaLumberjackSwift
 
 /// @mockable
 protocol SearchCoordinatorProtocol: AnyObject {
@@ -35,7 +34,7 @@ final class SearchCoordinator: BaseCoordinator, SearchCoordinatorProtocol {
   }
   
   deinit {
-    DDLogInfo("Delete search coordinator")
+    Log.logInfo(text: "Delete search coordinator")
   }
 }
 

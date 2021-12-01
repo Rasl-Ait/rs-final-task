@@ -37,6 +37,10 @@ final class MovieDetailCoordinator: BaseCoordinator, MovieDetailCoordinatorProto
   override func start() {
     pushMovieDetail()
   }
+  
+  deinit {
+    Log.logInfo(text: "Delete Movie detail coordinator")
+  }
 }
 
 // MARK: - MovieDetailCoordinator

@@ -13,7 +13,7 @@ class InternetConnection {
     }) else {
       return false
     }
-    var flags : SCNetworkReachabilityFlags = []
+    var flags: SCNetworkReachabilityFlags = []
     if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {return false}
     let isReachable = flags.contains(.reachable)
     let needsConnection = flags.contains(.connectionRequired)

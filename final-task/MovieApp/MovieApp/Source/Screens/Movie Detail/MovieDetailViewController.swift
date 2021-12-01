@@ -23,6 +23,10 @@ final class MovieDetailViewController: BaseViewController {
     super.viewWillAppear(animated)
     configureNavigationBar(isHidden: true, barStyle: .default)
   }
+  
+  deinit {
+    Log.logInfo(text: "Delete Movie Detail vc")
+  }
 }
 
 // MARK: - Private extension

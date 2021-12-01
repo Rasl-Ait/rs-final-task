@@ -27,7 +27,7 @@ final class ListsViewController: BaseViewController {
   }
   
   deinit {
-    print("Delete lists vc")
+    Log.logInfo(text: "Delete Lists vc")
   }
 }
 

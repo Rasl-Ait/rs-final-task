@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CocoaLumberjackSwift
 
 /// @mockable
 protocol FavoriteCoordinatorProtocol: AnyObject {
@@ -34,7 +33,7 @@ final class FavoriteCoordinator: BaseCoordinator {
   }
   
   deinit {
-    DDLogInfo("Delete favorite coordinator")
+    Log.logInfo(text: "Delete favorite coordinator")
   }
 }
 

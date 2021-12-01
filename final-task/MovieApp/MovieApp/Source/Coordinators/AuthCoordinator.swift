@@ -33,7 +33,7 @@ final class AuthCoordinator: BaseCoordinator, AuthCoordinatorProtocol {
   }
   
   deinit {
-    print("Delete Auth Coordinator")
+    Log.logInfo(text: "Delete Auth Coordinator")
   }
 }
 
